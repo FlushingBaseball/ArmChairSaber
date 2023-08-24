@@ -111,3 +111,87 @@ Serialization Rules are still tuples and need a comma if there's only one
 
 
 
+
+
+
+
+
+
+
+
+## Strikezone Investigation
+
+## breakthroughs!
+x is from left to right
+z is from the ground to the sky (up down)
+y is depth from you to the pitcher
+
+## General 
+
+The Plate is 17 Inches Wide
+
+The ball is 1.43 inches in diameter conver to feet /12
+
+The Center of the ball could be as much as 1.42 outside the zone in any direction and should be a strike
+
+strikeZoneTop 3.09 ?? Feet
+strikeZoneBottom 1.5 ?? Feet
+
+Coordinates
+
+aX 3.0460
+
+aY 26.48 -29.9683
+  The acceleration of the pitch, in feet per second per second, in y-dimension, determined at y=50 feet
+
+aZ -26.35649 -15.22
+ The acceleration of the pitch, in feet per second per second, in z-dimension, determined at y=50 feet.
+
+
+pX -0.73
+?? Horizontal Coordinate of the ball as it crosses the plate
+
+
+pZ 2.67
+Vertical coordinate of where the ball crosses the plate
+
+
+
+pfxX 9.72 
+    Horizontal movement in feet from the catcher's perspective.
+
+pfxZ -0.73
+  Vertical movement in feet from the catcher's perpsective
+
+x ???
+
+X0 -9.81
+ The velocity of the pitch, in feet per second, in x-dimension, determined at y=50 feet.
+
+y ??
+
+
+Y0 130.93
+ The velocity of the pitch, in feet per second, in y-dimension, determined at y=50 feet.
+
+z0 ???
+
+
+Check if the pitch has coordinates
+
+players of the same height may have different strike zone tops and bottoms
+their legs and torsos may have different proportions
+
+sztop / szbottom seems to change based on how a batter is standing?
+
+
+
+11      |      12
+  -------------
+  | 1 | 2 | 3 |
+  -------------
+--| 4 | 5 | 6 |--
+  -------------
+  | 7 | 8 | 9 |
+  -------------
+13      |      14
