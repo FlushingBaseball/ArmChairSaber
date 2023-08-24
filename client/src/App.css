@@ -824,7 +824,7 @@ table, th, td {
 
 
 
-  /*Batting Order Start, Batting Order Start, Batting Order Start, */
+  /*Batting Order Start, Batting Order Start, Batting Order Start, BATTING ORDER START, BATTING ORDER START */
 
 .awayLineups{
     display: flex;
@@ -850,7 +850,14 @@ table, th, td {
     display: flex;
 }
 
-  /*Batting Order End, Batting Order End, Batting Order End, */
+
+.BatterActive{
+    background-color: rgb(238, 238, 83);
+}
+
+
+
+  /*Batting Order End, Batting Order End, Batting Order End, BATTING ORDER END, BATTING ORDER END*/
 
 
 
