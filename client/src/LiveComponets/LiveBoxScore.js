@@ -1,6 +1,3 @@
-import LiveGame from "./LiveGame"
-
-
 function LiveBoxScore({...dataLiveGame}){
 
     return(

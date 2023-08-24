@@ -1,13 +1,13 @@
 import { useEffect, useState, } from "react"
 import { useParams } from "react-router"
 
-import LiveGameScoreBoard from "./LiveGameScoreboard"
-import LiveBases from "./LiveBases";
-import LiveCircles from "./LiveCircles";
-import PitcherVsBatter from "./PitcherVsBatter";
-import LiveBoxScore from "./LiveBoxScore";
-import LivePitchData from "./LivePitchData";
-import LivePitchDataVis from "./LivePitchDataVis";
+import LiveGameScoreBoard from "./LiveComponets/LiveGameScoreboard"
+import LiveBases from "./LiveComponets/LiveBases";
+import LiveCircles from "./LiveComponets/LiveCircles";
+import PitcherVsBatter from "./LiveComponets/PitcherVsBatter";
+import LiveBoxScore from "./LiveComponets/LiveBoxScore";
+import LivePitchData from "./LiveComponets/LivePitchData";
+import LivePitchDataVis from "./LiveComponets/LivePitchDataVis";
 import BattingOrderAway from "./LiveComponets/BattingOrderAway";
 import BattingOrderHome from "./LiveComponets/BattingOrderHome";
 import GameWeather from "./LiveComponets/GameWeather";

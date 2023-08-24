@@ -1,64 +1,44 @@
-## before push 
+## before deployment 
 
 
 
 
 
-## Today's Game
+## Today's Games
 
 Eventually want to transition to rendering alot of different info for a game in 
 abstractGameStatus === "Final". For now Will indicated winner, final score
 
 
+While in rainout, game is considered Live. Need more info than abstract game status
 
-
-
-
-
-
-
-
-The State for a game that is selected does not persist, so on refresh no idea if 
-a prediction was made or not. 
-
-## Need to go through each file
-Today
-Today's Game
-Prediction Group
+The State for a team that is predicted winner does not persist since it's done with state.
+should check if theres a match already on the back end to render the class
 
 Active Class for leauge select buttons and milb player image endpoint condional src?
 
 
-## Take away prediction group after prediction is made on game 
-## higlight team picked make it persist
-## not allow double predictions of same game
-
-
-
-
-
-
-
-
-
-## signout doesn't navigate you out
 
 
 ## python issues
 generate secret key and set up .env file
+Or Have the the OS generate a new one everytime on startup? using os?
 
 
+## games should do something on hover
+
+## failed sign in should shake and show something
 
 
-## failed sign in should shake or show something
+## team Map
+Display Team Map
 
 
 ## Thoughts
 
-SRC set and responsiveness of the site needs to be implmented / improved
 
 MILB photos cause errors based on the MLB silo being called.
-  Noteable prospects have a photo found here
+  Notable prospects have a photo found here
   https://midfield.mlbstatic.com/v1/people/${mlbplayerID}/milb/${numbersize}
 
 example call for blade tidwell
@@ -74,11 +54,16 @@ Cleaned up TodaysGame: it's not a feature yet but it needs a thoughtful design o
 Took away Prediction Group if game is Live.
 Finally wrote some logic to not let users make two predictions for a game.
 Fixed Bug where number of predictions got updated even if the double prediction was successfull rejected
+Indicate which batter in a lineup is at bat
+Fixed Sign In and Sign Out
 
 
-## deploy
 
-same version of node, python
+
+
+
+## Deployment
+Use the same versions of node and python
 
 
 
@@ -90,5 +75,130 @@ same version of node, python
 3.1The Batter Needs to be the same size regardless of side
 3.2 The Live Bases clip off the screen
 
+3.4 SRC set and responsiveness of the site needs to be implmented / improved
+
+
+
 
 ## Further Development Goals
+
+1. Live Pitch Data vis is broken beyond repair.
+Without documentation I need to start from first principles of the bases width and balls width
+Pitch Vis Green for ball Red for Strike
+Hitter Hot and Cold Zones are doable if dimensions are figured out
+
+2. Use Midjourney to make artwork for the 9 buttons?
+
+3. Add Carousel of The day's games and scores to the top of a live game
+  let people hide it all togeather or scores they don't care about
+
+
+
+
+
+
+# Known non pressing issues
+  svg's use a property called class, the browser for some reason thinks im misspelling className and throwing a warning
+  
+
+
+
+## Strikezone Investigation
+
+## breakthroughs!
+x is from left to right
+z is from the ground to the sky (up down)
+y is depth from you to the pitcher
+
+## General 
+
+The Plate is 17 Inches Wide
+
+The ball is 1.43 inches in diameter conver to feet /12
+
+The Center of the ball could be as much as 1.42 outside the zone in any direction and should be a strike
+
+strikeZoneTop 3.09 ?? Feet
+strikeZoneBottom 1.5 ?? Feet
+
+Coordinates
+
+aX 3.0460
+
+aY 26.48 -29.9683
+  The acceleration of the pitch, in feet per second per second, in y-dimension, determined at y=50 feet
+
+aZ -26.35649 -15.22
+ The acceleration of the pitch, in feet per second per second, in z-dimension, determined at y=50 feet.
+
+
+pX -0.73
+?? Horizontal Coordinate of the ball as it crosses the plate
+
+
+pZ 2.67
+Vertical coordinate of where the ball crosses the plate
+
+
+
+pfxX 9.72 
+    Horizontal movement in feet from the catcher's perspective.
+
+pfxZ -0.73
+  Vertical movement in feet from the catcher's perpsective
+
+x ???
+
+X0 -9.81
+ The velocity of the pitch, in feet per second, in x-dimension, determined at y=50 feet.
+
+y ??
+
+
+Y0 130.93
+ The velocity of the pitch, in feet per second, in y-dimension, determined at y=50 feet.
+
+z0 ???
+
+
+Check if the pitch has coordinates
+
+players of the same height may have different strike zone tops and bottoms
+their legs and torsos may have different proportions
+
+sztop / szbottom seems to change based on how a batter is standing?
+
+
+
+11      |      12
+  -------------
+  | 1 | 2 | 3 |
+  -------------
+--| 4 | 5 | 6 |--
+  -------------
+  | 7 | 8 | 9 |
+  -------------
+13      |      14
+
+
+
+
+
+
+
+
+
+
+## Flask Instructions 
+
+flask db init
+ flask db revision --autogenerate -m'Create tables owners, pets'
+Then push the changes to the database
+ "flask db upgrade head"
+
+
+
+## Remember
+Serialization Rules are still tuples and need a comma if there's only one
+
+
