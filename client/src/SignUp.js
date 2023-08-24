@@ -32,12 +32,11 @@ function SignUp( {setUser}) {
         return response.json();
       })
       .then((data) => {setUser(data)
-        // Handle the response data after successful sign-up
-        // For example, you could update the UI, save a token, or redirect the user
+        //should indicate it was successful
         console.log('Sign-up successful:', data);
       })
       .catch((error) => {
-        // Handle errors during sign-up
+        // should indicate it was unsuccessful
         console.error('Error during sign-up:', error);
       });
   };

@@ -112,7 +112,9 @@ Serialization Rules are still tuples and need a comma if there's only one
 
 
 
-
+# Known non pressing issues
+  svg's use a property called class, the browser for some reason thinks im misspelling className and throwing a warning
+  
 
 
 

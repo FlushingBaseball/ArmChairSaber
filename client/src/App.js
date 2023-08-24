@@ -75,7 +75,7 @@ if (!user) {
   return (
 
       <div className='App'>
-        <Nav />
+        <Nav setUser={setUser}/>
     <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/teams' element={<Teams />} />
