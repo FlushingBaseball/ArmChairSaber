@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SignIn( {setUser}) {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -17,7 +21,6 @@ function SignIn( {setUser}) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Make the fetch request to the sign-in route on your server
     fetch('/login', {
       method: 'POST',
       headers: {
@@ -32,12 +35,10 @@ function SignIn( {setUser}) {
         return response.json();
       })
       .then((data) => {setUser(data)
-        // Handle the response data after successful sign-in
-        // For example, you could update the UI, save a token, or redirect the user
         console.log('Sign-in successful:', data);
+        navigate("/")
       })
       .catch((error) => {
-        // Handle errors during sign-in
         console.error('Error during sign-in:', error);
       });
   };
