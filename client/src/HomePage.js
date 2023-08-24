@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 function HomePage(){
 
     const navigate = useNavigate();
-  
+
 /**
  * 
  * @param {the page name you want to navigate to} id 
@@ -74,7 +74,7 @@ function handleTileClick(id){
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("advancedFielding")}>
-            <span className='navSpan'>Advanced Feilding</span>
+            <span className='navSpan'>Advanced Fielding</span>
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("test")}>
@@ -82,7 +82,7 @@ function handleTileClick(id){
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("LeagueLeaders")}>
-            <span className='navSpan'>Leauge Leaders</span>
+            <span className='navSpan'>League Leaders</span>
         </button>
 
         <button className='homeTile' >

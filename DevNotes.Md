@@ -19,9 +19,6 @@ Active Class for leauge select buttons and milb player image endpoint condional 
 
 
 
-## signout 
-doesn't navigate you out
-
 
 ## python issues
 generate secret key and set up .env file
@@ -29,8 +26,8 @@ Or Have the the OS generate a new one everytime on startup? using os?
 
 
 ## games should do something on hover
-## login needs to shake or do something
-## failed sign in should shake or show something
+
+## failed sign in should shake and show something
 
 
 ## team Map
@@ -39,10 +36,9 @@ Display Team Map
 
 ## Thoughts
 
-SRC set and responsiveness of the site needs to be implmented / improved
 
 MILB photos cause errors based on the MLB silo being called.
-  Noteable prospects have a photo found here
+  Notable prospects have a photo found here
   https://midfield.mlbstatic.com/v1/people/${mlbplayerID}/milb/${numbersize}
 
 example call for blade tidwell
@@ -58,7 +54,8 @@ Cleaned up TodaysGame: it's not a feature yet but it needs a thoughtful design o
 Took away Prediction Group if game is Live.
 Finally wrote some logic to not let users make two predictions for a game.
 Fixed Bug where number of predictions got updated even if the double prediction was successfull rejected
-
+Indicate which batter in a lineup is at bat
+Fixed Sign In and Sign Out
 
 
 
@@ -78,6 +75,8 @@ Use the same versions of node and python
 3.1The Batter Needs to be the same size regardless of side
 3.2 The Live Bases clip off the screen
 
+3.4 SRC set and responsiveness of the site needs to be implmented / improved
+
 
 
 
@@ -88,26 +87,12 @@ Without documentation I need to start from first principles of the bases width a
 Pitch Vis Green for ball Red for Strike
 Hitter Hot and Cold Zones are doable if dimensions are figured out
 
-Use Midjourney to make artwork for the 9 buttons?
+2. Use Midjourney to make artwork for the 9 buttons?
 
-Add Carousel of The day's games and scores to the top of a live game
+3. Add Carousel of The day's games and scores to the top of a live game
   let people hide it all togeather or scores they don't care about
 
 
-
-
-
-## Flask Instructions 
-
-flask db init
- flask db revision --autogenerate -m'Create tables owners, pets'
-Then push the changes to the database
- "flask db upgrade head"
-
-
-
-## Remember
-Serialization Rules are still tuples and need a comma if there's only one
 
 
 
@@ -115,9 +100,6 @@ Serialization Rules are still tuples and need a comma if there's only one
 # Known non pressing issues
   svg's use a property called class, the browser for some reason thinks im misspelling className and throwing a warning
   
-
-
-
 
 
 
@@ -197,3 +179,26 @@ sztop / szbottom seems to change based on how a batter is standing?
   | 7 | 8 | 9 |
   -------------
 13      |      14
+
+
+
+
+
+
+
+
+
+
+## Flask Instructions 
+
+flask db init
+ flask db revision --autogenerate -m'Create tables owners, pets'
+Then push the changes to the database
+ "flask db upgrade head"
+
+
+
+## Remember
+Serialization Rules are still tuples and need a comma if there's only one
+
+

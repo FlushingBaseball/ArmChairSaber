@@ -1,6 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 function SignUp( {setUser}) {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -34,6 +39,7 @@ function SignUp( {setUser}) {
       .then((data) => {setUser(data)
         //should indicate it was successful
         console.log('Sign-up successful:', data);
+        navigate('/')
       })
       .catch((error) => {
         // should indicate it was unsuccessful

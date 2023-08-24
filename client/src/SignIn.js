@@ -36,6 +36,7 @@ function SignIn( {setUser}) {
       })
       .then((data) => {setUser(data)
         console.log('Sign-in successful:', data);
+        console.log(data)
         navigate("/")
       })
       .catch((error) => {
