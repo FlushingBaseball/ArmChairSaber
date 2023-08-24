@@ -1,56 +1,40 @@
-## before push 
+## before deployment 
 
 
 
 
 
-## Today's Game
+## Today's Games
 
 Eventually want to transition to rendering alot of different info for a game in 
 abstractGameStatus === "Final". For now Will indicated winner, final score
 
 
+While in rainout, game is considered Live. Need more info than abstract game status
 
-
-
-
-
-
-
-
-The State for a game that is selected does not persist, so on refresh no idea if 
-a prediction was made or not. 
-
-## Need to go through each file
-Today
-Today's Game
-Prediction Group
+The State for a team that is predicted winner does not persist since it's done with state.
+should check if theres a match already on the back end to render the class
 
 Active Class for leauge select buttons and milb player image endpoint condional src?
 
 
-## Take away prediction group after prediction is made on game 
-## higlight team picked make it persist
-## not allow double predictions of same game
 
-
-
-
-
-
-
-
-
-## signout doesn't navigate you out
+## signout 
+doesn't navigate you out
 
 
 ## python issues
 generate secret key and set up .env file
+Or Have the the OS generate a new one everytime on startup? using os?
 
 
-
-
+## games should do something on hover
+## login needs to shake or do something
 ## failed sign in should shake or show something
+
+
+## team Map
+Display Team Map
 
 
 ## Thoughts
@@ -76,9 +60,13 @@ Finally wrote some logic to not let users make two predictions for a game.
 Fixed Bug where number of predictions got updated even if the double prediction was successfull rejected
 
 
-## deploy
 
-same version of node, python
+
+
+
+
+## Deployment
+Use the same versions of node and python
 
 
 
@@ -91,4 +79,35 @@ same version of node, python
 3.2 The Live Bases clip off the screen
 
 
+
+
 ## Further Development Goals
+
+1. Live Pitch Data vis is broken beyond repair.
+Without documentation I need to start from first principles of the bases width and balls width
+Pitch Vis Green for ball Red for Strike
+Hitter Hot and Cold Zones are doable if dimensions are figured out
+
+Use Midjourney to make artwork for the 9 buttons?
+
+Add Carousel of The day's games and scores to the top of a live game
+  let people hide it all togeather or scores they don't care about
+
+
+
+
+
+## Flask Instructions 
+
+flask db init
+ flask db revision --autogenerate -m'Create tables owners, pets'
+Then push the changes to the database
+ "flask db upgrade head"
+
+
+
+## Remember
+Serialization Rules are still tuples and need a comma if there's only one
+
+
+
