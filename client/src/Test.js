@@ -16,7 +16,6 @@ function Test(){
     useEffect(()=>{
         //hit leader board
         
-        // fetch(`https://statsapi.mlb.com/api/v1/sports/1/players?season=2022`)  NO longer needed 
         // fetch(`https://statsapi.mlb.com/api/v1.1/game/${game_Pk}/feed/live`)
         // fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${game_Pk}`)
         // fetch(``)
@@ -30,15 +29,9 @@ function Test(){
         fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=11&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`)
         .then((resp) => resp.json())
         .then(data => {setFetchedGameData(data)
-            console.log('data should be below')
-            // console.log(fetchedGameData)
-        
+            console.log('data should be below')        
         })
-
-
-
-
-    },[])
+             },[])
 
 
 
@@ -104,7 +97,7 @@ function Test(){
 
     return(
         <div>
-            <h2>The AHAHAHAHHAHAHHAHHAHer id was .....</h2>
+            <h2>Testing Page</h2>
         </div>
     )
 }

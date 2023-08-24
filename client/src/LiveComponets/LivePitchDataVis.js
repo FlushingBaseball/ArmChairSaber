@@ -19,33 +19,35 @@ function LivePitchDataVis({...dataLiveGame}){
   
   }
   
-  
+  console.log(data)
   
     
     const width = 200;
     const height = 200; 
-    const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+    const margin = { top: 5, right: 5, bottom: 5, left: 5 };
     
-    const minDomain = 0;
-    const maxDomain = 300;
-    const maxRange = Math.min(width, height) - margin.left - margin.right;
+    const minDomain = -48;
+    const maxDomain = 48;
+    const maxRange = Math.min(width, height) - margin.top - margin.bottom;
   
+    const feetToGraphUnits = feet => (feet * maxRange) / maxDomain;
+
     const xScale = scaleLinear({
       domain: [minDomain, maxDomain],
-      range: [margin.left, margin.left + maxRange],
+      range: [-maxRange / 2, maxRange],
     });
     
     const yScale = scaleLinear({
       domain: [minDomain, maxDomain],
-      range: [height - margin.bottom, height - margin.bottom - maxRange],
+      range: [-height , height],
     });
   
   
   
   
   
-    const formattedData = data.map(({ x, y }) => ({ x, y }));
-
+    const formattedData = data.map(({ pX, pZ }) => ({ pX, pZ }));
+    console.log(formattedData)
 
 
   return(
@@ -54,30 +56,62 @@ function LivePitchDataVis({...dataLiveGame}){
       <div className='pitchVis'>
       <svg className='strikezone' width={width} height={height}>
         {/* X-axis */}
-        <line x1={margin.left} y1={height - margin.bottom} x2={width - margin.right} y2={height - margin.bottom} stroke="black" />
+        <line
+            x1={width / 2} // Start from the center
+            y1={height - margin.bottom}
+            x2={width / 2} // End at the center
+            y2={height - margin.bottom}
+            stroke="black"
+          />
 
 
         {/*Y*/}
         <line x1={margin.left} y1={margin.top} x2={margin.left} y2={height - margin.bottom} stroke="black" />
 
         {/* Square outline */}
+
         <line x1={margin.left} y1={margin.top} x2={margin.left + maxRange} y2={margin.top} stroke="black" />
         <line x1={margin.left + maxRange} y1={margin.top} x2={margin.left + maxRange} y2={height - margin.bottom} stroke="black" />
         <line x1={margin.left + maxRange} y1={height - margin.bottom} x2={margin.left} y2={height - margin.bottom} stroke="black" />
         <line x1={margin.left} y1={height - margin.bottom} x2={margin.left} y2={margin.top} stroke="black" />
 
+
         {/*  INNER BOX GANG GANGGGGG */}
-        <line x1={margin.left + maxRange * 0.2} y1={margin.top + maxRange * 0.2} x2={margin.left + maxRange * 0.8} y2={margin.top + maxRange * 0.2} stroke="black" />
-        <line x1={margin.left + maxRange * 0.8} y1={margin.top + maxRange * 0.2} x2={margin.left + maxRange * 0.8} y2={height - margin.bottom - maxRange * 0.2} stroke="black" />
-        <line x1={margin.left + maxRange * 0.8} y1={height - margin.bottom - maxRange * 0.2} x2={margin.left + maxRange * 0.2} y2={height - margin.bottom - maxRange * 0.2} stroke="black" />
-        <line x1={margin.left + maxRange * 0.2} y1={height - margin.bottom - maxRange * 0.2} x2={margin.left + maxRange * 0.2} y2={margin.top + maxRange * 0.2} stroke="black" />
+        <line
+          x1={width / 2 - maxRange * 0.3}
+          y1={margin.top + maxRange * 0.2}
+          x2={width / 2 + maxRange * 0.3}
+          y2={margin.top + maxRange * 0.2}
+          stroke="black"
+        />
+        <line
+          x1={width / 2 + maxRange * 0.3}
+          y1={margin.top + maxRange * 0.2}
+          x2={width / 2 + maxRange * 0.3}
+          y2={height - margin.bottom - maxRange * 0.2}
+          stroke="black"
+        />
+        <line
+          x1={width / 2 + maxRange * 0.3}
+          y1={height - margin.bottom - maxRange * 0.2}
+          x2={width / 2 - maxRange * 0.3}
+          y2={height - margin.bottom - maxRange * 0.2}
+          stroke="black"
+        />
+        <line
+          x1={width / 2 - maxRange * 0.3}
+          y1={height - margin.bottom - maxRange * 0.2}
+          x2={width / 2 - maxRange * 0.3}
+          y2={margin.top + maxRange * 0.2}
+          stroke="black"
+        />
 
 
         {formattedData.map((point, index) => (
           <Circle
           key={index}
-          cx={xScale(point.x)}
-          cy={yScale(point.y)}
+          cx={xScale(feetToGraphUnits(point.pX))}
+          cy={yScale(feetToGraphUnits(point.pZ))}
           r={5} 
           fill={dataLiveGame.liveData.plays.currentPlay.playEvents[index].details.isStrike ? "red" : "blue"}
           />

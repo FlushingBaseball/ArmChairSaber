@@ -5,8 +5,6 @@ function ScoringPlay({...dataLiveGame}){
         if (dataLiveGame.liveData.plays.scoringPlays){
            return dataLiveGame.liveData.plays.scoringPlays.map((sPlay, index) => (
                 // console.log(dataLiveGame.liveData.plays.allPlays[sPlay].result.description)
-
-              
                     <div key={index}>
                        <span className="score">{`${dataLiveGame.liveData.plays.allPlays[sPlay].result.homeScore}-${dataLiveGame.liveData.plays.allPlays[sPlay].result.awayScore}`}</span>
                        <span className="ScoringPlays">{dataLiveGame.liveData.plays.allPlays[sPlay].result.description}</span> 
@@ -14,7 +12,7 @@ function ScoringPlay({...dataLiveGame}){
            ));
         }
         else{
-
+            // left blank because I'm not sure what to do
         }
 
 
