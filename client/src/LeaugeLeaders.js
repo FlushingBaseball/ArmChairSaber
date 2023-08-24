@@ -1,0 +1,82 @@
+import { useEffect, useState } from "react"
+
+function LeagueLeaders(){
+
+const [fetchedGameData, setFetchedGameData] = useState('');
+const [selectedCata, setSelectedCata] = useState('wildPitch')
+
+
+    useEffect(()=>{
+        // fetch(`https://statsapi.mlb.com/api/v1/leagueLeaderTypes`)
+        fetch(`https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${selectedCata}&sportId=1&limit=20&season=2023&fields=leagueLeaders,leaders,rank,value,team,name,league,name,person,id,fullName`)
+        .then((resp) => resp.json())
+        .then(data => {setFetchedGameData(data.leagueLeaders[0].leaders)
+            console.log('data should be below')
+            // console.log(fetchedGameData)
+        
+        })
+
+    },[selectedCata])
+
+
+
+    useEffect(()=>{
+        console.log(fetchedGameData)
+
+    },[fetchedGameData])
+
+
+    
+    function handleCataChange(event){
+        const newCataValue = event.target.value
+        setSelectedCata(newCataValue)
+    }
+
+
+
+
+    function mapPlayer(){
+
+        if (fetchedGameData.length > 1){
+        
+        
+            return  fetchedGameData.map(player => (
+                <div key={player.person.fullName} className="batterCard">
+                    <img className="batterImg10" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`}></img>
+                    <span className="ABSpan">{`${player.league.name} : Leauge`}</span>
+                    <span className="ABSpan">{`${player.team.name} : Team`}</span>
+                    <span className="ABSpanName">{player.person.fullName}</span>
+                    <span className="ABSpan">{`${player.value} : times`}</span> 
+                </div>
+            ))
+        
+        }
+        
+        
+        }
+               
+
+
+
+
+
+
+
+return(
+    <div>
+        <h1>Leauge Leaders</h1>
+        <div className="WrapperadvancedBatter">
+<select className="selectteamBat" id="selectedCata" value={selectedCata} onChange={handleCataChange}>
+                <option value={"homeRuns"}>Home Runs</option>
+                <option value={"stolenBases"}>StolenBases</option>
+                <option value={"wildPitch"}>Wild Pitch</option>
+                <option value={"hits"}>Hits</option>
+            </select>
+            {mapPlayer()}
+            </div>
+    </div>
+)
+
+}
+
+export default LeagueLeaders

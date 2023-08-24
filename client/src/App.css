@@ -1,0 +1,1107 @@
+
+
+.signInUpLogo{
+    height: 20vh;
+    width: 20vh;
+}
+
+.logoText{
+    text-align: center;
+    font-family: 'zektonrg';
+
+}
+
+
+  
+@font-face {
+    font-family: 'zektonrg';
+    src: url('/public/Fonts/zekton-rg.otf') format('opentype');
+    /* Add more font formats if necessary */
+  }
+  
+
+
+/*SIGN IN START SIGN IN START SIGN IN START, SIGN IN START */
+.signInForm{
+    display: flex;
+}
+
+.login-container{
+    padding-top: 10vh;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+}
+
+.signForm{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.loader {
+    margin-top: 10vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  #ball {
+    position: fixed;
+    top: 3em;
+    width: 3em;
+    height: 3em;
+    left: 6em;
+    -webkit-animation: bounce .3s cubic-bezier(.63,.09,.76,.45) infinite alternate;
+    -moz-animation:    bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
+    -o-animation:      bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
+    animation:         bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
+  }
+  
+  #bat {
+    position: fixed;
+    top: 3em;
+    left: -10.5em;
+    -webkit-animation: hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+    -moz-animation:    hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+    -o-animation:      hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+    animation:         hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+  }
+  
+  .red {
+    fill:#D7172A;
+  }
+  
+  .tan {
+    fill:#FFD87D;
+  }
+  
+  .white {
+    fill:#ffffff;
+  }
+  
+  @-webkit-keyframes hit {
+    0% { transform: rotate(0deg);} 
+    100% { transform: rotate(-10deg); }
+  }
+  
+  @-webkit-keyframes bounce {
+    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+    25% { height: 3em; width: 3em; }
+    75% { height: 3em; width: 3em; }
+    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+  }
+  
+  @-moz-keyframes bounce {
+    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+    25% { height: 3em; width: 3em; }
+    75% { height: 3em; width: 3em; }
+    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+  }
+
+  @-moz-keyframes hit {
+    0% { transform: rotate(0deg);} 
+    100% { transform: rotate(-10deg); }
+  }
+  
+  @-o-keyframes bounce {
+    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+    25% { height: 3em; width: 3em; }
+    75% { height: 3em; width: 3em; }
+    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+  }
+
+  @-o-keyframes hit {
+    0% { transform: rotate(0deg);} 
+    100% { transform: rotate(-10deg); }
+  }
+  
+  @keyframes bounce {
+    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+    25% { height: 3em; width: 3em; }
+    75% { height: 3em; width: 3em; }
+    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+  } 
+
+  @keyframes hit {
+    0% { transform: rotate(0deg);} 
+    100% { transform: rotate(-10deg); }
+  }
+
+
+
+/*Sign up */
+
+.signupDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signupForm{
+    display: flex;
+    flex-direction: column;
+}
+
+/*SIGN IN END SIGN IN END SIGN IN END SIGN IN END SIGN IN END*/
+
+
+
+
+/*NAV START, NAV START, NAV START, NAV START, NAV START, NAV START*/
+    .nav{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 6vh;
+        background-color: #2c1b47;
+        padding: 0px;
+        align-items: center;  
+    }
+
+    .logo{
+        height:6vh;
+        width: 6vw;
+    }
+
+    .nav a{
+        font-family: zektonrg;
+        padding: 1vh;
+        margin: 2vh;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav .active{
+        color: #ebeb98;
+    }
+
+
+    .signoutButton{
+        font-family: zektonrg;
+        display: inline-block;
+        background-color: #2c1b47;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+
+
+        /* .nav .active {
+    background-color: #0d1019;
+    } */
+/*NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END*/
+
+
+
+
+
+
+
+/*HOME START, HOME START, HOME START, HOME START, HOME START*/
+
+.flexParent{
+        margin: 0 -5px;
+        width: 100vw;
+        height: 100vh;
+         display: flex;
+         justify-content: space-around;
+         flex-wrap: wrap;
+         flex-direction: row;
+         background-color: white;
+    }
+    
+    
+.homeTile { 
+        cursor: pointer;
+        padding: 0;
+        margin: 0 5px;
+        width: 25vw;
+        height: 30vh;
+        display: inline-flex;
+        background: rgb(228,230,242); 
+        border: 1px solid #333;
+        box-shadow: 8px 8px 5px #444;
+        padding-block: 0px;
+        padding-inline: 0px;
+    }
+   
+.navSpan{
+    padding: 0;
+    font-family: 'zektonrg';
+    font-weight: bold;
+    font-size: 3.9vh;
+    background: rgb(228,230,242);
+    transition: color 0.3s ease;
+}
+
+.navSpan:hover {
+        color: #6e43b5; /* Change to your desired color on hover */
+      }
+
+/*HOME END, HOME END, HOME END, HOME END, HOME END, HOME END*/
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*TODAY START, TODAY START, TODAY START,TODAY START, TODAY START */
+
+
+/*
+Wrapper Today[
+
+    game  [ 
+        teamInfo [ ]
+        teamInfo [ ]
+]
+*/ 
+
+
+.WrapperToday{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+
+}
+
+
+
+.game{
+    background-color: #f5ffff;
+    flex-grow: 1;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 8px 8px 5px #444;
+}
+
+.probPitcherPhoto{
+    
+    width: 50%;
+    height: 75%;
+
+   
+}
+
+.teamInfo{
+ margin: 10px;
+ display: inline-block;
+ padding: 3px;
+
+}
+
+.teamGameLogo{
+     width: 4vw;
+    height: 4vh; 
+   
+}
+
+.liveLink{
+    color: red;
+
+}
+
+.predictedWinner{
+    background-color: rgb(0, 195, 23);
+}
+
+
+
+/*TODAY END, TODAY END, TODAY END, TODAY END, TODAY END, TODAY END*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, */
+
+
+.firstLiveRow{
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+    padding: 4vh;
+    
+}
+
+/*  BASES START, BASES START, BASES START,*/
+
+
+.AllBaseInfoWrapper{
+border: rgb(200, 200, 248) solid 8px;
+box-shadow: 8px 8px 5px #444;
+ display: flex;
+ padding: 3vh;  
+ flex-direction: column;
+ justify-content: space-evenly;
+ align-items: center;
+ height: 30vh;
+ background-color: #e1e9f2;
+}
+
+
+
+.Bases{
+    flex-direction: row-reverse;
+    float: none;
+    flex: relative;
+    justify-content: center;
+    position: relative;
+    display: flex;
+
+
+}
+
+#firstBase{
+    border-width: 3vh;
+    border-style: solid;
+    align-self: flex-end;
+    transform: rotate(45deg);
+    display: block;
+
+}
+
+#secondBase{
+    border-width: 3vh;
+    margin-bottom: 6vh;
+    border-style: solid;
+    transform: rotate(45deg);
+    transition-duration: 0.5s; 
+    display: block;
+}
+
+#thirdBase{
+    border-width: 3vh;
+    border-style: solid;
+    align-self: flex-end;
+    transform: rotate(45deg);
+    transition-duration: 0.5s; 
+    display: block;
+
+}
+
+
+.activeBase{
+    border-color: rgb(235, 199, 82);
+}
+
+.inactiveBase{
+    border-color: rgb(200, 200, 248);
+}
+
+
+
+/*BASES END, BASES END, BASES END, BASES END, BASES END,*/
+
+
+
+.pitchComponets{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.PitchWrapper{
+    padding: 1vh;
+}
+
+.LivePitch{
+    display: flex;
+    font-size: 2vh;
+    color: black;
+}    
+
+
+.PitchType{
+    font-weight: bold;
+    flex-wrap: wrap;
+    text-decoration: underline;
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+/* OUTS START, OUTS START, OUTS START, OUTS START*/
+
+.outGroup{
+  width: max-content;
+
+}
+
+.OutMade{
+    background-color: red;
+}
+
+
+
+#outOne{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+#outTwo{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+#outThree{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+
+
+/*OUTS END OUTS END OUTS END OUTS END OUTS END OUTS END OUTS END*/
+
+
+
+.strikeGroup{
+    width: max-content;
+}
+
+
+.StrikeMade{
+    background-color: red;
+}
+
+
+#strikeOne{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+#strikeTwo{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+#strikeThree{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+
+
+/* STRIKES END, STRIKES END, STRIKES END, STRIKES END*/
+
+
+
+
+
+
+.WrapperLiveCircles{
+    display: inline-flex;
+    background-color:  #e1e9f2;
+    flex-direction: column;
+    padding: .5vw;
+    border: rgb(200, 200, 248) solid 8px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 5px #444;
+}
+
+
+
+
+
+
+
+.ballGroup{
+    width: max-content;
+
+}
+
+
+.BallMade{
+    background-color: rgb(17, 99, 6);
+}
+
+
+#ballOne{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+#ballTwo{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+#ballThree{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+#ballFour{
+    border: 1px solid;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px!important;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+/*BATTER VS PITCHER START, BATTER VS PITCHER START, BATTER BS PITCHER END*/
+
+.WrapperPitcherVsBatter{
+    display: flex;
+    justify-content: center;
+}
+
+.matchup{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+
+.matchup span{
+    display: block;
+}
+
+.PitcherVsBatter .vs-text-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vs-text-container{
+    justify-content: center;
+}
+
+
+.OnDeck{
+    height: 10vh;
+}
+
+.vsImage{
+    height:  20vh;
+}
+
+#VS{
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
+
+/*BATTER VS PITCHER END, BATTER VS PITCHER END, BATTER VS PITCHER END*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.scoreNum{
+    display: inline-flex;
+    padding-inline: 2vw;
+    font-size: 12vh;
+}
+
+
+
+.LiveGameScoreBoard{
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+    padding: 1vh;
+    margin-top: 0.1vh;
+    margin-bottom: 2vh;
+    
+}
+
+.scoreHeader{
+    display: inline-block;
+}
+
+.glanceLogo{
+    display: block;
+    width: 10vw;
+    height: 10vh;
+}
+
+.glanceSpan{
+    display: flex;
+    justify-content: center;
+    font-size: 2.5vh;
+
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+/*BOX SCORE START BOX SCORE START BOX SCORE START*/
+.boxElement{
+    display: flex;
+    justify-content: center;
+}
+
+
+table, th, td {
+    border:1px solid rgb(84, 83, 83);
+    font-size: 2vh;
+  }
+
+
+  .boxLogo{
+    height: 2vh;
+
+  }
+
+/*BOX END, BOX END, BOX END, BOX END. BOX END. BOX END*/
+
+
+
+
+  
+
+
+
+
+
+
+  /*PITCH VIS START*/
+
+.WrapperPitchingvis{
+    display: flex;
+}
+
+  .batterImg{
+    display: inline;
+    height: 50%;
+  }
+
+  .pitchVis{
+    display: flex;
+    align-items: center;
+  }
+
+  .strikezone{
+
+  }
+
+
+
+  /*Batting Order Start, Batting Order Start, Batting Order Start, */
+
+.awayLineups{
+    display: flex;
+
+}
+
+.bothLineups{
+    display: flex;
+    justify-content: space-around;
+}
+
+.lineup{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    box-shadow: 1px 8px 8px 5px #444;
+
+}
+
+.lineupBatter{
+    padding: 3px;
+    display: flex;
+}
+
+  /*Batting Order End, Batting Order End, Batting Order End, */
+
+
+
+
+  /*LEADERBOARD START, LEADERBOARD START, LEADERBOARD START, LEADERBOARD START*/
+
+#leaderBoard{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ border: rgb(200, 200, 248) solid 8px;
+ border-radius: 20px;
+ background: rgb(228,230,242);
+ background: linear-gradient(180deg, rgba(228,230,242,1) 0%, rgba(200,200,248,1) 100%);
+}
+
+.leaderEntry{
+    background-color: white;
+    border: 1px solid #333;
+    box-shadow: 8px 8px 5px #444;
+    width: 27vw;
+    padding: 2vh;
+    font-size: 1.5vh;
+    font-weight: bold;
+}
+
+
+.cata{
+    display: flex;
+    gap: 4vw;
+    text-decoration: underline;
+}
+
+  .leaderBoardCata{
+    display: flex;
+    gap: 2vw;
+  }
+
+
+.leaderEntry{
+    font-family: zektonrg;
+    justify-content: center;
+    font-size: 1.5vh;
+    display: flex;
+    gap: 8vw;
+}
+
+
+
+
+  /*LEADERBOARD END, LEADERBOARD END, LEADERBOARD END, LEADERBOARD END*/
+
+
+
+
+
+
+
+
+
+
+
+
+  /*SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,*/
+.playerFieldCard{
+    display: flex;
+    gap: 2vw;
+    justify-content: center;
+    
+}
+
+.WrappersaberField{
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldImg{
+    display: inline-flex;
+    border: rgb(200,200,248) 20px solid;  
+    border-radius: 10px;
+    width: 18vw;
+}
+
+.saberSpan{
+    display: flex;
+    flex-direction: column;
+}
+.seasonSelect{
+
+}
+
+.search{
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+}
+
+
+.topLineWrapper{
+    padding: 4vh;
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+}
+
+
+
+  /*SABER FIELDING END,SABER FIELDING END, SABER FIELDING END, SABER FIELDING END, SABER FIELDING END,  */
+
+
+
+
+
+
+
+
+
+
+  /*current play*/
+
+  .currentPlay{
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+    border: rgb(200, 200, 248) solid .5vh;
+    box-shadow: 8px 8px 5px #444;
+    width: max-content;
+    align-items: center;
+    height: max-content;
+
+
+  }
+
+  .playSpan{
+    display: flex;
+    flex-direction: column;
+    padding: .5vh;
+    
+  }
+
+
+/*Scoring plays start*/
+
+.score{
+    font-weight: bolder;
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+}
+
+.WrapperScoringPlays{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: .5vh;
+    border: rgb(200, 200, 248) solid .5vh;
+    box-shadow: 8px 8px 5px #444;
+    width: max-content;
+}
+
+  .ScoringPlays{
+    display: flex;
+    justify-content: center;
+
+
+  }
+.scoreheader{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    font-size: 3vh;
+}
+
+
+
+
+
+
+
+/*ADVANCEDBATTTING ADVANCED BATTING ADVANCED BATTING ADVANCED BATTING START*/
+
+.displayWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
+}
+
+.headerBat{
+    
+}
+
+.selectteamBat{
+    padding: 10px;
+    font-size: 16px;
+    border: 3px solid #ffff00;
+    color: white;
+    border-radius: 4px;
+    background-color: #6e43b5;
+    width: 200px;
+    cursor: pointer;
+}
+
+
+.batterTeamDisplay{
+    height: 8vh;
+    width: 8vw;
+}
+
+
+.WrapperadvancedBatter{
+    margin: 2vw;
+    gap: .3vw;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.batterCard{
+    justify-content: space-evenly;
+    padding: .2vw;
+    display: flex;
+    width: max-content;
+    background-color: #6e43b5;
+    flex-direction: column;
+}
+
+.ABSpan{
+    font-family: 'zektonrg';
+    color: white;
+}
+.ABSpanName{
+    text-align: center;
+    font-family: 'zektonrg';
+    color: white;
+    text-decoration: underline;
+
+}
+
+/* ABSpan
+batterImg10
+batterCard */
+
+
+
+
+.leaugeSelect{
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    justify-content: center;
+}
