@@ -74,7 +74,7 @@ function resolvePredictions(predictionData){
                     fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${predictionData[i].game_Id}`)
                     .then((resp) => resp.json())
                     .then(resp =>{
-                            console.log(resp)
+                            console.log("this is the call to mlb resp", resp)
 
 
                         if ( resp.dates[0].games[0].teams.away.isWinner === true || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
@@ -152,7 +152,8 @@ function resolvePredictions(predictionData){
                     console.log(data)
 
                     const patchedPrediction ={
-                        actualWinnerId: data.gameWinner_id
+                        actualWinnerId: data.gameWinner_id,
+                        actualLoserId:  data.gameLoser_id
                 
                 }
 

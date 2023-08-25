@@ -1,107 +1,4 @@
 
-## Advanced Batting
-
-## leauge Leaders
-
-
-
-5. Import the CSS File:
-   Import the CSS file (or "fonts.css") in your React project, so the font-face definition is applied. You can import the CSS file in your index.js (or App.js) file or any component where you need to use the custom font. For example:
-
-```jsx
-import React from 'react';
-import './fonts.css'; // Import the CSS file
-
-function App() {
-  return (
-    <div>
-      <h1 style={{ fontFamily: 'CustomFont', fontSize: '32px' }}>Hello, Custom Font!</h1>
-      {/* Add other components and content */}
-    </div>
-  );
-}
-
-export default App;
-```
-
-6. Use the Custom Font:
-   After completing the steps above, you can use the custom font throughout your React components by setting the `fontFamily` CSS property to the name of the custom font family defined in the `@font-face` rule.
-
-Remember to adjust the paths and file names in the `@font-face` rule to match the location of your font files and CSS file relative to the components using the custom font.
-
-Once everything is set up, your React project will be using the custom font for the specified elements, and you should see the text rendered with the custom font when the application is run.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-MLB Stats API was easy to find. I'm sharing it for the good of the community.
-
-https://statsapi.mlb.com/api/v1/transactions
-
-Parameters: teamId, playerId, date, startDate, endDate.
-
-Date, startDate and endDate use the following date format: YYYY-MM-DD.
-
-
-
-
-
-# Random gamePk's to test with
-
-530628
-
-
-# Player MLBID's
-Nimmo 607043
-Alonso 624413
-Batty 683146
-Mcneil 643446
-Lindor 596019
-
-
-
-
-
-
-
-
 Logo            Sign in / Sign out
 ( 9 Zones)
 Zone 1: Todays Games (Monte Carlo?)
@@ -114,44 +11,7 @@ Zone 7: Advanced pitching stats
 Zone 8: Advanced Hitting stats
 Zone 9: 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 For the current game state: [https://statsapi.mlb.com/api/v1.1/game/{game_pk}/feed/live]
-
-
-
-
-
-
-
-
 
 
 
@@ -180,26 +40,6 @@ for day in today['dates']:
     for game in day['games']:
         print('{} - {} - {}\n'.format(game['teams']['away']['team']['name'], game['teams']['away']['probablePitcher']['fullName'], game['teams']['away']['probablePitcher']['note']))
         print('@ {} - {} - {}\n\n'.format(game['teams']['home']['team']['name'], game['teams']['home']['probablePitcher']['fullName'], game['teams']['home']['probablePitcher']['note']))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -237,21 +77,9 @@ fangraphs projections
 Projections pages have api you can call , i.e. - https://www.fangraphs.com/api/projections?pos=all&stats=bat&type=steamer600&team=0&lg=all&players=0
 
 
-
+## other things to check / work with
 http://seanlahman.com/download-baseball-database/
-
-
-
-
 https://github.com/toddrob99/MLB-StatsAPI
-
-
-
-Look through pybaseball to steal some etc
-
-
-
-
 https://baseballsavant.mlb.com/csv-docs
 
 
@@ -340,41 +168,8 @@ I refresh the list of games daily and then check their status and loop through p
 
 
 
-
-
-
-
-
 # minor leauge
 https://statsapi.mlb.com/api/v1/schedule/games/?sportId=12
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

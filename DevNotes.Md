@@ -3,6 +3,13 @@
 
 
 
+## Prediction Fix
+
+
+
+
+
+
 
 ## Today's Games
 
@@ -82,6 +89,8 @@ Use the same versions of node and python
 
 ## Further Development Goals
 
+0. Pulling in players to populate the data base should be first fetch from the database, then fetch from mlb if the player is not in the data base set push it into an array for prosessing 
+
 1. Live Pitch Data vis is broken beyond repair.
 Without documentation I need to start from first principles of the bases width and balls width
 Pitch Vis Green for ball Red for Strike
@@ -100,7 +109,8 @@ Hitter Hot and Cold Zones are doable if dimensions are figured out
 # Known non pressing issues
   svg's use a property called class, the browser for some reason thinks im misspelling className and throwing a warning
   
-
+advanced Batting
+On Base Plus Slugging is repeated twice along with other stuff
 
 
 ## Strikezone Investigation
@@ -202,3 +212,5 @@ Then push the changes to the database
 Serialization Rules are still tuples and need a comma if there's only one
 
 
+## Name
+20's 30's baseball terms
