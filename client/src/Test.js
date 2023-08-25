@@ -26,9 +26,11 @@ function Test(){
         // fetch(`https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=hits&sportId=1&limit=20&season=2023&fields=leagueLeaders,leaders,rank,value,team,name,league,name,person,fullName`)
 
 
-        fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=11&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`)
+        // fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=11&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`)
+
+        // fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2023')
         .then((resp) => resp.json())
-        .then(data => {setFetchedGameData(data)
+        .then(data => {setFetchedGameData(data.people)
             console.log('data should be below')        
         })
              },[])
@@ -38,8 +40,8 @@ function Test(){
     useEffect(()=>{
         console.log(fetchedGameData)
         if (fetchedGameData.length > 1){
-                
-            // populatePlayers()
+            //     console.log('were in length')
+            //  populatePlayers()
         }
     },[fetchedGameData])
 
@@ -54,8 +56,6 @@ function Test(){
 
 // function populatePlayers(){
 //    console.log( typeof fetchedGameData)
-
-
 //     console.log('inside populate Players')
 //     fetchedGameData.forEach(player =>{
 
@@ -82,13 +82,7 @@ function Test(){
 //                 }
 //                 return response.json();
 //             })
-        
-      
-
-//     })
-
-        
-    
+//     }) 
 // }
 
 
@@ -98,6 +92,7 @@ function Test(){
     return(
         <div>
             <h2>Testing Page</h2>
+
         </div>
     )
 }

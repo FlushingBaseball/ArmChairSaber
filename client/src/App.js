@@ -90,7 +90,7 @@ if (!user) {
         <Route path="/advancedPitching" element={<AdvancedPitching />} />
         <Route path='/advancedFielding' element={<FieldingSaber searchPlayer={searchPlayer} setSearchPlayer={setSearchPlayer}/>} />
         <Route path='/LeagueLeaders' element={<LeagueLeaders />} />
-        <Route path="/user/:username" element={<UserHome />} />
+        <Route path="/user/:username" element={<UserHome user={user}/>} />
         <Route path="*" element={<NotFound />} />
     </Routes>
        </div>

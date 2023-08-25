@@ -53,7 +53,7 @@ class Player(db.Model, SerializerMixin):
     firstLastName = db.Column(db.String, nullable=False)
     mlbId = db.Column(db.Integer, nullable=False, unique=True)
 
-    serialize_rules = ()
+    serialize_rules = () 
 
 
 
@@ -66,6 +66,8 @@ class User_Prediction(db.Model, SerializerMixin):
     user_Id = db.Column(db.Integer, db.ForeignKey("users.id"))
     predictedWinnerId = db.Column(db.Integer, nullable=False)
     actualWinnerId = db.Column(db.Integer, nullable=True)
+    predictedLoserId = db.Column(db.Integer, nullable=False, default=0)
+    actualLoserId = db.Column(db.Integer, nullable=True)
     ##back ref user = relationship
     ##back ref game = relationship
     serialize_rules=("-game.Game_Predictions", "-user.User_Predictions")

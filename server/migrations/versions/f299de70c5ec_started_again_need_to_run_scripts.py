@@ -1,8 +1,8 @@
-"""empty message
+"""started again, need to run scripts
 
-Revision ID: 48db95131c70
+Revision ID: f299de70c5ec
 Revises: 
-Create Date: 2023-08-08 09:55:22.636662
+Create Date: 2023-08-24 23:03:53.124871
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '48db95131c70'
+revision = 'f299de70c5ec'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -57,6 +57,8 @@ def upgrade():
     sa.Column('user_Id', sa.Integer(), nullable=True),
     sa.Column('predictedWinnerId', sa.Integer(), nullable=False),
     sa.Column('actualWinnerId', sa.Integer(), nullable=True),
+    sa.Column('predictedLoserId', sa.Integer(), nullable=False),
+    sa.Column('actualLoserId', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['game_Id'], ['games.id'], name=op.f('fk_user_predictions_game_Id_games')),
     sa.ForeignKeyConstraint(['user_Id'], ['users.id'], name=op.f('fk_user_predictions_user_Id_users')),
     sa.PrimaryKeyConstraint('id')
