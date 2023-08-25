@@ -4,9 +4,24 @@ function PredictionGroup({game, user, key, setPredictedWinner}){
 
 
 const [selectedValue, setSelectedValue] = useState('')
+const [notSelectedValue, setNotSelectValue] = useState(undefined)
+
+const checkValue1 = Number(game.teams.home.team.id);
+const checkValue2 = Number(game.teams.away.team.id);
 
 function handleTeamSelectRadioChange (event) {
     setSelectedValue(event.target.value)
+
+    if (Number(event.target.value) === checkValue1){
+        setNotSelectValue(checkValue2)
+    }
+    else if (Number(event.target.value) === checkValue2){
+        setNotSelectValue(checkValue1)
+    }
+    else{
+        console.Error("Neither team Id made it into NotSelectValue")
+    }
+
 };
 
 
@@ -17,6 +32,7 @@ function handlePredictionSubmit (){
         game_Id: game.gamePk,
         user_Id: user.id,
         predictedWinnerId: Number(selectedValue),
+        predictedLoserId: Number(notSelectedValue)
     };
     console.log(`postPrediction is:`)
     console.log(postPrediction)

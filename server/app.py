@@ -162,25 +162,6 @@ def patch_user_by_id(id):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @app.post('/players')
 def post_player():
     data = request.get_json()
@@ -244,8 +225,8 @@ def postPredicitons():
         new_prediction =  User_Prediction(
             game_Id = data['game_Id'],
             user_Id =data['user_Id'],
-            predictedWinnerId =data['predictedWinnerId']
-  
+            predictedWinnerId =data['predictedWinnerId'],
+            predictedLoserId = data['predictedLoserId']
         )
 
         existing_prediction = User_Prediction.query.filter_by(

@@ -1,6 +1,3 @@
-
-
-
 ## Normal Goals
 
 we want to be able to call in significant data in multiple places
@@ -13,9 +10,6 @@ should be able to type in a player and grab some saber data
 
 # Saber Pitching
 should be able to type in a pitcher and grab some saber date
-
-
-## Strech Goals
 
 
 
