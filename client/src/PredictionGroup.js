@@ -66,16 +66,7 @@ function handlePredictionSubmit (){
                 })
             }
         }
-        return response.json();
-
-    })
-    .then(response => {
-        
-        setPredictedWinner(response.predictedWinnerId)
-        console.log(`Selected Value: ${selectedValue}`)
-        
-        
-        if (response.ok){
+        else if (response.ok){
             fetch(`/users/${user.id}`, {
                 method: 'PATCH',
                 headers:{
@@ -95,15 +86,20 @@ function handlePredictionSubmit (){
             console.log("updated user:", data);
 
            })
-    }
+                     }
+
+        return response.json();
+
+    })
+    .then(response => {
+        
+        setPredictedWinner(response.predictedWinnerId)
+        console.log(`Selected Value: ${selectedValue}`)
 })
 
     .catch(error =>{
         console.error('a werid error occurred exiting promise chain:', error)
     })
-
-
-
 
 }
 
