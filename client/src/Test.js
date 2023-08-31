@@ -28,7 +28,7 @@ function Test(){
 
         // fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=11&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`)
 
-        // fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2023')
+        fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2023')
         .then((resp) => resp.json())
         .then(data => {setFetchedGameData(data.people)
             console.log('data should be below')        
