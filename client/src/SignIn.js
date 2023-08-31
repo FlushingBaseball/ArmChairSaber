@@ -49,7 +49,7 @@ function SignIn( {setUser}) {
     <div id='signInForm'> 
       <h2 className='signInText' >Sign In</h2>
       <form className='signForm' onSubmit={handleSubmit}>
-        <label className='signInLabel'>
+        <label className='signInUpLabel'>
           Username:
           <input
             type="text"
@@ -60,7 +60,7 @@ function SignIn( {setUser}) {
           />
         </label>
         <br />
-        <label className='signInLabel'>
+        <label className='signInUpLabel'>
           Password:
           <input
             type="password"

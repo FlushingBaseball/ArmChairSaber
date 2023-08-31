@@ -51,7 +51,7 @@ function SignUp( {setUser}) {
     <div className='signupDiv'>
       <h2 className='center'>Sign Up</h2>
       <form className='signupForm' onSubmit={handleSubmit}>
-        <label>
+        <label className='signInUpLabel'>
           Username:
           <input
             type="text"
@@ -62,7 +62,7 @@ function SignUp( {setUser}) {
           />
         </label>
         <br />
-        <label>
+        <label className='signInUpLabel'>
           Email:
           <input
             type="text"
@@ -73,7 +73,7 @@ function SignUp( {setUser}) {
           />
         </label>
         <br />
-        <label>
+        <label className='signInUpLabel'>
           Password:
           <input
             type="password"
