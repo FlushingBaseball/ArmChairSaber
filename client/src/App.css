@@ -1,5 +1,22 @@
 
 
+/*
+CSS RESET
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
 .signInUpLogo{
     height: 20vh;
     width: 20vh;
@@ -45,7 +62,9 @@
 }
 
 
-
+.batholder{
+    margin-top: 5vh;
+}
 
 .loader {
     margin-top: 10vh;
