@@ -84,7 +84,7 @@ function SignUp( {setUser}) {
           />
         </label>
         <br />
-        <button type="submit">Sign Up</button>
+        <button className='signInUpbtn' type="submit">Sign Up</button>
       </form>
 
       

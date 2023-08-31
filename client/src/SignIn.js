@@ -71,7 +71,7 @@ function SignIn( {setUser}) {
           />
         </label>
         <br />
-        <button className='signInbtn' type="submit">Sign In</button>
+        <button className='signInUpbtn' type="submit">Sign In</button>
       </form>
       <div>
 
