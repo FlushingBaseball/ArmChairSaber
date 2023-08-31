@@ -47,9 +47,9 @@ function SignIn( {setUser}) {
 
   return (
     <div id='signInForm'> 
-      <h2 className='center' >Sign In</h2>
+      <h2 className='signInText' >Sign In</h2>
       <form className='signForm' onSubmit={handleSubmit}>
-        <label>
+        <label className='signInLabel'>
           Username:
           <input
             type="text"
@@ -60,7 +60,7 @@ function SignIn( {setUser}) {
           />
         </label>
         <br />
-        <label>
+        <label className='signInLabel'>
           Password:
           <input
             type="password"
@@ -71,7 +71,7 @@ function SignIn( {setUser}) {
           />
         </label>
         <br />
-        <button type="submit">Sign In</button>
+        <button className='signInbtn' type="submit">Sign In</button>
       </form>
       <div>
 

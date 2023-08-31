@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'zektonrg';
+    src: url('/public/Fonts/zekton-rg.otf') format('opentype');
+    /* Add more font formats if necessary */
+  }
+  
 
 
 /*
@@ -11,9 +17,61 @@ CSS RESET
 }
 
 
+/*
+    Login Switch root
+*/
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10vh;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+
+.logoText{
+    text-align: center;
+    font-family: 'zektonrg';
+}
+
+
+/*
+    Login
+*/
+
+
+.signInbtn{
+    background-color: #6e43b5;
+    border-radius: 4px;
+    color: white;
+    height: 4vh;
+    margin: 1vh;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+
+.signInbtn:hover{ 
+    background-color: #b793ef;
+    color: white;
+}
 
 
 
+
+.signInForm{
+    display: flex;
+}
+
+.signInText{
+    font-size: 2rem;
+    font-family: 'zektonrg';
+    text-align: center;
+    padding: 1vh 0;
+}
 
 
 
@@ -21,40 +79,18 @@ CSS RESET
     height: 20vh;
     width: 20vh;
 }
-
-.logoText{
-    text-align: center;
-    font-family: 'zektonrg';
-
+.signInLabel{
+    font-size: 1.5rem;
 }
 
 
-  
-@font-face {
-    font-family: 'zektonrg';
-    src: url('/public/Fonts/zekton-rg.otf') format('opentype');
-    /* Add more font formats if necessary */
-  }
+
   
 
 
 /*SIGN IN START SIGN IN START SIGN IN START, SIGN IN START */
-.signInForm{
-    display: flex;
-}
 
-.login-container{
-    padding-top: 10vh;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-}
 
-.center{
-    display: flex;
-    justify-content: center;
-    font-weight: bolder;
-}
 
 .signForm{
     display: flex;
