@@ -6,17 +6,17 @@ const [fetchedGameData, setFetchedGameData] = useState('');
 const [selectedCata, setSelectedCata] = useState('wildPitch')
 
 
-    useEffect(()=>{
-        // fetch(`https://statsapi.mlb.com/api/v1/leagueLeaderTypes`)
-        fetch(`https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${selectedCata}&sportId=1&limit=20&season=2023&fields=leagueLeaders,leaders,rank,value,team,name,league,name,person,id,fullName`)
-        .then((resp) => resp.json())
-        .then(data => {setFetchedGameData(data.leagueLeaders[0].leaders)
-            console.log('data should be below')
-            // console.log(fetchedGameData)
+    // useEffect(()=>{
+    //     // fetch(`https://statsapi.mlb.com/api/v1/leagueLeaderTypes`)
+    //     fetch(`https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${selectedCata}&sportId=1&limit=20&season=2023&fields=leagueLeaders,leaders,rank,value,team,name,league,name,person,id,fullName`)
+    //     .then((resp) => resp.json())
+    //     .then(data => {setFetchedGameData(data.leagueLeaders[0].leaders)
+    //         console.log('data should be below')
+    //         // console.log(fetchedGameData)
         
-        })
+    //     })
 
-    },[selectedCata])
+    // },[selectedCata])
 
 
 
