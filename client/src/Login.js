@@ -11,7 +11,7 @@ function Login({ showLogin, setShowLogin, setUser }) {
           <SignIn setUser={setUser} />
           <p>
             Don't have an account? &nbsp;
-            <button onClick={() => setShowLogin(false)}>Sign Up</button>
+            <button className="toggleBtn" onClick={() => setShowLogin(false)}>Sign Up</button>
           </p>
         </div>
       ) : (
@@ -19,7 +19,7 @@ function Login({ showLogin, setShowLogin, setUser }) {
           <SignUp setUser={setUser} />
           <p>
             Already have an account? &nbsp;
-            <button onClick={() => setShowLogin(true)}>Log In</button>
+            <button className="toggleBtn" onClick={() => setShowLogin(true)}>Log In</button>
           </p>
         </div>
       )}

@@ -1,5 +1,11 @@
+
+
+
 ## before deployment 
 
+
+
+The css has proved imposssible to fix, I have no idea how to use two seprate css files in a react application
 
 
 
