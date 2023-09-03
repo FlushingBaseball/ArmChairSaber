@@ -49,46 +49,57 @@ function SignUp( {setUser}) {
 
   return (
     <div className='signupDiv'>
-      <h2 className='center'>Sign Up</h2>
+      <h2 className='signInUPText'>Sign Up</h2>
       <form className='signupForm' onSubmit={handleSubmit}>
+
+
+      <div className='form-group'>
         <label className='signInUpLabel'>
           Username:
+          </label>
           <input
+            className='signInUpFormInput'
             type="text"
             name="username"
             value={formData.username}
             onChange={handleChange}
             required
           />
-        </label>
         <br />
+
+      </div>
+      <div className='form-group'>
         <label className='signInUpLabel'>
           Email:
+          </label>
           <input
+            className='signInUpFormInput'
             type="text"
             name="email"
             value={formData.email}
             onChange={handleChange}
             required
           />
-        </label>
         <br />
+      </div>
+
+      <div className='form-group'>
         <label className='signInUpLabel'>
           Password:
+          </label>
           <input
+            className='signInUpFormInput'
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
           />
-        </label>
         <br />
+      </div>
+
         <button className='signInUpbtn' type="submit">Sign Up</button>
       </form>
-
-      
-
     </div>
   );
 }
