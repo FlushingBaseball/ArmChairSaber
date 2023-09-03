@@ -100,9 +100,6 @@ function SignUp( {setUser}) {
 
         <button className='signInUpbtn' type="submit">Sign Up</button>
       </form>
-
-      
-
     </div>
   );
 }

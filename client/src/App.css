@@ -38,14 +38,19 @@ CSS RESET
 
 
 .form-group{
-    width: 100%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   margin-bottom: 10px;
+   width: 100%;
+
 
 }
 
 
 
 .signInUpFormInput{
-
+    width: 200px;
 }
 
 
@@ -106,10 +111,26 @@ CSS RESET
 }
 .signInUpLabel{
     font-size: 1.5rem;
+    flex: 1;
+    text-align: right;
+    margin-right: 10px;
 }
 
 
 
+/*Sign up */
+
+.signupDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signupForm{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
   
 
 
@@ -120,7 +141,6 @@ CSS RESET
 .signForm{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 
@@ -221,19 +241,6 @@ CSS RESET
 
 
 
-/*Sign up */
-
-.signupDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.signupForm{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
 
 /*SIGN IN END SIGN IN END SIGN IN END SIGN IN END SIGN IN END*/
 
