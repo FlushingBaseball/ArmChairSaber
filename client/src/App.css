@@ -6,19 +6,33 @@
   
 
 
-/*
-CSS RESET
-*/
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  /*
+  CSS RESET
+  */
+  
+  * {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 
 /*
-    Login Switch root
+Login Switch root
 */
 
 .login-container{
@@ -43,8 +57,8 @@ CSS RESET
    align-items: center;
    margin-bottom: 10px;
    width: 100%;
-
-
+   
+   
 }
 
 
@@ -52,10 +66,14 @@ CSS RESET
 .signInUpFormInput{
     width: 200px;
 }
+.signInUpFormInput:focus{
+    border-color: #2c1b47;
+    outline: none;
+}
 
 
 /*
-    Login
+Login
 */
 
 
@@ -85,8 +103,8 @@ CSS RESET
     cursor: pointer;
     padding: 10px;
     border-radius: 4px;
-
-
+    
+    
 }
 
 
@@ -131,7 +149,7 @@ CSS RESET
     align-items: center;
     flex-direction: column;
 }
-  
+
 
 
 /*SIGN IN START SIGN IN START SIGN IN START, SIGN IN START */
@@ -155,9 +173,9 @@ CSS RESET
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-  }
-  
-  #ball {
+}
+
+#ball {
     position: fixed;
     top: 3em;
     width: 3em;
@@ -167,9 +185,9 @@ CSS RESET
     -moz-animation:    bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
     -o-animation:      bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
     animation:         bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
-  }
-  
-  #bat {
+}
+
+#bat {
     position: fixed;
     top: 3em;
     left: -10.5em;
@@ -177,92 +195,105 @@ CSS RESET
     -moz-animation:    hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
     -o-animation:      hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
     animation:         hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
-  }
-  
-  .red {
+}
+
+.red {
     fill:#D7172A;
-  }
-  
-  .tan {
+}
+
+.tan {
     fill:#FFD87D;
-  }
-  
-  .white {
+}
+
+.white {
     fill:#ffffff;
-  }
-  
-  @-webkit-keyframes hit {
+}
+
+@-webkit-keyframes hit {
     0% { transform: rotate(0deg);} 
     100% { transform: rotate(-10deg); }
   }
   
   @-webkit-keyframes bounce {
-    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-    25% { height: 3em; width: 3em; }
-    75% { height: 3em; width: 3em; }
-    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-  }
-  
-  @-moz-keyframes bounce {
-    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-    25% { height: 3em; width: 3em; }
-    75% { height: 3em; width: 3em; }
-    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-  }
-
-  @-moz-keyframes hit {
-    0% { transform: rotate(0deg);} 
-    100% { transform: rotate(-10deg); }
-  }
-  
-  @-o-keyframes bounce {
-    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-    25% { height: 3em; width: 3em; }
-    75% { height: 3em; width: 3em; }
-    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-  }
-
-  @-o-keyframes hit {
-    0% { transform: rotate(0deg);} 
-    100% { transform: rotate(-10deg); }
-  }
-  
-  @keyframes bounce {
-    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-    25% { height: 3em; width: 3em; }
-    75% { height: 3em; width: 3em; }
-    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-  } 
-
-  @keyframes hit {
-    0% { transform: rotate(0deg);} 
-    100% { transform: rotate(-10deg); }
-  }
-
-
-
-
-/*SIGN IN END SIGN IN END SIGN IN END SIGN IN END SIGN IN END*/
-
-
-
-
-/*NAV START, NAV START, NAV START, NAV START, NAV START, NAV START*/
-    .nav{
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        height: 6vh;
-        background-color: #2c1b47;
-        padding: 0px;
-        align-items: center;  
+      0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+      25% { height: 3em; width: 3em; }
+      75% { height: 3em; width: 3em; }
+      100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
     }
+    
+    @-moz-keyframes bounce {
+        0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+        25% { height: 3em; width: 3em; }
+        75% { height: 3em; width: 3em; }
+        100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+    }
+    
+    @-moz-keyframes hit {
+        0% { transform: rotate(0deg);} 
+        100% { transform: rotate(-10deg); }
+    }
+    
+    @-o-keyframes bounce {
+        0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+        25% { height: 3em; width: 3em; }
+        75% { height: 3em; width: 3em; }
+        100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+    }
+    
+    @-o-keyframes hit {
+        0% { transform: rotate(0deg);} 
+        100% { transform: rotate(-10deg); }
+    }
+    
+    @keyframes bounce {
+        0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+        25% { height: 3em; width: 3em; }
+        75% { height: 3em; width: 3em; }
+        100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+    } 
+    
+    @keyframes hit {
+    0% { transform: rotate(0deg);} 
+    100% { transform: rotate(-10deg); }
+  }
+  
 
+  
+  
+  /*SIGN IN END SIGN IN END SIGN IN END SIGN IN END SIGN IN END*/
+  
+  
+  
+  
+  /*NAV START, NAV START, NAV START, NAV START, NAV START, NAV START*/
+  .nav{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: 6vh;
+      background-color: #2c1b47;
+      padding: 0px;
+      align-items: center;  
+    }
+    @media  (max-width: 768px) {
+        .nav { 
+            justify-content: center;
+            align-items: center;
+            font-size: .7em;
+            margin: 0;
+            height: auto;
+
+
+        }
+      
+      }
+      
+    
     .logo{
         height:6vh;
         width: 6vw;
     }
-
+    
     .nav a{
         font-family: zektonrg;
         padding: 1vh;
@@ -272,11 +303,24 @@ CSS RESET
         font-weight: bold;
     }
 
+    @media  (max-width: 768px) {
+        .nav a { 
+            font-size: 1rem;
+            margin: 0;
+        }
+      
+      }
+      
+      
+
+
+
+    
     .nav .active{
         color: #ebeb98;
     }
-
-
+    
+    
     .signoutButton{
         font-family: zektonrg;
         display: inline-block;
@@ -287,35 +331,46 @@ CSS RESET
         font-size: 16px;
         font-weight: bold;
     }
+    
 
+    @media  (max-width: 768px) {
+        .signoutButton { 
+            font-size: 1rem;
 
+        }
+      
+      }
+      
 
-        /* .nav .active {
-    background-color: #0d1019;
+    
+    
+    /* .nav .active {
+        background-color: #0d1019;
     } */
-/*NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END*/
-
-
-
-
-
-
-
-/*HOME START, HOME START, HOME START, HOME START, HOME START*/
-
-.flexParent{
+    /*NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END*/
+    
+    
+    
+    
+    
+    
+    
+    /*HOME START, HOME START, HOME START, HOME START, HOME START*/
+    
+    .flexParent{
         margin: 0 -5px;
         width: 100vw;
         height: 100vh;
-         display: flex;
-         justify-content: space-around;
-         flex-wrap: wrap;
-         flex-direction: row;
-         background-color: white;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: row;
+        background-color: white;
     }
     
     
-.homeTile { 
+    .homeTile { 
+        overflow-wrap: anywhere;
         cursor: pointer;
         padding: 0;
         margin: 0 5px;
@@ -329,22 +384,48 @@ CSS RESET
         padding-inline: 0px;
         font-family: 'zektonrg';
         font-weight: bold;
-        font-size: 3.9vh;
+        font-size: 2em;
         transition: color 0.3s ease;
     }
-   
-.homeTile:hover {
+    
+    .homeTile:hover {
         color: #6e43b5; /* Change to your desired color on hover */
+    }
+    
+    /*HOME END, HOME END, HOME END, HOME END, HOME END, HOME END*/
+    
+    @media  (max-width: 768px) {
+      .homeTile { 
+          font-size: 1em;
       }
+    
+    }
+    
+    
+    
+    
+    
+    
+    
 
-/*HOME END, HOME END, HOME END, HOME END, HOME END, HOME END*/
-    
-    
-    
-    
-    
-    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
@@ -368,7 +449,9 @@ Wrapper Today[
 
     game  [ 
         teamInfo [ ]
+        todayLiveScore 3 spans
         teamInfo [ ]
+        ? Prediction Group ?
 ]
 */ 
 
@@ -381,7 +464,6 @@ Wrapper Today[
 }
 
 
-
 .game{
     background-color: #f5ffff;
     flex-grow: 1;
@@ -392,6 +474,20 @@ Wrapper Today[
     border-radius: 10px;
     box-shadow: 8px 8px 5px #444;
 }
+@media  (max-width: 768px) {
+    .game { 
+      
+
+
+    }
+  }
+  
+
+ @media (max-width: 768px){
+    .predictiveinfoGroup{
+        
+    }
+ } 
 
 .probPitcherPhoto{
     
@@ -401,6 +497,18 @@ Wrapper Today[
    
 }
 
+
+@media (max-width: 768px){
+    .probPitcherPhoto{
+        width: 5vh;
+        height: 5vh;
+    }
+}
+
+
+
+
+
 .teamInfo{
  margin: 10px;
  display: inline-block;
@@ -408,11 +516,87 @@ Wrapper Today[
 
 }
 
+
+@media (max-width: 768px){
+    .teamInfo{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    
+    }
+}
+
+
+.todayLiveScore{
+    font-size: 1rem;
+}
+
+
 .teamGameLogo{
      width: 4vw;
     height: 4vh; 
    
 }
+
+@media (max-width: 768px){
+    .teamGameLogo{
+        width: 8vw;
+        height: 8vh;
+    }
+}
+
+.teamName {
+    
+}
+
+@media (max-width: 768px){
+    .teamName{
+        padding-bottom: 5px;
+    }
+}
+
+
+
+
+.leaugeSelect{
+    position: sticky;
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.leaugeSelect button{
+    background-color: #6e43b5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6.5px 8px;
+    width: 12vw;
+    margin-top: 5px
+
+}
+
+
+
+@media (max-width: 768px){
+    .leaugeSelect button{
+        background-color: #6e43b5;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 6.5px 8px;
+        
+    }
+}    
+
+
+
+
+
+
+
 
 .liveLink{
     color: red;
@@ -426,6 +610,51 @@ Wrapper Today[
 
 
 /*TODAY END, TODAY END, TODAY END, TODAY END, TODAY END, TODAY END*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1189,10 +1418,3 @@ batterCard */
 
 
 
-
-.leaugeSelect{
-    display: flex;
-    gap: 30px;
-    flex-direction: row;
-    justify-content: center;
-}
