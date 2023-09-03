@@ -37,6 +37,23 @@ CSS RESET
 }
 
 
+.form-group{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   margin-bottom: 10px;
+   width: 100%;
+
+
+}
+
+
+
+.signInUpFormInput{
+    width: 200px;
+}
+
+
 /*
     Login
 */
@@ -79,7 +96,7 @@ CSS RESET
     justify-content: center;
 }
 
-.signInText{
+.signInUPText{
     font-size: 2rem;
     font-family: 'zektonrg';
     text-align: center;
@@ -94,10 +111,26 @@ CSS RESET
 }
 .signInUpLabel{
     font-size: 1.5rem;
+    flex: 1;
+    text-align: right;
+    margin-right: 10px;
 }
 
 
 
+/*Sign up */
+
+.signupDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signupForm{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
   
 
 
@@ -108,7 +141,6 @@ CSS RESET
 .signForm{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 
@@ -117,7 +149,7 @@ CSS RESET
 }
 
 .loader {
-    margin-top: 10vh;
+    margin-top: 25vh;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -209,18 +241,6 @@ CSS RESET
 
 
 
-/*Sign up */
-
-.signupDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.signupForm{
-    display: flex;
-    flex-direction: column;
-}
 
 /*SIGN IN END SIGN IN END SIGN IN END SIGN IN END SIGN IN END*/
 
@@ -307,18 +327,13 @@ CSS RESET
         box-shadow: 8px 8px 5px #444;
         padding-block: 0px;
         padding-inline: 0px;
+        font-family: 'zektonrg';
+        font-weight: bold;
+        font-size: 3.9vh;
+        transition: color 0.3s ease;
     }
    
-.navSpan{
-    padding: 0;
-    font-family: 'zektonrg';
-    font-weight: bold;
-    font-size: 3.9vh;
-    background: rgb(228,230,242);
-    transition: color 0.3s ease;
-}
-
-.navSpan:hover {
+.homeTile:hover {
         color: #6e43b5; /* Change to your desired color on hover */
       }
 
