@@ -1496,7 +1496,10 @@ batterCard */
     }
 
     .firstLiveRow{
-        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 1vw;
+        padding: 1vw;
+        margin-bottom: 20px;
     }
 
     .AllBaseInfoWrapper{
@@ -1520,6 +1523,23 @@ batterCard */
 
 
     }
+
+    .WrapperLiveCircles{
+        height: fit-content;
+    }
+
+    .currentPlay {
+        padding: 2px;
+    }
+
+    .playSpan{
+        font-size: .5rem;
+        font-weight: bold;
+    }
+
+
+
+
     .AllBaseInfoWrapper h3 {
         font-size: 1rem;
         font-weight: bold;
@@ -1532,6 +1552,13 @@ batterCard */
         flex-direction: column;
         font-size: .8rem;
 
+    }
+
+
+    .WrapperPitcherVsBatter{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
     }
 
 
@@ -1550,6 +1577,11 @@ batterCard */
     .OnDeck{
         height: 2.5rem;
     }
+
+
+
+
+
 
     .bothLineups{
         font-size: .8rem;

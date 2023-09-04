@@ -18,8 +18,12 @@ function PitcherVsBatter({...dataLiveGame}){
 
             </div>
 
-            <span>{`On Deck: ${dataLiveGame.liveData.linescore.offense.inHole.fullName}`}</span>
-            <img className="OnDeck" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.inHole.id}/headshot/silo/current`}></img>
+            <div className="onDeckDiv">
+                <span>
+                    {`On Deck: ${dataLiveGame.liveData.linescore.offense.inHole.fullName}`}
+                </span>
+                <img className="OnDeck" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.inHole.id}/headshot/silo/current`}></img>
+            </div>
 
 
         </div>
