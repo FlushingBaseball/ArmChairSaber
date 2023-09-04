@@ -31,6 +31,24 @@ box-sizing: border-box;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 Login Switch root
 */
@@ -274,6 +292,8 @@ Login
       background-color: #2c1b47;
       padding: 0px;
       align-items: center;  
+      top: 0px;
+      position: sticky;
     }
     @media  (max-width: 768px) {
         .nav { 
@@ -282,8 +302,8 @@ Login
             font-size: .7em;
             margin: 0;
             height: auto;
-
-
+            top: 0px;
+            position: sticky;
         }
       
       }
@@ -564,6 +584,8 @@ Wrapper Today[
     gap: 30px;
     flex-direction: row;
     justify-content: center;
+    position: sticky;
+    top: inherit;
 }
 
 
@@ -682,7 +704,11 @@ Wrapper Today[
 
 
 
-/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, */
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
 
 
 .firstLiveRow{
@@ -699,13 +725,14 @@ Wrapper Today[
 .AllBaseInfoWrapper{
 border: rgb(200, 200, 248) solid 8px;
 box-shadow: 8px 8px 5px #444;
- display: flex;
+ display: inline-flex;
  padding: 3vh;  
  flex-direction: column;
  justify-content: space-evenly;
  align-items: center;
  height: 30vh;
  background-color: #e1e9f2;
+ width: max-content;
 }
 
 
@@ -720,6 +747,8 @@ box-shadow: 8px 8px 5px #444;
 
 
 }
+
+
 
 #firstBase{
     border-width: 3vh;
@@ -1059,6 +1088,11 @@ box-shadow: 8px 8px 5px #444;
     
 }
 
+
+
+
+
+
 .scoreHeader{
     display: inline-block;
 }
@@ -1085,6 +1119,17 @@ box-shadow: 8px 8px 5px #444;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /*BOX SCORE START BOX SCORE START BOX SCORE START*/
 .boxElement{
     display: flex;
@@ -1095,53 +1140,53 @@ box-shadow: 8px 8px 5px #444;
 table, th, td {
     border:1px solid rgb(84, 83, 83);
     font-size: 2vh;
-  }
+}
 
 
-  .boxLogo{
+.boxLogo{
     height: 2vh;
 
-  }
+}
 
 /*BOX END, BOX END, BOX END, BOX END. BOX END. BOX END*/
 
 
 
 
-  
 
 
 
 
 
 
-  /*PITCH VIS START*/
+
+/*PITCH VIS START*/
 
 .WrapperPitchingvis{
     display: flex;
 }
 
-  .batterImg{
+.batterImg{
     display: inline;
     height: 50%;
-  }
+}
 
-  .pitchVis{
+.pitchVis{
     display: flex;
     align-items: center;
-  }
+}
 
   .strikezone{
+      
+}
 
-  }
 
 
-
-  /*Batting Order Start, Batting Order Start, Batting Order Start, BATTING ORDER START, BATTING ORDER START */
+/*Batting Order Start, Batting Order Start, Batting Order Start, BATTING ORDER START, BATTING ORDER START */
 
 .awayLineups{
     display: flex;
-
+    
 }
 
 .bothLineups{
@@ -1155,7 +1200,7 @@ table, th, td {
     flex-direction: column;
     width: max-content;
     box-shadow: 1px 8px 8px 5px #444;
-
+    
 }
 
 .lineupBatter{
@@ -1170,21 +1215,21 @@ table, th, td {
 
 
 
-  /*Batting Order End, Batting Order End, Batting Order End, BATTING ORDER END, BATTING ORDER END*/
+/*Batting Order End, Batting Order End, Batting Order End, BATTING ORDER END, BATTING ORDER END*/
 
 
 
 
-  /*LEADERBOARD START, LEADERBOARD START, LEADERBOARD START, LEADERBOARD START*/
+/*LEADERBOARD START, LEADERBOARD START, LEADERBOARD START, LEADERBOARD START*/
 
 #leaderBoard{
- display: flex;
- flex-direction: column;
- align-items: center;
- border: rgb(200, 200, 248) solid 8px;
- border-radius: 20px;
- background: rgb(228,230,242);
- background: linear-gradient(180deg, rgba(228,230,242,1) 0%, rgba(200,200,248,1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: rgb(200, 200, 248) solid 8px;
+    border-radius: 20px;
+    background: rgb(228,230,242);
+    background: linear-gradient(180deg, rgba(228,230,242,1) 0%, rgba(200,200,248,1) 100%);
 }
 
 .leaderEntry{
@@ -1204,10 +1249,10 @@ table, th, td {
     text-decoration: underline;
 }
 
-  .leaderBoardCata{
+.leaderBoardCata{
     display: flex;
     gap: 2vw;
-  }
+}
 
 
 .leaderEntry{
@@ -1221,7 +1266,7 @@ table, th, td {
 
 
 
-  /*LEADERBOARD END, LEADERBOARD END, LEADERBOARD END, LEADERBOARD END*/
+/*LEADERBOARD END, LEADERBOARD END, LEADERBOARD END, LEADERBOARD END*/
 
 
 
@@ -1234,7 +1279,7 @@ table, th, td {
 
 
 
-  /*SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,*/
+/*SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,*/
 .playerFieldCard{
     display: flex;
     gap: 2vw;
@@ -1258,9 +1303,8 @@ table, th, td {
     display: flex;
     flex-direction: column;
 }
-.seasonSelect{
 
-}
+
 
 .search{
     display: flex;
@@ -1278,7 +1322,7 @@ table, th, td {
 
 
 
-  /*SABER FIELDING END,SABER FIELDING END, SABER FIELDING END, SABER FIELDING END, SABER FIELDING END,  */
+/*SABER FIELDING END,SABER FIELDING END, SABER FIELDING END, SABER FIELDING END, SABER FIELDING END,  */
 
 
 
@@ -1289,9 +1333,9 @@ table, th, td {
 
 
 
-  /*current play*/
+/*current play*/
 
-  .currentPlay{
+.currentPlay{
     display: flex;
     flex-direction: column;
     padding: 1vh;
@@ -1300,16 +1344,16 @@ table, th, td {
     width: max-content;
     align-items: center;
     height: max-content;
+    
+    
+}
 
-
-  }
-
-  .playSpan{
+.playSpan{
     display: flex;
     flex-direction: column;
     padding: .5vh;
     
-  }
+}
 
 
 /*Scoring plays start*/
@@ -1331,12 +1375,12 @@ table, th, td {
     width: max-content;
 }
 
-  .ScoringPlays{
+.ScoringPlays{
     display: flex;
     justify-content: center;
-
-
-  }
+    
+    
+}
 .scoreheader{
     display: flex;
     justify-content: center;
@@ -1388,7 +1432,7 @@ table, th, td {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-
+    
 }
 
 .batterCard{
@@ -1409,7 +1453,7 @@ table, th, td {
     font-family: 'zektonrg';
     color: white;
     text-decoration: underline;
-
+    
 }
 
 /* ABSpan
@@ -1418,3 +1462,183 @@ batterCard */
 
 
 
+
+@media  (max-width: 768px) {
+
+    .gameInfo{
+        width: 100vw;
+    }
+
+
+    .LiveGameScoreBoard { 
+        width: 100vw;
+        
+    }
+    
+    .glanceSpan{
+        font-size: 1rem;
+    }
+
+    .glanceLogo{
+        width: 2rem;
+        height: 2rem;
+        padding-bottom: 5px;
+    }
+
+
+    .bigOldScoreNums{
+        display: flex;
+        align-items: center;
+
+    }
+    .scoreNum{
+        font-size: 2rem;
+    }
+
+    .firstLiveRow{
+        flex-wrap: wrap;
+    }
+
+    .AllBaseInfoWrapper{
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content;
+        width: fit-content;
+        padding: 5px;
+    }
+
+    #firstBase{
+        border-width: .5rem;
+    }
+    #secondBase{
+        border-width: .5rem;
+        margin-bottom: 1rem;
+
+    }
+    #thirdBase{
+        border-width: .5rem;
+
+
+    }
+    .AllBaseInfoWrapper h3 {
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 3px 0px;
+
+    }
+    .onBaseSpan{
+        display: flex;
+        flex-direction: column;
+        font-size: .8rem;
+
+    }
+
+
+
+    .vsImage{
+        width: 3rem;
+        height: 3rem;
+    }
+
+
+    .batterImg{
+        height: 5rem;
+    }
+
+
+    .OnDeck{
+        height: 2.5rem;
+    }
+
+    .bothLineups{
+        font-size: .8rem;
+
+    }
+    
+    .lineup{
+        padding: 2px;
+    }
+
+
+
+    .WrapperScoringPlays{
+        width: 100vw;
+    }
+  
+  }
+  
+
+
+
+  /* .firstLiveRow{
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+    padding: 4vh;
+    
+}
+
+.AllBaseInfoWrapper{
+border: rgb(200, 200, 248) solid 8px;
+box-shadow: 8px 8px 5px #444;
+ display: flex;
+ padding: 3vh;  
+ flex-direction: column;
+ justify-content: space-evenly;
+ align-items: center;
+ height: 30vh;
+ background-color: #e1e9f2;
+}
+
+
+
+.Bases{
+    flex-direction: row-reverse;
+    float: none;
+    flex: relative;
+    justify-content: center;
+    position: relative;
+    display: flex;
+
+
+}
+
+#firstBase{
+    border-width: 3vh;
+    border-style: solid;
+    align-self: flex-end;
+    transform: rotate(45deg);
+    display: block;
+
+}
+
+#secondBase{
+    border-width: 3vh;
+    margin-bottom: 6vh;
+    border-style: solid;
+    transform: rotate(45deg);
+    transition-duration: 0.5s; 
+    display: block;
+}
+
+#thirdBase{
+    border-width: 3vh;
+    border-style: solid;
+    align-self: flex-end;
+    transform: rotate(45deg);
+    transition-duration: 0.5s; 
+    display: block;
+
+}
+
+
+ */
+
+
+
+
+/*LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END LIVE GAME END LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END*/
+/*LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END LIVE GAME END LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END*/
+/*LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END LIVE GAME END LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END*/
+/*LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END LIVE GAME END LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END*/
