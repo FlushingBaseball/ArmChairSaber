@@ -51,7 +51,11 @@ const battingOrderHome =[]
                     <h3>Home Lineup</h3>                       
                             {battingOrderHome.map((batter)=>{
                                 return(
-                                    <span key={batter} className="lineupBatter">{ batter }</span>
+                                    <span
+                                     key={batter}
+                                      className={`lineupBatter ${batter === dataLiveGame.liveData.linescore.offense.batter.fullName ? 'BatterActive' : ''}`}
+                                      >
+                                        { batter }</span>
                                 )
                             })}                       
                     </div>  

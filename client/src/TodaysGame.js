@@ -47,7 +47,7 @@ const [predictedWinner, setPredictedWinner] = useState('');
                  </div>
               </div>
 
-            {status.abstractGameState === 'Live' || status.abstractGameState ==="Final" ? (<div><span>{teams.home.score}</span> <span>-</span> <span>{teams.away.score}</span></div> ) : null}
+            {status.abstractGameState === 'Live' || status.abstractGameState ==="Final" ? (<div><span className="todayLiveScore">{teams.home.score}</span> <span  className="todayLiveScore">-</span> <span  className="todayLiveScore">{teams.away.score}</span></div> ) : null}
         
             <div className={`teamInfo ${predictedWinner == teams.away.team.id ? 'predictedWinner' : ' '}`}>
                 <img className="teamGameLogo" alt={teams.away.team.name} src={awayTeamImageSrc}></img>
