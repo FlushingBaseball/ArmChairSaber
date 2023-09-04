@@ -3,7 +3,8 @@ function PitcherVsBatter({...dataLiveGame}){
         <div className="WrapperPitcherVsBatter">
             <div className="matchup">
                 <div className="PitcherVsBatter">
-                    <span >{`Pitching: ${dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.fullName}`}</span>
+                    <span >{`Pitching: `}</span>
+                    <span>{dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.fullName}</span>
                     <img className="vsImage" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.id}/headshot/silo/current`}></img>
                 </div>
                         <div className="vs-text-container">
@@ -12,7 +13,10 @@ function PitcherVsBatter({...dataLiveGame}){
                         </div>
 
                 <div className="PitcherVsBatter">
-                    <span>{`Batting: ${dataLiveGame.liveData.linescore.offense.batter.fullName}`}</span>
+                    <span>{`Batting: `}</span>
+                    <span>
+                    {dataLiveGame.liveData.linescore.offense.batter.fullName}
+                    </span>
                     <img className="vsImage" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.batter.id}/headshot/silo/current`}></img>
                 </div>
 
@@ -20,7 +24,10 @@ function PitcherVsBatter({...dataLiveGame}){
 
             <div className="onDeckDiv">
                 <span>
-                    {`On Deck: ${dataLiveGame.liveData.linescore.offense.inHole.fullName}`}
+                    {`On Deck: `}
+                </span>
+                <span>
+               {dataLiveGame.liveData.linescore.offense.inHole.fullName}
                 </span>
                 <img className="OnDeck" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.inHole.id}/headshot/silo/current`}></img>
             </div>
