@@ -55,7 +55,7 @@ function Today({user}){
 
 
     return( 
-    <div>
+    <div className='todayfilled'>
           <div className='leaugeSelect'>
               <button onClick={() => handleSportSelect("1")}>MLB</button>
               <button onClick={() => handleSportSelect("11")}>AAA</button>

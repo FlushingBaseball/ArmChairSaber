@@ -73,17 +73,17 @@ if (dataLiveGame === null){
                 </div>
                 <div className="firstLiveRow">
                     <LiveBases {...dataLiveGame}/>
-                    <PitcherVsBatter {...dataLiveGame}/>
+                    <CurrentPlay {...dataLiveGame}/>
                     <LiveCircles {...dataLiveGame}/>
                 </div>
-                <div className="bothLineups">
-                    <BattingOrderAway {...dataLiveGame}/>
-                    <CurrentPlay {...dataLiveGame}/>
-                    <BattingOrderHome {...dataLiveGame}/>
-                </div>
+                    <PitcherVsBatter {...dataLiveGame}/>
                 <div  className="pitchComponets">
                     <LivePitchData {...dataLiveGame}/>
                     <LivePitchDataVis {...dataLiveGame} />
+                </div>
+                <div className="bothLineups">
+                    <BattingOrderAway {...dataLiveGame}/>
+                    <BattingOrderHome {...dataLiveGame}/>
                 </div>
                     <LiveBoxScore {...dataLiveGame}/>
                     <GameWeather {...dataLiveGame}/>

@@ -26,15 +26,15 @@ function LiveBases({...dataLiveGame}){
     return(
 <div className="AllBaseInfoWrapper">
         <div className="Bases">
-            <div id="firstBase" className={dataLiveGame.liveData.linescore.offense.first ? 'activeBase' : 'inactiveBase'}></div>
-            <div id="secondBase" className={dataLiveGame.liveData.linescore.offense.second ? 'activeBase' : 'inactiveBase'}></div>
-            <div id="thirdBase" className={dataLiveGame.liveData.linescore.offense.third ? 'activeBase' : 'inactiveBase'}></div>
+            <div id="firstBase" className={`base ${dataLiveGame.liveData.linescore.offense.first ? 'activeBase' : 'inactiveBase'}`}></div>
+            <div id="secondBase" className={`base ${dataLiveGame.liveData.linescore.offense.second ? 'activeBase' : 'inactiveBase'}`}></div>
+            <div id="thirdBase" className={`base ${dataLiveGame.liveData.linescore.offense.third ? 'activeBase' : 'inactiveBase'}`}></div>
         </div>
         <div>
             <h3>On Base</h3>
-            <span>{`On First: ${nameRunnerOnFirst} `}</span>
-            <span>{`On Second: ${nameRunnerOnSecond} `}</span>
-            <span>{`On Third: ${nameRunnerOnThird} `}</span>
+            <span className="onBaseSpan">{`On First: ${nameRunnerOnFirst} `}</span>
+            <span className="onBaseSpan">{`On Second: ${nameRunnerOnSecond} `}</span>
+            <span className="onBaseSpan">{`On Third: ${nameRunnerOnThird} `}</span>
         </div>
 </div>
 

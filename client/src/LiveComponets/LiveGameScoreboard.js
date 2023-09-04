@@ -9,8 +9,8 @@ return(
                                     <div className="scoreHeader">
                                         <div className="team">
                                             <img className="glanceLogo" src={`/Images/logos/${dataLiveGame.gameData.teams.home.id}.svg`}></img>
-                                            <span className="glanceSpan">{dataLiveGame.gameData.teams.home.name}</span>
-                                            <span className="glanceSpan">{`Record ${dataLiveGame.gameData.teams.home.record.wins} - ${dataLiveGame.gameData.teams.home.record.losses}`}</span>
+                                            <span className="teamNameSpan">{dataLiveGame.gameData.teams.home.name}</span>
+                                            <span className="RecordSpan">{`Record ${dataLiveGame.gameData.teams.home.record.wins} - ${dataLiveGame.gameData.teams.home.record.losses}`}</span>
                                         </div>
                                     </div>
                                 
@@ -24,8 +24,8 @@ return(
                                     <div className="scoreHeader">
                                         <div className="team">
                                             <img className="glanceLogo" src={`/Images/logos/${dataLiveGame.gameData.teams.away.id}.svg`}></img>
-                                            <span className="glanceSpan">{dataLiveGame.gameData.teams.away.name}</span>
-                                            <span className="glanceSpan">{`Record ${dataLiveGame.gameData.teams.away.record.wins} - ${dataLiveGame.gameData.teams.away.record.losses}`}</span>
+                                            <span className="teamNameSpan">{dataLiveGame.gameData.teams.away.name}</span>
+                                            <span className="RecordSpan">{`Record ${dataLiveGame.gameData.teams.away.record.wins} - ${dataLiveGame.gameData.teams.away.record.losses}`}</span>
                                         </div>
                                     </div>
                                     
