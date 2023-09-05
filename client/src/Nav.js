@@ -15,7 +15,7 @@ return (
         <NavLink to='/today'>Todays Games</NavLink>
         <img className="logo" src={logoLoc}></img>
         <NavLink to='/leaderboard'>LeaderBoard</NavLink>
-        <NavLink to={`/user/${user.username}`} user={user}>{user.username}'s' User Page</NavLink>
+        <NavLink to={`/user/${user.username}`} user={user}>{user.username}</NavLink>
         <SignOut user={user} setUser={setUser} />
     </div>
 )
