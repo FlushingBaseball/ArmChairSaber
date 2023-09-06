@@ -22,6 +22,11 @@ function Today({user}){
 
 
 
+
+
+
+
+
 /**
   * Used Afte Midnight for development because formattedDate changes
  */
@@ -51,6 +56,27 @@ function Today({user}){
         <h3>...loading</h3>
       )
     }
+
+    
+    if (!gameData.dates.length){
+      return (
+        <div id="noGames">
+          <div className='leaugeSelect'>
+              <button onClick={() => handleSportSelect("1")}>MLB</button>
+              <button onClick={() => handleSportSelect("11")}>AAA</button>
+              <button onClick={() => handleSportSelect("12")}>AA</button>
+              <button onClick={() => handleSportSelect("13")}>A+</button>
+              <button onClick={() => handleSportSelect("14")}>A</button>
+              <button onClick={() => handleSportSelect("16")}>ROK</button>
+          </div> 
+          <h1 id='noGameHeader'>There seems to be no games scheduled for </h1>
+            <h2 id='noGameDate'> {formattedDate}</h2>
+          <img id='noGameImage' src='/Images/empty2.jpg'></img>
+        </div>
+      )
+    }
+    
+
 
 
 
