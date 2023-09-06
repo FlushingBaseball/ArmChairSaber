@@ -1,5 +1,8 @@
 function BattingOrderAway({...dataLiveGame}){
 
+// dataLiveGame.liveData.boxscore.teams.away.players[i].stats.batting.summary
+
+
 const players = {}
 const battingOrderAway = []
 
@@ -34,14 +37,15 @@ const battingOrderAway = []
                         if (dataLiveGame.liveData.boxscore.teams.away.battingOrder[i] == players[playerEntry]){
                             battingOrderAway.push(playerEntry)
                            
-                        console.log(battingOrderAway)
+                        // console.log(battingOrderAway)
                         }
                     }
                 }
 
                     // if (batter        dataLiveGame.liveData.linescore.offense.batter.id)
 
-            }
+            }       
+
 
                     createBattingOrderAwayNames()  
                     
