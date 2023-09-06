@@ -1,5 +1,6 @@
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy.orm import validates
 
 from config import db, bcrypt
 
@@ -84,9 +85,14 @@ class User_Prediction(db.Model, SerializerMixin):
     ##back ref game = relationship
     serialize_rules=("-game.Game_Predictions", "-user.User_Predictions")
 
-    @validates('predictedWinnerId')
-    def validate_predictedWinner(self, key, team):
-        if 
+    ## for when teams table is added to database
+
+    # @validates('predictedWinnerId')
+    # def validate_predictedWinner(self, key, team):
+    #     teams = db.session.query(Teams.id).all()
+    #     if team not in teams:
+    #         raise ValueError("Invalid team ID")
+    #     return team
     
 
 class Game(db.Model, SerializerMixin):
