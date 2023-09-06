@@ -38,6 +38,12 @@ class User(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f"<User {self.username}>"
+
+    @validates('email')
+    def validate_email(self, key, email_address):
+        if '@' and '.' not in email_address:
+            raise ValueError("Failed Email structure Validation")
+        return email_address
     
     serialize_rules = ("-_password_hash", "-User_Predictions.user")
 
@@ -64,13 +70,23 @@ class User_Prediction(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     game_Id = db.Column(db.Integer, db.ForeignKey("games.id"))
     user_Id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    predictedWinnerId = db.Column(db.Integer, nullable=False)
+    predictedWinnerId = db.Column(db.Integer,
+                                    db.CheckConstraint('predictedWinnerId > 0'),
+                  nullable=False)
     actualWinnerId = db.Column(db.Integer, nullable=True)
-    predictedLoserId = db.Column(db.Integer, nullable=False, default=0)
+    predictedLoserId = db.Column(db.Integer,
+                        db.CheckConstraint('predictedLoserId > 0'),
+                            nullable=False,
+                                  default=0
+                                  )
     actualLoserId = db.Column(db.Integer, nullable=True)
     ##back ref user = relationship
     ##back ref game = relationship
     serialize_rules=("-game.Game_Predictions", "-user.User_Predictions")
+
+    @validates('predictedWinnerId')
+    def validate_predictedWinner(self, key, team):
+        if 
     
 
 class Game(db.Model, SerializerMixin):
