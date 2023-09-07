@@ -79,7 +79,7 @@ if (dataLiveGame === null){
                     <PitcherVsBatter {...dataLiveGame}/>
                 <div  className="pitchComponets">
                     <LivePitchData {...dataLiveGame}/>
-                    <LivePitchDataVis {...dataLiveGame} />
+                    {/* <LivePitchDataVis {...dataLiveGame} /> */}
                 </div>
                 <div className="bothLineups">
                     <BattingOrderAway {...dataLiveGame}/>
