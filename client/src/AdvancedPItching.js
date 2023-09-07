@@ -53,7 +53,7 @@ if (fetchedGameData.length > 1){
             <span className="ABSpan">{`${user.stat.walksPer9Inn} : Walks Per 9 Innings `}</span>
             <span className="ABSpan">{`${user.stat.strikePercentage} : Percentage of Pitches that are strikes`}</span>
             <span className="ABSpan">{`${user.stat.pitchesPerInning} : Pitches Per Inning`}</span>
-            <span className="ABSpan">{`${user.stat.era} :  era over the past 10 apperances`}</span>
+            <span className="ABSpan">{`${user.stat.era} :  ERA over the past 10 apperances`}</span>
             <span className="ABSpan">{`${user.stat.battersFaced} : Batters Faced`}</span>
             <span className="ABSpan">{`${user.stat.groundOutsToAirouts} : Ground outs to Air outs`}</span>
             <span className="ABSpan">{`${user.stat.hitByPich} : batters hit by pitches`}</span>

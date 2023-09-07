@@ -50,14 +50,6 @@ Display Team Map
 ## Thoughts
 
 
-MILB photos cause errors based on the MLB silo being called.
-  Notable prospects have a photo found here
-  https://midfield.mlbstatic.com/v1/people/${mlbplayerID}/milb/${numbersize}
-
-example call for blade tidwell
-    https://midfield.mlbstatic.com/v1/people/694918/milb/400
-
-
 
 
 ## Done
