@@ -18,8 +18,8 @@ function LivePitchData ({...dataLiveGame}){
 
                         <div key={play.pitchData.breaks.spinRate} className="PitchWrapper">
                             <div className='PitchType'>
-                                <span className='LivePitch'>{play.details.type.description}</span>
-                                <span className='LivePitch'>{play.details.call.description}</span>
+                                <span className='PitchDescription'>{play.details.type.description}</span>
+                                <span className={`${play.details.isBall ? "CalledBall" : "" }`}>{play.details.call.description}</span>
 
                             </div>
                             <div className='PitchBreak'>
