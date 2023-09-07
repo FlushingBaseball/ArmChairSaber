@@ -65,7 +65,7 @@ function calculateFieldingMetrics(){
             }
             else if (key == 'distance'){
                 let playDistance =  Number(feildingData[i][key])
-                console.log(`68 numPlays: ${numPlays}`)
+                // console.log(`numPlays: ${numPlays}`)
                 setTotalDistance(totalDistance += playDistance) 
                 if (longestDistance < playDistance){
                     setLongestDistance(playDistance)
@@ -82,8 +82,9 @@ function calculateFieldingMetrics(){
         }
     }
     setAverageSpeed(totalSpeed/numPlays)
-    console.log(`85 total Speed: ${totalSpeed}`)
-    console.log(`86 total Distance: ${totalDistance}`)
+    // console.log(`85 total Speed: ${totalSpeed}`)
+    // console.log(`86 total Distance: ${totalDistance}`)
+    console.log(feildingData)
 }
 
 

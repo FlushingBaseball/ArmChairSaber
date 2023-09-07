@@ -3,13 +3,22 @@ import {useState} from "react"
 
 import PredictionGroup from "./PredictionGroup"
 
-function TodaysGame({gamePk, teams, game, status, user}) {
+function TodaysGame({gamePk, teams, game, status, user, selectedSportId}) {
 
 const [predictedWinner, setPredictedWinner] = useState('');
 
+let awayImageSrc = teams.away.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.away.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
+let homeImageSrc = teams.home.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.home.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
 
-  const awayImageSrc = teams.away.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.away.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
-  const homeImageSrc = teams.home.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.home.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
+if (selectedSportId!=="1"){
+
+   awayImageSrc = teams.away.probablePitcher ? `https://midfield.mlbstatic.com/v1/people/${teams.away.probablePitcher.id}/milb/100` : '/Images/default-batter.svg'
+
+
+  homeImageSrc = teams.home.probablePitcher ? `https://midfield.mlbstatic.com/v1/people/${teams.home.probablePitcher.id}/milb/100` : '/Images/default-batter.svg'
+  
+}
+
 
   if (teams.home.team.id  ===undefined || teams.away.team.id ===undefined ){
       return(
@@ -30,10 +39,9 @@ const [predictedWinner, setPredictedWinner] = useState('');
               // const homeTeamImageSrc=`./Images/logos/${teams.home.team.id}.svg`;
               // const awayTeamImageSrc=`./Images/logos/${teams.away.team.id}.svg`;
 
+              const homeTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.home.team.id}.svg`;
+              const awayTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
 
-          const homeTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.home.team.id}.svg`;
-          const awayTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
-          
           
           
           return (
@@ -42,7 +50,7 @@ const [predictedWinner, setPredictedWinner] = useState('');
                  <img className="teamGameLogo" alt={teams.home.team.name} src={homeTeamImageSrc}></img>
                  <h4 className="teamName">Home: {teams.home.team.name} </h4>
                  <div className="pitcherInfo">
-                    <span  className="pitcherName">{teams.home.probablePitcher !== undefined? teams.home.probablePitcher.fullName : "unkown"}</span>
+                    <span  className="pitcherName">{teams.home.probablePitcher !== undefined? teams.home.probablePitcher.fullName : "Not Announced"}</span>
                     <img className="probPitcherPhoto" src={homeImageSrc}></img>
                  </div>
               </div>
@@ -53,7 +61,7 @@ const [predictedWinner, setPredictedWinner] = useState('');
                 <img className="teamGameLogo" alt={teams.away.team.name} src={awayTeamImageSrc}></img>
                 <h4 className="teamName">Away: {teams.away.team.name} </h4>
                 <div className="pitcherInfo">
-                    <span className="pitcherName">{teams.away.probablePitcher !== undefined? teams.away.probablePitcher.fullName : "unkown"}</span>
+                    <span className="pitcherName">{teams.away.probablePitcher !== undefined? teams.away.probablePitcher.fullName : "Not Announced"}</span>
                     <img className="probPitcherPhoto" src={awayImageSrc}></img>
                 </div>
             </div> 

@@ -17,32 +17,38 @@ function Test(){
         //hit leader board
         
         // fetch(`https://statsapi.mlb.com/api/v1.1/game/${game_Pk}/feed/live`)
+
         // fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${game_Pk}`)
         // fetch(``)
         
         // fetch(`https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=hitting&teamId=117`)
         
         // fetch(`https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=pitching&teamId=${112}`)
+
         // fetch(`https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=hits&sportId=1&limit=20&season=2023&fields=leagueLeaders,leaders,rank,value,team,name,league,name,person,fullName`)
 
 
         // fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=11&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`)
 
-        fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2023')
+        // fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2023')
+        // fetch(`https://statsapi.mlb.com/api/v1/people?personsids=683146,643446&season=2023&hydrate=hydrations`)
+        fetch(`https://statsapi.mlb.com/api/v1/people/683146?hydrate=stats(group=hitting,season=2023)`)
         .then((resp) => resp.json())
         .then(data => {setFetchedGameData(data.people)
             console.log('data should be below')        
         })
              },[])
 
-
+            //  Batty 683146
+            //  Mcneil 643446
+            //  Lindor 596019
 
     useEffect(()=>{
         console.log(fetchedGameData)
-        if (fetchedGameData.length > 1){
-            //     console.log('were in length')
-            //  populatePlayers()
-        }
+        // if (fetchedGameData.length > 1){
+        //     //     console.log('were in length')
+        //     //  populatePlayers()
+        // }
     },[fetchedGameData])
 
 
@@ -92,6 +98,8 @@ function Test(){
     return(
         <div>
             <h2>Testing Page</h2>
+            <h4>Populate players is commented out</h4>
+
 
         </div>
     )
