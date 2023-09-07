@@ -70,7 +70,7 @@ function handleTileClick(id){
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("Leaderboard")}>
-            Prediction Leaderboards
+            Predictions Leaderboard
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("advancedFielding")}>
@@ -78,14 +78,14 @@ function handleTileClick(id){
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("test")}>
-            Testing
+            Testing / one day educational material
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("LeagueLeaders")}>
             League Leaders
         </button>
 
-        <button className='homeTile' >
+        <button className='homeTile' onClick={()=> handleTileClick("Nothing")}>
             Nothing yet btn Educational Material
         </button>
     </div>

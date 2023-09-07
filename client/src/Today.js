@@ -94,7 +94,12 @@ function Today({user}){
         {console.log(gameData)}
          {gameData.dates[0].games.map((game)=>{
           return (
-            <TodaysGame key={game.gamePk}  game={game} {...game} user={user} />
+            <TodaysGame
+              key={game.gamePk}
+              game={game}
+              {...game}
+              user={user}
+              selectedSportId={selectedSportId} />
              )
         })}
       </div>
