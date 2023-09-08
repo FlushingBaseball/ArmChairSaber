@@ -8,6 +8,19 @@ Need to fix Pitch Data Vis
 
 ## Prediction Fix
 
+Ideally you wouldn't want to calculate every single prediction again to come to an average. That could get intense fro sqlite pretty fast. 
+Instead of mapping over all the predictions saying const correctPrediction = entry.actualWinnerId === entry.predictedWinnerId;
+
+So I could add a resolved True/False table to user_prediction and only call the resolve prediction logic on the unresolved predictions. 
+
+
+
+
+
+
+
+
+
 
 
 
