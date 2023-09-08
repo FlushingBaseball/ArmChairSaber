@@ -1154,7 +1154,7 @@ box-shadow: 8px 8px 5px #444;
 
 
 
-
+/*ROSTER START, ROSTER START, ROSTER START, ROSTER START*/
 
 
 
@@ -1709,6 +1709,28 @@ batterCard */
         color: red;
     }
 
+
+    /*ROSTER START, ROSTER START, ROSTER START, ROSTER START*/
+
+    .WrapperRoster{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .WrapperPlayer{
+        background-color: #ffffff;
+        border: #000000 solid 5px;
+        border-style: double;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #playerPhoto{
+        width: 6vh;
+
+
+    }
 
 
 
