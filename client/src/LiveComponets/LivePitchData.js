@@ -19,9 +19,9 @@ function LivePitchData ({...dataLiveGame}){
                         <div key={play.pitchData.breaks.spinRate} className="PitchWrapper">
                             <div className='PitchType'>
                                 <span className='PitchDescription'>{play.details.type.description}</span>
-                                <span className={`${play.details.isBall ? "CalledBall" : "" }`}>{play.details.call.description}</span>
-
+                                <span className={`PitchCall ${play.details.isBall ? "CalledBall" : "" }`}>{play.details.call.description}</span>
                             </div>
+                            
                             <div className='PitchBreak'>
                                 <span className="LivePitch">{`Break angle: ${play.pitchData.breaks.breakAngle}`}</span>
                                 <span className="LivePitch">{`Spin Direction: ${play.pitchData.breaks.spinDirection}`}</span>

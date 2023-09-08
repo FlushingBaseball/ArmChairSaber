@@ -73,9 +73,16 @@ function resolvePredictions(predictionData){
                 if (!resp.ok){
                     fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${predictionData[i].game_Id}`)
                     .then((resp) => resp.json())
+                    .then(resp => {
+                        if (!resp.dates[0].games[0].teams.away.isWinner || !resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner ){
+                           return Promise.reject("Game has no winner")
+                        }
+                    })
                     .then(resp =>{
                             console.log("this is the call to mlb resp", resp)
-
+                            console.log("made it past rejection")
+                        
+                        
 
                         if ( resp.dates[0].games[0].teams.away.isWinner === true || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
 
@@ -125,65 +132,105 @@ function resolvePredictions(predictionData){
                             body: JSON.stringify(newGame)
                            })
                            .then((resp) =>{
-                            if (!Response.ok) {
+                            if (!resp.ok) {
                                 throw new Error('Failed to post new game')
                             }
-                            return Response.json();
+                            return resp.json();
                            })
                            .then((data) => {
                             console.log("posted game:", data);
                            })
                         }
                         
-                    })               
-                  }
+                    })  
+                    
+                    
+                    
+                    .catch(err => console.error(err));
+                }
 
 
                 else if (resp.ok){
-                    return resp.json()
+                    let respOkData = resp.json()
+
+                    // return resp.json()
+                    patchPrediction(respOkData)
                 }
                 
-               
+                
 
 
             }) 
-            .then( (data) => {
 
-                    console.log(data)
+                function patchPrediction(respOkData){
+                    console.log(respOkData)
 
                     const patchedPrediction ={
-                        actualWinnerId: data.gameWinner_id,
-                        actualLoserId:  data.gameLoser_id
-                
+                        actualWinnerId: respOkData.gameWinner_id,
+                        actualLoserId:  respOkData.gameLoser_id
+                    }
+                    console.log('had this game')
+                    console.log(patchedPrediction)
+
+                    fetch(`/predictions/${predictionData[i].id}`, {
+                        method: 'PATCH',
+                        headers:{
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(patchedPrediction)
+                       })
+                       .then((resp) =>{
+                        if (!resp.ok) {
+                            throw new Error('Failed to update item')
+                        }
+                        return resp.json();
+                       })
+                       .then((data) => {
+                        console.log("updated item:", data);
+                       })
+
+
+
+
                 }
 
+            // .then( (data) => {
+
+            //         console.log(data)
+
+            //         const patchedPrediction ={
+            //             actualWinnerId: data.gameWinner_id,
+            //             actualLoserId:  data.gameLoser_id
+                
+            //     }
+
                
-                // .then(resp => resp.json())
-                console.log('had this game')
-                // '/predictions/<int:id>'
+            //     // .then(resp => resp.json())
+            //     console.log('had this game')
+            //     // '/predictions/<int:id>'
 
-                console.log(patchedPrediction)
+            //     console.log(patchedPrediction)
 
 
-                fetch(`/predictions/${predictionData[i].id}`, {
-                                method: 'PATCH',
-                                headers:{
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(patchedPrediction)
-                               })
-                               .then((resp) =>{
-                                if (!resp.ok) {
-                                    throw new Error('Failed to update item')
-                                }
-                                return resp.json();
-                               })
-                               .then((data) => {
-                                console.log("updated item:", data);
-                               })
+            //     fetch(`/predictions/${predictionData[i].id}`, {
+            //                     method: 'PATCH',
+            //                     headers:{
+            //                         'Content-Type': 'application/json',
+            //                     },
+            //                     body: JSON.stringify(patchedPrediction)
+            //                    })
+            //                    .then((resp) =>{
+            //                     if (!resp.ok) {
+            //                         throw new Error('Failed to update item')
+            //                     }
+            //                     return resp.json();
+            //                    })
+            //                    .then((data) => {
+            //                     console.log("updated item:", data);
+            //                    })
 
-              }) //end else if not okay
-        }
+            //   }) 
+        } //end if winner null
     }   //end for loop 
 
 }       //end resolve predictions
