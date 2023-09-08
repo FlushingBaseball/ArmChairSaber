@@ -24,7 +24,7 @@ For the current game state: [https://statsapi.mlb.com/api/v1.1/game/{game_pk}/fe
 # End points that work
 
  
-`http://statsapi.mlb.com:80/api/v1/game/${game_pk}/boxscore`   These don't seem to have winner or loser on them
+ 
 
 
 
