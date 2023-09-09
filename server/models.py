@@ -81,6 +81,7 @@ class User_Prediction(db.Model, SerializerMixin):
                                   default=0
                                   )
     actualLoserId = db.Column(db.Integer, nullable=True)
+    isResolved = db.Column(db.Boolean, nullable = True, default = False)
     ##back ref user = relationship
     ##back ref game = relationship
     serialize_rules=("-game.Game_Predictions", "-user.User_Predictions")
