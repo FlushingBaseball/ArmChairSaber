@@ -17,7 +17,7 @@ console.log("before the call in Roster SelectedRoseter is", selectedRoster)
 
 useEffect(()=>{
   // fetch(`http://statsapi.mlb.com/api/v1/teams/121/roster/Active?season=2023&hydrate=person(stats(group=[hitting,pitching],type=[sabermetrics,advanced])%3A%29`)
-  fetch(`https://statsapi.mlb.com/api/v1/teams/${selectedTeam}/roster/${selectedRoster}?hydrate=hydrations`)
+  fetch(`https://statsapi.mlb.com/api/v1/teams/${selectedTeam}/roster/${selectedRoster}?hydrate=person(video,social)`)
   .then(resp => resp.json())
   .then(data =>{
     console.log('Data is ', data)
@@ -62,11 +62,11 @@ if (!rosterData.length > 1){
           <span className="playerJerseyNum">#{player.jerseyNumber}&nbsp;</span> 
             <span className="playerName">{player.person.fullName}&nbsp;</span>
           </div>
-          <span className="playerPosition">{player.position ? player.position.type : ''} </span>
-          <span className="playerStatus">{player.status ? player.status.description : ''} </span>
+          <span className="playerPosition">{player.position ? player.position.name : ''} </span>&nbsp;
+          <span className="playerStatus ">{player.status ? player.status.description : ''} </span>&nbsp;
           <div className="CoachTitle">{player.title ? player.title : ''}</div>
-
-          </div>
+            <span id="playerAge">{`${player.person.currentAge} Years old`}</span>
+          </div> 
         ))
       }
 }
@@ -79,17 +79,16 @@ const pitchers = rosterData.filter(player => player.position && player.position.
 
 return (
   <div className="WrapperRoster">
-  <h1 id="RosterTitle">Roster</h1>
     {selectedRoster == 'coach'
      ? (mapRoster(rosterData) 
      ): (
     <>
       <div className="RosterGrouping">
-        <h2 className="RosterCata">Infeilders</h2>
+        <h2 className="RosterCata">Infielders</h2>
         {mapRoster(infielders)}
       </div>
       <div className="RosterGrouping">
-        <h2 className="RosterCata">Outfeilders</h2>
+        <h2 className="RosterCata">Outfielders</h2>
         {mapRoster(outfielders)}
       </div>
       <div className="RosterGrouping">
