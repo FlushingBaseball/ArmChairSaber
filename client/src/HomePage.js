@@ -62,7 +62,7 @@ function handleTileClick(id){
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("TeamMap")}> 
-            not working
+            Roster
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("today")}>
