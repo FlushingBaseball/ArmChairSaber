@@ -32,9 +32,11 @@ function Test(){
 
         // fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2023')
         // fetch(`https://statsapi.mlb.com/api/v1/people?personsids=683146,643446&season=2023&hydrate=hydrations`)
-        fetch(`https://statsapi.mlb.com/api/v1/people/683146?hydrate=stats(group=hitting,season=2023)`)
+        // fetch(`https://statsapi.mlb.com/api/v1/people/683146?hydrate=stats(group=hitting,season=2023)`)
+        fetch(`https://statsapi.mlb.com/api/v1/statTypes`)
+        // fetch(`http://statsapi.mlb.com/api/v1/teams/121/roster/Active?season=2023&hydrate=person(stats(group=[hitting,pitching],type=[sabermetrics,advanced])%3A%29`)
         .then((resp) => resp.json())
-        .then(data => {setFetchedGameData(data.people)
+        .then(data => {setFetchedGameData(data)
             console.log('data should be below')        
         })
              },[])

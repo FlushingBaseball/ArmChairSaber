@@ -1,6 +1,27 @@
-## before deployment 
+## Overview
+So there's an incredible amount of things that I want to do for this website.
+I want people to be able to save and see stats and orginize them. 
+I want a great user profile and leaderboard
+I want a cool map and nice touches.
 
-Need to fix Pitch Data Vis
+but for now I should work on the MVP and get it out there and deploy
+
+
+## Before deployment 
+
+1. Roster Transactions? 
+
+
+## After Deployment
+
+1. Need to fix Pitch Data Vis
+2. Individual player cards
+3. Ability to save stats
+4. Roster for other levels ?
+
+
+
+
 
 
 
