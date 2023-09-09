@@ -1305,11 +1305,59 @@ table, th, td {
 
 
 
+/*ROSTER START, ROSTER START, ROSTER START, ROSTER START, ROSTER START, ROSTER START*/
+
+#selectDropDowns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 3px 0px;
+}
 
 
+#RosterTitle{
+    font-size: 3rem;
+    font-family: zektonrg;
+}
+
+.RosterGroup{
+    display: flex;
+    flex-direction: column;
+}
+.WrapperPlayer{
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#playerPhoto{
+    height: 8vh;
+    width: 8vh;
+}
+.WrapperRoster{
+    display: flex;
+    flex-direction: column;
+    }
+.WrapperTeamMapRoster{
+display: flex;
+padding-left: 7vw;
+}
+
+.playerName{
+
+}
+.playerPosition{
+
+}
+.playerStatus{
+
+}
+.CoachTitle{
+
+}
 
 
-
+/*ROSTER END, ROSTER END, ROSTER END, ROSTER END ROSTER END, ROSTER END, ROSTER END, ROSTER END*/
 
 
 /*SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,*/
@@ -1452,7 +1500,8 @@ table, th, td {
 .selectteamBat{
     padding: 10px;
     font-size: 16px;
-    border: 3px solid #ffff00;
+    border: 3px solid #333;
+    box-shadow: 8px 8px 5px #2d1432;
     color: white;
     border-radius: 4px;
     background-color: #6e43b5;
