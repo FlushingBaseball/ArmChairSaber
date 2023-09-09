@@ -26,6 +26,7 @@ function TeamMap() {
             setSelectedRoster={setSelectedRoster}
           />
         </div>
+        <h1 id="RosterTitle">Roster</h1>
         <div className="WrapperTeamMapRoster">
         <Roster selectedTeam={selectedTeam} selectedRoster={selectedRoster}/>
         </div>
