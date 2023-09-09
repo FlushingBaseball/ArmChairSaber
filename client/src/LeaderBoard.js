@@ -34,10 +34,78 @@ const [users, setUsers] = useState([]);
 
 
 
+
+
+const [unResPredictions, setUnResPredictions] = useState([]);
+let newCorrect = 0;
+let newIncorrect =0;
+let currentStreak = 0;
+
+
+        useEffect(()=>{
+            fetch('/predictionsNotResolved')
+            .then((resp)=> resp.json())
+            .then(data => {
+                setUnResPredictions(data)
+                handleUnResPredictions(unResPredictions)
+            })
+        },[])
+
+
+        function handleUnResPredictions(array){
+            array.forEach(entry =>{
+                // console.log("this is entry Actual Winner Id", entry.actualWinnerId)
+                if (entry.actualWinnerId !==null){
+                    if (entry.actualWinnerId === entry.predictedWinnerId){
+                        //update user's totalGuessesCorrect + 1
+                        //update user's currentStreak + 1
+                        // check if current Streak is higher than longestStreak if so update longest streak, if not do nothing
+                        //mark prediction as resolved 
+                    }
+                    else if (entry.actualWinnerId !== entry.predictedWinnerId){
+                        //update user's totalGuessesIncorrect + 1
+                        // set currentStreak to zero
+                        // mark prediction as resoved
+                    }
+                } // end of entries that have actualWinner not null
+            })
+        } // end of function handleUnResPredictions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const userStats ={};
 predictionData.forEach(entry => {
-    console.log('this is entry')
-    console.log(entry)
+    // console.log('this is entry')
+    // console.log(entry)
     const userId = entry.user.id;
     const correctPrediction = entry.actualWinnerId === entry.predictedWinnerId;
 
@@ -240,7 +308,7 @@ function resolvePredictions(predictionData){
 
 useEffect(()=>{
     if (predictionData.length > 0){
-        console.log('predicitons', predictionData)
+        // console.log('predicitons', predictionData)
         resolvePredictions(predictionData)
     }
 
@@ -282,7 +350,7 @@ if (users == []){
 // }
 
 
-console.log(leaderboard)
+// console.log(leaderboard)
 
 
 return (

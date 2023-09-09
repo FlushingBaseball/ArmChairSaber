@@ -106,8 +106,12 @@ function handlePredictionSubmit (){
     return (
 
         <div className="predictiveinfoGroup">
-                <label>
+            <div className="WrapperPredictionRadios">
+                <label
+                className="radioButtonLabel"
+                >
                     <input 
+                        className="radioButton"
                         type="radio"
                         name={key}
                         value={game.teams.home.team.id}
@@ -116,8 +120,11 @@ function handlePredictionSubmit (){
                     />
                    {game.teams.home.team.name}
             </label>
-                <label>
-                    <input 
+                <label
+                className="radioButtonLabel"
+                >
+                    <input
+                        className="radioButton" 
                         type="radio"
                         name={key}
                         value={game.teams.away.team.id}
@@ -126,6 +133,7 @@ function handlePredictionSubmit (){
                     />
                     {game.teams.away.team.name}
                  </label>
+            </div>
             <br />
             <button onClick={handlePredictionSubmit}>Submit Predictions</button>
         </div>
