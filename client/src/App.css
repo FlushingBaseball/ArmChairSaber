@@ -509,6 +509,28 @@ Wrapper Today[
     border-radius: 10px;
     box-shadow: 8px 8px 5px #444;
 }
+
+
+.WrapperPredictionRadios{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* .radioButton{
+    border-radius: 50%;
+    border: 2px solid #555;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.radioButtonLabel{
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+} */
+
+
+
 @media  (max-width: 768px) {
     .game { 
       
@@ -1270,9 +1292,9 @@ table, th, td {
     background-color: white;
     border: 1px solid #333;
     box-shadow: 8px 8px 5px #444;
-    width: 27vw;
+    width: 50vw;
     padding: 2vh;
-    font-size: 1.5vh;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
