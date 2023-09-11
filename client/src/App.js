@@ -24,6 +24,8 @@ import LeagueLeaders from './LeaugeLeaders';
 
 import UserHome from './UserPageComponets/UserHome';
 
+import PlayerPage from './PlayerComponets/PlayerPage';
+
 
 //566484
 //http://statsapi.mlb.com:80/api/v1/game/530629/boxscore
@@ -91,6 +93,7 @@ if (!user) {
         <Route path='/advancedFielding' element={<FieldingSaber searchPlayer={searchPlayer} setSearchPlayer={setSearchPlayer}/>} />
         <Route path='/LeagueLeaders' element={<LeagueLeaders />} />
         <Route path="/user/:username" element={<UserHome user={user}/>} />
+        <Route path='/player:playerName' element={<PlayerPage />} />
         <Route path="*" element={<NotFound />} />
     </Routes>
        </div>
