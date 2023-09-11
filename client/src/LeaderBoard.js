@@ -57,8 +57,10 @@ let currentStreak = 0;
                 // console.log("this is entry Actual Winner Id", entry.actualWinnerId)
                 if (entry.actualWinnerId !==null){
                     if (entry.actualWinnerId === entry.predictedWinnerId){
+                        newCorrect+=1;
                         //update user's totalGuessesCorrect + 1
                         //update user's currentStreak + 1
+                        currentStreak
                         // check if current Streak is higher than longestStreak if so update longest streak, if not do nothing
                         //mark prediction as resolved 
                     }
@@ -75,7 +77,34 @@ let currentStreak = 0;
 
 
 
+// delte this is just a copy
+        // function patchPrediction(respOkData){
+        //     console.log(respOkData)
 
+        //     const patchedPrediction ={
+        //         actualWinnerId: respOkData.gameWinner_id,
+        //         actualLoserId:  respOkData.gameLoser_id
+        //     }
+        //     console.log('had this game')
+        //     console.log(patchedPrediction)
+
+        //     fetch(`/predictions/${predictionData[i].id}`, {
+        //         method: 'PATCH',
+        //         headers:{
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(patchedPrediction)
+        //        })
+        //        .then((resp) =>{
+        //         if (!resp.ok) {
+        //             throw new Error('Failed to update item')
+        //         }
+        //         return resp.json();
+        //        })
+        //        .then((data) => {
+        //         console.log("updated item:", data);
+        //        })
+        // }
 
 
 
@@ -256,10 +285,6 @@ function resolvePredictions(predictionData){
                        .then((data) => {
                         console.log("updated item:", data);
                        })
-
-
-
-
                 }
 
             // .then( (data) => {
