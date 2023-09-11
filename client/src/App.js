@@ -93,7 +93,7 @@ if (!user) {
         <Route path='/advancedFielding' element={<FieldingSaber searchPlayer={searchPlayer} setSearchPlayer={setSearchPlayer}/>} />
         <Route path='/LeagueLeaders' element={<LeagueLeaders />} />
         <Route path="/user/:username" element={<UserHome user={user}/>} />
-        <Route path='/player:playerName' element={<PlayerPage />} />
+        <Route path='/player/:playerName' element={<PlayerPage />} />
         <Route path="*" element={<NotFound />} />
     </Routes>
        </div>
