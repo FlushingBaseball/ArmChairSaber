@@ -57,10 +57,10 @@ let currentStreak = 0;
                 // console.log("this is entry Actual Winner Id", entry.actualWinnerId)
                 if (entry.actualWinnerId !==null){
                     if (entry.actualWinnerId === entry.predictedWinnerId){
-                        newCorrect+=1;
+                        // newCorrect+=1;
                         //update user's totalGuessesCorrect + 1
                         //update user's currentStreak + 1
-                        currentStreak
+                        // currentStreak
                         // check if current Streak is higher than longestStreak if so update longest streak, if not do nothing
                         //mark prediction as resolved 
                     }

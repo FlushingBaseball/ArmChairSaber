@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import Search from "./Search"
+import Search from "./UtilityComponets/Search"
 import FieldingCard from "./FieldingCard"
 
 

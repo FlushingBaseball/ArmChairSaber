@@ -13,6 +13,7 @@ return (
     <div className="nav">
         <NavLink to="/">Home</NavLink>
         <NavLink to='/today'>Todays Games</NavLink>
+        <NavLink to='/TeamMap'>Rosters</NavLink>
         <img className="logo" src={logoLoc}></img>
         <NavLink to='/leaderboard'>LeaderBoard</NavLink>
         <NavLink to={`/user/${user.username}`} user={user}>{user.username}</NavLink>
