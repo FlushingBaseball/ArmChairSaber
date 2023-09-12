@@ -1,30 +1,8 @@
 
-Logo            Sign in / Sign out
-( 9 Zones)
-Zone 1: Todays Games (Monte Carlo?)
-Zone 2: Around the horn (map)  -> 40 man?
-Zone 3: Blog
-Zone 4: Libary of baseball resources?
-Zone 5: Current season projects, PECOTA, STEAMER etc
-Zone 6: Daily predictions / prediction leaderboards
-Zone 7: Advanced pitching stats
-Zone 8: Advanced Hitting stats
-Zone 9: 
 
 For the current game state: [https://statsapi.mlb.com/api/v1.1/game/{game_pk}/feed/live]
 
 
-
-
-# Sam's home made Statcast API documentation
-
-
-// game_pk is a unique identifier for games (including double headers) used by MLBAM and it is returned when you scrape from Savant.
-
-# End points that work
-
- 
- 
 
 
 
@@ -144,27 +122,6 @@ https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2022-01-01&endDate=
 getting just data and  game PK's
 
 https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2022-01-01&endDate=2022-12-31&gameType=R&fields=dates,date,games,gamePk
-
-
-
-
-
-
-
-
-# ideas
-
-
-
-One thing I'd really love to be able to query for is how a player has performed over a given time range and how that compares to projections in that same time range.
-
-
-
-
-
-
-# how to
-I refresh the list of games daily and then check their status and loop through plays in active games every 1 minute.
 
 
 

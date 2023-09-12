@@ -1,10 +1,58 @@
 ## Overview
+
+This site shouldn't be a half baked Fangraphs, Savant, Prospectus, ESPN etc. 
+You pull up the app and boom you have stantons sprint speed. He grounds out and it updates and tells you 
+that was actually faster than his average. I care about Brett Battys groundball rate and eli delacruz's swinging strike rate. 
+I've orignized them into a view I called fantasy draft 2024?. 
+
+
+# Statistical Views to track / orginize stats. Drag and dropable
+
+# Live Game plays off drag and drop (alerts based on game events?)
+
+# Beat the machines (can see how each one predicted on todays game)
+Make predictions against different prediction algorithms
+Current season projects, PECOTA, STEAMER etc
+One thing I'd really love to be able to query for is how a player has performed over a given time range
+and how that compares to projections in that same time range.
+
+## Player Pages
+
+## Team Pages
+1. Team Overview (reputation etc)
+2. Roster and the roster is clickable to direct you to a player page
+3. Coaches are clickable to find out background on the coach. 
+
+
+
+
 So there's an incredible amount of things that I want to do for this website.
 I want people to be able to save and see stats and orginize them. 
 I want a great user profile and leaderboard
 I want a cool map and nice touches.
 
 but for now I should work on the MVP and get it out there and deploy
+
+
+Zone 6: Daily predictions / prediction leaderboards
+Zone 7: Advanced pitching stats - Advanced Hitting stats - Feilding 
+
+
+
+
+
+# Saber Hitting 
+should be able to type in a player and grab some saber data
+
+# Saber Pitching
+should be able to type in a pitcher and grab some saber date
+
+
+
+
+
+
+
 
 
 ## Before deployment 
