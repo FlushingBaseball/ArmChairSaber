@@ -1,3 +1,16 @@
+1. Work on Today's Games
+
+
+
+
+
+
+
+
+
+
+
+
 ## Overview
 
 This site shouldn't be a half baked Fangraphs, Savant, Prospectus, ESPN etc. 
