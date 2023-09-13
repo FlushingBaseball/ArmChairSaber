@@ -15,6 +15,8 @@ function Today({user}){
     
     useEffect(()=>{
         fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`)
+
+        // fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=liveLookin,story,event(game),broadcasts,game(content)`)
         .then(resp => resp.json())
         .then(statcastRESP => setGameData(statcastRESP) )
         .then(console.log(gameData))
