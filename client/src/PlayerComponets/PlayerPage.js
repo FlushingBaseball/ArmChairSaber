@@ -26,9 +26,12 @@ useEffect(()=>{
   // fetch(`https://baseballsavant.mlb.com/players-services/range?playerId=${searchPlayer}&season=2023`) // not the right endpoint
   // fetch(`https://baseballsavant.mlb.com/players-services/range?playerId=${searchPlayer}&season=2023`) 
   // fetch(`https://statsapi.mlb.com/api/v1/people/${searchPlayer}?hydrate=stats(group=[hitting]`)
-  fetch(`https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting],type=[career])`)
+  // fetch(`https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting,sabermetrics],type=[career,career])`)
   // https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting]
   // not the right endpoint
+  // fetch(`  https://statsapi.mlb.com/api/v1/people/592450?&season=2023&hydrate=stats(group=[hitting,sabermetrics],type=[seasonAdvanced,season],season=2023)`)
+  fetch(`  https://statsapi.mlb.com/api/v1/people/592450?&season=2023&hydrate=stats(group=[sabermetrics],type=[season],season=2023)`)
+
       .then((resp) => resp.json())
       .then(data => {setPlayerData(data)
       })
