@@ -23,7 +23,12 @@ useEffect(()=>{
 
 
 useEffect(()=>{
-  fetch(`https://baseballsavant.mlb.com/players-services/range?playerId=${searchPlayer}&season=2023`) // not the right endpoint
+  // fetch(`https://baseballsavant.mlb.com/players-services/range?playerId=${searchPlayer}&season=2023`) // not the right endpoint
+  // fetch(`https://baseballsavant.mlb.com/players-services/range?playerId=${searchPlayer}&season=2023`) 
+  // fetch(`https://statsapi.mlb.com/api/v1/people/${searchPlayer}?hydrate=stats(group=[hitting]`)
+  fetch(`https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting],type=[career])`)
+  // https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting]
+  // not the right endpoint
       .then((resp) => resp.json())
       .then(data => {setPlayerData(data)
       })
@@ -44,6 +49,7 @@ useEffect(()=>{
       <Search
        setSearchPlayer={setSearchPlayer}
        fetchedPlayers={fetchedPlayers}/>
+       <img src={fielderImage}></img>
     </div>
   )
 
