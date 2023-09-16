@@ -1924,12 +1924,18 @@ box-shadow: 8px 8px 5px #444;
 
 .WrapperPlayerCardBio {
     display: flex;
+    background-color: #ebeb98;
+    align-items: center;
+    justify-content: center;
+}
+
+.WrapperBioText{
+    display: flex;
+    flex-direction: column;
     padding: 10vw 10vw;
-    background-color: #b793ef;
 }
 
 #PlayerCardImage{
-    display: block;
     height: 20vh;
     width: 20vh;
 }

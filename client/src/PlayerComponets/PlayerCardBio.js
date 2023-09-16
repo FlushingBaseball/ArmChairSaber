@@ -6,6 +6,7 @@ export default function PlayerCardBio({searchPlayer, playerData}){
   return (
     <div className="WrapperPlayerCardBio">
         <img id="PlayerCardImage" src={fielderImage}></img>
+      <div className="WrapperBioText">
         {console.log('This is player data people[0]',playerData.people[0])}
         {/* <span>{playerData.people[0].active}</span> */}
         <h3>{playerData.people[0].firstLastName}</h3>
@@ -28,7 +29,7 @@ export default function PlayerCardBio({searchPlayer, playerData}){
         <span className="bioSpan">{`Jersey Number: ${playerData.people[0].primaryNumber} `}</span>
         <span className="bioSpan">{`Position: ${playerData.people[0].primaryPosition.type} `}</span>
         <span className="bioSpan">{`${playerData.people[0].primaryPosition.abbreviation} `}</span>
-        
+      </div>
     </div>
   )
   }
