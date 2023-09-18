@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
 
 
 function Roster({selectedTeam, selectedRoster}){
 
 const [rosterData, setRosterData] = useState([])
+const navigate = useNavigate();
 
 //depthChart for everyone active for active prop etc?
 // https://statsapi.mlb.com/api/v1/teams/109/roster/Active
@@ -42,7 +44,9 @@ if (!rosterData.length > 1){
   }
   
   
- 
+ function handlePlayerClick(value){
+    navigate(`/player/${String(value)}`)
+ }
   
   function mapRoster(personArray){
     if (rosterData.length > 1){
@@ -50,7 +54,7 @@ if (!rosterData.length > 1){
       
 
         return personArray.map(player=> (
-          <div className="WrapperPlayer">
+          <div className="WrapperPlayer" onClick={ () => handlePlayerClick(player.person.id)}>
             <img src= {selectedRoster != "coach"
             ?`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`
             :`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/83/coach/current`

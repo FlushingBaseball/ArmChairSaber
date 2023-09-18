@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react"
-
-
+import { useParams } from "react-router-dom";
 import Search from "../UtilityComponets/Search"
 import PlayerCardBio from "./PlayerCardBio";
 import PlayerStats from "./PlayerStats";
 
 export default function PlayerPage(){
 
-const  [searchPlayer, setSearchPlayer] = useState('592450');
+let mlbAmId = useParams().mlbAmId;
+
+const initalPlayerId = mlbAmId ? mlbAmId : '592450'
+
+const  [searchPlayer, setSearchPlayer] = useState(initalPlayerId);
 const [fetchedPlayers, setFetchedPlayers] = useState('');
 const [playerData, setPlayerData] = useState('');
 
@@ -58,14 +61,15 @@ useEffect(()=>{
 
   return (
     <div className="PlayerWrapper">
-      <Search
-       setSearchPlayer={setSearchPlayer}
-       fetchedPlayers={fetchedPlayers}/>
-       <PlayerCardBio
-        searchPlayer={searchPlayer}
-        playerData={playerData}
-    
-         />
+      <div className="GroupTopRow">
+        <Search
+        setSearchPlayer={setSearchPlayer}
+        fetchedPlayers={fetchedPlayers}/>
+        <PlayerCardBio
+          searchPlayer={searchPlayer}
+          playerData={playerData}
+          />
+      </div>
        <PlayerStats
          searchPlayer={searchPlayer}
          playerData={playerData}
@@ -75,3 +79,6 @@ useEffect(()=>{
   )
 
 }
+
+
+//592450
