@@ -63,17 +63,18 @@ useEffect(()=>{
     <div className="PlayerWrapper">
       <div className="GroupTopRow">
         <Search
-        setSearchPlayer={setSearchPlayer}
-        fetchedPlayers={fetchedPlayers}/>
+          setSearchPlayer={setSearchPlayer}
+          fetchedPlayers={fetchedPlayers}
+        />
         <PlayerCardBio
           searchPlayer={searchPlayer}
           playerData={playerData}
-          />
+        />
       </div>
-       <PlayerStats
-         searchPlayer={searchPlayer}
-         playerData={playerData}
-         />
+      <PlayerStats
+        searchPlayer={searchPlayer}
+        playerData={playerData}
+      />
     </div>
 
   )

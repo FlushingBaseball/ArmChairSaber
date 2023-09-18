@@ -32,12 +32,16 @@ const [query, setQuery] = useState('');
 
 return (
     <div className="search">
-        <input
-            type="text"
-            placeholder="Search by Player name"
-            value={query}
-            onChange={handleInputChange}
-        />
+        <div className="SearchBarRow">
+            <i id="searchIcon" class="fa fa-search fa-2x"></i>
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Search by Player name"
+                value={query}
+                onChange={handleInputChange}
+            />
+        </div>
         <div>
             {displayedPlayers.map(player => (
                 <div key={player.id} div-player-id={player.mlbId} onClick={handlePlayerDivClick} >{player.firstLastName}</div>

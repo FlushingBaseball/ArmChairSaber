@@ -1440,6 +1440,23 @@ padding-left: 7vw;
 }
 
 
+.SearchBarRow{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+}
+
+#searchInput{
+    padding: 6px 6px;
+    border-width: 0px 0px 5px 0px;
+    border-bottom-color: #2c1b47;
+    border-radius: 6px;
+}
+
+.fa-2x{
+    font-size: 1.2em;
+}
 
 .search{
     display: flex;
@@ -1923,27 +1940,49 @@ box-shadow: 8px 8px 5px #444;
 
 .GroupTopRow{
     display: flex;
+    flex-direction: column;
     width: 100vw;
+    align-items: center;
 }
 
 .WrapperPlayerCardBio {
     display: flex;
-    background-color: #ebeb98;
+    background-color: #c8d4fe;
     align-items: center;
     justify-content: center;
+    padding: 3px 3px;
 }
 
 .WrapperBioText{
     display: flex;
     flex-direction: column;
-    padding: 10vw 10vw;
+    padding: 2vh 1vw;
+    gap: 3px;
 }
 
 #PlayerCardImage{
     height: 20vh;
     width: 20vh;
 }
+#ImageName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.PlayerWrapper{
 
+}
+
+.bioGrouping{
+
+}
+
+.BioFeild{
+    font-weight: bolder;
+}
+.bioSpan{
+
+}
 
 /*  PLAYER CARD END PLAYER CARD END  PLAYER CARD END  PLAYER CARD END PLAYER CARD END PLAYER CARD END PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END PLAYER CARD END PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  */ 

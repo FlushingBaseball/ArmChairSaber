@@ -5,30 +5,66 @@ export default function PlayerCardBio({searchPlayer, playerData}){
 
   return (
     <div className="WrapperPlayerCardBio">
-        <img id="PlayerCardImage" src={fielderImage}></img>
-      <div className="WrapperBioText">
-        {console.log('This is player data people[0]',playerData.people[0])}
-        {/* <span>{playerData.people[0].active}</span> */}
-        <h3>{playerData.people[0].firstLastName}</h3>
-        <span className="bioSpan">{`Age: ${playerData.people[0].currentAge} `}</span>
-        <span className="bioSpan">{`Height: ${playerData.people[0].height} `}</span>
-        <span className="bioSpan">{`Weight: ${playerData.people[0].weight} `}</span>
-        <span className="bioSpan">{`Drafted: ${playerData.people[0].draftYear} `}</span>
-
-        <span className="bioSpan">{`Birth Date: ${playerData.people[0].birthDate} `}</span>
-        <div className="WrapperBirth">
-          <span className="bioSpan">{`Birth Place: ${playerData.people[0].birthCity} `}</span>
-          <span className="bioSpan">{`${playerData.people[0].birthStateProvince} `}</span>
-          <span className="bioSpan">{`${playerData.people[0].birthCountry} `}</span>
+        <div id="ImageName">
+          <h3>{playerData.people[0].firstLastName}</h3>
+          <img id="PlayerCardImage" src={fielderImage}></img>
         </div>
+      <div className="WrapperBioText">
+          {/* {console.log('This is player data people[0]',playerData.people[0])} */}
+          <div className="BioGrouping">
+            <span className="BioFeild">Age: </span>
+            <span className="bioSpan">{playerData.people[0].currentAge}</span>
+          </div>
+          <div className="BioGrouping">
+            <span className="BioFeild">Height:</span>
+            <span className="bioSpan">{playerData.people[0].height}</span>
+          </div>
+          <div className="BioGrouping">
+            <span className="BioFeild">Weight:</span>
+            <span className="bioSpan">{playerData.people[0].weight}</span>
+          </div>
+          <div className="BioGrouping">
+            <span className="BioFeild">Drafted:</span>
+            <span className="bioSpan">{playerData.people[0].draftYear}</span>
+          </div>
+          <div className="BioGrouping">
+            <span className="BioFeild">Birth Date:</span>
+            <span className="bioSpan">{playerData.people[0].birthDate}</span>
+          </div>
 
-        <span className="bioSpan">{`Bats: ${playerData.people[0].batSide.description} `}</span>
-        <span className="bioSpan">{`Nickname: ${playerData.people[0].nickName ? playerData.people[0].nickName : 'None Recorded' } `}</span>
-        <span className="bioSpan">{`First MLB game: ${playerData.people[0].mlbDebutDate} `}</span>
+          <div className="BioGrouping">
+            <span className="BioFeild">Birth Place:</span>
+            <span className="bioSpan">{playerData.people[0].birthCity} &nbsp;</span>
+            <span className="bioSpan">{playerData.people[0].birthStateProvince}</span>
+            <span className="bioSpan">{playerData.people[0].birthCountry}</span>
+          </div>
 
-        <span className="bioSpan">{`Jersey Number: ${playerData.people[0].primaryNumber} `}</span>
-        <span className="bioSpan">{`Position: ${playerData.people[0].primaryPosition.type} `}</span>
-        <span className="bioSpan">{`${playerData.people[0].primaryPosition.abbreviation} `}</span>
+
+          <div className="BioGrouping">
+            <span className="BioFeild">Bats:</span>
+            <span className="bioSpan">{playerData.people[0].batSide.description}</span>
+          </div>
+
+          <div className="BioGrouping">
+            <span className="BioFeild">Nickname:</span>
+            <span className="bioSpan">{` ${playerData.people[0].nickName ? playerData.people[0].nickName : 'None Recorded' } `}</span>
+          </div>
+
+          <div className="BioGrouping">
+            <span className="BioFeild">First MLB game:</span>
+            <span className="bioSpan">{playerData.people[0].mlbDebutDate}</span>
+          </div>
+
+          <div className="BioGrouping">
+            <span className="BioFeild">Jersey Number:</span>
+            <span className="bioSpan">{playerData.people[0].primaryNumber}</span>
+          </div>
+
+          <div className="BioGrouping">
+            <span className="BioFeild">Position:</span>
+            <span className="bioSpan">{playerData.people[0].primaryPosition.type}</span>
+            <span className="bioSpan">{playerData.people[0].primaryPosition.abbreviation}</span>
+          </div>
       </div>
     </div>
   )
