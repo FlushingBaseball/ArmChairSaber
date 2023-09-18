@@ -94,7 +94,7 @@ if (!user) {
         <Route path='/LeagueLeaders' element={<LeagueLeaders />} />
         <Route path="/user/:username" element={<UserHome user={user}/>} />
         <Route path='/player/' element={<PlayerPage />} />
-        <Route path='/player/:id' element={<PlayerPage />} />
+        <Route path='/player/:mlbAmId' element={<PlayerPage />} />
         <Route path="*" element={<NotFound />} />
     </Routes>
        </div>
