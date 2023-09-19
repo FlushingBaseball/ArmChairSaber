@@ -35,7 +35,7 @@ export default function PlayerCardBio({searchPlayer, playerData}){
           <div className="BioGrouping">
             <span className="BioFeild">Birth Place:</span>
             <span className="bioSpan">{playerData.people[0].birthCity} &nbsp;</span>
-            <span className="bioSpan">{playerData.people[0].birthStateProvince}</span>
+            <span className="bioSpan">{playerData.people[0].birthStateProvince} &nbsp;</span>
             <span className="bioSpan">{playerData.people[0].birthCountry}</span>
           </div>
 
