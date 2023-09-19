@@ -14,6 +14,8 @@ const  [searchPlayer, setSearchPlayer] = useState(initalPlayerId);
 const [fetchedPlayers, setFetchedPlayers] = useState('');
 const [playerData, setPlayerData] = useState('');
 
+const [selectedStatType, setSelectedStatType] = useState("seasonAdvanced")
+
 
 
 
@@ -37,7 +39,7 @@ useEffect(()=>{
   // https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting]
   // not the right endpoint
   // fetch(`  https://statsapi.mlb.com/api/v1/people/592450?&season=2023&hydrate=stats(group=[hitting,sabermetrics],type=[seasonAdvanced,season],season=2023)`)
-  fetch(`https://statsapi.mlb.com/api/v1/people/${searchPlayer}?&season=2023&hydrate=stats(group=[sabermetrics],type=[seasonAdvanced,season],season=2023)`)
+  fetch(`https://statsapi.mlb.com/api/v1/people/${searchPlayer}?&season=2023&hydrate=stats(group=[sabermetrics],type=[${selectedStatType},season],season=2023)`)
   .then((resp) => resp.json())
   .then(data => {setPlayerData(data)
       })

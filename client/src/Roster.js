@@ -67,9 +67,9 @@ if (!rosterData.length > 1){
             <span className="playerName">{player.person.fullName}&nbsp;</span>
           </div>
           <span className="playerPosition">{player.position ? player.position.name : ''} </span>&nbsp;
+          <span id="playerAge">{`${player.person.currentAge} Years old`}</span>&nbsp;
           <span className="playerStatus ">{player.status ? player.status.description : ''} </span>&nbsp;
           <div className="CoachTitle">{player.title ? player.title : ''}</div>
-            <span id="playerAge">{`${player.person.currentAge} Years old`}</span>
           </div> 
         ))
       }
