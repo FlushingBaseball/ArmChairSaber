@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Search from "../UtilityComponets/Search"
 import PlayerCardBio from "./PlayerCardBio";
 import PlayerStats from "./PlayerStats";
+import StatGroupButtons from "./StatGroupButtons"
 
 export default function PlayerPage(){
 
@@ -73,6 +74,7 @@ useEffect(()=>{
           playerData={playerData}
         />
       </div>
+      <StatGroupButtons />
       <PlayerStats
         searchPlayer={searchPlayer}
         playerData={playerData}

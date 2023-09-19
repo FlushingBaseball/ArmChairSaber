@@ -6,7 +6,7 @@ export default function PlayerCardBio({searchPlayer, playerData}){
   return (
     <div className="WrapperPlayerCardBio">
         <div id="ImageName">
-          <h3>{playerData.people[0].firstLastName}</h3>
+          <h3 id="playerName">{playerData.people[0].firstLastName}</h3>
           <img id="PlayerCardImage" src={fielderImage}></img>
         </div>
       <div className="WrapperBioText">
