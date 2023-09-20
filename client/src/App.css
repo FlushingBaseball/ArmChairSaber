@@ -393,10 +393,11 @@ Login
         overflow-wrap: anywhere;
         cursor: pointer;
         padding: 0;
-        margin: 0 5px;
+        margin: 6px 5px;
         width: 25vw;
         height: 30vh;
         display: inline-flex;
+        /* background: linear-gradient(71deg,  #d9c2e9, #f4f4f4); */
         background: rgb(228,230,242); 
         border: 1px solid #333;
         box-shadow: 8px 8px 5px #444;
@@ -410,7 +411,7 @@ Login
     }
     
     .homeTile:hover {
-        color: #6e43b5; /* Change to your desired color on hover */
+        color: #6e43b5; 
     }
     
     /*HOME END, HOME END, HOME END, HOME END, HOME END, HOME END*/
@@ -2013,6 +2014,7 @@ box-shadow: 8px 8px 5px #444;
 
 .WrapperPlayerStats{
     display: flex;
+    margin-left: 18vw;
     flex-direction: column;
     gap: 2px;
 }
@@ -2037,4 +2039,13 @@ box-shadow: 8px 8px 5px #444;
     justify-content: center;
     display: flex;
     flex-direction: row;
+}
+
+.statHeader{
+    font-family: 'zektonrg';
+    font-size: 2rem;
+    background: linear-gradient(71deg, #d9c2e9, transparent);
+    padding: 7px 8px;
+    margin: 1px;
+    
 }

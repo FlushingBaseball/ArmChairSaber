@@ -6,6 +6,11 @@ function makeStats(){
 
   for (let i =0; i<playerData.people[0].stats.length; i++){
     console.log('Right now we are in stat', i)
+    statCollection.push(
+      <h3 className="statHeader">
+        {playerData.people[0].stats[0].type.displayName.split(/(?=[A-Z])/).join(" ").toUpperCase()}
+      </h3>
+    )
     for (const feild in playerData.people[0].stats[0].splits[0].stat){
       statCollection.push(
         <div className="StatWrapper" key={feild}>
