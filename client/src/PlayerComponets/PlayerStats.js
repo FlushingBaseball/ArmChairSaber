@@ -2,6 +2,13 @@ export default function PlayerStats({playerData}){
 
 const statCollection = [];
 
+
+if (!playerData.people[0].stats.length){
+  return (
+    <h3>...Loading</h3>
+  )
+}
+
 function makeStats(){
 
   for (let i =0; i<playerData.people[0].stats.length; i++){
