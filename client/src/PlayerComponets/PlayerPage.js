@@ -51,7 +51,9 @@ useEffect(()=>{
     useEffect(()=>{
       console.log(searchPlayer)
       console.log(playerData)
-    },[searchPlayer,playerData])
+      console.log(selectedStatGroup)
+      console.log(selectedStatType)
+    },[searchPlayer,playerData,selectedStatGroup,selectedStatType])
     
     
     if (playerData == ''){

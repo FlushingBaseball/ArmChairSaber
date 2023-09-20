@@ -28,10 +28,9 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
         onClick={handleSearchButtonClick}
         >
         SEARCH
+      </button>
 
       <h3>Stat Groups</h3>
-
-      </button>
 
       <button
        className="statGroupButton"
@@ -97,6 +96,20 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
        value={'sabermetrics'}
        >
         sabermetrics
+      </button>
+       <button
+       className="statGroupButton"
+       onClick={handleStatButtonTypeClick}
+       value={'standard'}
+       >
+        standard
+      </button>
+       <button
+       className="statGroupButton"
+       onClick={handleStatButtonTypeClick}
+       value={'rankingsByYear'}
+       >
+        rankingsByYear
       </button>
     </div>
   )
