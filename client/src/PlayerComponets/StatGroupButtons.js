@@ -1,73 +1,103 @@
-export default function StatGroupButtons({setSelectedStatType}){
+export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatType}){
 
   let requestedStatgroups = [];
+  let requestedStatTypes = []
 
-  function handleStatButtonClick(value){
-    requestedStatgroups.push(value +",")
+  function handleStatButtonGroupClick(event){
+    requestedStatgroups.push(String(event.target.value) + ",")
     console.log("I Was clicked")
     console.log(requestedStatgroups);
 
+  }
+
+  function handleStatButtonTypeClick(event){
+    requestedStatTypes.push(String(event.target.value) + ",")
+
+  }
+
+  function handleSearchButtonClick(){
+    setSelectedStatGroup(String(requestedStatgroups))
+    setSelectedStatType(String(requestedStatTypes))
   }
   
 
   return (
     <div className="WrapperStatGroupButtons">
       <button
+        className="StatSearchBtn"
+        onClick={handleSearchButtonClick}
+        >
+        SEARCH
+
+      <h3>Stat Groups</h3>
+
+      </button>
+
+      <button
        className="statGroupButton"
-       onClick={handleStatButtonClick}
+       onClick={handleStatButtonGroupClick}
        value={'hitting'}
        >
-        Sabermetrics
+        Hitting
        </button>
       <button
        className="statGroupButton"
-       onClick={handleStatButtonClick}
+       onClick={handleStatButtonGroupClick}
        value={'pitching'}
        >
-        pitching
+        Pitching
        </button>
       <button
        className="statGroupButton"
-       onClick={handleStatButtonClick}
+       onClick={handleStatButtonGroupClick}
        value={'fielding'}
        >
-        fielding
+        Fielding
        </button>
       <button
        className="statGroupButton"
-       onClick={handleStatButtonClick}
+       onClick={handleStatButtonGroupClick}
        value={'catching'}
        >
         Catching
        </button>
       <button
        className="statGroupButton"
-       onClick={handleStatButtonClick}
+       onClick={handleStatButtonGroupClick}
        value={'running'}
        >
         Running
        </button>
       <button
        className="statGroupButton"
-       onClick={handleStatButtonClick}
+       onClick={handleStatButtonGroupClick}
        value={'game'}
        >
         Game
        </button>
       <button
        className="statGroupButton"
-       onClick={handleStatButtonClick}
+       onClick={handleStatButtonGroupClick}
        value={'team'}
        >
         Team
        </button>
       <button
        className="statGroupButton"
-       onClick={handleStatButtonClick}
+       onClick={handleStatButtonGroupClick}
        value={'streak'}
        >
         Streak
        </button>
+
+       <h3>Stat Types </h3>
+       <button
+       className="statGroupButton"
+       onClick={handleStatButtonTypeClick}
+       value={'sabermetrics'}
+       >
+        sabermetrics
+      </button>
     </div>
   )
 
