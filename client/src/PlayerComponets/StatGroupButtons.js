@@ -3,8 +3,8 @@ export default function StatGroupButtons(){
   let requestedStatgroups = [];
 
   function handleStatButtonClick(value){
-    requestedStatgroups.push(value.toString() +",")
-    console.log("I Was clicked", requestedStatgroups)
+    requestedStatgroups.push(value +",")
+    console.log("I Was clicked")
     console.log(requestedStatgroups);
 
   }
@@ -15,23 +15,58 @@ export default function StatGroupButtons(){
       <button
        className="statGroupButton"
        onClick={handleStatButtonClick}
-       value={'sabermetrics'}
+       value={'hitting'}
        >
         Sabermetrics
        </button>
       <button
        className="statGroupButton"
        onClick={handleStatButtonClick}
-       value={'sabermetrics'}
+       value={'pitching'}
        >
-        Sabermetrics
+        pitching
        </button>
       <button
        className="statGroupButton"
        onClick={handleStatButtonClick}
-       value={'sabermetrics'}
+       value={'fielding'}
        >
-        Sabermetrics
+        fielding
+       </button>
+      <button
+       className="statGroupButton"
+       onClick={handleStatButtonClick}
+       value={'catching'}
+       >
+        Catching
+       </button>
+      <button
+       className="statGroupButton"
+       onClick={handleStatButtonClick}
+       value={'running'}
+       >
+        Running
+       </button>
+      <button
+       className="statGroupButton"
+       onClick={handleStatButtonClick}
+       value={'game'}
+       >
+        Game
+       </button>
+      <button
+       className="statGroupButton"
+       onClick={handleStatButtonClick}
+       value={'team'}
+       >
+        Team
+       </button>
+      <button
+       className="statGroupButton"
+       onClick={handleStatButtonClick}
+       value={'streak'}
+       >
+        Streak
        </button>
     </div>
   )

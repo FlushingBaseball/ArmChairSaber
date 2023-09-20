@@ -2016,3 +2016,25 @@ box-shadow: 8px 8px 5px #444;
     flex-direction: column;
     gap: 2px;
 }
+
+.statGroupButton{
+    /* display: flex; */
+    /* background-color: #c8d4fe; */
+    align-items: center;
+    justify-content: center;
+    padding: 11px 11px;
+    border: 2px solid transparent;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+    border-radius: 45px;
+    box-shadow: 2px 2px 2px 2px;
+
+}
+
+.WrapperStatGroupButtons{
+    padding: 11px;
+    gap: 33px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
