@@ -1,4 +1,4 @@
-export default function StatGroupButtons(){
+export default function StatGroupButtons({setSelectedStatType}){
 
   let requestedStatgroups = [];
 
