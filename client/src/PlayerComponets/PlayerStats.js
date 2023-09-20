@@ -17,7 +17,7 @@ function makeStats(){
           <span className="StatFeild" >
             {feild.split(/(?=[A-Z])/).join(" ").toUpperCase()}
           </span>
-          <span>{playerData.people[0].stats[0].splits[0].stat[feild]}</span>
+          <span className="StatDataSpan">{playerData.people[0].stats[0].splits[0].stat[feild]}</span>
         </div>
       )
       // console.log(feild)
@@ -36,7 +36,6 @@ function makeStats(){
 
   return (
     <div className="WrapperPlayerStats">
-               
       {makeStats()}
     </div>
   )

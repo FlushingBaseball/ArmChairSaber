@@ -68,16 +68,17 @@ useEffect(()=>{
         <Search
           setSearchPlayer={setSearchPlayer}
           fetchedPlayers={fetchedPlayers}
-        />
+          />
+      </div>
+      <div className="MiddleRow">
         <PlayerCardBio
           searchPlayer={searchPlayer}
           playerData={playerData}
         />
+        <StatGroupButtons
+          setSelectedStatType={setSelectedStatType}
+        />
       </div>
-      <StatGroupButtons
-        setSelectedStatType={setSelectedStatType}
-      
-      />
       <PlayerStats
         searchPlayer={searchPlayer}
         playerData={playerData}

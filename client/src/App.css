@@ -1950,14 +1950,14 @@ box-shadow: 8px 8px 5px #444;
 
 .WrapperPlayerCardBio {
     display: flex;
-    /* background-color: #c8d4fe; */
     align-items: center;
     justify-content: center;
-    padding: 11px 11px;
+    padding: 13px 14px;
     border: 2px solid transparent;
     background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
     border-radius: 45px;
     box-shadow: 2px 2px 2px 2px;
+    width: max-content;
 }
 
 .WrapperBioText{
@@ -2002,20 +2002,28 @@ box-shadow: 8px 8px 5px #444;
 
 
 .StatFeild{
+    border-radius: 4px;
+    box-shadow: 0px 2px 0px 0px;
+    width: 204px;
+    padding: 3px;
+    background: #ececff;
     font-weight: bolder;
 }
 
 
 .StatWrapper{
     display: flex;
-    flex-direction: row;
+    flex: 1 0 calc(10% - 10px);
+    margin: 5px;
+    flex-direction: column;
     gap: 3px;
 } 
 
 .WrapperPlayerStats{
     display: flex;
-    margin-left: 18vw;
-    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 4vw;
+    flex-direction: row;
     gap: 2px;
 }
 
@@ -2029,8 +2037,16 @@ box-shadow: 8px 8px 5px #444;
     background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
     border-radius: 45px;
     box-shadow: 2px 2px 2px 2px;
+    font-family: 'zektonrg';
+    font-weight: bolder;
 
 }
+
+.statGroupButton:hover{
+    background: #d9c2e9;
+    border: 4px gold;
+}
+
 
 .WrapperStatGroupButtons{
     padding: 11px;
@@ -2039,13 +2055,29 @@ box-shadow: 8px 8px 5px #444;
     justify-content: center;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 28%;
 }
 
 .statHeader{
+    width: 100%;
     font-family: 'zektonrg';
     font-size: 2rem;
     background: linear-gradient(71deg, #d9c2e9, transparent);
     padding: 7px 8px;
     margin: 1px;
     
+}
+
+.StatDataSpan{
+    padding: 2px;
+    padding-left: 4px;
+}
+
+
+.MiddleRow{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0vw 10vw;
 }
