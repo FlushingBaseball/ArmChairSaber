@@ -7,18 +7,18 @@ import StatGroupButtons from "./StatGroupButtons"
 
 export default function PlayerPage(){
 
-let {mlbAmId, type} = useParams();
+let {mlbAmId} = useParams();
 
 
 const initalPlayerId = mlbAmId ? mlbAmId : '592450'
-const initalSearchGroup = type == 1 ? "hitting" : "pitching"
+// const initalSearchGroup = type == 1 ? "hitting" : "pitching"
 
 const  [searchPlayer, setSearchPlayer] = useState(initalPlayerId);
 const [fetchedPlayers, setFetchedPlayers] = useState('');
 const [playerData, setPlayerData] = useState('');
 
-const [selectedStatGroup, setSelectedStatGroup] = useState(initalSearchGroup)
-const [selectedStatType, setSelectedStatType] = useState("seasonAdvanced")
+const [selectedStatGroup, setSelectedStatGroup] = useState("")
+const [selectedStatType, setSelectedStatType] = useState("career")
 // const [selectedStatType, setSelectedStatType] = useState("seasonAdvanced")
 
 

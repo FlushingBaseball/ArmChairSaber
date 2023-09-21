@@ -94,7 +94,7 @@ if (!user) {
 
           <Route path="TeamMap" element={<TeamMap />} />
           <Route path='/player/' element={<PlayerPage />} />
-          <Route path='/player/:mlbAmId/:type' element={<PlayerPage />} />
+          <Route path='/player/:mlbAmId/' element={<PlayerPage />} />
 
 
         <Route path="*" element={<NotFound />} />

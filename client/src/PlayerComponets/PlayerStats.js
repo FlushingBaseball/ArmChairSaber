@@ -18,16 +18,16 @@ function makeStats(){
     // console.log('Right now we are in stat', i)
     statCollection.push(
       <h3 className="statHeader">
-        {playerData.people[0].stats[0].type.displayName.split(/(?=[A-Z])/).join(" ").toUpperCase()}
+        {playerData.people[0].stats[i].type.displayName.split(/(?=[A-Z])/).join(" ").toUpperCase()}
       </h3>
     )
-    for (const feild in playerData.people[0].stats[0].splits[0].stat){
+    for (const feild in playerData.people[0].stats[i].splits[0].stat){
       statCollection.push(
         <div className="StatWrapper" key={feild}>
           <span className="StatFeild" >
             {feild.split(/(?=[A-Z])/).join(" ").toUpperCase()}
           </span>
-          <span className="StatDataSpan">{playerData.people[0].stats[0].splits[0].stat[feild]}</span>
+          <span className="StatDataSpan">{playerData.people[0].stats[i].splits[0].stat[feild]}</span>
         </div>
       )
       // console.log(feild)

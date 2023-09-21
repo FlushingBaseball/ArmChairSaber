@@ -4,7 +4,7 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
   let requestedStatTypes = []
 
   function handleStatButtonGroupClick(event){
-    requestedStatgroups.push(String(event.target.value) + ",")
+    requestedStatgroups.push(String(event.target.value))
     console.log("Stat Group Btn Was clicked")
     console.log(requestedStatgroups);
 
@@ -13,7 +13,7 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
   function handleStatButtonTypeClick(event){
     console.log('Stat Button Type was clicked')
     console.log(requestedStatTypes);
-    requestedStatTypes.push(String(event.target.value) + ",")
+    requestedStatTypes.push(String(event.target.value))
 
   }
 
@@ -91,7 +91,7 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
         Streak
        </button>
 
-       <h3>Stat Types </h3>
+       <h3> Batting Stat Types </h3>
        <div className="WrapperHittingTypeButtons">
           <button
           className="statGroupButton"
@@ -103,9 +103,9 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
           <button
           className="statGroupButton"
           onClick={handleStatButtonTypeClick}
-          value={'standard'}
+          value={'seasonAdvanced'}
           >
-            standard
+            Season Advanced
           </button>
           <button
           className="statGroupButton"
