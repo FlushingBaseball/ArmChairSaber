@@ -92,27 +92,32 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
        </button>
 
        <h3>Stat Types </h3>
-       <button
-       className="statGroupButton"
-       onClick={handleStatButtonTypeClick}
-       value={'sabermetrics'}
-       >
-        sabermetrics
-      </button>
-       <button
-       className="statGroupButton"
-       onClick={handleStatButtonTypeClick}
-       value={'standard'}
-       >
-        standard
-      </button>
-       <button
-       className="statGroupButton"
-       onClick={handleStatButtonTypeClick}
-       value={'rankingsByYear'}
-       >
-        rankingsByYear
-      </button>
+       <div className="WrapperHittingTypeButtons">
+          <button
+          className="statGroupButton"
+          onClick={handleStatButtonTypeClick}
+          value={'sabermetrics'}
+          >
+            sabermetrics
+          </button>
+          <button
+          className="statGroupButton"
+          onClick={handleStatButtonTypeClick}
+          value={'standard'}
+          >
+            standard
+          </button>
+          <button
+          className="statGroupButton"
+          onClick={handleStatButtonTypeClick}
+          value={'rankingsByYear'}
+          >
+            rankingsByYear
+          </button>
+
+
+
+       </div>
     </div>
   )
 
