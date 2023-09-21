@@ -1,3 +1,16 @@
+Player page will be done soon just need to clean up
+only render what should be avalibe
+ and there's a comma
+and not clearing issue
+
+
+
+
+
+
+
+
+
 1. Work on Today's Games
 
 
