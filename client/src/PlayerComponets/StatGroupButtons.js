@@ -5,12 +5,14 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
 
   function handleStatButtonGroupClick(event){
     requestedStatgroups.push(String(event.target.value) + ",")
-    console.log("I Was clicked")
+    console.log("Stat Group Btn Was clicked")
     console.log(requestedStatgroups);
 
   }
 
   function handleStatButtonTypeClick(event){
+    console.log('Stat Button Type was clicked')
+    console.log(requestedStatTypes);
     requestedStatTypes.push(String(event.target.value) + ",")
 
   }

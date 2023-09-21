@@ -3,16 +3,19 @@ export default function PlayerStats({playerData}){
 const statCollection = [];
 
 
-if (!playerData.people[0].stats.length){
-  return (
-    <h3>...Loading</h3>
-  )
-}
+
+
 
 function makeStats(){
 
+  if (!playerData.people[0].stats){
+    return (
+      <h3>...Loading</h3>
+    )
+  }
+
   for (let i =0; i<playerData.people[0].stats.length; i++){
-    console.log('Right now we are in stat', i)
+    // console.log('Right now we are in stat', i)
     statCollection.push(
       <h3 className="statHeader">
         {playerData.people[0].stats[0].type.displayName.split(/(?=[A-Z])/).join(" ").toUpperCase()}
@@ -30,6 +33,11 @@ function makeStats(){
       // console.log(feild)
     } 
   }
+
+
+
+
+
   return statCollection
   }
 

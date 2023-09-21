@@ -44,17 +44,24 @@ if (!rosterData.length > 1){
   }
   
   
- function handlePlayerClick(value){
-    navigate(`/player/${String(value)}`)
+ function handlePlayerClick(value, player){
+  if (!player.position){
+    return (null)
+  }
+
+  else if (player.position.type === "Pitcher"){
+    navigate(`/player/${String(value)}/2`)
+  }
+  else{
+      navigate(`/player/${String(value)}/1`)
+  }
  }
   
   function mapRoster(personArray){
     if (rosterData.length > 1){
-      console.log("roster length was greater than 1")
-      
-
+      // console.log("roster length was greater than 1")
         return personArray.map(player=> (
-          <div className="WrapperPlayer" onClick={ () => handlePlayerClick(player.person.id)}>
+          <div className="WrapperPlayer" onClick={ () => handlePlayerClick(player.person.id, player)}>
             <img src= {selectedRoster != "coach"
             ?`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`
             :`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/83/coach/current`
