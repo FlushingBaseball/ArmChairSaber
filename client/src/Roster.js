@@ -48,13 +48,7 @@ if (!rosterData.length > 1){
   if (!player.position){
     return (null)
   }
-
-  else if (player.position.type === "Pitcher"){
-    navigate(`/player/${String(value)}/2`)
-  }
-  else{
-      navigate(`/player/${String(value)}/1`)
-  }
+      navigate(`/player/${String(value)}`)
  }
   
   function mapRoster(personArray){

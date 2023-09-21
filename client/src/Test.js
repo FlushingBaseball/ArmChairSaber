@@ -36,7 +36,7 @@ function Test(){
         // fetch(`https://statsapi.mlb.com/api/v1/statTypes`)
         // fetch(`http://statsapi.mlb.com/api/v1/teams/121/roster/Active?season=2023&hydrate=person(stats(group=[hitting,pitching],type=[sabermetrics,advanced])%3A%29`)
         // fetch(`https://statsapi.mlb.com/api/v1/people/592450?&season=2023&hydrate=stats(group=[sabermetrics],type=[hydrate],season=2023)`)
-        fetch(`https://statsapi.mlb.com/api/v1/people/656731?&season=2023&hydrate=stats(group=[team],season=2023)`)
+        fetch(`https://statsapi.mlb.com/api/v1/people/592450?&season=2023&hydrate=stats(group=[],type=[career],season=2023)`)
         // fetch(`https://statsapi.mlb                           season=2023&hydrate=stats(group=[sabermetrics],type=[${selectedStatType}],season=2023)`)
         .then((resp) => resp.json())
         .then(data => {setFetchedGameData(data)
@@ -51,7 +51,7 @@ function Test(){
             // judge 592450
 
             /**
-                * hitting [seasonAdvanced] hotColdZones expectedStatistics, career
+                * [hitting] seasonAdvanced, hotColdZones, expectedStatistics, career
                 * Pitching 
             */
 
