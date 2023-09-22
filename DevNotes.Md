@@ -4,8 +4,8 @@ only render what should be avalibe
 and not clearing issue
 
 
-
-
+somehow need to clarify whats being sent over
+pitcher doesn't work on default since theres no hitting for 2023
 
 
 
