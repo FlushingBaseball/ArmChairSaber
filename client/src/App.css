@@ -506,6 +506,7 @@ Wrapper Today[
 
 
 .game{
+    width: 48%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -581,6 +582,11 @@ Wrapper Today[
 
 }
 
+.pitcherName{
+    padding: 1.5px 0px;
+    display: block;
+}
+
 
 @media (max-width: 768px){
     .teamInfo{
@@ -593,7 +599,7 @@ Wrapper Today[
 
 
 .todayLiveScore{
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: bold;
 
 }
@@ -613,7 +619,7 @@ Wrapper Today[
 }
 
 .teamName {
-    
+    font-size: 2rem;
 }
 
 @media (max-width: 768px){
@@ -665,9 +671,6 @@ Wrapper Today[
         
     }
 }    
-
-
-
 
 
 
