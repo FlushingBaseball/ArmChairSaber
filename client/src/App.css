@@ -499,15 +499,23 @@ Wrapper Today[
 
 }
 
+#gameCompleteSpan{
+    display: block;
+}
+
+
 
 .game{
-    background-color: #f5ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
     margin: 10px;
     text-align: center;
     border: 2px solid #333;
     border-radius: 10px;
     box-shadow: 8px 8px 5px #444;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);;
 }
 
 
@@ -585,7 +593,9 @@ Wrapper Today[
 
 
 .todayLiveScore{
-    font-size: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+
 }
 
 
