@@ -68,7 +68,7 @@ if (selectedSportId!=="1"){
 
             {status.abstractGameState === "Preview" && <PredictionGroup game={game} user={user} predictedWinner={predictedWinner} setPredictedWinner={setPredictedWinner} />}
             {status.abstractGameState === "Live" && <Link className="liveLink" to={`/TodaysGame/${gamePk}`}> Click Live game!</Link>}
-            {status.abstractGameState === "Final" && <span>Game is Complete</span>}
+            {status.abstractGameState === "Final" && <span id="gameCompleteSpan">Game is Complete</span>}
         </div>
     )
 }
