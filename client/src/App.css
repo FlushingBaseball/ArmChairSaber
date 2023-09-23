@@ -557,8 +557,8 @@ Wrapper Today[
 
 .probPitcherPhoto{
     
-    width: 50%;
-    height: 75%;
+    width: 10rem;
+    height: 10rem;
 
    
 }
@@ -592,9 +592,13 @@ Wrapper Today[
     .teamInfo{
         display: flex;
         justify-content: center;
-        flex-direction: row;
-    
+        align-items: center;
+        flex-direction: column;
     }
+
+
+
+
 }
 
 
@@ -624,6 +628,7 @@ Wrapper Today[
 
 @media (max-width: 768px){
     .teamName{
+        font-size: .75rem;
         padding-bottom: 5px;
     }
 }
