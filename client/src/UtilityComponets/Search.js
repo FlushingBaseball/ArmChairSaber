@@ -44,7 +44,7 @@ return (
         </div>
         <div>
             {displayedPlayers.map(player => (
-                <div key={player.id} div-player-id={player.mlbId} onClick={handlePlayerDivClick} >{player.firstLastName}</div>
+                <div key={player.id} className="displayedSearchOption" div-player-id={player.mlbId} onClick={handlePlayerDivClick} >{player.firstLastName}</div>
             ))}
             {displayedPlayers.length ==0 && <p>No results found.</p>}
         </div>

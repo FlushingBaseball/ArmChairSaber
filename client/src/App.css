@@ -1490,11 +1490,17 @@ padding-left: 7vw;
 }
 
 #searchInput{
+    width:-webkit-fill-available;
     padding: 6px 6px;
     border-width: 0px 0px 5px 0px;
     border-bottom-color: #2c1b47;
     border-radius: 6px;
 }
+.displayedSearchOption{
+    color: gray;
+    padding-left: 2rem;
+}
+
 
 .fa-2x{
     font-size: 1.2em;
@@ -1502,7 +1508,7 @@ padding-left: 7vw;
 
 .search{
     display: flex;
-    width: max-content;
+    width: 50vw;
     flex-direction: column;
 }
 
@@ -1663,6 +1669,23 @@ padding-left: 7vw;
 batterImg10
 batterCard */
 
+
+#noGames{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+   
+   #noGameHeader{
+    font-family: 'zektonrg';
+    padding: 5px 0px;
+   }
+
+   #noGameImage{
+    border-radius: 3rem;
+    height: 65vh;
+   }
 
 
 
@@ -2097,9 +2120,9 @@ box-shadow: 8px 8px 5px #444;
 
 .WrapperStatGroupButtons{
     padding: 11px;
-    gap: 33px;
+    gap: 7px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
