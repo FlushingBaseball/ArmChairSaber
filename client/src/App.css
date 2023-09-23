@@ -526,29 +526,48 @@ Wrapper Today[
     justify-content: center;
 }
 
-/* .radioButton{
-    border-radius: 50%;
-    border: 2px solid #555;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+.radioButton{
+    cursor: pointer;
+
 }
 
 .radioButtonLabel{
-    color: #000000;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-} */
+        cursor: pointer;
+}
+
 
 
 
 @media  (max-width: 768px) {
     .game { 
+        margin: 5px;
       
 
 
     }
   }
   
+  .predictiveinfoGroup{
+    display: flex;
+    flex-direction: column;
+  }
+  .SubmitButton{
+    align-items: center;
+    justify-content: center;
+    padding: 11px 11px;
+    border: 2px solid transparent;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+    border-radius: 45px;
+    box-shadow: 2px 2px 2px 2px;
+    font-family: 'zektonrg';
+    font-weight: bolder;
+  }
+  .SubmitButton:hover
+  {
+    background: linear-gradient(71deg,  #ecf6c6, #edd205);
+  }
 
+  
  @media (max-width: 768px){
     .predictiveinfoGroup{
         
@@ -594,6 +613,8 @@ Wrapper Today[
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        margin: 0px;
+        
     }
 
 
@@ -617,8 +638,8 @@ Wrapper Today[
 
 @media (max-width: 768px){
     .teamGameLogo{
-        width: 8vw;
-        height: 8vh;
+        width: 4vw;
+        height: 4vh;
     }
 }
 
@@ -1145,10 +1166,11 @@ box-shadow: 8px 8px 5px #444;
 .LiveGameScoreBoard{
     display: flex;
     justify-content: center;
+    text-align: center;
     gap: 10vw;
     padding: 1vh;
     margin-top: 0.1vh;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     
 }
 
@@ -1762,7 +1784,15 @@ batterCard */
 
     .PitcherVsBatter{
         display: flex;
+        align-items: center;
         flex-direction: column;
+    }
+
+    .onDeckDiv{
+        background: linear-gradient(71deg, #d9c2e9, transparent);
+        display: flex;
+        align-items: center;
+
     }
 
 
@@ -1779,7 +1809,7 @@ batterCard */
 
 
     .OnDeck{
-        height: 2.5rem;
+        height: 2rem;
     }
 
 
