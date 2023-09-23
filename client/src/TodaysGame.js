@@ -54,8 +54,11 @@ if (selectedSportId!=="1"){
                     <img className="probPitcherPhoto" src={homeImageSrc}></img>
                  </div>
               </div>
-
-            {status.abstractGameState === 'Live' || status.abstractGameState ==="Final" ? (<div><span className="todayLiveScore">{teams.home.score}</span> <span  className="todayLiveScore">-</span> <span  className="todayLiveScore">{teams.away.score}</span></div> ) : null}
+            <div className="CenterWrapper">
+              {status.abstractGameState === "Final" && <span id="gameCompleteSpan">Game is Complete</span>}
+              {status.abstractGameState === "Live" && <Link className="liveLink" to={`/TodaysGame/${gamePk}`}> Click Live game!</Link>}
+              {status.abstractGameState === 'Live' || status.abstractGameState ==="Final" ? (<div><span className="todayLiveScore">{teams.home.score}</span> <span  className="todayLiveScore">-</span> <span  className="todayLiveScore">{teams.away.score}</span></div> ) : null}
+            </div>
         
             <div className={`teamInfo ${predictedWinner == teams.away.team.id ? 'predictedWinner' : ' '}`}>
                 <img className="teamGameLogo" alt={teams.away.team.name} src={awayTeamImageSrc}></img>
@@ -65,10 +68,8 @@ if (selectedSportId!=="1"){
                     <img className="probPitcherPhoto" src={awayImageSrc}></img>
                 </div>
             </div> 
-
+            
             {status.abstractGameState === "Preview" && <PredictionGroup game={game} user={user} predictedWinner={predictedWinner} setPredictedWinner={setPredictedWinner} />}
-            {status.abstractGameState === "Live" && <Link className="liveLink" to={`/TodaysGame/${gamePk}`}> Click Live game!</Link>}
-            {status.abstractGameState === "Final" && <span id="gameCompleteSpan">Game is Complete</span>}
         </div>
     )
 }
