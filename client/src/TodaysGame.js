@@ -58,6 +58,7 @@ if (selectedSportId!=="1"){
               {status.abstractGameState === "Final" && <span id="gameCompleteSpan">Game is Complete</span>}
               {status.abstractGameState === "Live" && <Link className="liveLink" to={`/TodaysGame/${gamePk}`}> Click Live game!</Link>}
               {status.abstractGameState === 'Live' || status.abstractGameState ==="Final" ? (<div><span className="todayLiveScore">{teams.home.score}</span> <span  className="todayLiveScore">-</span> <span  className="todayLiveScore">{teams.away.score}</span></div> ) : null}
+            {status.abstractGameState === "Preview" && <PredictionGroup game={game} user={user} predictedWinner={predictedWinner} setPredictedWinner={setPredictedWinner} />}
             </div>
         
             <div className={`teamInfo ${predictedWinner == teams.away.team.id ? 'predictedWinner' : ' '}`}>
@@ -69,7 +70,6 @@ if (selectedSportId!=="1"){
                 </div>
             </div> 
             
-            {status.abstractGameState === "Preview" && <PredictionGroup game={game} user={user} predictedWinner={predictedWinner} setPredictedWinner={setPredictedWinner} />}
         </div>
     )
 }

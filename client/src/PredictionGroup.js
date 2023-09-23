@@ -135,7 +135,13 @@ function handlePredictionSubmit (){
                  </label>
             </div>
             <br />
-            <button onClick={handlePredictionSubmit}>Submit Predictions</button>
+            <button
+                 onClick={handlePredictionSubmit}
+                 className="SubmitButton"
+                 
+                 >
+                    Submit Predictions
+                </button>
         </div>
 
     );
