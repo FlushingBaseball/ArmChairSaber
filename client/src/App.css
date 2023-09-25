@@ -1409,7 +1409,6 @@ table, th, td {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
 }
 #playerPhoto{
     height: 8vh;
@@ -1470,8 +1469,8 @@ padding-left: 7vw;
 }
 
 .fieldImg{
+    background: linear-gradient(71deg, #d9c2e9, transparent);
     display: inline-flex;
-    border: rgb(200,200,248) 20px solid;  
     border-radius: 10px;
     width: 18vw;
 }

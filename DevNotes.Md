@@ -1,3 +1,46 @@
+Need to finish today
+
+1. Fix Predictions
+2. Fix UserPage 
+3. Fix what Buttons show for each player
+4. Make a shake animation for double submitting
+5. CSS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Player page will be done soon just need to clean up
 only render what should be avalibe
  and there's a comma
