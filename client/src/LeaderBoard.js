@@ -4,6 +4,10 @@ function LeaderBoard(){
     
     const [unResPredictions, setUnResPredictions] = useState([]);
 
+
+    ///nextUnresolvedPrediction
+    //I could do like while continueFetching = True
+    // the issue is rerenders are going to happen everytime state is updated lmao so no state
     
             useEffect(()=>{
                 fetch('/predictionsNotResolved')
