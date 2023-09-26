@@ -1,28 +1,39 @@
-import { useState, useEffect } from "react";
-
 function LeaderBoard(){
     
-    const [unResPredictions, setUnResPredictions] = useState([]);
+    // const [unResPredictions, setUnResPredictions] = useState([]);
 
 
     ///nextUnresolvedPrediction
     //I could do like while continueFetching = True
     // the issue is rerenders are going to happen everytime state is updated lmao so no state
+
+    let fetchedPredictionData = '';
+
+    function fetchedPrediction(){
+        fetch('/nextUnresolvedPrediction')
+        .then((resp) => {
+            if (!resp.ok){
+                throw new Error("Error Response Recieved")
+            }
+            return resp.json()
+        })
+        .then((data) => {
+            fetchedPredictionData=data
+            handleUnResolvedPredictions(fetchedPredictionData)
+            fetchedPrediction()
+            // predictions not settled?
+        })
+        .catch((error)=> {
+            console.error("Error", error)
+        });
+
+    }
+
+
     
-            useEffect(()=>{
-                fetch('/predictionsNotResolved')
-                .then((resp)=> resp.json())
-                .then(data => {
-                    setUnResPredictions(data)
-                    handleUnResolvedPredictions(unResPredictions)
-                })
-            },[])
-    
-    
-            function handleUnResolvedPredictions(array){
-                array.forEach(entry =>{
-                    console.log("this is entry in the Master Function before handleWinner Known", entry)
-                    handleWinnerKnown(entry)
+            function handleUnResolvedPredictions(fetchedPredictionData){
+                    console.log("this is fetchedPredictionData in the Master Function before handleWinner Known", fetchedPredictionData)
+                    handleWinnerKnown(fetchedPredictionData)
                     // if (entry.actualWinnerId !==null){
                     //     if (entry.actualWinnerId === entry.predictedWinnerId){
                     //         //update user's totalGuessesCorrect + 1
@@ -37,7 +48,7 @@ function LeaderBoard(){
                     //         // mark prediction as resoved
                     //     }
                     // } // end of entries that have actualWinner not null
-                })
+ 
             } // end of function handleUnResPredictions
     
 
@@ -145,6 +156,7 @@ function LeaderBoard(){
                 return (
                     <div>
                         <h1>Testing</h1>
+                        {fetchedPrediction()}
                     </div>
                 
 
