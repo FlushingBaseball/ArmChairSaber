@@ -267,6 +267,29 @@ def get_all_not_resolved_predictions():
     )
 
 
+@app.get('/nextUnresolvedPrediction')
+def get_single_unresolved_prediction():
+    un_res_prediction = User_Prediction.query.filter(
+        User_Prediction.isResolved == False
+    ).first()
+
+    if not un_res_prediction:
+        return make_response(
+            jsonify({'error': 'Unresolved Predictions not found'}),
+            404
+        )
+    
+    return make_response(
+        jsonify(un_res_prediction.to_dict()),
+        200
+    )
+
+
+
+
+
+
+
 @app.get('/predictions')
 def get_all_Predicitons():
     predictions = User_Prediction.query.all()
