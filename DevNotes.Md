@@ -11,9 +11,26 @@ keep calling that from the front end untill you get no more
 The prediction data is out of date the on 2nd predictions;
 
 ## useful sql
+
+# if malformed prediction gets in 
 update users set totalScore =0, totalGuessesCorrect=0, currentStreak=0, longestStreak=0, totalGuessesIncorrect =0 where id =6;
 
+# Counting
+select count(*) from user_predictions where user_Id = 1;
 
+
+
+## Prediction Leaderboard
+Somehow predictions are being counted wrong, although a database check
+proves there are only 16 predictions made by user id =1, totalGuessesCorrect = 5
+totalGuessesIncorrect = 13. 18 is not 16 so...Houston we have a problem. 
+
+totalNumGuesses is also incorrect for user id =2, 80 on counter 79 in table.
+id's 5 and 6 are correct so maybe this was me messing with the data via querys?
+
+# side notes
+somehow blank predicted winners got in the data and I had to clean it? how 
+predicted winner was 0 on three guesses
 
 
 Need to finish today
@@ -26,9 +43,6 @@ Need to finish today
 
 
 
-## side notes
-somehow blank predicted winners got in the data and I had to clean it? how 
-predicted winner was 0 on three guesses
 
 
 
