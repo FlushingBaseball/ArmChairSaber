@@ -1,3 +1,12 @@
+
+The prediction data is out of date the on 2nd predictions;
+
+## useful sql
+update users set totalScore =0, totalGuessesCorrect=0, currentStreak=0, longestStreak=0, totalGuessesIncorrect =0 where id =6;
+
+
+
+
 Need to finish today
 
 1. Fix Predictions
@@ -8,8 +17,9 @@ Need to finish today
 
 
 
-
-
+## side notes
+somehow blank predicted winners got in the data and I had to clean it? how 
+predicted winner was 0 on three guesses
 
 
 
