@@ -2,38 +2,66 @@ import { useEffect, useState } from "react"
 
 function Test(){
 
-let fetchedPredictionData = '';
-
-function fetchedPrediction(){
-    fetch('/nextUnresolvedPrediction')
-    .then((resp) => {
-        if (!resp.ok){
-            throw new Error("Error Response Recieved")
-        }
-        return resp.json()
-    })
-    .then((data) => {
-        // console.log("This is data", data)
-        // console.log("FetchedPredictionData is", fetchedPredictionData)
-        fetchedPredictionData=data
-        // console.log("FetchedPredictionData is", fetchedPredictionData)
-    })
-    .then( () =>{
-        handlePrediction(fetchedPredictionData)
-        fetchedPrediction()
-    })
-    .catch((error)=> {
-        console.error("Error", error)
-    });
-}
-
-    //I could do like while continueFetching = True
-    // the issue is rerenders are going to happen everytime state is updated lmao so no state)
+    
 
 
-    function handlePrediction(prediction){
-        console.log("this is the preiction to process", prediction)
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    /**
+     * Leaderboard Structure test
+    */
+
+//    let fetchedPredictionData = '';
+   
+// function fetchedPrediction(){
+//     fetch('/nextUnresolvedPrediction')
+//     .then((resp) => {
+//         if (!resp.ok){
+//             throw new Error("Error Response Recieved")
+//         }
+//         return resp.json()
+//     })
+//     .then((data) => {
+//         fetchedPredictionData=data
+//     })
+//     .then( () =>{
+//         handlePrediction(fetchedPredictionData)
+//         fetchedPrediction()
+//     })
+//     .catch((error)=> {
+//         console.error("Error", error)
+//     });
+// }
+
+// function handlePrediction(prediction){
+//     console.log("this is the preiction to process", prediction)
+// }
+
+
+
+
+
+
+
 
 
     //     .then((resp) => resp.json())
@@ -151,8 +179,8 @@ function fetchedPrediction(){
     return(
         <div>
             <h2>Testing Page</h2>
-            <h4>Populate players is commented out</h4>
-            {fetchedPrediction()}
+            <h4>Various tests are commented out</h4>
+            {/* {fetchedPrediction()} */}
 
         </div>
     )

@@ -29,29 +29,21 @@ function LeaderBoard(){
 
     }
 
-
     
-            function handleUnResolvedPredictions(fetchedPredictionData){
-                    console.log("this is fetchedPredictionData in the Master Function before handleWinner Known", fetchedPredictionData)
-                    handleWinnerKnown(fetchedPredictionData)
-                    // if (entry.actualWinnerId !==null){
-                    //     if (entry.actualWinnerId === entry.predictedWinnerId){
-                    //         //update user's totalGuessesCorrect + 1
-                    //         //update user's currentStreak + 1
-                    //         // currentStreak
-                    //         // check if current Streak is higher than longestStreak if so update longest streak, if not do nothing
-                    //         //mark prediction as resolved 
-                    //     }
-                    //     else if (entry.actualWinnerId !== entry.predictedWinnerId){
-                    //         //update user's totalGuessesIncorrect + 1
-                    //         // set currentStreak to zero
-                    //         // mark prediction as resoved
-                    //     }
-                    // } // end of entries that have actualWinner not null
- 
-            } // end of function handleUnResPredictions
+    
+    
+    function handleUnResolvedPredictions(fetchedPredictionData){
+        console.log("this is fetchedPredictionData in the Master Function before handleWinner Known", fetchedPredictionData)
+        if (fetchedPredictionData.actualWinnerId !==null){
+            handleWinnerKnown(fetchedPredictionData)
+        }
+        else{
+            handleWinnerNotKnown(fetchedPredictionData)
+        }
+    } // end of function handleUnResPredictions
     
 
+    
             function patchUserBasedOnPrediction(prediction, patchedUser){
                 console.log("got to patch user")
                 console.log("Prediction", prediction)
@@ -139,30 +131,52 @@ function LeaderBoard(){
                             .then((data)=> {
                                 console.log("updated prediction", data)
                             })
-
-
-
-
-
-
-                }
-                    // if Actual winner is not known im just gonna return for now
+                } // End of Winner Not Null 
+                
+                // if Actual winner is not known im just gonna return for now
                     else {
                         return 
                     }
+                } // end of handleWinnerKnown
+
+
+
+
+
+
+                function handleWinnerNotKnown(fetchedPredictionData){
+                    if (fetchedPredictionData.actualWinnerId === null){
+                        console.log("In handle winner not known we red right!")
+//             fetch(`/games/${predictionData[i].game_Id}`)
+//             .then(resp=> {
+//                 if (!resp.ok){
+//                     fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${predictionData[i].game_Id}`)
+//                     .then((resp) => resp.json())
+//                     .then(resp => {
+//                         if (!resp.dates[0].games[0].teams.away.isWinner || !resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner ){
+//                            return Promise.reject("Game has no winner")
+//                         }
+//                     })
+//                     .then(resp =>{
+//                             console.log("this is the call to mlb resp", resp)
+//                             console.log("made it past rejection")
 
                 }
+            }
+
+
+
+
+
 
                 return (
                     <div>
                         <h1>Testing</h1>
                         {fetchedPrediction()}
                     </div>
-                
-
                 )
                 
-                }
+            } // end of LeaderBoard
                 
                 export default LeaderBoard
                 
@@ -323,24 +337,9 @@ function LeaderBoard(){
 
 
 
-// function resolvePredictions(predictionData){
-//     for (let i =0; i<predictionData.length; i++){
-//         if (predictionData[i].actualWinnerId === null){
-//             fetch(`/games/${predictionData[i].game_Id}`)
-//             .then(resp=> {
-//                 if (!resp.ok){
-//                     fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${predictionData[i].game_Id}`)
-//                     .then((resp) => resp.json())
-//                     .then(resp => {
-//                         if (!resp.dates[0].games[0].teams.away.isWinner || !resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner ){
-//                            return Promise.reject("Game has no winner")
-//                         }
-//                     })
-//                     .then(resp =>{
-//                             console.log("this is the call to mlb resp", resp)
-//                             console.log("made it past rejection")
+
                         
-                        
+                        /** Pick back up here */
 
 //                         if ( resp.dates[0].games[0].teams.away.isWinner === true || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
 
