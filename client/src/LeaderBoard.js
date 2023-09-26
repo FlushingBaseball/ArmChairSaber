@@ -66,7 +66,7 @@ function LeaderBoard(){
             function handleWinnerKnown(prediction){
                 console.log('this is prediction in handleWinnerknown', prediction)
                 if (prediction.actualWinnerId !==null){
-                    let userUpdatePromise;
+
 
                     if (prediction.actualWinnerId === prediction.predictedWinnerId){
                         console.log("The actual and predicted winners matched")
@@ -78,7 +78,7 @@ function LeaderBoard(){
                                 totalGuessesCorrect: prediction.user.totalGuessesCorrect +=1,
                                 longestStreak: prediction.user.longestStreak +=1 
                             }
-                           userUpdatePromise = patchUserBasedOnPrediction(prediction,patchedUser)
+                           patchUserBasedOnPrediction(prediction,patchedUser)
                         }
                         else {
                             console.log("The old streak is larger")
@@ -87,7 +87,7 @@ function LeaderBoard(){
                                 currentStreak: prediction.user.currentStreak += 1,
                                 totalGuessesCorrect: prediction.user.totalGuessesCorrect +=1,
                             }
-                            userUpdatePromise = patchUserBasedOnPrediction(prediction,patchedUser)
+                            patchUserBasedOnPrediction(prediction,patchedUser)
                         }
                     }
                     else{
@@ -97,19 +97,18 @@ function LeaderBoard(){
                             currentStreak: 0,
                             totalGuessesIncorrect: prediction.user.totalGuessesIncorrect +=1   
                         }
-                        userUpdatePromise = patchUserBasedOnPrediction(prediction,patchedUser)
+                        patchUserBasedOnPrediction(prediction,patchedUser)
                     }
                         
 
-
-                    userUpdatePromise
-                        .then(() =>{
+                 
                             let resolvedPrediction = {
                                 isResolved: true
                             };
+                            console.log("we made it past the first .then")
 
 
-                            return fetch (`/predictions/${prediction.id}`,{
+                             fetch (`/predictions/${prediction.id}`,{
                                 method: 'PATCH',
                                 headers:{
                                     'Content-Type': 'application/json',
@@ -129,7 +128,7 @@ function LeaderBoard(){
 
 
 
-                        })
+
 
                 }
                     // if Actual winner is not known im just gonna return for now
