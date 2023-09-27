@@ -159,14 +159,16 @@ function LeaderBoard(){
                                         hence why checking if the property exists is sufficent to see if the game is complete and to end processing if a winner isn't offical
                                         the second date is incase of games that are resumed at a latter date etc
                                      */
-                                    if (!resp.dates[0].games[0].teams.away.isWinner || !resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner){
+                                    if (!resp.dates[0].games[0].teams.away.isWinner && (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner)){
                                         return Promise.reject("Game has no winner, Promise Rejected")
                                     }
+                                    else {
+                                        return resp
+                                    }
                                 })
-                                .then(resp => {
-                                    console.log("Game Has a winner")
+                                .then((resp) => {
+                                    console.log("Game Has a winner", resp)
                                     handleMLBResponse(resp)
-                                    console.log("This is the MLB fetch which has a winner", resp)
                                 })
 
                             }
@@ -193,7 +195,7 @@ function LeaderBoard(){
                 }
                 
                 function handleMLBResponse(resp){
-                    console.log("got ot handleMLB Response", resp)
+                    console.log("got to handleMLBResponse", resp)
                 //     if ( resp.dates[0].games[0].teams.away.isWinner === true || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
                 //         console.log("look for pk", resp)
                 //                                     const newGame ={
