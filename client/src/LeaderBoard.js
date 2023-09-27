@@ -141,28 +141,139 @@ function LeaderBoard(){
 
 
 
-
-
-
+                
+                
+                
                 function handleWinnerNotKnown(fetchedPredictionData){
                     if (fetchedPredictionData.actualWinnerId === null){
-                        console.log("In handle winner not known we red right!")
-//             fetch(`/games/${predictionData[i].game_Id}`)
-//             .then(resp=> {
-//                 if (!resp.ok){
-//                     fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${predictionData[i].game_Id}`)
-//                     .then((resp) => resp.json())
-//                     .then(resp => {
-//                         if (!resp.dates[0].games[0].teams.away.isWinner || !resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner ){
-//                            return Promise.reject("Game has no winner")
-//                         }
-//                     })
-//                     .then(resp =>{
-//                             console.log("this is the call to mlb resp", resp)
-//                             console.log("made it past rejection")
+                        console.log("In handleWinnerNotKnown")
+                        fetch(`/games/${fetchedPredictionData.game_Id}`)
+                        .then((resp) =>{
+                            if (!resp.ok){
+                                fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${fetchedPredictionData.game_Id}`)
+                                .then((resp)=> resp.json())
+                                .then(resp =>{
+                                    console.log("This is the mlb response", resp)
+                                    /**
+                                        This is checking if the property even exists, if a team has lost it still has this property, but marked to false
+                                        hence why checking if the property exists is sufficent to see if the game is complete and to end processing if a winner isn't offical
+                                        the second date is incase of games that are resumed at a latter date etc
+                                     */
+                                    if (!resp.dates[0].games[0].teams.away.isWinner || !resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner){
+                                        return Promise.reject("Game has no winner, Promise Rejected")
+                                    }
+                                })
+                                .then(resp => {
+                                    console.log("Game Has a winner")
+                                    handleMLBResponse(resp)
+                                    console.log("This is the MLB fetch which has a winner", resp)
+                                })
+
+                            }
+                            else if (resp.ok){
+                                let backendRespOkData = resp.json()
+                                handleBackendOkayResponse(backendRespOkData)
+                                //maybe return something
+                            }
+                        })
+                    }
+                }
+
+
+
+
+
+
+
+
+
+                function handleBackendOkayResponse(backendRespOkData){
+                    console.log("got to handleBackendOkayResponse", backendRespOkData)
 
                 }
+                
+                function handleMLBResponse(resp){
+                    console.log("got ot handleMLB Response", resp)
+                //     if ( resp.dates[0].games[0].teams.away.isWinner === true || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
+                //         console.log("look for pk", resp)
+                //                                     const newGame ={
+                        
+                //                                             // gamePk: predictionData[i].game_Id,
+                //                                             // gameWinner_id: resp.dates[0].games[0].teams.away.team.id,
+                //                                             // gameLoser_id:  resp.dates[0].games[0].teams.home.team.id
+                        
+                //                                     }
+    
+                // }
             }
+
+
+
+
+
+                
+                //                         //    predictionData[i].actualWinnerId = resp.dates[0].games[0].teams.away.team.id
+                //                            fetch(`/games/${predictionData[i].game_Id}`, {
+                //                             method: 'POST',
+                //                             headers:{
+                //                                 'Content-Type': 'application/json',
+                //                             },
+                //                             body: JSON.stringify(newGame)
+                //                            })
+                //                            .then((resp) =>{
+                //                             if (!Response.ok) {
+                //                                 throw new Error('Failed to post new game')
+                //                             }
+                //                             return Response.json();
+                //                            })
+                //                            .then((data) => {
+                //                             console.log("posted game:", data);
+                //                            })
+                //                         }
+                                        
+                //                         else if ( resp.dates[0].games[0].teams.home.isWinner === true || ( resp.dates[1] && resp.dates[1].games[0].teams.home.isWinner === true) ){
+                                        
+                //                             const newGame ={
+                
+                //                                 gamePk: predictionData[i].game_Id,
+                //                                 gameWinner_id: resp.dates[0].games[0].teams.home.team.id,
+                //                                 gameLoser_id:  resp.dates[0].games[0].teams.away.team.id
+                
+                //                         }
+                                        
+                //                         //    predictionData[i].actualWinnerId = resp.dates[0].games[0].teams.home.team.id
+                //                         fetch(`/games/${predictionData[i].game_Id}`, {
+                //                             method: 'POST',
+                //                             headers:{
+                //                                 'Content-Type': 'application/json',
+                //                             },
+                //                             body: JSON.stringify(newGame)
+                //                            })
+                //                            .then((resp) =>{
+                //                             if (!resp.ok) {
+                //                                 throw new Error('Failed to post new game')
+                //                             }
+                //                             return resp.json();
+                //                            })
+                //                            .then((data) => {
+                //                             console.log("posted game:", data);
+                //                            })
+                //                         }
+                                        
+                //                     })  
+                                    
+                                    
+                                    
+                //                     .catch(err => console.error(err));
+                //                 }
+
+
+
+
+
+
+
+
 
 
 
@@ -341,78 +452,10 @@ function LeaderBoard(){
                         
                         /** Pick back up here */
 
-//                         if ( resp.dates[0].games[0].teams.away.isWinner === true || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
-
-//                             const newGame ={
-
-//                                     gamePk: predictionData[i].game_Id,
-//                                     gameWinner_id: resp.dates[0].games[0].teams.away.team.id,
-//                                     gameLoser_id:  resp.dates[0].games[0].teams.home.team.id
-
-//                             }
-
-//                         //    predictionData[i].actualWinnerId = resp.dates[0].games[0].teams.away.team.id
-//                            fetch(`/games/${predictionData[i].game_Id}`, {
-//                             method: 'POST',
-//                             headers:{
-//                                 'Content-Type': 'application/json',
-//                             },
-//                             body: JSON.stringify(newGame)
-//                            })
-//                            .then((resp) =>{
-//                             if (!Response.ok) {
-//                                 throw new Error('Failed to post new game')
-//                             }
-//                             return Response.json();
-//                            })
-//                            .then((data) => {
-//                             console.log("posted game:", data);
-//                            })
-//                         }
-                        
-//                         else if ( resp.dates[0].games[0].teams.home.isWinner === true || ( resp.dates[1] && resp.dates[1].games[0].teams.home.isWinner === true) ){
-                        
-//                             const newGame ={
-
-//                                 gamePk: predictionData[i].game_Id,
-//                                 gameWinner_id: resp.dates[0].games[0].teams.home.team.id,
-//                                 gameLoser_id:  resp.dates[0].games[0].teams.away.team.id
-
-//                         }
-                        
-//                         //    predictionData[i].actualWinnerId = resp.dates[0].games[0].teams.home.team.id
-//                         fetch(`/games/${predictionData[i].game_Id}`, {
-//                             method: 'POST',
-//                             headers:{
-//                                 'Content-Type': 'application/json',
-//                             },
-//                             body: JSON.stringify(newGame)
-//                            })
-//                            .then((resp) =>{
-//                             if (!resp.ok) {
-//                                 throw new Error('Failed to post new game')
-//                             }
-//                             return resp.json();
-//                            })
-//                            .then((data) => {
-//                             console.log("posted game:", data);
-//                            })
-//                         }
-                        
-//                     })  
-                    
-                    
-                    
-//                     .catch(err => console.error(err));
-//                 }
+//                         
 
 
-//                 else if (resp.ok){
-//                     let respOkData = resp.json()
 
-//                     // return resp.json()
-//                     patchPrediction(respOkData)
-//                 }
                 
                 
 
