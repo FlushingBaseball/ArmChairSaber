@@ -211,14 +211,30 @@ function LeaderBoard(){
                             actualWinnerId: resp.dates[1].games[0].teams.away.id,
                             actualLoserId: resp.dates[1].games[0].teams.home.id,
                         };
+                        const newGame ={
+                            gamePk: resp.dates[1].games[0].gamePk,
+                            gameWinner_id: resp.dates[1].games[0].teams.away.team.id,
+                            gameLoser_id:  resp.dates[1].games[0].teams.home.team.id
+                    }
+
                         patchPrediction(fetchedPredictionData, updatedPrediction)
+                        postNewGame(newGame)
+
                     }
                     else{
                         let updatedPrediction = {
                             actualWinnerId: resp.dates[1].games[0].teams.home.id,
                             actualLoserId: resp.dates[1].games[0].teams.away.id,
                         };
+                        const newGame ={
+                            gamePk: resp.dates[1].games[0].gamePk,
+                            gameWinner_id: resp.dates[1].games[0].teams.home.team.id,
+                            gameLoser_id:  resp.dates[1].games[0].teams.away.team.id
+                    }
+
                         patchPrediction(fetchedPredictionData, updatedPrediction)
+                        postNewGame(newGame)
+
                     }
                    }//end of multi day game cases
                    else {
@@ -227,31 +243,40 @@ function LeaderBoard(){
                             actualWinnerId: resp.dates[0].games[0].teams.away.id,
                             actualLoserId: resp.dates[0].games[0].teams.home.id,
                         };
+                        const newGame ={
+                            gamePk: resp.dates[0].games[0].gamePk,
+                            gameWinner_id: resp.dates[0].games[0].teams.away.team.id,
+                            gameLoser_id:  resp.dates[0].games[0].teams.home.team.id
+                    }
+
                         patchPrediction(fetchedPredictionData, updatedPrediction)
+                        postNewGame(newGame)
+
                     }
                     else{
                         let updatedPrediction = {
                             actualWinnerId: resp.dates[0].games[0].teams.home.id,
                             actualLoserId: resp.dates[0].games[0].teams.away.id,
                         };
+                        const newGame ={
+                            gamePk: resp.dates[0].games[0].gamePk,
+                            gameWinner_id: resp.dates[0].games[0].teams.home.team.id,
+                            gameLoser_id:  resp.dates[0].games[0].teams.away.team.id
+                    }
                         patchPrediction(fetchedPredictionData, updatedPrediction)
+                        postNewGame(newGame)
                     }
                    } //end of single game
                 } //end of handleMLBResponse
 
 
 
+                    function postNewGame(game){
 
+                    }
                     if ( null || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
                         console.log("look for pk", resp)
-                                                    const newGame ={
-                        
-                                                            gamePk: resp.dates[0].games[0].gamePk,
-                                                            gameWinner_id: resp.dates[0].games[0].teams.away.team.id,
-                                                            gameLoser_id:  resp.dates[0].games[0].teams.home.team.id
-                        
-                                                    }
-    
+
                 }
             }
 
