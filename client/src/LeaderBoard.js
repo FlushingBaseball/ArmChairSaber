@@ -1,13 +1,28 @@
 function LeaderBoard(){
+
+     /**
+      * fetchedPrediction is called in the returned JSX
+      *     handleUnResolvedPredictions is called on that fetched prediction
+      *         if winner is known:
+      *             handleWinnerKnown is called
+      *                 patchUserBasedOnPrediction is called which updates the users Score,Streak,etc
+      *                 patchPrediction is called: to set the prediction to resolved
+      *                 
+      *                 
+      *         if winner is not known:
+      *             handleWinnerNotKnown is called which calls the backend for the gamePK:
+      *                 if the back end doesn't have it:
+                            handleMLBResponse is called: which takes the MLB response and edits the predictions to have ActualWinner and ActualLoser
+                                patchPrediction: recieves the prediction and patches is
+                                postNewGame: recieves the game for the database
+                        
+                        if the backend Does have it:
+
+      *                     
+      *    Further Development / re-rewrite in the offseason
+
+      */
     
-    // const [unResPredictions, setUnResPredictions] = useState([]);
-
-
-    ///nextUnresolvedPrediction
-    //I could do like while continueFetching = True
-    // the issue is rerenders are going to happen everytime state is updated lmao so no state
-    //should change one part into a highher order function
-
     let fetchedPredictionData = '';
 
     function fetchedPrediction(){
@@ -129,6 +144,7 @@ function LeaderBoard(){
 
 
                 function patchPrediction(prediction, patchedPrediction){
+                    console.log("In Patch Prediction")
                     fetch (`/predictions/${prediction.id}`,{
                         method: 'PATCH',
                         headers:{
@@ -147,8 +163,6 @@ function LeaderBoard(){
                     })
 
                 }
-                
-                
                 
                 function handleWinnerNotKnown(fetchedPredictionData){
                     if (fetchedPredictionData.actualWinnerId === null){
@@ -179,8 +193,14 @@ function LeaderBoard(){
 
                             }
                             else if (resp.ok){
+                                console.log("Had This Game: Calling patchPrediction with the Data")
                                 let backendRespOkData = resp.json()
-                                handleBackendOkayResponse(backendRespOkData)
+                                const backEndPatchedPrediction={
+                                    actualWinnerId: backendRespOkData.gameWinner_id,
+                                    actualLoserId:  backendRespOkData.gameLoser_id
+                                }
+                                patchPrediction(fetchedPredictionData, backEndPatchedPrediction){
+
                                 //maybe return something
                             }
                         })
@@ -192,13 +212,6 @@ function LeaderBoard(){
 
 
 
-
-
-                //also need to send game to backend now that we have it
-                function handleBackendOkayResponse(backendRespOkData, fetchedPredictionData){
-                    console.log("got to handleBackendOkayResponse", backendRespOkData)
-
-                }
                 
                 function handleMLBResponse(resp,fetchedPredictionData){
                     // console.log("got to handleMLBResponse", resp)
@@ -271,78 +284,26 @@ function LeaderBoard(){
 
 
 
-                    function postNewGame(game){
-
+                    function postNewGame(newGame){
+                        fetch(`/games/${newGame.game_Id}`, {
+                            method: 'POST',
+                            headers:{
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify(newGame)
+                                })
+                        .then((resp) =>{
+                            if (!resp.ok) {
+                                throw new Error('Failed to post new game')
+                            }
+                            return resp.json();
+                        })
+                        .then((data) => {
+                            console.log("posted game:", data);
+                        })
+                        .catch((err) => console.error(err));
                     }
-                    if ( null || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
-                        console.log("look for pk", resp)
-
-                }
-            }
-
-
-
-
-
-                
-                //                         //    predictionData[i].actualWinnerId = resp.dates[0].games[0].teams.away.team.id
-                //                            fetch(`/games/${predictionData[i].game_Id}`, {
-                //                             method: 'POST',
-                //                             headers:{
-                //                                 'Content-Type': 'application/json',
-                //                             },
-                //                             body: JSON.stringify(newGame)
-                //                            })
-                //                            .then((resp) =>{
-                //                             if (!Response.ok) {
-                //                                 throw new Error('Failed to post new game')
-                //                             }
-                //                             return Response.json();
-                //                            })
-                //                            .then((data) => {
-                //                             console.log("posted game:", data);
-                //                            })
-                //                         }
                                         
-                //                         else if ( resp.dates[0].games[0].teams.home.isWinner === true || ( resp.dates[1] && resp.dates[1].games[0].teams.home.isWinner === true) ){
-                                        
-                //                             const newGame ={
-                
-                //                                 gamePk: predictionData[i].game_Id,
-                //                                 gameWinner_id: resp.dates[0].games[0].teams.home.team.id,
-                //                                 gameLoser_id:  resp.dates[0].games[0].teams.away.team.id
-                
-                //                         }
-                                        
-                //                         //    predictionData[i].actualWinnerId = resp.dates[0].games[0].teams.home.team.id
-                //                         fetch(`/games/${predictionData[i].game_Id}`, {
-                //                             method: 'POST',
-                //                             headers:{
-                //                                 'Content-Type': 'application/json',
-                //                             },
-                //                             body: JSON.stringify(newGame)
-                //                            })
-                //                            .then((resp) =>{
-                //                             if (!resp.ok) {
-                //                                 throw new Error('Failed to post new game')
-                //                             }
-                //                             return resp.json();
-                //                            })
-                //                            .then((data) => {
-                //                             console.log("posted game:", data);
-                //                            })
-                //                         }
-                                        
-                //                     })  
-                                    
-                                    
-                                    
-                //                     .catch(err => console.error(err));
-                //                 }
-
-
-
-
 
 
 
@@ -382,52 +343,6 @@ function LeaderBoard(){
                 
                 
 
-            
-                    //         // function patchPrediction(respOkData){
-            //         //     console.log(respOkData)
-            
-            //         //     const patchedPrediction ={
-            //         //         actualWinnerId: respOkData.gameWinner_id,
-            //         //         actualLoserId:  respOkData.gameLoser_id
-            //         //     }
-            //         //     console.log('had this game')
-            //         //     console.log(patchedPrediction)
-            
-            //         //     fetch(`/predictions/${predictionData[i].id}`, {
-            //         //         method: 'PATCH',
-            //         //         headers:{
-            //         //             'Content-Type': 'application/json',
-            //         //         },
-            //         //         body: JSON.stringify(patchedPrediction)
-            //         //        })
-            //         //        .then((resp) =>{
-            //         //         if (!resp.ok) {
-            //         //             throw new Error('Failed to update item')
-            //         //         }
-            //         //         return resp.json();
-            //         //        })
-            //         //        .then((data) => {
-            //         //         console.log("updated item:", data);
-            //         //        })
-            //         // }
-
-
-
-
-
-
-
-
-
-
-            
-
-
-
-
-
-
-
 
 // const [predictionData, setPredictionData] = useState([]);
 // const [predictiveLeaders, setPredictiveLeaders] = useState([]);
@@ -456,37 +371,6 @@ function LeaderBoard(){
 //             .then((resp)=> resp.json())
 //             .then(data =>{setUsers(data) })
 //         },[])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -524,44 +408,7 @@ function LeaderBoard(){
 
                         
                         /** Pick back up here */
-
-//                         
-
-
-
-                
-                
-
-
-//             }) 
-
-//                 function patchPrediction(respOkData){
-//                     console.log(respOkData)
-
-//                     const patchedPrediction ={
-//                         actualWinnerId: respOkData.gameWinner_id,
-//                         actualLoserId:  respOkData.gameLoser_id
-//                     }
-//                     console.log('had this game')
-//                     console.log(patchedPrediction)
-
-//                     fetch(`/predictions/${predictionData[i].id}`, {
-//                         method: 'PATCH',
-//                         headers:{
-//                             'Content-Type': 'application/json',
-//                         },
-//                         body: JSON.stringify(patchedPrediction)
-//                        })
-//                        .then((resp) =>{
-//                         if (!resp.ok) {
-//                             throw new Error('Failed to update item')
-//                         }
-//                         return resp.json();
-//                        })
-//                        .then((data) => {
-//                         console.log("updated item:", data);
-//                        })
-//                 }
+                       
 
             // .then( (data) => {
 
