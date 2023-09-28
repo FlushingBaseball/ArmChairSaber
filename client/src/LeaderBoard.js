@@ -6,6 +6,7 @@ function LeaderBoard(){
     ///nextUnresolvedPrediction
     //I could do like while continueFetching = True
     // the issue is rerenders are going to happen everytime state is updated lmao so no state
+    //should change one part into a highher order function
 
     let fetchedPredictionData = '';
 
@@ -112,25 +113,12 @@ function LeaderBoard(){
                             let resolvedPrediction = {
                                 isResolved: true
                             };
-                            console.log("we made it past the first .then")
+
+                            patchPrediction(prediction, resolvedPrediction)
+                            // console.log("we made it past the first .then")
 
 
-                             fetch (`/predictions/${prediction.id}`,{
-                                method: 'PATCH',
-                                headers:{
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(resolvedPrediction)
-                            })
-                            .then((resp) =>{
-                                if (!resp.ok){
-                                    throw new Error('Failed to update Prediction')
-                                }
-                                return resp.json();
-                            })
-                            .then((data)=> {
-                                console.log("updated prediction", data)
-                            })
+
                 } // End of Winner Not Null 
                 
                 // if Actual winner is not known im just gonna return for now
@@ -140,7 +128,25 @@ function LeaderBoard(){
                 } // end of handleWinnerKnown
 
 
+                function patchPrediction(prediction, patchedPrediction){
+                    fetch (`/predictions/${prediction.id}`,{
+                        method: 'PATCH',
+                        headers:{
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(patchedPrediction)
+                    })
+                    .then((resp) =>{
+                        if (!resp.ok){
+                            throw new Error('Failed to update Prediction')
+                        }
+                        return resp.json();
+                    })
+                    .then((data)=> {
+                        console.log("updated prediction", data)
+                    })
 
+                }
                 
                 
                 
@@ -153,7 +159,7 @@ function LeaderBoard(){
                                 fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk=${fetchedPredictionData.game_Id}`)
                                 .then((resp)=> resp.json())
                                 .then(resp =>{
-                                    console.log("This is the mlb response", resp)
+                                    // console.log("This is the mlb response", resp)
                                     /**
                                         This is checking if the property even exists, if a team has lost it still has this property, but marked to false
                                         hence why checking if the property exists is sufficent to see if the game is complete and to end processing if a winner isn't offical
@@ -167,8 +173,8 @@ function LeaderBoard(){
                                     }
                                 })
                                 .then((resp) => {
-                                    console.log("Game Has a winner", resp)
-                                    handleMLBResponse(resp)
+                                    // console.log("Game Has a winner", resp)
+                                    handleMLBResponse(resp,fetchedPredictionData )
                                 })
 
                             }
@@ -188,25 +194,65 @@ function LeaderBoard(){
 
 
 
-
-                function handleBackendOkayResponse(backendRespOkData){
+                //also need to send game to backend now that we have it
+                function handleBackendOkayResponse(backendRespOkData, fetchedPredictionData){
                     console.log("got to handleBackendOkayResponse", backendRespOkData)
 
                 }
                 
-                function handleMLBResponse(resp){
-                    console.log("got to handleMLBResponse", resp)
-                //     if ( resp.dates[0].games[0].teams.away.isWinner === true || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
-                //         console.log("look for pk", resp)
-                //                                     const newGame ={
+                function handleMLBResponse(resp,fetchedPredictionData){
+                    // console.log("got to handleMLBResponse", resp)
+
+                    //check if it's a multidate game
+                   if (resp.dates[1]){
+                    console.log("Multi date game")
+                    if (resp.dates[1].games[0].teams.away.isWinner === true){
+                        let updatedPrediction = {
+                            actualWinnerId: resp.dates[1].games[0].teams.away.id,
+                            actualLoserId: resp.dates[1].games[0].teams.home.id,
+                        };
+                        patchPrediction(fetchedPredictionData, updatedPrediction)
+                    }
+                    else{
+                        let updatedPrediction = {
+                            actualWinnerId: resp.dates[1].games[0].teams.home.id,
+                            actualLoserId: resp.dates[1].games[0].teams.away.id,
+                        };
+                        patchPrediction(fetchedPredictionData, updatedPrediction)
+                    }
+                   }//end of multi day game cases
+                   else {
+                    if (resp.dates[0].games[0].teams.away.isWinner === true){
+                        let updatedPrediction = {
+                            actualWinnerId: resp.dates[0].games[0].teams.away.id,
+                            actualLoserId: resp.dates[0].games[0].teams.home.id,
+                        };
+                        patchPrediction(fetchedPredictionData, updatedPrediction)
+                    }
+                    else{
+                        let updatedPrediction = {
+                            actualWinnerId: resp.dates[0].games[0].teams.home.id,
+                            actualLoserId: resp.dates[0].games[0].teams.away.id,
+                        };
+                        patchPrediction(fetchedPredictionData, updatedPrediction)
+                    }
+                   } //end of single game
+                } //end of handleMLBResponse
+
+
+
+
+                    if ( null || (resp.dates[1] && resp.dates[1].games[0].teams.away.isWinner === true) ){
+                        console.log("look for pk", resp)
+                                                    const newGame ={
                         
-                //                                             // gamePk: predictionData[i].game_Id,
-                //                                             // gameWinner_id: resp.dates[0].games[0].teams.away.team.id,
-                //                                             // gameLoser_id:  resp.dates[0].games[0].teams.home.team.id
+                                                            gamePk: resp.dates[0].games[0].gamePk,
+                                                            gameWinner_id: resp.dates[0].games[0].teams.away.team.id,
+                                                            gameLoser_id:  resp.dates[0].games[0].teams.home.team.id
                         
-                //                                     }
+                                                    }
     
-                // }
+                }
             }
 
 
