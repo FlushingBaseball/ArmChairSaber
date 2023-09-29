@@ -68,12 +68,6 @@ Need to finish today
 
 
 
-
-
-
-
-
-
 Player page will be done soon just need to clean up
 only render what should be avalibe
  and there's a comma
