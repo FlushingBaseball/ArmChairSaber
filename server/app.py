@@ -132,6 +132,8 @@ def get_user_by_id(id):
             jsonify({"error": "User not found"}),
             404
         )
+    return user.to_dict(), 200
+
 
 
 

@@ -35,6 +35,7 @@ function LeaderBoard(){
     async function fetchedPrediction() {
         try {
             const resp = await fetch('/nextUnresolvedPrediction');
+            // const resp = await fetch('/predictionsNotResolved');
             if (!resp.ok) {
                 throw new Error("Error Response Received");
             }
@@ -43,10 +44,13 @@ function LeaderBoard(){
             if (!data) {
                 return;
             }
-
-            handleUnResolvedPredictions(data);
-            await fetchedPrediction(); //  fetching until no more
-        } catch (error) {
+            console.log("This is fetchedPrediction", data)
+        
+              await handleUnResolvedPredictions(data);
+                // await fetchedPrediction(); //  fetching until no more
+            
+        } 
+        catch (error) {
             console.error("Error", error);
         }
     }
@@ -55,7 +59,7 @@ function LeaderBoard(){
     
     function handleUnResolvedPredictions(fetchedPredictionData){
         console.log("this is URP in handleUnResolvedPredictions", fetchedPredictionData)
-        if (fetchedPredictionData.actualWinnerId !==null){
+        if (fetchedPredictionData.actualWinnerId !==null ){
             handleWinnerKnown(fetchedPredictionData)
         }
         else{
@@ -88,32 +92,40 @@ function LeaderBoard(){
                     console.log("Updated user:", data)
                 })
             }
-
-
+            function fetchFreshUser(prediction){
+                console.log("in fetchFreshUser")
+                return fetch(`/users/${prediction.user_Id}`)
+                .then((resp)=>{
+                    console.log("this is resp", resp)
+                    return resp.json()
+                })
+            }
 
             function handleWinnerKnown(prediction){
                 console.log('this is prediction in handleWinnerknown', prediction)
                 if (prediction.actualWinnerId !==null){
-
-
+                    fetchFreshUser(prediction)
+                    .then((newUserData) => {
+                        console.log("This is fresh user data", newUserData)
+                        
                     if (prediction.actualWinnerId === prediction.predictedWinnerId){
                         console.log("The actual and predicted winners matched")
-                        if (Number(prediction.user.currentStreak) + 1 > prediction.user.longestStreak){
+                        if (Number(newUserData.currentStreak) + 1 > newUserData.longestStreak){
                             console.log("The new streak is larger")
                             let patchedUser = {
-                                totalScore: prediction.user.totalScore += 10,
-                                currentStreak: prediction.user.currentStreak += 1,
-                                totalGuessesCorrect: prediction.user.totalGuessesCorrect +=1,
-                                longestStreak: prediction.user.longestStreak +=1 
+                                totalScore: newUserData.totalScore += 10,
+                                currentStreak: newUserData.currentStreak += 1,
+                                totalGuessesCorrect: newUserData.totalGuessesCorrect +=1,
+                                longestStreak: newUserData.longestStreak +=1 
                             }
                            patchUserBasedOnPrediction(prediction,patchedUser)
                         }
                         else {
                             console.log("The old streak is larger")
                             let patchedUser = {
-                                totalScore: prediction.user.totalScore += 10,
-                                currentStreak: prediction.user.currentStreak += 1,
-                                totalGuessesCorrect: prediction.user.totalGuessesCorrect +=1,
+                                totalScore: newUserData.totalScore += 10,
+                                currentStreak: newUserData.currentStreak += 1,
+                                totalGuessesCorrect: newUserData.totalGuessesCorrect +=1,
                             }
                             patchUserBasedOnPrediction(prediction,patchedUser)
                         }
@@ -121,25 +133,22 @@ function LeaderBoard(){
                     else{
                         console.log("the guess was incorrect")
                         let patchedUser = {
-                            totalScore: prediction.user.totalScore -=10,
+                            totalScore: newUserData.totalScore -=10,
                             currentStreak: 0,
-                            totalGuessesIncorrect: prediction.user.totalGuessesIncorrect +=1   
+                            totalGuessesIncorrect: newUserData.totalGuessesIncorrect +=1   
                         }
                         patchUserBasedOnPrediction(prediction,patchedUser)
                     }
-                        
-
-                 
-                            let resolvedPrediction = {
-                                isResolved: true
-                            };
-
-                            patchPrediction(prediction, resolvedPrediction)
-                            // console.log("we made it past the first .then")
-
-
-
-                } // End of Winner Not Null 
+                })
+                .then((resp)=>{
+                    console.log("made it to the last .then")
+                    let resolvedPrediction = {
+                        isResolved: true
+                    };
+    
+                    patchPrediction(prediction, resolvedPrediction)
+                })
+             } // End of Winner Not Null 
                 
                 // if Actual winner is not known im just gonna return for now
                     else {
@@ -163,9 +172,9 @@ function LeaderBoard(){
                         if (!resp.ok){
                             throw new Error('Failed to update Prediction')
                         }
-                         resp.json()
+                         return resp.json()
                     })
-                    .then(data=> {
+                    .then((data)=> {
                         console.log("updated prediction", data)
                     })
 
@@ -187,7 +196,7 @@ function LeaderBoard(){
                                         hence why checking if the property exists is sufficent to see if the game is complete and to end processing if a winner isn't offical
                                         the second date is incase of games that are resumed at a latter date etc
                                      */
-                                    if (!resp.dates[0].games[0].teams.away.isWinner && (resp.dates[1] && !resp.dates[1].games[0].teams.away.isWinner)){
+                                    if (!resp.dates[0].games[0].teams.away.hasOwnProperty('isWinner') && (resp.dates[1] && !resp.dates[1].games[0].teams.away.hasOwnProperty('isWinner'))){
                                         return Promise.reject("Game has no winner, Promise Rejected")
                                     }
                                     else {
@@ -257,6 +266,8 @@ function LeaderBoard(){
                             gameWinner_id: resp.dates[1].games[0].teams.home.team.id,
                             gameLoser_id:  resp.dates[1].games[0].teams.away.team.id
                     }
+                    console.log("This is updatedPrediction", updatedPrediction)
+                    console.log("this is newGame", newGame) 
 
                         patchPrediction(fetchedPredictionData, updatedPrediction)
                         postNewGame(newGame)
@@ -328,13 +339,13 @@ function LeaderBoard(){
 
 
 
-
+                    fetchedPrediction()
 
 
                 return (
                     <div>
                         <h1>Testing ability to grade predictions</h1>
-                        {fetchedPrediction()}
+                        {}
                     </div>
                 )
                 
