@@ -1,0 +1,6 @@
+{
+  "require": {
+    "heroku/heroku-buildpack-nodejs": "*",
+    "heroku/heroku-buildpack-python": "*"
+  }
+}
