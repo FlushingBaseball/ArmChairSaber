@@ -30,7 +30,6 @@ function LeaderBoard(){
 
       */
     
-    let fetchedPredictionData = '';
 
     async function fetchedPrediction() {
         try {
@@ -47,7 +46,7 @@ function LeaderBoard(){
             console.log("This is fetchedPrediction", data)
         
               await handleUnResolvedPredictions(data);
-                // await fetchedPrediction(); //  fetching until no more
+              await fetchedPrediction(); //  fetching until no more
             
         } 
         catch (error) {
