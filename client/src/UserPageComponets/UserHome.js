@@ -1,10 +1,29 @@
+import {useState, useEffect} from "react"
+
 function UserHome({user}){
 console.log('user in userHOme is', user)
 
 const userWins = user.totalGuessesCorrect;
 const userLoses = user.totalGuessesIncorrect;
+const [userInfo, SetUserInfo] = useState('')
+
+
+useEffect(()=>{
+  fetch(`/users/${user.id}`)
+  .then((resp)=>resp.json())
+  .then((data)=>{
+    SetUserInfo(data)
+  })
+},[])
+
+useEffect(()=>{
+  console.log(userInfo)
+},[userInfo])
+
 
 function mapPredictions(){
+
+
  return user.User_Predictions.map((prediction) =>{
       return(
         <div className="WrapperSinglePrediction">
