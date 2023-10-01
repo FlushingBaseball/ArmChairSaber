@@ -3,13 +3,22 @@ import {useState} from "react"
 
 import PredictionGroup from "./PredictionGroup"
 
-function TodaysGame({gamePk, teams, game, status, user}) {
+function TodaysGame({gamePk, teams, game, status, user, selectedSportId}) {
 
 const [predictedWinner, setPredictedWinner] = useState('');
 
+let awayImageSrc = teams.away.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.away.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
+let homeImageSrc = teams.home.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.home.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
 
-  const awayImageSrc = teams.away.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.away.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
-  const homeImageSrc = teams.home.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.home.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
+if (selectedSportId!=="1"){
+
+   awayImageSrc = teams.away.probablePitcher ? `https://midfield.mlbstatic.com/v1/people/${teams.away.probablePitcher.id}/milb/100` : '/Images/default-batter.svg'
+
+
+  homeImageSrc = teams.home.probablePitcher ? `https://midfield.mlbstatic.com/v1/people/${teams.home.probablePitcher.id}/milb/100` : '/Images/default-batter.svg'
+  
+}
+
 
   if (teams.home.team.id  ===undefined || teams.away.team.id ===undefined ){
       return(
@@ -30,10 +39,9 @@ const [predictedWinner, setPredictedWinner] = useState('');
               // const homeTeamImageSrc=`./Images/logos/${teams.home.team.id}.svg`;
               // const awayTeamImageSrc=`./Images/logos/${teams.away.team.id}.svg`;
 
+              const homeTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.home.team.id}.svg`;
+              const awayTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
 
-          const homeTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.home.team.id}.svg`;
-          const awayTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
-          
           
           
           return (
@@ -42,25 +50,26 @@ const [predictedWinner, setPredictedWinner] = useState('');
                  <img className="teamGameLogo" alt={teams.home.team.name} src={homeTeamImageSrc}></img>
                  <h4 className="teamName">Home: {teams.home.team.name} </h4>
                  <div className="pitcherInfo">
-                    <span  className="pitcherName">{teams.home.probablePitcher !== undefined? teams.home.probablePitcher.fullName : "unkown"}</span>
+                    <span  className="pitcherName">{teams.home.probablePitcher !== undefined? teams.home.probablePitcher.fullName : "Not Announced"}</span>
                     <img className="probPitcherPhoto" src={homeImageSrc}></img>
                  </div>
               </div>
-
-            {status.abstractGameState === 'Live' || status.abstractGameState ==="Final" ? (<div><span>{teams.home.score}</span> <span>-</span> <span>{teams.away.score}</span></div> ) : null}
+            <div className="CenterWrapper">
+              {status.abstractGameState === "Final" && <span id="gameCompleteSpan">Game is Complete</span>}
+              {status.abstractGameState === "Live" && <Link className="liveLink" to={`/TodaysGame/${gamePk}`}> Click Live game!</Link>}
+              {status.abstractGameState === 'Live' || status.abstractGameState ==="Final" ? (<div><span className="todayLiveScore">{teams.home.score}</span> <span  className="todayLiveScore">-</span> <span  className="todayLiveScore">{teams.away.score}</span></div> ) : null}
+            {status.abstractGameState === "Preview" && <PredictionGroup game={game} user={user} predictedWinner={predictedWinner} setPredictedWinner={setPredictedWinner} />}
+            </div>
         
             <div className={`teamInfo ${predictedWinner == teams.away.team.id ? 'predictedWinner' : ' '}`}>
                 <img className="teamGameLogo" alt={teams.away.team.name} src={awayTeamImageSrc}></img>
                 <h4 className="teamName">Away: {teams.away.team.name} </h4>
                 <div className="pitcherInfo">
-                    <span className="pitcherName">{teams.away.probablePitcher !== undefined? teams.away.probablePitcher.fullName : "unkown"}</span>
+                    <span className="pitcherName">{teams.away.probablePitcher !== undefined? teams.away.probablePitcher.fullName : "Not Announced"}</span>
                     <img className="probPitcherPhoto" src={awayImageSrc}></img>
                 </div>
             </div> 
-
-            {status.abstractGameState === "Preview" && <PredictionGroup game={game} user={user} predictedWinner={predictedWinner} setPredictedWinner={setPredictedWinner} />}
-            {status.abstractGameState === "Live" && <Link className="liveLink" to={`/TodaysGame/${gamePk}`}> Click Live game!</Link>}
-            {status.abstractGameState === "Final" && <span>Game is Complete</span>}
+            
         </div>
     )
 }

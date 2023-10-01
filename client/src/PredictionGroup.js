@@ -4,9 +4,24 @@ function PredictionGroup({game, user, key, setPredictedWinner}){
 
 
 const [selectedValue, setSelectedValue] = useState('')
+const [notSelectedValue, setNotSelectValue] = useState(undefined)
+
+const checkValue1 = Number(game.teams.home.team.id);
+const checkValue2 = Number(game.teams.away.team.id);
 
 function handleTeamSelectRadioChange (event) {
     setSelectedValue(event.target.value)
+
+    if (Number(event.target.value) === checkValue1){
+        setNotSelectValue(checkValue2)
+    }
+    else if (Number(event.target.value) === checkValue2){
+        setNotSelectValue(checkValue1)
+    }
+    else{
+        console.Error("Neither team Id made it into NotSelectValue")
+    }
+
 };
 
 
@@ -17,6 +32,7 @@ function handlePredictionSubmit (){
         game_Id: game.gamePk,
         user_Id: user.id,
         predictedWinnerId: Number(selectedValue),
+        predictedLoserId: Number(notSelectedValue)
     };
     console.log(`postPrediction is:`)
     console.log(postPrediction)
@@ -50,16 +66,7 @@ function handlePredictionSubmit (){
                 })
             }
         }
-        return response.json();
-
-    })
-    .then(response => {
-        
-        setPredictedWinner(response.predictedWinnerId)
-        console.log(`Selected Value: ${selectedValue}`)
-        
-        
-        if (response.ok){
+        else if (response.ok){
             fetch(`/users/${user.id}`, {
                 method: 'PATCH',
                 headers:{
@@ -79,23 +86,32 @@ function handlePredictionSubmit (){
             console.log("updated user:", data);
 
            })
-    }
+                     }
+
+        return response.json();
+
+    })
+    .then(response => {
+        
+        setPredictedWinner(response.predictedWinnerId)
+        console.log(`Selected Value: ${selectedValue}`)
 })
 
     .catch(error =>{
         console.error('a werid error occurred exiting promise chain:', error)
     })
 
-
-
-
 }
 
     return (
 
         <div className="predictiveinfoGroup">
-                <label>
+            <div className="WrapperPredictionRadios">
+                <label
+                className="radioButtonLabel"
+                >
                     <input 
+                        className="radioButton"
                         type="radio"
                         name={key}
                         value={game.teams.home.team.id}
@@ -104,8 +120,11 @@ function handlePredictionSubmit (){
                     />
                    {game.teams.home.team.name}
             </label>
-                <label>
-                    <input 
+                <label
+                className="radioButtonLabel"
+                >
+                    <input
+                        className="radioButton" 
                         type="radio"
                         name={key}
                         value={game.teams.away.team.id}
@@ -114,8 +133,15 @@ function handlePredictionSubmit (){
                     />
                     {game.teams.away.team.name}
                  </label>
+            </div>
             <br />
-            <button onClick={handlePredictionSubmit}>Submit Predictions</button>
+            <button
+                 onClick={handlePredictionSubmit}
+                 className="SubmitButton"
+                 
+                 >
+                    Submit Predictions
+                </button>
         </div>
 
     );

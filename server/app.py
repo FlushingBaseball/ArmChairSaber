@@ -132,6 +132,8 @@ def get_user_by_id(id):
             jsonify({"error": "User not found"}),
             404
         )
+    return user.to_dict(), 200
+
 
 
 
@@ -159,25 +161,6 @@ def patch_user_by_id(id):
         jsonify(user.to_dict()),
         200
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -244,8 +227,9 @@ def postPredicitons():
         new_prediction =  User_Prediction(
             game_Id = data['game_Id'],
             user_Id =data['user_Id'],
-            predictedWinnerId =data['predictedWinnerId']
-  
+            predictedWinnerId =data['predictedWinnerId'],
+            predictedLoserId = data['predictedLoserId'],
+            isResolved = False
         )
 
         existing_prediction = User_Prediction.query.filter_by(
@@ -267,6 +251,43 @@ def postPredicitons():
 
     # return user as JSON, status code 201
     return new_prediction.to_dict(), 201
+
+@app.get('/predictionsNotResolved')
+def get_all_not_resolved_predictions():
+    un_Predictions = User_Prediction.query.filter(
+        User_Prediction.isResolved == False
+    )
+
+    data = [u.to_dict() for u in un_Predictions]
+
+    if not data:
+        return make_response("Nothing Found", 204)
+
+    return make_response(
+        jsonify(data),
+        200
+    )
+
+
+@app.get('/nextUnresolvedPrediction')
+def get_single_unresolved_prediction():
+    un_res_prediction = User_Prediction.query.filter(
+        User_Prediction.isResolved == False
+    ).first()
+
+    if not un_res_prediction:
+        return make_response(
+            jsonify({'error': 'Unresolved Predictions not found'}),
+            404
+        )
+    
+    return make_response(
+        jsonify(un_res_prediction.to_dict()),
+        200
+    )
+
+
+
 
 
 

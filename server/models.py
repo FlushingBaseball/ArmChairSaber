@@ -1,5 +1,6 @@
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy.orm import validates
 
 from config import db, bcrypt
 
@@ -38,6 +39,12 @@ class User(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f"<User {self.username}>"
+
+    @validates('email')
+    def validate_email(self, key, email_address):
+        if '@' and '.' not in email_address:
+            raise ValueError("Failed Email structure Validation")
+        return email_address
     
     serialize_rules = ("-_password_hash", "-User_Predictions.user")
 
@@ -53,7 +60,7 @@ class Player(db.Model, SerializerMixin):
     firstLastName = db.Column(db.String, nullable=False)
     mlbId = db.Column(db.Integer, nullable=False, unique=True)
 
-    serialize_rules = ()
+    serialize_rules = () 
 
 
 
@@ -64,11 +71,29 @@ class User_Prediction(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     game_Id = db.Column(db.Integer, db.ForeignKey("games.id"))
     user_Id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    predictedWinnerId = db.Column(db.Integer, nullable=False)
+    predictedWinnerId = db.Column(db.Integer,
+                                    db.CheckConstraint('predictedWinnerId > 0'),
+                  nullable=False)
     actualWinnerId = db.Column(db.Integer, nullable=True)
+    predictedLoserId = db.Column(db.Integer,
+                        db.CheckConstraint('predictedLoserId > 0'),
+                            nullable=False,
+                                  default=0
+                                  )
+    actualLoserId = db.Column(db.Integer, nullable=True)
+    isResolved = db.Column(db.Boolean, nullable = True, default = False)
     ##back ref user = relationship
     ##back ref game = relationship
     serialize_rules=("-game.Game_Predictions", "-user.User_Predictions")
+
+    ## for when teams table is added to database
+
+    # @validates('predictedWinnerId')
+    # def validate_predictedWinner(self, key, team):
+    #     teams = db.session.query(Teams.id).all()
+    #     if team not in teams:
+    #         raise ValueError("Invalid team ID")
+    #     return team
     
 
 class Game(db.Model, SerializerMixin):

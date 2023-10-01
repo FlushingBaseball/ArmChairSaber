@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 function HomePage(){
 
     const navigate = useNavigate();
-  
+
 /**
  * 
  * @param {the page name you want to navigate to} id 
@@ -54,39 +54,39 @@ function handleTileClick(id){
     return(
     <div className="flexParent">
         <button className='homeTile' onClick={() => handleTileClick("advancedPitching")}>
-            <span className='navSpan'>Advanced Pitching Sabermetrics </span>
+            Advanced Pitching Sabermetrics 
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("advancedBatting")}>
-            <span className='navSpan'>Advanced Batting Sabermetrics </span>
+            Advanced Batting Sabermetrics
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("TeamMap")}> 
-            <span className='navSpan'>(not working) Team Map </span>
+            Roster
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("today")}>
-            <span className='navSpan'>Predict todays games </span>
+            Predict todays games
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("Leaderboard")}>
-            <span className='navSpan'>Prediction Leaderboards </span>
+            Predictions Leaderboard
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("advancedFielding")}>
-            <span className='navSpan'>Advanced Feilding</span>
+            Advanced Fielding
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("test")}>
-            <span className='navSpan'>Testing</span>
+            Testing / one day educational material
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("LeagueLeaders")}>
-            <span className='navSpan'>Leauge Leaders</span>
+            League Leaders
         </button>
 
-        <button className='homeTile' >
-            <span className='navSpan'>(Nothing yet btn) Educational Material</span>
+        <button className='homeTile' onClick={()=> handleTileClick("Nothing")}>
+            Nothing yet btn Educational Material
         </button>
     </div>
     )

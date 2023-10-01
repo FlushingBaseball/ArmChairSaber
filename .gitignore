@@ -9,8 +9,8 @@ Endpoints.md
 package-lock.json
 
 # production
-/build
 /dist
+/build
 
 # logs
 npm-debug.log*

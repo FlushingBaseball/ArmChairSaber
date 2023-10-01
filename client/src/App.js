@@ -22,6 +22,9 @@ import AdvancedBatting from './AdvancedBatting';
 
 import LeagueLeaders from './LeaugeLeaders';
 
+import UserHome from './UserPageComponets/UserHome';
+
+import PlayerPage from './PlayerComponets/PlayerPage';
 
 //566484
 //http://statsapi.mlb.com:80/api/v1/game/530629/boxscore
@@ -75,19 +78,25 @@ if (!user) {
   return (
 
       <div className='App'>
-        <Nav />
+        <Nav user={user} setUser={setUser}/>
     <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/teams' element={<Teams />} />
         <Route path='/today' element={<Today user={user}/>} />
         <Route path="TodaysGame/:gamePk" element={<LiveGame />} />
-        <Route path="TeamMap" element={<TeamMap />} />
         <Route path="Leaderboard" element={<LeaderBoard />} />
         <Route path='test' element={<Test />} />
         <Route path='/advancedBatting' element={<AdvancedBatting />} />
         <Route path="/advancedPitching" element={<AdvancedPitching />} />
         <Route path='/advancedFielding' element={<FieldingSaber searchPlayer={searchPlayer} setSearchPlayer={setSearchPlayer}/>} />
         <Route path='/LeagueLeaders' element={<LeagueLeaders />} />
+        <Route path="/user/:username" element={<UserHome user={user}/>} />
+
+          <Route path="TeamMap" element={<TeamMap />} />
+          <Route path='/player/' element={<PlayerPage />} />
+          <Route path='/player/:mlbAmId/' element={<PlayerPage />} />
+
+
         <Route path="*" element={<NotFound />} />
     </Routes>
        </div>

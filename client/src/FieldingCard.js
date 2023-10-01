@@ -6,7 +6,13 @@ function FieldingCard({fielderImage, feildingData, averageSpeed, totalDistance, 
 
     return(
         <div className="playerFieldCard">
-        <img className="fieldImg" src={fielderImage}></img>
+            <div className="playerBioInfo">
+                 <img className="fieldImg" src={fielderImage}></img>
+                 <span class="bioSpan">Age:</span>
+                 <span class="bioSpan">Position:</span>
+                 <span class="bioSpan">Born:</span>
+
+            </div>
             <div className="cardInfo">
                 <div className="sprintSpeed">
                     <h3 className="saberSpan">{`${feildingData[0].name_display_first_last}'s Average Sprint Speed is`}</h3>

@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4955f967.css",
+    "main.js": "/static/js/main.3a6c871c.js",
+    "static/media/zekton-rg.otf": "/static/media/zekton-rg.461f6cef464dd8540f87.otf",
+    "index.html": "/index.html",
+    "main.4955f967.css.map": "/static/css/main.4955f967.css.map",
+    "main.3a6c871c.js.map": "/static/js/main.3a6c871c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4955f967.css",
+    "static/js/main.3a6c871c.js"
+  ]
+}

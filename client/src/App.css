@@ -1,18 +1,3 @@
-
-
-.signInUpLogo{
-    height: 20vh;
-    width: 20vh;
-}
-
-.logoText{
-    text-align: center;
-    font-family: 'zektonrg';
-
-}
-
-
-  
 @font-face {
     font-family: 'zektonrg';
     src: url('/public/Fonts/zekton-rg.otf') format('opentype');
@@ -21,122 +6,151 @@
   
 
 
-/*SIGN IN START SIGN IN START SIGN IN START, SIGN IN START */
-.signInForm{
-    display: flex;
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  /*
+  CSS RESET
+  */
+  
+  * {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Login Switch root
+*/
 
 .login-container{
-    padding-top: 10vh;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-}
-
-.center{
-    display: flex;
-    justify-content: center;
-    font-weight: bolder;
-}
-
-.signForm{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding-top: 10vh;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+
+.logoText{
+    text-align: center;
+    font-family: 'zektonrg';
+}
+
+
+.form-group{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   margin-bottom: 10px;
+   width: 100%;
+   
+   
 }
 
 
 
+.signInUpFormInput{
+    width: 200px;
+}
+.signInUpFormInput:focus{
+    border-color: #2c1b47;
+    outline: none;
+}
 
-.loader {
-    margin-top: 10vh;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  
-  #ball {
-    position: fixed;
-    top: 3em;
-    width: 3em;
-    height: 3em;
-    left: 6em;
-    -webkit-animation: bounce .3s cubic-bezier(.63,.09,.76,.45) infinite alternate;
-    -moz-animation:    bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
-    -o-animation:      bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
-    animation:         bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
-  }
-  
-  #bat {
-    position: fixed;
-    top: 3em;
-    left: -10.5em;
-    -webkit-animation: hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
-    -moz-animation:    hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
-    -o-animation:      hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
-    animation:         hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
-  }
-  
-  .red {
-    fill:#D7172A;
-  }
-  
-  .tan {
-    fill:#FFD87D;
-  }
-  
-  .white {
-    fill:#ffffff;
-  }
-  
-  @-webkit-keyframes hit {
-    0% { transform: rotate(0deg);} 
-    100% { transform: rotate(-10deg); }
-  }
-  
-  @-webkit-keyframes bounce {
-    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-    25% { height: 3em; width: 3em; }
-    75% { height: 3em; width: 3em; }
-    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-  }
-  
-  @-moz-keyframes bounce {
-    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-    25% { height: 3em; width: 3em; }
-    75% { height: 3em; width: 3em; }
-    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-  }
 
-  @-moz-keyframes hit {
-    0% { transform: rotate(0deg);} 
-    100% { transform: rotate(-10deg); }
-  }
-  
-  @-o-keyframes bounce {
-    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-    25% { height: 3em; width: 3em; }
-    75% { height: 3em; width: 3em; }
-    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-  }
+/*
+Login
+*/
 
-  @-o-keyframes hit {
-    0% { transform: rotate(0deg);} 
-    100% { transform: rotate(-10deg); }
-  }
-  
-  @keyframes bounce {
-    0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-    25% { height: 3em; width: 3em; }
-    75% { height: 3em; width: 3em; }
-    100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-  } 
 
-  @keyframes hit {
-    0% { transform: rotate(0deg);} 
-    100% { transform: rotate(-10deg); }
-  }
+.signInUpbtn{
+    background-color: #6e43b5;
+    border-radius: 4px;
+    color: white;
+    height: 4vh;
+    margin: 1vh;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+.signInUpbtn:hover{ 
+    background-color: #b793ef;
+    color: white;
+}
+
+.toggleBtn{
+    background-color: #6e43b5;
+    color: white;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    
+    
+}
+
+
+.signInForm{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.signInUPText{
+    font-size: 2rem;
+    font-family: 'zektonrg';
+    text-align: center;
+    padding: 1vh 0;
+}
+
+
+
+.signInUpLogo{
+    height: 20vh;
+    width: 20vh;
+}
+.signInUpLabel{
+    font-size: 1.5rem;
+    flex: 1;
+    text-align: right;
+    margin-right: 10px;
+}
 
 
 
@@ -150,30 +164,156 @@
 
 .signupForm{
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
-/*SIGN IN END SIGN IN END SIGN IN END SIGN IN END SIGN IN END*/
+
+
+/*SIGN IN START SIGN IN START SIGN IN START, SIGN IN START */
 
 
 
+.signForm{
+    display: flex;
+    flex-direction: column;
+}
 
-/*NAV START, NAV START, NAV START, NAV START, NAV START, NAV START*/
-    .nav{
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        height: 6vh;
-        background-color: #2c1b47;
-        padding: 0px;
-        align-items: center;  
+
+.batholder{
+    margin-top: 5vh;
+}
+
+.loader {
+    margin-top: 25vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#ball {
+    position: fixed;
+    top: 3em;
+    width: 3em;
+    height: 3em;
+    left: 6em;
+    -webkit-animation: bounce .3s cubic-bezier(.63,.09,.76,.45) infinite alternate;
+    -moz-animation:    bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
+    -o-animation:      bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
+    animation:         bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
+}
+
+#bat {
+    position: fixed;
+    top: 3em;
+    left: -10.5em;
+    -webkit-animation: hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+    -moz-animation:    hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+    -o-animation:      hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+    animation:         hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+}
+
+.red {
+    fill:#D7172A;
+}
+
+.tan {
+    fill:#FFD87D;
+}
+
+.white {
+    fill:#ffffff;
+}
+
+@-webkit-keyframes hit {
+    0% { transform: rotate(0deg);} 
+    100% { transform: rotate(-10deg); }
+  }
+  
+  @-webkit-keyframes bounce {
+      0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+      25% { height: 3em; width: 3em; }
+      75% { height: 3em; width: 3em; }
+      100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
     }
+    
+    @-moz-keyframes bounce {
+        0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+        25% { height: 3em; width: 3em; }
+        75% { height: 3em; width: 3em; }
+        100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+    }
+    
+    @-moz-keyframes hit {
+        0% { transform: rotate(0deg);} 
+        100% { transform: rotate(-10deg); }
+    }
+    
+    @-o-keyframes bounce {
+        0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+        25% { height: 3em; width: 3em; }
+        75% { height: 3em; width: 3em; }
+        100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+    }
+    
+    @-o-keyframes hit {
+        0% { transform: rotate(0deg);} 
+        100% { transform: rotate(-10deg); }
+    }
+    
+    @keyframes bounce {
+        0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
+        25% { height: 3em; width: 3em; }
+        75% { height: 3em; width: 3em; }
+        100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
+    } 
+    
+    @keyframes hit {
+    0% { transform: rotate(0deg);} 
+    100% { transform: rotate(-10deg); }
+  }
+  
 
+  
+  
+  /*SIGN IN END SIGN IN END SIGN IN END SIGN IN END SIGN IN END*/
+  
+  
+  
+  
+  /*NAV START, NAV START, NAV START, NAV START, NAV START, NAV START*/
+  .nav{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: 6vh;
+      background-color: #2c1b47;
+      padding: 0px;
+      align-items: center;  
+      top: 0px;
+      position: sticky;
+    }
+    @media  (max-width: 768px) {
+        .nav { 
+            justify-content: center;
+            align-items: center;
+            font-size: .7em;
+            margin: 0;
+            height: auto;
+            top: 0px;
+            position: sticky;
+        }
+      
+      }
+      
+    
     .logo{
         height:6vh;
         width: 6vw;
     }
-
+    
     .nav a{
         font-family: zektonrg;
         padding: 1vh;
@@ -183,11 +323,24 @@
         font-weight: bold;
     }
 
+    @media  (max-width: 768px) {
+        .nav a { 
+            font-size: .7rem;
+            margin: 0;
+        }
+      
+      }
+      
+      
+
+
+
+    
     .nav .active{
         color: #ebeb98;
     }
-
-
+    
+    
     .signoutButton{
         font-family: zektonrg;
         display: inline-block;
@@ -198,69 +351,109 @@
         font-size: 16px;
         font-weight: bold;
     }
+    
 
+    @media  (max-width: 768px) {
+        .signoutButton { 
+            font-size: .7rem;
 
+        }
+      
+      }
+      
 
-        /* .nav .active {
-    background-color: #0d1019;
+    
+    
+    /* .nav .active {
+        background-color: #0d1019;
     } */
-/*NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END*/
-
-
-
-
-
-
-
-/*HOME START, HOME START, HOME START, HOME START, HOME START*/
-
-.flexParent{
+    /*NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END, NAV END*/
+    
+    
+    
+    
+    
+    
+    
+    /*HOME START, HOME START, HOME START, HOME START, HOME START*/
+    
+    .flexParent{
         margin: 0 -5px;
         width: 100vw;
         height: 100vh;
-         display: flex;
-         justify-content: space-around;
-         flex-wrap: wrap;
-         flex-direction: row;
-         background-color: white;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: row;
+        background-color: white;
     }
     
     
-.homeTile { 
+    .homeTile { 
+        overflow-wrap: anywhere;
         cursor: pointer;
         padding: 0;
-        margin: 0 5px;
+        margin: 6px 5px;
         width: 25vw;
         height: 30vh;
         display: inline-flex;
+        /* background: linear-gradient(71deg,  #d9c2e9, #f4f4f4); */
         background: rgb(228,230,242); 
         border: 1px solid #333;
         box-shadow: 8px 8px 5px #444;
         padding-block: 0px;
         padding-inline: 0px;
+        font-family: 'zektonrg';
+        font-weight: bold;
+        font-size: 2em;
+        transition: color 0.3s ease;
+        justify-content: center;
     }
-   
-.navSpan{
-    padding: 0;
-    font-family: 'zektonrg';
-    font-weight: bold;
-    font-size: 3.9vh;
-    background: rgb(228,230,242);
-    transition: color 0.3s ease;
-}
+    
+    .homeTile:hover {
+        color: #6e43b5; 
+    }
+    
+    /*HOME END, HOME END, HOME END, HOME END, HOME END, HOME END*/
+    
+    @media  (max-width: 768px) {
+      .homeTile { 
+          font-size: 1em;
+          padding-bottom: 80px;
+          align-items: center;
+          text-align: center;
+          display: flex;
+          justify-content: center;
 
-.navSpan:hover {
-        color: #6e43b5; /* Change to your desired color on hover */
       }
+    
+    }
+    
+    
+    
+    
+    
+    
+    
 
-/*HOME END, HOME END, HOME END, HOME END, HOME END, HOME END*/
-    
-    
-    
-    
-    
-    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
@@ -284,9 +477,19 @@ Wrapper Today[
 
     game  [ 
         teamInfo [ ]
+        todayLiveScore 3 spans
         teamInfo [ ]
+        ? Prediction Group ?
 ]
 */ 
+
+#noGameImage{
+    padding: 10px 0px;
+    width: 50vw;
+    height: 50vh;
+    background-repeat: no-repeat;
+    
+}
 
 
 .WrapperToday{
@@ -296,26 +499,100 @@ Wrapper Today[
 
 }
 
+#gameCompleteSpan{
+    display: block;
+}
+
 
 
 .game{
-    background-color: #f5ffff;
+    width: 48%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
     margin: 10px;
-    padding: 10px;
     text-align: center;
     border: 2px solid #333;
     border-radius: 10px;
     box-shadow: 8px 8px 5px #444;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);;
 }
+
+
+.WrapperPredictionRadios{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.radioButton{
+    cursor: pointer;
+
+}
+
+.radioButtonLabel{
+        cursor: pointer;
+}
+
+
+
+
+@media  (max-width: 768px) {
+    .game { 
+        margin: 5px;
+      
+
+
+    }
+  }
+  
+  .predictiveinfoGroup{
+    display: flex;
+    flex-direction: column;
+  }
+  .SubmitButton{
+    align-items: center;
+    justify-content: center;
+    padding: 11px 11px;
+    border: 2px solid transparent;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+    border-radius: 45px;
+    box-shadow: 2px 2px 2px 2px;
+    font-family: 'zektonrg';
+    font-weight: bolder;
+  }
+  .SubmitButton:hover
+  {
+    background: linear-gradient(71deg,  #ecf6c6, #edd205);
+  }
+
+  
+ @media (max-width: 768px){
+    .predictiveinfoGroup{
+        
+    }
+ } 
 
 .probPitcherPhoto{
     
-    width: 50%;
-    height: 75%;
+    width: 10rem;
+    height: 10rem;
 
    
 }
+
+
+@media (max-width: 768px){
+    .probPitcherPhoto{
+        width: 5vh;
+        height: 5vh;
+    }
+}
+
+
+
+
 
 .teamInfo{
  margin: 10px;
@@ -324,11 +601,106 @@ Wrapper Today[
 
 }
 
+.pitcherName{
+    padding: 1.5px 0px;
+    display: block;
+}
+
+
+@media (max-width: 768px){
+    .teamInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0px;
+        
+    }
+
+
+
+
+}
+
+
+.todayLiveScore{
+    font-size: 1.4rem;
+    font-weight: bold;
+
+}
+
+
 .teamGameLogo{
      width: 4vw;
     height: 4vh; 
    
 }
+
+@media (max-width: 768px){
+    .teamGameLogo{
+        width: 4vw;
+        height: 4vh;
+    }
+}
+
+.teamName {
+    font-size: 2rem;
+}
+
+@media (max-width: 768px){
+    .teamName{
+        font-size: .75rem;
+        padding-bottom: 5px;
+    }
+}
+
+
+
+
+.leaugeSelect{
+    position: sticky;
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    justify-content: center;
+    position: sticky;
+    top: inherit;
+}
+
+
+.leaugeSelect button{
+    background-color: #6e43b5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6.5px 8px;
+    width: 12vw;
+    margin-top: 5px
+
+}
+
+
+
+@media (max-width: 768px){
+
+    .leaugeSelect {
+        gap: 1.2rem;
+
+    }
+
+    .leaugeSelect button{
+        background-color: #6e43b5;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 6.5px 8px;
+        
+    }
+}    
+
+
+
+
 
 .liveLink{
     color: red;
@@ -369,7 +741,56 @@ Wrapper Today[
 
 
 
-/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
+/* LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START,LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME START, LIVE GAME*/
 
 
 .firstLiveRow{
@@ -386,13 +807,14 @@ Wrapper Today[
 .AllBaseInfoWrapper{
 border: rgb(200, 200, 248) solid 8px;
 box-shadow: 8px 8px 5px #444;
- display: flex;
+ display: inline-flex;
  padding: 3vh;  
  flex-direction: column;
  justify-content: space-evenly;
  align-items: center;
  height: 30vh;
  background-color: #e1e9f2;
+ width: max-content;
 }
 
 
@@ -407,6 +829,8 @@ box-shadow: 8px 8px 5px #444;
 
 
 }
+
+
 
 #firstBase{
     border-width: 3vh;
@@ -479,6 +903,9 @@ box-shadow: 8px 8px 5px #444;
     justify-content: center;
     align-content: center;
 }
+
+
+
 
 
 
@@ -739,12 +1166,18 @@ box-shadow: 8px 8px 5px #444;
 .LiveGameScoreBoard{
     display: flex;
     justify-content: center;
+    text-align: center;
     gap: 10vw;
     padding: 1vh;
     margin-top: 0.1vh;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     
 }
+
+
+
+
+
 
 .scoreHeader{
     display: inline-block;
@@ -754,6 +1187,16 @@ box-shadow: 8px 8px 5px #444;
     display: block;
     width: 10vw;
     height: 10vh;
+}
+
+.teamNameSpan{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+.RecordSpan{
+    display: block;
 }
 
 .glanceSpan{
@@ -772,6 +1215,17 @@ box-shadow: 8px 8px 5px #444;
 
 
 
+
+
+/*ROSTER START, ROSTER START, ROSTER START, ROSTER START*/
+
+
+
+
+
+
+
+
 /*BOX SCORE START BOX SCORE START BOX SCORE START*/
 .boxElement{
     display: flex;
@@ -782,53 +1236,53 @@ box-shadow: 8px 8px 5px #444;
 table, th, td {
     border:1px solid rgb(84, 83, 83);
     font-size: 2vh;
-  }
+}
 
 
-  .boxLogo{
+.boxLogo{
     height: 2vh;
 
-  }
+}
 
 /*BOX END, BOX END, BOX END, BOX END. BOX END. BOX END*/
 
 
 
 
-  
 
 
 
 
 
 
-  /*PITCH VIS START*/
+
+/*PITCH VIS START*/
 
 .WrapperPitchingvis{
     display: flex;
 }
 
-  .batterImg{
+.batterImg{
     display: inline;
     height: 50%;
-  }
+}
 
-  .pitchVis{
+.pitchVis{
     display: flex;
     align-items: center;
-  }
+}
 
   .strikezone{
+      
+}
 
-  }
 
 
-
-  /*Batting Order Start, Batting Order Start, Batting Order Start, */
+/*Batting Order Start, Batting Order Start, Batting Order Start, BATTING ORDER START, BATTING ORDER START */
 
 .awayLineups{
     display: flex;
-
+    
 }
 
 .bothLineups{
@@ -842,7 +1296,7 @@ table, th, td {
     flex-direction: column;
     width: max-content;
     box-shadow: 1px 8px 8px 5px #444;
-
+    
 }
 
 .lineupBatter{
@@ -850,30 +1304,37 @@ table, th, td {
     display: flex;
 }
 
-  /*Batting Order End, Batting Order End, Batting Order End, */
+
+.BatterActive{
+    background-color: rgb(238, 238, 83);
+}
+
+
+
+/*Batting Order End, Batting Order End, Batting Order End, BATTING ORDER END, BATTING ORDER END*/
 
 
 
 
-  /*LEADERBOARD START, LEADERBOARD START, LEADERBOARD START, LEADERBOARD START*/
+/*LEADERBOARD START, LEADERBOARD START, LEADERBOARD START, LEADERBOARD START*/
 
 #leaderBoard{
- display: flex;
- flex-direction: column;
- align-items: center;
- border: rgb(200, 200, 248) solid 8px;
- border-radius: 20px;
- background: rgb(228,230,242);
- background: linear-gradient(180deg, rgba(228,230,242,1) 0%, rgba(200,200,248,1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: rgb(200, 200, 248) solid 8px;
+    border-radius: 20px;
+    background: rgb(228,230,242);
+    background: linear-gradient(180deg, rgba(228,230,242,1) 0%, rgba(200,200,248,1) 100%);
 }
 
 .leaderEntry{
     background-color: white;
     border: 1px solid #333;
     box-shadow: 8px 8px 5px #444;
-    width: 27vw;
+    width: 50vw;
     padding: 2vh;
-    font-size: 1.5vh;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -884,10 +1345,10 @@ table, th, td {
     text-decoration: underline;
 }
 
-  .leaderBoardCata{
+.leaderBoardCata{
     display: flex;
     gap: 2vw;
-  }
+}
 
 
 .leaderEntry{
@@ -899,22 +1360,102 @@ table, th, td {
 }
 
 
+/* .shadow-elevation-high{
+    0px -0.1px 0.2px hsl(var(--shadow-color) / 0),
+    0.4px -0.6px 1.1px hsl(var(--shadow-color) / 0.05),
+    0.7px -1.1px 2px hsl(var(--shadow-color) / 0.11),
+    1px -1.6px 2.8px hsl(var(--shadow-color) / 0.16),
+    1.3px -2.1px 3.7px hsl(var(--shadow-color) / 0.21),
+    1.7px -2.8px 4.9px hsl(var(--shadow-color) / 0.26),
+    2.1px -3.6px 6.3px hsl(var(--shadow-color) / 0.32),
+    2.8px -4.6px 8.1px hsl(var(--shadow-color) / 0.37),
+    3.5px -5.9px 10.3px hsl(var(--shadow-color) / 0.42),
+    4.6px -7.6px 13.3px hsl(var(--shadow-color) / 0.47);
 
 
-  /*LEADERBOARD END, LEADERBOARD END, LEADERBOARD END, LEADERBOARD END*/
+}
+ */
+
+/*LEADERBOARD END, LEADERBOARD END, LEADERBOARD END, LEADERBOARD END*/
 
 
 
 
 
+/*ROSTER START, ROSTER START, ROSTER START, ROSTER START, ROSTER START, ROSTER START*/
+
+#selectDropDowns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 3px 0px;
+}
 
 
+#RosterTitle{
+    text-align: center;
+    font-size: 5rem;
+    font-family: zektonrg;
+}
+
+.RosterGroup{
+    display: flex;
+    flex-direction: column;
+}
+.WrapperPlayer{
+    box-shadow: -14px 4px 8px 0px #444;
+    padding: 10px 4px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#playerPhoto{
+    height: 8vh;
+    width: 8vh;
+}
+.WrapperRoster{
+    display: flex;
+    flex-direction: column;
+    }
+.WrapperTeamMapRoster{
+display: flex;
+padding-left: 7vw;
+}
+
+.RosterCata{
+    padding: 5px 0px;
+    font-size: 3rem;
+    font-family: zektonrg;
+    text-decoration: underline;
+}
+
+.playerJerseyNum{
+    color: #726565;
+}
+
+.playerName{
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+.playerPosition{
+
+}
+.playerStatus{
+    color: gray;
+    font-size: 1rem;
+
+}
+.CoachTitle{
+
+}
 
 
+/*ROSTER END, ROSTER END, ROSTER END, ROSTER END ROSTER END, ROSTER END, ROSTER END, ROSTER END*/
 
 
-
-  /*SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,*/
+/*SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,SABER FIELDING START,*/
 .playerFieldCard{
     display: flex;
     gap: 2vw;
@@ -928,8 +1469,8 @@ table, th, td {
 }
 
 .fieldImg{
+    background: linear-gradient(71deg, #d9c2e9, transparent);
     display: inline-flex;
-    border: rgb(200,200,248) 20px solid;  
     border-radius: 10px;
     width: 18vw;
 }
@@ -938,13 +1479,35 @@ table, th, td {
     display: flex;
     flex-direction: column;
 }
-.seasonSelect{
 
+
+.SearchBarRow{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+}
+
+#searchInput{
+    width:-webkit-fill-available;
+    padding: 6px 6px;
+    border-width: 0px 0px 5px 0px;
+    border-bottom-color: #2c1b47;
+    border-radius: 6px;
+}
+.displayedSearchOption{
+    color: gray;
+    padding-left: 2rem;
+}
+
+
+.fa-2x{
+    font-size: 1.2em;
 }
 
 .search{
     display: flex;
-    width: max-content;
+    width: 50vw;
     flex-direction: column;
 }
 
@@ -956,22 +1519,30 @@ table, th, td {
     gap: 5vw;
 }
 
+@media  (max-width: 768px) {
+    .fieldImg{
+        border: #2c1b47 5px solid;
+        border-radius: 5px;
+    }
 
-
-  /*SABER FIELDING END,SABER FIELDING END, SABER FIELDING END, SABER FIELDING END, SABER FIELDING END,  */
-
-
-
-
-
-
-
+}
 
 
 
-  /*current play*/
+/*SABER FIELDING END,SABER FIELDING END, SABER FIELDING END, SABER FIELDING END, SABER FIELDING END,  */
 
-  .currentPlay{
+
+
+
+
+
+
+
+
+
+/*current play*/
+
+.currentPlay{
     display: flex;
     flex-direction: column;
     padding: 1vh;
@@ -980,16 +1551,16 @@ table, th, td {
     width: max-content;
     align-items: center;
     height: max-content;
+    
+    
+}
 
-
-  }
-
-  .playSpan{
+.playSpan{
     display: flex;
     flex-direction: column;
     padding: .5vh;
     
-  }
+}
 
 
 /*Scoring plays start*/
@@ -1011,12 +1582,12 @@ table, th, td {
     width: max-content;
 }
 
-  .ScoringPlays{
+.ScoringPlays{
     display: flex;
     justify-content: center;
-
-
-  }
+    
+    
+}
 .scoreheader{
     display: flex;
     justify-content: center;
@@ -1047,7 +1618,8 @@ table, th, td {
 .selectteamBat{
     padding: 10px;
     font-size: 16px;
-    border: 3px solid #ffff00;
+    border: 3px solid #333;
+    box-shadow: 8px 8px 5px #2d1432;
     color: white;
     border-radius: 4px;
     background-color: #6e43b5;
@@ -1068,7 +1640,7 @@ table, th, td {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-
+    
 }
 
 .batterCard{
@@ -1089,7 +1661,7 @@ table, th, td {
     font-family: 'zektonrg';
     color: white;
     text-decoration: underline;
-
+    
 }
 
 /* ABSpan
@@ -1097,11 +1669,489 @@ batterImg10
 batterCard */
 
 
-
-
-.leaugeSelect{
+#noGames{
     display: flex;
-    gap: 30px;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+   }
+   
+   #noGameHeader{
+    font-family: 'zektonrg';
+    padding: 5px 0px;
+   }
+
+   #noGameImage{
+    border-radius: 3rem;
+    height: 65vh;
+   }
+
+
+
+@media  (max-width: 768px) {
+
+    .gameInfo{
+        width: 100vw;
+    }
+
+
+    .LiveGameScoreBoard { 
+        width: 100vw;
+        
+    }
+
+    .RecordSpan{
+        font-size: .6rem;
+    }
+    
+    .team{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+    }
+    
+    .glanceSpan{
+        font-size: 1rem;
+    }
+
+    .glanceLogo{
+        width: 2rem;
+        height: 2rem;
+        padding-bottom: 5px;
+        display: flex;
+        align-self: center;
+    }
+
+
+    .bigOldScoreNums{
+        display: flex;
+        align-items: center;
+
+    }
+    .scoreNum{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+
+
+
+    .firstLiveRow{
+        justify-content: space-around;
+        gap: 1vw;
+        padding: 1vw;
+        margin-bottom: 20px;
+    }
+
+    .AllBaseInfoWrapper{
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content;
+        width: fit-content;
+        padding: 5px;
+    }
+
+    #firstBase{
+        border-width: .5rem;
+    }
+    #secondBase{
+        border-width: .5rem;
+        margin-bottom: 1rem;
+
+    }
+    #thirdBase{
+        border-width: .5rem;
+
+
+    }
+
+    .WrapperLiveCircles{
+        height: fit-content;
+    }
+
+    .currentPlay {
+        padding: 2px;
+    }
+
+    .playSpan{
+        font-size: .8rem;
+        font-weight: bold;
+    }
+
+
+
+
+    .AllBaseInfoWrapper h3 {
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 3px 0px;
+
+    }
+    .onBaseSpan{
+        display: flex;
+        flex-direction: column;
+        font-size: .8rem;
+
+    }
+
+
+    .WrapperPitcherVsBatter{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .PitcherVsBatter{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .onDeckDiv{
+        background: linear-gradient(71deg, #d9c2e9, transparent);
+        display: flex;
+        align-items: center;
+
+    }
+
+
+
+    .vsImage{
+        width: 3rem;
+        height: 3rem;
+    }
+
+
+    .batterImg{
+        height: 5rem;
+    }
+
+
+    .OnDeck{
+        height: 2rem;
+    }
+
+
+
+
+
+
+    .bothLineups{
+        font-size: .8rem;
+
+    }
+    
+    .lineup{
+        padding: 2px;
+    }
+
+
+
+    .WrapperScoringPlays{
+        width: 100vw;
+    }
+
+
+/* move this to mobile today*/
+   #noGames{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+
+   #noGameHeader{
+    padding: 10px 0px;
+    display: flex;
+    font-size: 1.1rem;
+    font-family: zektonrg;
+   }
+
+
+    #noGameImage{
+        padding: 10px 0px;
+        width: 90vw;
+        height: 40vh;
+        background-repeat: no-repeat;
+        
+    }
+
+    .WrapperadvancedBatter{
+        justify-content: center;
+    }
+  
+
+
+
+
+    /*Pitch data*/
+    .LivePitch{
+
+    }
+
+    .CalledBall{
+        color: rgb(17, 99, 6)
+
+    }
+
+    .CalledStrike{
+        color: red;
+    }
+
+
+    /*ROSTER START, ROSTER START, ROSTER START, ROSTER START*/
+
+    .WrapperRoster{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .WrapperPlayer{
+        background-color: #ffffff;
+        border: #000000 solid 5px;
+        border-style: double;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #playerPhoto{
+        width: 6vh;
+
+
+    }
+
+
+
+  } 
+  
+
+
+
+  /* .firstLiveRow{
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+    padding: 4vh;
+    
+}
+
+.AllBaseInfoWrapper{
+border: rgb(200, 200, 248) solid 8px;
+box-shadow: 8px 8px 5px #444;
+ display: flex;
+ padding: 3vh;  
+ flex-direction: column;
+ justify-content: space-evenly;
+ align-items: center;
+ height: 30vh;
+ background-color: #e1e9f2;
+}
+
+
+
+.Bases{
+    flex-direction: row-reverse;
+    float: none;
+    flex: relative;
+    justify-content: center;
+    position: relative;
+    display: flex;
+
+
+}
+
+#firstBase{
+    border-width: 3vh;
+    border-style: solid;
+    align-self: flex-end;
+    transform: rotate(45deg);
+    display: block;
+
+}
+
+#secondBase{
+    border-width: 3vh;
+    margin-bottom: 6vh;
+    border-style: solid;
+    transform: rotate(45deg);
+    transition-duration: 0.5s; 
+    display: block;
+}
+
+#thirdBase{
+    border-width: 3vh;
+    border-style: solid;
+    align-self: flex-end;
+    transform: rotate(45deg);
+    transition-duration: 0.5s; 
+    display: block;
+
+}
+
+
+ */
+
+
+
+
+/*LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END LIVE GAME END LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END*/
+/*LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END LIVE GAME END LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END*/
+/*LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END LIVE GAME END LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END*/
+/*LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END LIVE GAME END LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END, LIVE GAME END*/
+
+
+
+
+
+
+/*PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD START PLAYER CARD STARTPLAYER CARD STARTPLAYER CARD STARTPLAYER CARD STARTPLAYER CARD START*/
+
+.GroupTopRow{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
+
+.WrapperPlayerCardBio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 14px;
+    border: 2px solid transparent;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+    border-radius: 45px;
+    box-shadow: 2px 2px 2px 2px;
+    width: max-content;
+}
+
+.WrapperBioText{
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 1vw;
+    gap: 3px;
+    color: black;
+}
+
+#PlayerCardImage{
+    height: 20vh;
+    width: 20vh;
+}
+#ImageName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#playerName{
+    font-size: 2rem;
+    font-family: 'zektonrg';
+}
+
+.PlayerWrapper{
+
+}
+
+.bioGrouping{
+
+}
+
+.BioFeild{
+    font-weight: bolder;
+}
+.bioSpan{
+
+}
+
+/*  PLAYER CARD END PLAYER CARD END  PLAYER CARD END  PLAYER CARD END PLAYER CARD END PLAYER CARD END PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END PLAYER CARD END PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  PLAYER CARD END  */ 
+
+
+.StatFeild{
+    border-radius: 4px;
+    box-shadow: 0px 2px 0px 0px;
+    width: 204px;
+    padding: 3px;
+    background: #ececff;
+    font-weight: bolder;
+}
+
+
+.StatWrapper{
+    display: flex;
+    flex: 1 0 calc(10% - 10px);
+    margin: 5px;
+    flex-direction: column;
+    gap: 3px;
+} 
+
+.WrapperPlayerStats{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 4vw;
+    flex-direction: row;
+    gap: 2px;
+}
+
+.statGroupButton{
+    /* display: flex; */
+    /* background-color: #c8d4fe; */
+    align-items: center;
+    justify-content: center;
+    padding: 11px 11px;
+    border: 2px solid transparent;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+    border-radius: 45px;
+    box-shadow: 2px 2px 2px 2px;
+    font-family: 'zektonrg';
+    font-weight: bolder;
+
+}
+
+.statGroupButton:hover{
+    background: #d9c2e9;
+    border: 4px gold;
+}
+
+
+.WrapperStatGroupButtons{
+    padding: 11px;
+    gap: 7px;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 28%;
+}
+
+.statHeader{
+    width: 100%;
+    font-family: 'zektonrg';
+    font-size: 2rem;
+    background: linear-gradient(71deg, #d9c2e9, transparent);
+    padding: 7px 8px;
+    margin: 1px;
+    
+}
+
+.StatDataSpan{
+    padding: 2px;
+    padding-left: 4px;
+}
+
+
+.MiddleRow{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0vw 10vw;
+}
+
+.StatSearchBtn{
+    width: 100%;
+    height: 39px
 }

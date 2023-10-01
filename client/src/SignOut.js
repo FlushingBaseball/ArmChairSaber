@@ -1,6 +1,9 @@
-import { Navigate } from "react-router";
+import { useNavigate } from 'react-router-dom';
 
 function SignOut( { setUser }) {
+
+  const navigate = useNavigate();
+
 
     function handleLogout() {
         fetch('/logout', {
@@ -11,14 +14,12 @@ function SignOut( { setUser }) {
               // Logout successful, reset user state or perform any necessary actions
               setUser(null);
               console.log("success")
-              // Navigate('/signin')
+              navigate('/signin')
             } else {
-              // Handle error response if needed
               console.error('Logout failed');
             }
           })
           .catch((error) => {
-            // Handle network errors
             console.error('Network error:', error);
           });
       }
