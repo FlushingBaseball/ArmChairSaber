@@ -9,7 +9,6 @@ Endpoints.md
 package-lock.json
 
 # production
-/build
 /dist
 
 # logs
