@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pybaseball = "*"
 flask = "*"
 flask-sqlalchemy = "*"
 sqlalchemy-serializer = "*"
@@ -12,7 +11,6 @@ flask-migrate = "*"
 sqlalchemy = "*"
 flask-bcrypt = "*"
 flask-restful = "*"
-faker = "*"
 flask-cors = "*"
 alembic = "*"
 psycopg2-binary = "*"
