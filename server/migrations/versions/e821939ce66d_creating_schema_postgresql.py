@@ -1,8 +1,8 @@
-"""started again, need to run scripts
+"""creating schema postgresql
 
-Revision ID: f299de70c5ec
+Revision ID: e821939ce66d
 Revises: 
-Create Date: 2023-08-24 23:03:53.124871
+Create Date: 2023-10-05 18:33:14.264090
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f299de70c5ec'
+revision = 'e821939ce66d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -59,6 +59,7 @@ def upgrade():
     sa.Column('actualWinnerId', sa.Integer(), nullable=True),
     sa.Column('predictedLoserId', sa.Integer(), nullable=False),
     sa.Column('actualLoserId', sa.Integer(), nullable=True),
+    sa.Column('isResolved', sa.Boolean(), nullable=True),
     sa.ForeignKeyConstraint(['game_Id'], ['games.id'], name=op.f('fk_user_predictions_game_Id_games')),
     sa.ForeignKeyConstraint(['user_Id'], ['users.id'], name=op.f('fk_user_predictions_user_Id_users')),
     sa.PrimaryKeyConstraint('id')
