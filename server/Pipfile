@@ -16,6 +16,7 @@ faker = "*"
 flask-cors = "*"
 alembic = "*"
 psycopg2-binary = "*"
+gunicorn = "*"
 
 [dev-packages]
 
