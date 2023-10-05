@@ -15,6 +15,7 @@ flask-restful = "*"
 faker = "*"
 flask-cors = "*"
 alembic = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
