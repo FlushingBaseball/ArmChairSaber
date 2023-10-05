@@ -377,4 +377,6 @@ Serialization Rules are still tuples and need a comma if there's only one
 
 
 ## Name
-20's 30's baseball terms
+Armchair Sabermetrics
+  or
+Armchair Baseball
