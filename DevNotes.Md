@@ -1,14 +1,5 @@
+Removed .env from commit: Need to change database URI and secret key in the future
 
-
-Stale data issue, somehow need to do indvidual fetches for data
-
-maybe do a route where response = where isresolved = false .first
-
-else return "no more"
-
-keep calling that from the front end untill you get no more
-
-The prediction data is out of date the on 2nd predictions;
 
 ## useful sql
 
