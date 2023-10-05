@@ -1,4 +1,26 @@
-Removed .env from commit: Need to change database URI and secret key in the future
+
+
+remove these prob
+'numpy>=1.13.0',
+
+                      'requests>=2.18.1',
+                      'lxml>=4.2.1',
+                      'pyarrow>=1.0.1',
+                      'pygithub>=1.51',
+                      'scipy>=1.4.0',,
+                      'tqdm>=4.50.0',
+                      'attrs>=20.3.0',
+                      ],
+
+
+
+
+
+
+
+
+
+
 
 
 ## useful sql
