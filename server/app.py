@@ -1,3 +1,6 @@
+##gunicorn --chdir server app:app
+## cd server python app.py
+
 #!/usr/bin/env python3
 from flask import request, make_response, jsonify, session, Flask
 from flask_cors import CORS
@@ -11,7 +14,7 @@ from config import app, db
 CORS(app)
 
 # import pdb
-excluded_endpoints = ['signup', 'check_session', 'login', 'logout']
+excluded_endpoints = ['/', 'signup', 'check_session', 'login', 'logout']
 
 
 
