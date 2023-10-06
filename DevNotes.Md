@@ -1,22 +1,33 @@
+Thanks a lot for detailed informations. For those interested, here is the updated script for my render project. I’m running it in a PostgreSQL Docker container used for my local developments.
 
+#!/bin/sh
+set -e
 
-remove these prob
-'numpy>=1.13.0',
+# Config ---------------------------------------------------------------------
+BACKUPS_PATH=/root/backups
+BACKUP_FILENAME=dump.sql
+RENDER_PG_EXTERNAL_CONNECTION_STRING=postgres://dbadmin:mypassword@frankfurt-postgres.render.com/mydb
+# ----------------------------------------------------------------------------
 
-                      'requests>=2.18.1',
-                      'lxml>=4.2.1',
-                      'pyarrow>=1.0.1',
-                      'pygithub>=1.51',
-                      'scipy>=1.4.0',,
-                      'tqdm>=4.50.0',
-                      'attrs>=20.3.0',
-                      ],
+echo "Removing potential existing backups..."
+if [ -d "$BACKUPS_PATH" ]; then rm -Rf $BACKUPS_PATH; fi
 
+echo "Creating a folder to handle backups"
+mkdir $BACKUPS_PATH && cd $BACKUPS_PATH
 
+echo "Backuping remote render db..."
+pg_dump -d $RENDER_PG_EXTERNAL_CONNECTION_STRING > ${BACKUP_FILENAME}
 
+echo "Dropping local db..."
+dropdb $POSTGRES_DB
 
+echo "Recreating local db..."
+createdb $POSTGRES_DB --owner=$POSTGRES_USER
 
+echo "Restoring local db from backup..."
+psql -d $POSTGRES_DB -f $BACKUP_FILENAME
 
+POSTGRES_DB and POSTGRES_USER are env var containing my local database infos.
 
 
 
