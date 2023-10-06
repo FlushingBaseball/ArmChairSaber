@@ -16,7 +16,7 @@ def create_app():
         db.init_app(app)
 
     return app
-        i
+        
 
 ##Local test db
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
