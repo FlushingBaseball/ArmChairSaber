@@ -2,7 +2,7 @@
 ## cd server python app.py
 
 #!/usr/bin/env python3
-from flask import request, make_response, jsonify, session, Flask
+from flask import request, make_response, jsonify, session, Flask, render_template
 from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
 # from models import User, User_Prediction, Game, Player
@@ -14,18 +14,21 @@ from config import app, db
 CORS(app)
 
 # import pdb
-excluded_endpoints = ['/', 'signup', 'check_session', 'login', 'logout']
+# excluded_endpoints = ['/', 'signup', 'check_session', 'login', 'logout']
 
 
 
-@app.before_request ##hook that fires to check cookie
-def check_is_logged_in():
-    if request.endpoint not in excluded_endpoints:
-        user_id = session.get('user_id')
-        user = User.query.filter(User.id == user_id).first()
+# @app.before_request ##hook that fires to check cookie
+# def check_is_logged_in():
+#     if request.endpoint not in excluded_endpoints:
+#         user_id = session.get('user_id')
+#         user = User.query.filter(User.id == user_id).first()
 
-        if not user:
-            return {'error': 'User is not logged in'}, 401
+#         if not user:
+#             return {'error': 'User is not logged in'}, 401
+
+
+@app.route('/')
 
 
 @app.post('/signup')
@@ -545,4 +548,4 @@ def create_leader_board():
 
 
 if __name__ == '__main__':
-    app.run(port=5555, debug=True)
+    app.run()
