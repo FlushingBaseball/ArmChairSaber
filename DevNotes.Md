@@ -30,6 +30,7 @@ psql -d $POSTGRES_DB -f $BACKUP_FILENAME
 POSTGRES_DB and POSTGRES_USER are env var containing my local database infos.
 
 
+#!/usr/bin/env python3
 
 
 

@@ -1,16 +1,13 @@
-##gunicorn --chdir server app:app
-## cd server python app.py
 
-#!/usr/bin/env python3
 from flask import request, make_response, jsonify, session, Flask, render_template
 from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
 # from models import User, User_Prediction, Game, Player
-from models import User, User_Prediction, Game, Player
+from server.models import User, User_Prediction, Game, Player
 
 from sqlalchemy import func
 
-from config import app, db
+from server.config import app, db
 CORS(app)
 
 # import pdb
@@ -28,7 +25,11 @@ CORS(app)
 #             return {'error': 'User is not logged in'}, 401
 
 
+
 @app.route('/')
+@app.route('/<int:id>')
+def index(id=0):
+    return render_template("index.html")
 
 
 @app.post('/signup')
