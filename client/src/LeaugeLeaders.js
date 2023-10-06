@@ -42,7 +42,7 @@ const [selectedCata, setSelectedCata] = useState('wildPitch')
         
             return  fetchedGameData.map(player => (
                 <div key={player.person.fullName} className="batterCard">
-                    <img className="batterImg10" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`}></img>
+                    <img alt={`$Photo of ${player.person.fullName}`} className="batterImg10" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`}></img>
                     <span className="ABSpan">{`Leauge: ${player.league.name} `}</span>
                     <span className="ABSpan">{`${player.team.name}`}</span>
                     <span className="ABSpanName">{player.person.fullName}</span>

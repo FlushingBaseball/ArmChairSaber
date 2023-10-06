@@ -8,7 +8,7 @@ return(
         <div className="LiveGameScoreBoard">
                                     <div className="scoreHeader">
                                         <div className="team">
-                                            <img className="glanceLogo" src={`/Images/logos/${dataLiveGame.gameData.teams.home.id}.svg`}></img>
+                                            <img alt='team logo' className="glanceLogo" src={`/Images/logos/${dataLiveGame.gameData.teams.home.id}.svg`}></img>
                                             <span className="teamNameSpan">{dataLiveGame.gameData.teams.home.name}</span>
                                             <span className="RecordSpan">{`Record ${dataLiveGame.gameData.teams.home.record.wins} - ${dataLiveGame.gameData.teams.home.record.losses}`}</span>
                                         </div>

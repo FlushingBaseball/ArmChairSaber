@@ -34,7 +34,7 @@ const battingOrderAway = []
                 for (let i = 0; i<dataLiveGame.liveData.boxscore.teams.away.battingOrder.length; i++){
                     for ( const playerEntry in players){
                         //  console.log(playerEntry)
-                        if (dataLiveGame.liveData.boxscore.teams.away.battingOrder[i] == players[playerEntry]){
+                        if (dataLiveGame.liveData.boxscore.teams.away.battingOrder[i] === players[playerEntry]){
                             battingOrderAway.push(playerEntry)
                            
                         // console.log(battingOrderAway)

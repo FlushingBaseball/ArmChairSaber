@@ -62,11 +62,11 @@ function calculateFieldingMetrics(){
     for(let i =0; i<feildingData.length; i++){
         
         for (const key in feildingData[i]){
-            if (key == 'sprint_speed'){
+            if (key === 'sprint_speed'){
                 totalSpeed += Number(feildingData[i][key])
                 numPlays +=1;
             }
-            else if (key == 'distance'){
+            else if (key === 'distance'){
                 let playDistance =  Number(feildingData[i][key])
                 // console.log(`numPlays: ${numPlays}`)
                 setTotalDistance(totalDistance += playDistance) 
