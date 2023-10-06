@@ -46,7 +46,7 @@ if (fetchedGameData.length > 1){
 
     return  fetchedGameData.map(user => (
         <div key={user.player.id} className="batterCard">
-            <img className="batterImg10" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${user.player.id}/headshot/silo/current`}></img>
+            <img className="batterImg10" alt="Photo of player" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${user.player.id}/headshot/silo/current`}></img>
             <span className="ABSpanName">{user.player.fullName}</span>
             <span className="ABSpan">{`${user.stat.wins} : Wins`}</span>
             <span className="ABSpan">{`${user.stat.wildPitches} : Wild Pitches`}</span>
@@ -105,7 +105,7 @@ return (
                 <option value={158}>Brewers</option>
             </select>
 <div className="displayWrap">
-    <img className="batterTeamDisplay" src={TeamImageSrc}></img>
+    <img className="batterTeamDisplay" alt={'Team Logo'} src={TeamImageSrc}></img>
     <h1 className="headerBat">Advanced Pitching Metrics by team</h1>
     <h3 className="headerBat">Rolling Ten Day average</h3>
 </div>

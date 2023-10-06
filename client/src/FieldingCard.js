@@ -7,7 +7,7 @@ function FieldingCard({fielderImage, feildingData, averageSpeed, totalDistance, 
     return(
         <div className="playerFieldCard">
             <div className="playerBioInfo">
-                 <img className="fieldImg" src={fielderImage}></img>
+                 <img className="fieldImg" alt="Headshot of Player" src={fielderImage}></img>
                  <span class="bioSpan">Age:</span>
                  <span class="bioSpan">Position:</span>
                  <span class="bioSpan">Born:</span>
