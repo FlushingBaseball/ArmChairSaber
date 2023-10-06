@@ -1,3 +1,28 @@
+1. App context in flask, 
+
+
+
+db = SQLAlchemy(app)
+with app.app_context():
+    db.create_all()
+
+RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Thanks a lot for detailed informations. For those interested, here is the updated script for my render project. I’m running it in a PostgreSQL Docker container used for my local developments.
 
 #!/bin/sh
@@ -31,6 +56,22 @@ POSTGRES_DB and POSTGRES_USER are env var containing my local database infos.
 
 
 #!/usr/bin/env python3
+
+
+
+In the example you provided on github (https://github.com/alonewasser/z), we remove the @app.before_request signal handler and do the following:
+
+db = SQLAlchemy(app)
+with app.app_context():
+    from .models import *
+    db.create_all()
+    create_default_admin()
+
+
+
+P.S. I recommend initializing the database and adding an administrator using the console (cli) command. Before launching the web application for the first time, they ran the required command and forgot about it. And the application will not go into the database once again when processing each request.
+cli example
+
 
 
 
