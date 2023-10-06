@@ -9,7 +9,14 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 
-app = Flask(__name__, static_url_path='', static_folder='../client/build', template_folder='../client/build')
+def create_app():
+    app = Flask(__name__, static_url_path='', static_folder='../client/build', template_folder='../client/build')
+
+    with app.app_context():
+        db.init_app(app)
+
+    return app
+        i
 
 ##Local test db
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
@@ -33,6 +40,5 @@ db = SQLAlchemy(metadata=metadata)
 migrate = Migrate(app, db)
 
 #initializes our application for use within our database configuration
-db.init_app(app)
 
 bcrypt = Bcrypt(app)
