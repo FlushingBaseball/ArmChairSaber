@@ -1,4 +1,3 @@
-import { useState } from "react"
 
 
 function BattingOrderHome({...dataLiveGame}){
@@ -32,7 +31,7 @@ const battingOrderHome =[]
                     for (let i = 0; i<dataLiveGame.liveData.boxscore.teams.home.battingOrder.length; i++){
                         for ( const playerEntry in players){
                             // console.log(playerEntry)
-                            if (dataLiveGame.liveData.boxscore.teams.home.battingOrder[i] == players[playerEntry]){
+                            if (dataLiveGame.liveData.boxscore.teams.home.battingOrder[i] === players[playerEntry]){
                                 battingOrderHome.push(playerEntry)
                             // console.log(battingOrderAway)
                             }

@@ -1,23 +1,23 @@
 function LiveBases({...dataLiveGame}){
 
 
-    let runnerOnFirst = false;
-    let runnerOnSecond = false;
-    let runnerOnThird = false;
+    // let runnerOnFirst = false;
+    // let runnerOnSecond = false;
+    // let runnerOnThird = false;
     let nameRunnerOnFirst = 'none';
     let nameRunnerOnSecond = 'none';
     let nameRunnerOnThird = 'none';
 
     if (dataLiveGame.liveData.linescore.offense.first){
-        runnerOnFirst = true
+        // runnerOnFirst = true
         nameRunnerOnFirst = dataLiveGame.liveData.linescore.offense.first.fullName
     }
     if (dataLiveGame.liveData.linescore.offense.second){
-        runnerOnSecond = true
+        // runnerOnSecond = true
         nameRunnerOnSecond = dataLiveGame.liveData.linescore.offense.second.fullName
     }
     if (dataLiveGame.liveData.linescore.offense.third){
-        runnerOnThird = true
+        // runnerOnThird = true
         nameRunnerOnThird = dataLiveGame.liveData.linescore.offense.third.fullName
     }
 

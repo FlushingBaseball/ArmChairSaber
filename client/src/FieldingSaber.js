@@ -25,7 +25,10 @@ function FieldingSaber({searchPlayer, setSearchPlayer}){
     const fielderImage =searchPlayer ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${searchPlayer}/headshot/silo/current` : '/Images/default-batter.svg'
 
     const [fetchedPlayers, setFetchedPlayers] = useState('')
+//2023 23.941 2023 28.599 2021 28.766
+// 27.941 
 
+//judge 27.509 2021 27.261 2023 26.441
 
     useEffect(()=>{
         setTotalDistance(0)
@@ -59,11 +62,11 @@ function calculateFieldingMetrics(){
     for(let i =0; i<feildingData.length; i++){
         
         for (const key in feildingData[i]){
-            if (key == 'sprint_speed'){
+            if (key === 'sprint_speed'){
                 totalSpeed += Number(feildingData[i][key])
                 numPlays +=1;
             }
-            else if (key == 'distance'){
+            else if (key === 'distance'){
                 let playDistance =  Number(feildingData[i][key])
                 // console.log(`numPlays: ${numPlays}`)
                 setTotalDistance(totalDistance += playDistance) 

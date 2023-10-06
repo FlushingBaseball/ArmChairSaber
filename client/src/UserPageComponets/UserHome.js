@@ -3,8 +3,8 @@ import {useState, useEffect} from "react"
 function UserHome({user}){
 console.log('user in userHOme is', user)
 
-const userWins = user.totalGuessesCorrect;
-const userLoses = user.totalGuessesIncorrect;
+// const userWins = user.totalGuessesCorrect;
+// const userLoses = user.totalGuessesIncorrect;
 const [userInfo, SetUserInfo] = useState('')
 
 

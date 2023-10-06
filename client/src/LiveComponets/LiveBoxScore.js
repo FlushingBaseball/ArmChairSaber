@@ -20,7 +20,7 @@ function LiveBoxScore({...dataLiveGame}){
                     <th>E</th>
                 </tr>
                 <tr>
-                    <th><img className="boxLogo" src={`/Images/logos/${dataLiveGame.gameData.teams.away.id}.svg`}></img></th>
+                    <th><img alt="Team Logo" className="boxLogo" src={`/Images/logos/${dataLiveGame.gameData.teams.away.id}.svg`}></img></th>
                     <th>{dataLiveGame.liveData.linescore.innings[0] ? dataLiveGame.liveData.linescore.innings[0].away.runs : " "}</th>
                     <th>{dataLiveGame.liveData.linescore.innings[1] ? dataLiveGame.liveData.linescore.innings[1].away.runs : " "}</th>
                     <th>{dataLiveGame.liveData.linescore.innings[2] ? dataLiveGame.liveData.linescore.innings[2].away.runs : " "}</th>
@@ -35,7 +35,7 @@ function LiveBoxScore({...dataLiveGame}){
                     <th>{dataLiveGame.liveData.boxscore.teams.away.teamStats.fielding.errors}</th>
                 </tr>
                 <tr>
-                    <th><img className="boxLogo" src={`/Images/logos/${dataLiveGame.gameData.teams.home.id}.svg`}></img></th>
+                    <th><img  alt="Team Logo" className="boxLogo" src={`/Images/logos/${dataLiveGame.gameData.teams.home.id}.svg`}></img></th>
                     <th>{dataLiveGame.liveData.linescore.innings[0] ? dataLiveGame.liveData.linescore.innings[0].home.runs : " "}</th>
                     <th>{dataLiveGame.liveData.linescore.innings[1] ? dataLiveGame.liveData.linescore.innings[1].home.runs : " "}</th>
                     <th>{dataLiveGame.liveData.linescore.innings[2] ? dataLiveGame.liveData.linescore.innings[2].home.runs : " "}</th>
