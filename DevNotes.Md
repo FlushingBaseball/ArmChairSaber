@@ -1,3 +1,10 @@
+## In root directory
+honcho start -f Procfile.dev
+
+
+
+
+
 1. App context in flask, 
 
 
