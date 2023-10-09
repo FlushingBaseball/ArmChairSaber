@@ -8,7 +8,6 @@ from sqlalchemy import func
 
 from server.config import app, db
 
-db.create_all()
 
 # import pdb
 excluded_endpoints = ['/', 'signup', 'check_session', 'login', 'logout']
