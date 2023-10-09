@@ -1,6 +1,5 @@
 
 from flask import request, make_response, jsonify, session, Flask, render_template
-from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
 # from models import User, User_Prediction, Game, Player
 from server.models import User, User_Prediction, Game, Player
@@ -8,7 +7,8 @@ from server.models import User, User_Prediction, Game, Player
 from sqlalchemy import func
 
 from server.config import app, db
-CORS(app)
+
+db.create_all()
 
 # import pdb
 excluded_endpoints = ['/', 'signup', 'check_session', 'login', 'logout']
