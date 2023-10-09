@@ -8,7 +8,9 @@ from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
+from flask_cors import CORS
 
+CORS(app)
 
 app = Flask(__name__, static_url_path='', static_folder='../client/build', template_folder='../client/build')
     
@@ -36,5 +38,6 @@ migrate = Migrate(app, db)
 
 #initializes our application for use within our database configuration
 db.init_app(app)
+
 
 bcrypt = Bcrypt(app)
