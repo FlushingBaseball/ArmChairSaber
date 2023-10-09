@@ -3,11 +3,11 @@ from flask import request, make_response, jsonify, session, Flask, render_templa
 from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
 # from models import User, User_Prediction, Game, Player
-from server.models import User, User_Prediction, Game, Player
+from models import User, User_Prediction, Game, Player
 
 from sqlalchemy import func
 
-from server.config import app, db
+from config import app, db
 CORS(app)
 
 # import pdb
