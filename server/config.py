@@ -17,11 +17,7 @@ app = Flask(__name__, static_url_path='', static_folder='../client/build', templ
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-##Local test key
-# app.secret_key = b'Y\xf1Xz\x00\xad|eQ\x80t \xca\x1a\x10K'
 app.secret_key = os.environ.get('SECRET_KEY')
-
 app.json.compact = False
 
 
