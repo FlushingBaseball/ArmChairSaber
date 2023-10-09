@@ -1,5 +1,5 @@
 
-from flask import request, make_response, jsonify, session, Flask, render_template
+from flask import request, make_response, jsonify, session, render_template
 from sqlalchemy.exc import IntegrityError
 # from models import User, User_Prediction, Game, Player
 from server.models import User, User_Prediction, Game, Player
