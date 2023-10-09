@@ -2,7 +2,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
 
-from server.config import db, bcrypt
+from config import db, bcrypt
 
 
 class User(db.Model, SerializerMixin):
@@ -69,8 +69,8 @@ class User_Prediction(db.Model, SerializerMixin):
     __tablename__ = "user_predictions"
 
     id = db.Column(db.Integer, primary_key=True)
-    game_Id = db.Column(db.Integer, db.ForeignKey("games.id"))
-    user_Id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    game_Id = db.Column(db.Integer, nullable = False)
+    user_Id = db.Column(db.Integer, nullable=False)
     predictedWinnerId = db.Column(db.Integer,
                                     db.CheckConstraint('predictedWinnerId > 0'),
                   nullable=False)
