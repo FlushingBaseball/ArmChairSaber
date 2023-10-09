@@ -4,6 +4,8 @@
 
 Endpoints.md
 
+##Malformed Markup
+.Md
 
 # Procfile
 Procfile.dev
@@ -14,8 +16,9 @@ package-lock.json
 # production
 /dist
 /build
+/build/
 
-#
+# failed at some point
 /client/build
 
 # logs

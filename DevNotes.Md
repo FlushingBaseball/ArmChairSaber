@@ -1,3 +1,5 @@
+Need to remove DevNotes.Md and all of build
+
 ## In root directory
 honcho start -f Procfile.dev
 
@@ -22,9 +24,7 @@ RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' ins
 
 
 
-
-
-
+ psql -h postgres.render.com -p 5432 -U armchairdb_user -d armchairdb
 
 
 
