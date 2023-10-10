@@ -30,7 +30,7 @@ function Today({user}){
 
 
 /**
-  * Used Afte Midnight for development because formattedDate changes
+  * Used After Midnight in season for development because formattedDate changes
  */
  
 // const yesterday ="08/24/2023"
