@@ -1,24 +1,7 @@
 @font-face {
     font-family: 'zektonrg';
     src: url('/public/Fonts/zekton-rg.otf') format('opentype');
-    /* Add more font formats if necessary */
   }
-  
-
-
-
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
   
   /*
   CSS RESET
@@ -29,22 +12,6 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

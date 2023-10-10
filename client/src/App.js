@@ -26,25 +26,6 @@ import UserHome from './UserPageComponets/UserHome';
 
 import PlayerPage from './PlayerComponets/PlayerPage';
 
-//566484
-//http://statsapi.mlb.com:80/api/v1/game/530629/boxscore
-
-
-//not working https://baseballsavant.mlb.com/gf?game_pk=(717309)
-
-/* Working endpoints
-Generates the box score for a game based on the game ID
-http://statsapi.mlb.com:80/api/v1/game/530628/boxscore"
-
-
-Generates the schedule for the day 
-"https://statsapi.mlb.com/api/v1/schedule?date=07/24/2023&sportId=1&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,team,id,name,probablePitcher,id,fullName,note"
-
-
-
-
-
-*/
 
 function App() {
 
