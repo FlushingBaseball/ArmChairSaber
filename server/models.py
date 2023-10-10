@@ -69,8 +69,8 @@ class User_Prediction(db.Model, SerializerMixin):
     __tablename__ = "user_predictions"
 
     id = db.Column(db.Integer, primary_key=True)
-    game_Id = db.Column(db.Integer, nullable = False)
-    user_Id = db.Column(db.Integer, nullable=False)
+    game_Id = db.Column(db.Integer, db.ForeignKey("games.id"))
+    user_Id = db.Column(db.Integer, db.ForeignKey("users.id"))
     predictedWinnerId = db.Column(db.Integer,
                                     db.CheckConstraint('predictedWinnerId > 0'),
                   nullable=False)
@@ -101,8 +101,9 @@ class Game(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     gamePk = db.Column(db.Integer, nullable=False, unique=True)
-    gameWinner_id = db.Column(db.Integer, nullable=False)
-    gameLoser_id= db.Column(db.Integer, nullable=False)
+    gameWinner_id = db.Column(db.Integer, nullable=True)
+    gameLoser_id= db.Column(db.Integer, nullable=True)
+    gameResolved = db.Column(db.Boolean, nullable = True)
     Game_Predictions = db.relationship('User_Prediction', backref='game')
 
 
