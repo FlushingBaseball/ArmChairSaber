@@ -7,3 +7,8 @@ There's a leaderboard and my implementation of gameday to watch games playout as
 ## Stats
 Lookup stats, save them to collections, use them, enjoy the best part about baseball that's not a warm day at the park (the math)
 
+## todo
+Figureout context errors
+API namespace
+
+
