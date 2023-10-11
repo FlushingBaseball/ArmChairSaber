@@ -20,37 +20,37 @@ function LiveGame(){
 const {gamePk} = useParams();
 const [dataLiveGame, setDataLiveGame] = useState(null)
 
-    useEffect(()=>{
-        fetch(`https://statsapi.mlb.com/api/v1.1/game/${gamePk}/feed/live/`)
-        .then(resp => resp.json())
-        .then(gameRESP => setDataLiveGame(gameRESP))
-    },[])
+    // useEffect(()=>{
+    //     fetch(`https://statsapi.mlb.com/api/v1.1/game/${gamePk}/feed/live/`)
+    //     .then(resp => resp.json())
+    //     .then(gameRESP => setDataLiveGame(gameRESP))
+    // },[])
 
 
+//Fetch new data every 10 seconds
+    const fetchData = async () =>{
+        try {
+            const response = await fetch(`https://statsapi.mlb.com/api/v1.1/game/${gamePk}/feed/live`);
+            const newData = await response.json();
 
-//     const fetchData = async () =>{
-//         try {
-//             const response = await fetch(`https://statsapi.mlb.com/api/v1.1/game/${gamePk}/feed/live`);
-//             const newData = await response.json();
-
-//             if (JSON.stringify(newData) !== JSON.stringify(dataLiveGame)){
-//                 setDataLiveGame(newData)
-//             }
-//         }
-//         catch (error){
-//             console.error("error fetching data", error);
-//         }
-//     };
+            if (JSON.stringify(newData) !== JSON.stringify(dataLiveGame)){
+                setDataLiveGame(newData)
+            }
+        }
+        catch (error){
+            console.error("error fetching data", error);
+        }
+    };
 
 
-// useEffect(()=>{
-//         fetchData();
+useEffect(()=>{
+        fetchData();
 
-//         const interval = setInterval(fetchData, 10000);
+        const interval = setInterval(fetchData, 10000);
 
-//         return () => clearInterval(interval)
+        return () => clearInterval(interval)
 
-// }, []);
+}, []);
 
 
 
@@ -87,10 +87,10 @@ if (dataLiveGame === null){
                 </div>
                     <LiveBoxScore {...dataLiveGame}/>
                     <GameWeather {...dataLiveGame}/>
+
+                    <ScoringPlay {...dataLiveGame}/>
+
                 </div>
-
-                <ScoringPlay {...dataLiveGame}/>
-
 
         </div>
     )
