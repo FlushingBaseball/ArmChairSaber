@@ -4,7 +4,7 @@ import SignUp from "./SignUp";
 function Login({ showLogin, setShowLogin, setUser }) {
   return (
     <div className="login-container">
-      <h1 className='logoText'>ArmChair Eppler</h1>
+      <h1 className='logoText'>Armchair Baseball</h1>
       <img className='signInUpLogo' src='../Images/logo.svg'></img>
       {showLogin ? (
         <div className="login-form">
