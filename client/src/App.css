@@ -2143,6 +2143,22 @@ box-shadow: 8px 8px 5px #444;
 
 /*Mobile style*/
 @media  (max-width: 768px) {
+    .MiddleRow{
+        flex-wrap: wrap;
+    }
+    .WrapperStatGroupButtons{
+        width: 100vw;
+    }
+    #playerName{
+        text-align: center;
+    }
+    .statGroupButton{
+        margin: 0.2vh 1vw;
+        padding: 1.5px 4px;
+    }
+    .search{
+        width: 65vw;
+    }
 
 
 }

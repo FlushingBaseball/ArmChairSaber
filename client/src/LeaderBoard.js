@@ -343,7 +343,7 @@ function LeaderBoard(){
 
                 return (
                     <div>
-                        <h1>Testing ability to grade predictions</h1>
+                        <h1>Temporary Pause in standings</h1>
                         {}
                     </div>
                 )
