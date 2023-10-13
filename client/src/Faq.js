@@ -10,8 +10,13 @@ export default function Faq(){
         </div>
         <div className="WrapperQuestion">
           <h3>What Stack does the site run on?</h3>
-          <p>Currently it's a React front end with Python/Flask on the backend and sqlite as the database.
-            This is probably going to change rather soon as the site matures. 
+          <p>Currently it's a React frontend with Python/Flask on the Backend. Postgres and SQLAlchemy as the database.
+            This is probably going to change rather soon as I integrate more data. 
+          </p>
+        </div>
+        <div className="WrapperQuestion">
+          <h3>What happened to Advanced Fielding?</h3>
+          <p> Our data source no longer allows the requests that we used to calculate fielding metrics. This feature will return hopefully during spring training. 
           </p>
         </div>
         <div className="WrapperQuestion">

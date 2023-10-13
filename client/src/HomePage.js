@@ -40,8 +40,8 @@ function handleTileClick(id){
             Predictions Leaderboard
         </button>
 
-        <button className='homeTile' onClick={() => handleTileClick("advancedFielding")}>
-            Advanced Fielding
+        <button className='homeTile' /*onClick={() => handleTileClick("advancedFielding")}*/>
+            Advanced Fielding 2024 relaunch
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("test")}>
