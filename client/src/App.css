@@ -86,8 +86,16 @@ Login
     color: #66046a;
 }
 
+#WrapperLeaderBoard{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
 
-
+#LeaderBoardHeader{
+    font-family: 'zektonrg';
+    padding: 1vh 0vh;
+}
 
 .toggleBtn{
     background: linear-gradient(71deg,  #f4e4ff, #f4f4f4);
