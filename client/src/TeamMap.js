@@ -12,7 +12,6 @@ function TeamMap() {
   
   const TeamImageSrc=`./Images/logos/${teamLogo}.svg`;
   
-  console.log("in Team Map, selectedRoster is", selectedRoster)
   return (
     <div className="WrapperTeamMap">
       <div className="RosterGroup">

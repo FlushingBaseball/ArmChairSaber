@@ -35,8 +35,8 @@ function SignIn( {setUser}) {
         return response.json();
       })
       .then((data) => {setUser(data)
-        console.log('Sign-in successful:', data);
-        console.log(data)
+        // console.log('Sign-in successful:', data);
+        // console.log(data)
         navigate("/")
       })
       .catch((error) => {
