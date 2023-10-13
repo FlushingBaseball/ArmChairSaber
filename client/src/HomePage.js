@@ -52,8 +52,8 @@ function handleTileClick(id){
             League Leaders
         </button>
 
-        <button className='homeTile' onClick={()=> handleTileClick("Nothing")}>
-            Nothing yet btn Educational Material
+        <button className='homeTile' onClick={()=> handleTileClick("FAQ")}>
+            FAQ
         </button>
     </div>
     )

@@ -139,6 +139,37 @@ Login
 }
 
 
+/*FAQ*/
+#WrapperFaq{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+}
+.WrapperQuestion{
+    padding: 1vh 7px;
+    margin: 0px 8px;
+    border: solid 3px black;  
+    border-radius: 13px;
+    background-color: white;
+}
+
+
+.QuestionHeader{
+    padding: 2px 0px;
+    font-family: 'zektonrg';
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+#FaqHeader{
+    font-weight: bold;
+    font-family: 'zektonrg';
+    text-align: center;
+}
+
 
 /*Sign up */
 
@@ -2151,6 +2182,10 @@ box-shadow: 8px 8px 5px #444;
     color: #9e7c7c;
     font-style: italic;
 }
+
+
+
+
 
 
 
