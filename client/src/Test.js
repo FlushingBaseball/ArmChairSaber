@@ -93,27 +93,27 @@ function Test(){
      * [hitting] seasonAdvanced, hotColdZones, expectedStatistics, career
      * Pitching 
     */
-           const [fetchedGameData, setFetchedGameData] = useState('');
+    //        const [fetchedGameData, setFetchedGameData] = useState('');
            
-           useEffect(()=>{
-               fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2021')
-               .then((resp) => resp.json())
-               .then(data => {setFetchedGameData(data.people)
-                   console.log('data should be below')        
-               })
-                    },[])
+    //        useEffect(()=>{
+    //            fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2021')
+    //            .then((resp) => resp.json())
+    //            .then(data => {setFetchedGameData(data.people)
+    //                console.log('data should be below')        
+    //            })
+    //                 },[])
 
 
-    useEffect(()=>{
-        console.log(fetchedGameData)
-        if (fetchedGameData.length < 1){
-                console.log('no players yet')
-            }
-            else if (fetchedGameData.length > 1){
-                console.log(" fuck yeah")
-                populatePlayers()
-        }
-    },[fetchedGameData])
+    // useEffect(()=>{
+    //     console.log(fetchedGameData)
+    //     if (fetchedGameData.length < 1){
+    //             console.log('no players yet')
+    //         }
+    //         else if (fetchedGameData.length > 1){
+    //             console.log(" fuck yeah")
+    //             populatePlayers()
+    //     }
+    // },[fetchedGameData])
 
 
     // function handleTeamChange(event){

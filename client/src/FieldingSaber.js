@@ -2,12 +2,7 @@ import { useState, useEffect } from "react"
 import Search from "./UtilityComponets/Search"
 import FieldingCard from "./FieldingCard"
 
-
-// Nimmo 607043
-// Alonso 624413
-// Batty 683146
-// Mcneil 643446
-// Lindor 596019
+// CORS Issue: Savant has changed their CORS Policy: Will circle back soon
 
 function FieldingSaber({searchPlayer, setSearchPlayer}){
     const [feildingData, setFeildingData] = useState('')
