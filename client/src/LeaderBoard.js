@@ -342,9 +342,16 @@ function LeaderBoard(){
 
 
                 return (
-                    <div>
-                        <h1>Temporary Pause in standings</h1>
-                        {}
+                    <div id="WrapperLeaderBoard">
+                        <h1 id='LeaderBoardHeader'>
+                             Temporary Pause in standings:
+                        </h1>
+                        <p>
+                        Our cron job is having some issues:
+                         No data has been lost:
+                        You may continue to predict:
+                        These Predictions will be resolved upon completion of the new system:
+                        </p>
                     </div>
                 )
                 

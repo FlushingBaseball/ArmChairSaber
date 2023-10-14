@@ -7,30 +7,14 @@ function Roster({selectedTeam, selectedRoster}){
 const [rosterData, setRosterData] = useState([])
 const navigate = useNavigate();
 
-//depthChart for everyone active for active prop etc?
-// https://statsapi.mlb.com/api/v1/teams/109/roster/Active
-
-console.log("before the call in Roster SelectedRoseter is", selectedRoster)
-
-
-//Outfielder Pitcher Infielder
-
-
 
 useEffect(()=>{
-  // fetch(`http://statsapi.mlb.com/api/v1/teams/121/roster/Active?season=2023&hydrate=person(stats(group=[hitting,pitching],type=[sabermetrics,advanced])%3A%29`)
   fetch(`https://statsapi.mlb.com/api/v1/teams/${selectedTeam}/roster/${selectedRoster}?hydrate=person(video,social)`)
   .then(resp => resp.json())
   .then(data =>{
-    console.log('Data is ', data)
-    setRosterData(data.roster)
-    
+    setRosterData(data.roster)  
   })
 },[selectedTeam, selectedRoster])
-
-useEffect(()=>{
-  console.log(rosterData)
-},[rosterData])
 
 
 if (!rosterData.length > 1){
@@ -53,7 +37,6 @@ if (!rosterData.length > 1){
   
   function mapRoster(personArray){
     if (rosterData.length > 1){
-      // console.log("roster length was greater than 1")
         return personArray.map(player=> (
           <div className="WrapperPlayer" onClick={ () => handlePlayerClick(player.person.id, player)}>
             <img src= {selectedRoster != "coach"
@@ -63,10 +46,8 @@ if (!rosterData.length > 1){
           alt={player.person.fullName} id="playerPhoto"
           onError={handleImageError}
           />
-          <div id="nameGroup">
           <span className="playerJerseyNum">#{player.jerseyNumber}&nbsp;</span> 
-            <span className="playerName">{player.person.fullName}&nbsp;</span>
-          </div>
+          <span className="playerName">{player.person.fullName}&nbsp;</span>
           <span className="playerPosition">{player.position ? player.position.name : ''} </span>&nbsp;
           <span id="playerAge">{`${player.person.currentAge} Years old`}</span>&nbsp;
           <span className="playerStatus ">{player.status ? player.status.description : ''} </span>&nbsp;

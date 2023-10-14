@@ -22,18 +22,8 @@ function AdvancedPitching(){
         .then((resp) => resp.json())
         .then(data => {
             setFetchedGameData(data.stats[0].splits)
-            console.log('data should be below')        
         })
     },[selectedTeam])
-
-
-    useEffect(()=>{
-        console.log(fetchedGameData)
-        if (fetchedGameData.length > 1){
-                
-            // populatePlayers()
-        }
-    },[fetchedGameData])
 
 
     if (!fetchedGameData.length){

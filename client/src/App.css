@@ -26,7 +26,7 @@ Login Switch root
     align-items: center;
     padding-top: 10vh;
     height: 100vh;
-    background-color: #ffffff;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
 }
 
 
@@ -83,12 +83,19 @@ Login
 }
 
 .signInUpbtn:hover{ 
-    background-color: #b793ef;
-    color: #6e43b5;
+    color: #66046a;
 }
 
+#WrapperLeaderBoard{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
 
-
+#LeaderBoardHeader{
+    font-family: 'zektonrg';
+    padding: 1vh 0vh;
+}
 
 .toggleBtn{
     background: linear-gradient(71deg,  #f4e4ff, #f4f4f4);
@@ -104,8 +111,7 @@ Login
 }
 
 .toggleBtn:hover{ 
-    background-color: #b793ef;
-    color: #6e43b5;
+    color: #66046a;
 }
 
 
@@ -2206,6 +2212,44 @@ box-shadow: 8px 8px 5px #444;
     }
     .search{
         width: 65vw;
+    }
+
+    .WrapperRoster{
+        display: flex;
+        flex-direction: column;
+    }
+    .WrapperPlayer{
+        background-color: #ffffff;
+        border: #000000 solid 5px;
+        border-style: double;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 3px 0px;
+    }
+
+    #RosterTitle{
+        font-size: 4rem;
+    }
+    .RosterCata{
+        font-size: 2rem;
+    }
+
+    .WrapperTeamMapRoster{
+        padding-left: 3vw;
+    }
+
+    #playerPhoto{
+        width: 6vh;
+    }
+    .playerName{
+        font-size: 1rem;
+    }
+    .playerPosition{
+        font-size: 1rem;
+    }
+    #playerAge{
+        font-size: 1rem;
     }
 
 
