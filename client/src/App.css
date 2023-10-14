@@ -2276,6 +2276,13 @@ box-shadow: 8px 8px 5px #444;
     #UserResultsSummary{
         width: 100vw;
     }
+    /* .batterCard{
+        width: 33vw;
+    }
+    .selectteamBat{
+        width: 35vw;
+        word-break: break-all;
+    } */
 
 
 }
