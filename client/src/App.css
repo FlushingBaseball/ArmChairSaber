@@ -413,7 +413,7 @@ Login
     
     
     .homeTile { 
-        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
         cursor: pointer;
         padding: 0;
         margin: 6px 5px;
@@ -438,26 +438,6 @@ Login
     }
     
     /*HOME END, HOME END, HOME END, HOME END, HOME END, HOME END*/
-    
-    @media  (max-width: 768px) {
-      .homeTile { 
-          font-size: 1em;
-          padding-bottom: 80px;
-          align-items: center;
-          text-align: center;
-          display: flex;
-          justify-content: center;
-
-      }
-    
-    }
-    
-    
-    
-    
-    
-    
-    
 
 
 
@@ -2225,6 +2205,17 @@ box-shadow: 8px 8px 5px #444;
 
 /*Mobile style*/
 @media  (max-width: 768px) {
+
+    .homeTile { 
+        font-size: .9em;
+        padding-bottom: 80px;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+    }
+
     .MiddleRow{
         flex-wrap: wrap;
     }
