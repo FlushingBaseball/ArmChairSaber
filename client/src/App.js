@@ -23,6 +23,7 @@ import AdvancedBatting from './AdvancedBatting';
 import LeagueLeaders from './LeaugeLeaders';
 
 import UserHome from './UserPageComponets/UserHome';
+import Faq from './Faq';
 
 import PlayerPage from './PlayerComponets/PlayerPage';
 
@@ -72,6 +73,7 @@ if (!user) {
         <Route path='/advancedFielding' element={<FieldingSaber searchPlayer={searchPlayer} setSearchPlayer={setSearchPlayer}/>} />
         <Route path='/LeagueLeaders' element={<LeagueLeaders />} />
         <Route path="/user/:username" element={<UserHome user={user}/>} />
+        <Route path ="/FAQ" element={<Faq />} />
 
           <Route path="TeamMap" element={<TeamMap />} />
           <Route path='/player/' element={<PlayerPage />} />
