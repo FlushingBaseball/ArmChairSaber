@@ -91,17 +91,6 @@ function calculateFieldingMetrics(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
     const handleSeasonChange = (event) =>{
         const {value} = event.target;
         setSelectedSeason(value)
@@ -117,17 +106,6 @@ if(feildingData.length < 1){
         <h1>Loading...</h1>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
 
     return(
 

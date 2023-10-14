@@ -14,39 +14,6 @@ function handleTileClick(id){
 }
 
 
-
-    // return(
-    //     <div className="flexParent">
-    //             <div role="button" className="homeTile" onClick={handleAdvancedPitchingClick}>
-    //                 <span className='navSpan'>Advanced Pitching Sabermetrics </span>
-    //             </div>
-    //             <div role="button" className="homeTile" onClick={handleAdvancedBattingClick}> 
-    //                 <span className='navSpan'>Advanced Batting Sabermetrics</span>
-    //             </div>
-    //             <div role="button" className="homeTile" onClick={handleMapClick}>
-    //                 <span className='navSpan'> (not working) Team Map</span>
-    //             </div>
-    //             <div role="button" className="homeTile" onClick={handlePredictClick}>
-    //                 <span className='navSpan'>Predict todays games</span>
-    //             </div> 
-    //             <div role="button" className="homeTile" onClick={handleLeaderboardClick}>
-    //                 <span className='navSpan'>Prediction Leaderboards</span>
-    //             </div>
-    //             <div role="button" className="homeTile" onClick={handleAdvancedFieldingClick}>
-    //                 <span className='navSpan'>Advanced Feilding</span>
-    //             </div>
-    //             <div role="button" className="homeTile" onClick={handleTestClick}>
-    //                 <span className='navSpan'> Testing </span>
-    //             </div>
-    //             <div role="button" className="homeTile" onClick={handleLeaderClick}>
-    //                 <span className='navSpan'>Leauge Leaders</span>
-    //             </div>
-    //             <div role="button" className="homeTile">
-    //                 <span className='navSpan'> (Nothing yet div) Educational Material</span>
-    //             </div>
-    //     </div>
-    // )
-
 /**
  * Switched from clickable Div's to buttons. Accessibility is better and the styling challenge is rough but funny to dig into
  */
@@ -62,7 +29,7 @@ function handleTileClick(id){
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("TeamMap")}> 
-            Roster
+            Roster Resource
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("today")}>

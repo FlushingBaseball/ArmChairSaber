@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react"
 
+//wins
+//wild ptiches
+//walks per 9
+//percentages of pitches that are strikes
+//pitches per inning
+// era over past 10 apperances
+//batters faces
+// ground outs to air outs
+//undefined batters hit by pitches
 
 
 function AdvancedPitching(){
@@ -11,7 +20,8 @@ function AdvancedPitching(){
     useEffect(()=>{
         fetch(`https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=pitching&teamId=${selectedTeam}`)
         .then((resp) => resp.json())
-        .then(data => {setFetchedGameData(data.stats[0].splits)
+        .then(data => {
+            setFetchedGameData(data.stats[0].splits)
             console.log('data should be below')        
         })
     },[selectedTeam])
@@ -58,7 +68,8 @@ if (fetchedGameData.length > 1){
             <span className="ABSpan">{`${user.stat.groundOutsToAirouts} : Ground outs to Air outs`}</span>
             <span className="ABSpan">{`${user.stat.hitByPich} : batters hit by pitches`}</span>
             <span className="ABSpan">{`${user.stat.hitsPer9Inn} : Hits per 9`}</span>
-         
+            <span className="ABSpan">{`${user.stat.whip} Walks and Hits per inning pitched`}</span>
+            <span className="ABSpan">{`${user.stat.slg} Slugging against`}</span>
         </div>
     ))
 

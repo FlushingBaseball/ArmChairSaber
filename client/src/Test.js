@@ -124,36 +124,36 @@ function Test(){
     
     
 
-function populatePlayers(){
-//    console.log( typeof fetchedGameData)
-    console.log('inside populate Players')
-    fetchedGameData.forEach(player =>{
+// function populatePlayers(){
+// //    console.log( typeof fetchedGameData)
+//     console.log('inside populate Players')
+//     fetchedGameData.forEach(player =>{
 
     
-            const newPlayer = {
-                age: player.currentAge,
-                currentTeamId: player.currentTeam.id ,
-                firstLastName: player.firstLastName,
-                MLBAMID: player.id
-            };
-            console.log(`posted Player is:`)
-            console.log(newPlayer)
+//             const newPlayer = {
+//                 age: player.currentAge,
+//                 currentTeamId: player.currentTeam.id ,
+//                 firstLastName: player.firstLastName,
+//                 MLBAMID: player.id
+//             };
+//             console.log(`posted Player is:`)
+//             console.log(newPlayer)
             
-            fetch('/players', {
-                method: 'POST',
-                headers: {
-                    'Content-Type' : 'application/json',
-                },
-                body: JSON.stringify(newPlayer)
-            })
-            .then((response) =>{
-                if (!response.ok){
-                    throw new Error('Network response was not okay')
-                }
-                return response.json();
-            })
-    }) 
-}
+//             fetch('/players', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type' : 'application/json',
+//                 },
+//                 body: JSON.stringify(newPlayer)
+//             })
+//             .then((response) =>{
+//                 if (!response.ok){
+//                     throw new Error('Network response was not okay')
+//                 }
+//                 return response.json();
+//             })
+//     }) 
+// }
 
 
 

@@ -83,11 +83,6 @@ Login
 }
 
 
-.signInUpbtn:hover{ 
-    background-color: #b793ef;
-    color: #6e43b5;
-}
-
 .toggleBtn{
     background: linear-gradient(71deg,  #f4e4ff, #f4f4f4);
     border: 2px solid transparent;
