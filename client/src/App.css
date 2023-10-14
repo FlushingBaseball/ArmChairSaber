@@ -1559,14 +1559,12 @@ padding-left: 7vw;
 #WrapperUserHome{
     display: flex;
     flex-direction: column;
-    background-color: rgb(152, 229, 247);
-
-
-    
+    align-items: center;
 }
 .wrapperUserResults{
     width: 50vw;
-    background-color: yellow;
+    border: 3px #6e43b5 solid;
+    border-radius: 45px;
 }
 
 .SummaryInstance{
@@ -1584,6 +1582,9 @@ padding-left: 7vw;
 #HeaderSummary{
     text-align: center;
     width: 100%;
+}
+.summarySpan{
+    font-family: 'zektonrg';
 }
 
 
@@ -2278,6 +2279,13 @@ box-shadow: 8px 8px 5px #444;
     #playerAge{
         font-size: 1rem;
     }
+    .wrapperUserResults{
+        width: 100vw;
+    }
+    #UserResultsSummary{
+        width: 100vw;
+    }
 
 
 }
+
