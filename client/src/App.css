@@ -1556,8 +1556,35 @@ padding-left: 7vw;
 
 
 
+#WrapperUserHome{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(152, 229, 247);
 
 
+    
+}
+.wrapperUserResults{
+    width: 50vw;
+    background-color: yellow;
+}
+
+.SummaryInstance{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#UserResultsSummary{
+    display: flex;
+    width: 50vw;
+}
+
+#HeaderSummary{
+    text-align: center;
+    width: 100%;
+}
 
 
 
