@@ -33,7 +33,7 @@ function handleTileClick(id){
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("today")}>
-            Predict todays games
+            Predict Today's Games
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("Leaderboard")}>
@@ -41,11 +41,11 @@ function handleTileClick(id){
         </button>
 
         <button className='homeTile' /*onClick={() => handleTileClick("advancedFielding")}*/>
-            Advanced Fielding 2024 relaunch
+            Advanced Fielding Unavailable *Relaunching Spring 2024
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("test")}>
-            Testing / one day educational material
+            Blog *Launching November 2023
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("LeagueLeaders")}>
