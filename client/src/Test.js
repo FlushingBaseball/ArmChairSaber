@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
+import TableComponent from "./UtilityComponets/TableComponent"
 
 function Test(){
 
-    
 
+   
     /**
      * Leaderboard Structure test
     */
@@ -161,12 +162,13 @@ function Test(){
 
     return(
         <div>
-            <h2>Testing Page</h2>
+            <h2 >Testing Page</h2>
             <h4>Various tests are commented out</h4>
             {/* {fetchedPrediction()} */}
 
             <h2>Populate Players</h2>
             {/* {populatePlayers()} */}
+            <TableComponent/>
 
         </div>
     )

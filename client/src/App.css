@@ -413,7 +413,7 @@ Login
     
     
     .homeTile { 
-        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
         cursor: pointer;
         padding: 0;
         margin: 6px 5px;
@@ -438,26 +438,6 @@ Login
     }
     
     /*HOME END, HOME END, HOME END, HOME END, HOME END, HOME END*/
-    
-    @media  (max-width: 768px) {
-      .homeTile { 
-          font-size: 1em;
-          padding-bottom: 80px;
-          align-items: center;
-          text-align: center;
-          display: flex;
-          justify-content: center;
-
-      }
-    
-    }
-    
-    
-    
-    
-    
-    
-    
 
 
 
@@ -1556,8 +1536,36 @@ padding-left: 7vw;
 
 
 
+#WrapperUserHome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wrapperUserResults{
+    width: 50vw;
+    border: 3px #6e43b5 solid;
+    border-radius: 45px;
+}
 
+.SummaryInstance{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+#UserResultsSummary{
+    display: flex;
+    width: 50vw;
+}
+
+#HeaderSummary{
+    text-align: center;
+    width: 100%;
+}
+.summarySpan{
+    font-family: 'zektonrg';
+}
 
 
 
@@ -2197,6 +2205,17 @@ box-shadow: 8px 8px 5px #444;
 
 /*Mobile style*/
 @media  (max-width: 768px) {
+
+    .homeTile { 
+        font-size: .9em;
+        padding-bottom: 80px;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+    }
+
     .MiddleRow{
         flex-wrap: wrap;
     }
@@ -2251,6 +2270,20 @@ box-shadow: 8px 8px 5px #444;
     #playerAge{
         font-size: 1rem;
     }
+    .wrapperUserResults{
+        width: 100vw;
+    }
+    #UserResultsSummary{
+        width: 100vw;
+    }
+    /* .batterCard{
+        width: 33vw;
+    }
+    .selectteamBat{
+        width: 35vw;
+        word-break: break-all;
+    } */
 
 
 }
+

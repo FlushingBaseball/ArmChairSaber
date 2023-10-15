@@ -31,7 +31,7 @@ export default function Faq(){
         </div>
         <div className="WrapperQuestion">
           <h3 className="QuestionHeader">Why haven't you included the game Odds from various gambling sites?</h3>
-          <p>As a one time student of Discrete math the first thing you're taught is <a to="https://en.wikipedia.org/wiki/Gambler%27s_ruin">Gambler's Ruin</a>
+          <p>As a one time student of Discrete math the first thing you're taught is <a href="https://en.wikipedia.org/wiki/Gambler%27s_ruin">Gambler's Ruin </a>
           I actually hope the itch to gamble is somewhat less for people that have an outlet (this site) to test their predictive ability. I may include the odds generated
           by ESPN or 538 if they restart their MLB project but as of now it's not on the horizon </p>
         </div>

@@ -40,32 +40,29 @@ function AdvancedPitching(){
 
 
 function mapPlayer(){
-
-if (fetchedGameData.length > 1){
-
-
-    return  fetchedGameData.map(user => (
-        <div key={user.player.id} className="batterCard">
-            <img className="batterImg10" alt="Photo of player" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${user.player.id}/headshot/silo/current`}></img>
-            <span className="ABSpanName">{user.player.fullName}</span>
-            <span className="ABSpan">{`${user.stat.wins} : Wins`}</span>
-            <span className="ABSpan">{`${user.stat.wildPitches} : Wild Pitches`}</span>
-            <span className="ABSpan">{`${user.stat.walksPer9Inn} : Walks Per 9 Innings `}</span>
-            <span className="ABSpan">{`${user.stat.strikePercentage} : Percentage of Pitches that are strikes`}</span>
-            <span className="ABSpan">{`${user.stat.pitchesPerInning} : Pitches Per Inning`}</span>
-            <span className="ABSpan">{`${user.stat.era} :  ERA over the past 10 apperances`}</span>
-            <span className="ABSpan">{`${user.stat.battersFaced} : Batters Faced`}</span>
-            <span className="ABSpan">{`${user.stat.groundOutsToAirouts} : Ground outs to Air outs`}</span>
-            <span className="ABSpan">{`${user.stat.hitByPich} : batters hit by pitches`}</span>
-            <span className="ABSpan">{`${user.stat.hitsPer9Inn} : Hits per 9`}</span>
-            <span className="ABSpan">{`${user.stat.whip} Walks and Hits per inning pitched`}</span>
-            <span className="ABSpan">{`${user.stat.slg} Slugging against`}</span>
-        </div>
-    ))
-
-}
+    if (fetchedGameData.length > 1){
 
 
+        return  fetchedGameData.map(user => (
+            <div key={user.player.id} className="batterCard">
+                <img className="batterImg10" alt="Photo of player" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${user.player.id}/headshot/silo/current`}></img>
+                <span className="ABSpanName">{user.player.fullName}</span>
+                <span className="ABSpan">{`${user.stat.wins} : Wins`}</span>
+                <span className="ABSpan">{`${user.stat.wildPitches} : Wild Pitches`}</span>
+                <span className="ABSpan">{`${user.stat.walksPer9Inn} : Walks Per 9 Innings `}</span>
+                <span className="ABSpan">{`${user.stat.strikePercentage} : Percentage of Pitches that are strikes`}</span>
+                <span className="ABSpan">{`${user.stat.pitchesPerInning} : Pitches Per Inning`}</span>
+                <span className="ABSpan">{`${user.stat.era} :  ERA over the past 10 apperances`}</span>
+                <span className="ABSpan">{`${user.stat.battersFaced} : Batters Faced`}</span>
+                <span className="ABSpan">{`${user.stat.groundOutsToAirouts} : Ground outs to Air outs`}</span>
+                <span className="ABSpan">{`${user.stat.hitByPich} : batters hit by pitches`}</span>
+                <span className="ABSpan">{`${user.stat.hitsPer9Inn} : Hits per 9`}</span>
+                <span className="ABSpan">{`${user.stat.whip} Walks and Hits per inning pitched`}</span>
+                <span className="ABSpan">{`${user.stat.slg} Slugging against`}</span>
+            </div>
+        ))
+
+    }
 }
           
 

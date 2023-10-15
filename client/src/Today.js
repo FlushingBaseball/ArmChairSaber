@@ -19,7 +19,6 @@ function Today({user}){
         // fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=liveLookin,story,event(game),broadcasts,game(content)`)
         .then(resp => resp.json())
         .then(statcastRESP => setGameData(statcastRESP) )
-        .then(console.log(gameData))
       },[selectedSportId])  
 
 
@@ -44,9 +43,6 @@ function Today({user}){
 
 
 
-    function handlePredictionSubmit(event){
-        console.log(event)
-    }
 
     function handleSportSelect(sportNum){
       setSelectedSportId(sportNum)
@@ -93,7 +89,6 @@ function Today({user}){
               <button onClick={() => handleSportSelect("16")}>ROK</button>
           </div> 
       <div className='WrapperToday'>
-        {console.log(gameData)}
          {gameData.dates[0].games.map((game)=>{
           return (
             <TodaysGame
