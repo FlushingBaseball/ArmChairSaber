@@ -26,7 +26,7 @@ useEffect(()=>{
 
   return (
     <div id="WrapperUserHome">
-      <h1>Welcome home {user.username}</h1>
+      <h1 id="welcome">Welcome home {user.username}</h1>
   
 
 
