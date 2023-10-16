@@ -1,12 +1,13 @@
-## Armchair Sabermetrics / Armchair Baseball (or as originally conceived) Armchair Eppler
+## Armchair Sabermetrics / Armchair Baseball 
+Javascript, Python, Flask, Postgresql, SQLAlchemy.
+
 
 ## Summary (Tl;DR)
 Put your predictive ability to the test, by predicting game outcomes against the userbase and predictive models.
-There's a leaderboard and my implementation of gameday to watch games playout as they happen with pitch by pitch data.  
+Watch games LIVE with pitch by pitch data, down to Spin rate and Spin Brake angle.  
 
 ## Stats
-Lookup stats, save them to collections, use them, enjoy the best part about baseball that's not a warm day at the park (the math).
-Player cards will be revamped for the 2024 season.
+Query Advanced Sabermetrics, Career and Advanced Season stats on any player from 2022 and 2023. 
 
 ![playerCard](https://github.com/FlushingBaseball/ArmChairSaber/assets/129641694/be697cd8-13c9-434b-8d9e-a0ee04ceac6e)
 
