@@ -11,7 +11,6 @@ let {mlbAmId} = useParams();
 
 
 const initalPlayerId = mlbAmId ? mlbAmId : '592450'
-// const initalSearchGroup = type == 1 ? "hitting" : "pitching"
 
 const  [searchPlayer, setSearchPlayer] = useState(initalPlayerId);
 const [fetchedPlayers, setFetchedPlayers] = useState('');
@@ -19,7 +18,6 @@ const [playerData, setPlayerData] = useState('');
 
 const [selectedStatGroup, setSelectedStatGroup] = useState("")
 const [selectedStatType, setSelectedStatType] = useState("career")
-// const [selectedStatType, setSelectedStatType] = useState("seasonAdvanced")
 
 
 
@@ -50,12 +48,12 @@ useEffect(()=>{
     },[searchPlayer,selectedStatType])
     
     
-    useEffect(()=>{
-      // console.log(searchPlayer)
-      console.log(playerData)
-      console.log(selectedStatGroup)
-      console.log(selectedStatType)
-    },[searchPlayer,playerData,selectedStatGroup,selectedStatType])
+    // useEffect(()=>{
+    //   // console.log(searchPlayer)
+    //   console.log(playerData)
+    //   console.log(selectedStatGroup)
+    //   console.log(selectedStatType)
+    // },[searchPlayer,playerData,selectedStatGroup,selectedStatType])
     
     
     if (playerData == ''){
@@ -65,8 +63,6 @@ useEffect(()=>{
     }
 
     
-  console.log(searchPlayer)
-
   return (
     <div className="PlayerWrapper">
       <div className="GroupTopRow">
@@ -96,4 +92,3 @@ useEffect(()=>{
 }
 
 
-//592450
