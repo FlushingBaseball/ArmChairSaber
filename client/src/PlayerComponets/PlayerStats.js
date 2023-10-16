@@ -3,9 +3,6 @@ export default function PlayerStats({playerData}){
 const statCollection = [];
 
 
-
-
-
 function makeStats(){
 
   if (!playerData.people[0].stats){
@@ -15,7 +12,6 @@ function makeStats(){
   }
 
   for (let i =0; i<playerData.people[0].stats.length; i++){
-    // console.log('Right now we are in stat', i)
     statCollection.push(
       <h3 className="statHeader">
         {playerData.people[0].stats[i].type.displayName.split(/(?=[A-Z])/).join(" ").toUpperCase()}
@@ -30,20 +26,11 @@ function makeStats(){
           <span className="StatDataSpan">{playerData.people[0].stats[i].splits[0].stat[feild]}</span>
         </div>
       )
-      // console.log(feild)
     } 
   }
 
-
-
-
-
-  return statCollection
-  }
-
-
-
-
+      return statCollection
+    }
 
 
 

@@ -5,14 +5,14 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
 
   function handleStatButtonGroupClick(event){
     requestedStatgroups.push(String(event.target.value))
-    console.log("Stat Group Btn Was clicked")
-    console.log(requestedStatgroups);
+    // console.log("Stat Group Btn Was clicked")
+    // console.log(requestedStatgroups);
 
   }
 
   function handleStatButtonTypeClick(event){
-    console.log('Stat Button Type was clicked')
-    console.log(requestedStatTypes);
+    // console.log('Stat Button Type was clicked')
+    // console.log(requestedStatTypes);
     requestedStatTypes.push(String(event.target.value))
 
   }
@@ -25,11 +25,13 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
 
   return (
     <div className="WrapperStatGroupButtons">
+                 
+
       <button
         className="StatSearchBtn"
         onClick={handleSearchButtonClick}
-        >
-        SEARCH
+        > { <i id="searchIcon" class="fa fa-search "></i> }
+       &nbsp; SEARCH
       </button>
 
       <h3>Stat Groups</h3>

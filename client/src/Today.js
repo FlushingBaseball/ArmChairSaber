@@ -60,13 +60,13 @@ function Today({user}){
       return (
         <div id="noGames">
           <div className='leaugeSelect'>
-              <button onClick={() => handleSportSelect("1")}>MLB</button>
-              <button onClick={() => handleSportSelect("17")}>AFL</button>
-              <button onClick={() => handleSportSelect("11")}>AAA</button>
-              <button onClick={() => handleSportSelect("12")}>AA</button>
-              <button onClick={() => handleSportSelect("13")}>A+</button>
-              <button onClick={() => handleSportSelect("14")}>A</button>
-              <button onClick={() => handleSportSelect("16")}>ROK</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("1")}>MLB</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("17")}>AFL</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("11")}>AAA</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("12")}>AA</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("13")}>A+</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("14")}>A</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("16")}>ROK</button>
           </div> 
           <h1 id='noGameHeader'>There seems to be no games scheduled for </h1>
             <h2 id='noGameDate'> {formattedDate}</h2>
@@ -82,13 +82,13 @@ function Today({user}){
     return( 
     <div className='todayfilled'>
           <div className='leaugeSelect'>
-              <button onClick={() => handleSportSelect("1")}>MLB</button>
-              <button onClick={() => handleSportSelect("17")}>AFL</button>
-              <button onClick={() => handleSportSelect("11")}>AAA</button>
-              <button onClick={() => handleSportSelect("12")}>AA</button>
-              <button onClick={() => handleSportSelect("13")}>A+</button>
-              <button onClick={() => handleSportSelect("14")}>A</button>
-              <button onClick={() => handleSportSelect("16")}>ROK</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("1")}>MLB</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("17")}>AFL</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("11")}>AAA</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("12")}>AA</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("13")}>A+</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("14")}>A</button>
+              <button className='leaugeSelectButton' onClick={() => handleSportSelect("16")}>ROK</button>
           </div> 
       <div className='WrapperToday'>
          {gameData.dates[0].games.map((game)=>{
