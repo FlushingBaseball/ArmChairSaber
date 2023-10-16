@@ -3,6 +3,8 @@ import TableComponent from "./UtilityComponets/TableComponent"
 
 function Test(){
 
+    const [xData, setxData] = useState('')
+
 
    
     /**
@@ -156,6 +158,12 @@ function Test(){
 //     }) 
 // }
 
+  
+useEffect(()=>{
+  fetch(`https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=pitching&teamId=121`)
+  .then((resp)=> resp.json())
+  .then((data)=>setxData(data))
+},[])
 
 
 
@@ -168,7 +176,7 @@ function Test(){
 
             <h2>Populate Players</h2>
             {/* {populatePlayers()} */}
-            <TableComponent/>
+            <TableComponent xData={xData}/>
 
         </div>
     )

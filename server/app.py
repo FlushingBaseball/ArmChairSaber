@@ -35,6 +35,11 @@ def index(id=0):
     return render_template("index.html")
 
 
+@app.route('/<path:path>')
+def catch_all(path):
+    return render_template('index.html')
+
+
 @app.post('/signup')
 def signup():
     # get json from request
