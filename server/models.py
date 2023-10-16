@@ -68,7 +68,7 @@ class User_Prediction(db.Model, SerializerMixin):
     __tablename__ = "user_predictions"
 
     id = db.Column(db.Integer, primary_key=True)
-    game_Id = db.Column(db.Integer, db.ForeignKey("games.id"))
+    game_Id = db.Column(db.Integer, db.ForeignKey("games.gamePk"))
     user_Id = db.Column(db.Integer, db.ForeignKey("users.id"))
     predictedWinnerId = db.Column(db.Integer,
                                     db.CheckConstraint('predictedWinnerId > 0'),

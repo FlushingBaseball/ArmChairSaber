@@ -28,6 +28,43 @@ function handleTeamSelectRadioChange (event) {
 
 function handlePredictionSubmit (){
 
+    const newGame = {
+        gamePk: game.gamePk,
+        gameWinner_id: null,
+        gameLoser_id: null
+    }
+    
+    fetch(`/games/${game.gamePk}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify(newGame)
+    })
+    .then((resp) => {
+        if (!resp.ok){
+            resp.json()
+            .then(errorData=>{
+                console.error(errorData);
+                return errorData
+            })
+        }
+        else if (resp.ok){
+            resp.json()
+            .then((data)=>{
+                console.log(data)
+            })
+
+        }
+    })
+
+
+
+
+
+
+
+
     const postPrediction = {
         game_Id: game.gamePk,
         user_Id: user.id,
@@ -98,7 +135,7 @@ function handlePredictionSubmit (){
 })
 
     .catch(error =>{
-        console.error('a werid error occurred exiting promise chain:', error)
+        console.error('a weird error occurred exiting promise chain:', error)
     })
 
 }
