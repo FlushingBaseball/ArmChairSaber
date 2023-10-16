@@ -44,7 +44,7 @@ function handleTileClick(id){
             Advanced Fielding Unavailable *Relaunching Spring 2024
         </button>
 
-        <button className='homeTile' onClick={() => handleTileClick("test")}>
+        <button className='homeTile' /*onClick={() => handleTileClick("test")}*/>
             Blog *Launching November 2023
         </button>
 
