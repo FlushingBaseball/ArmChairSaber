@@ -35,11 +35,6 @@ def index(id=0):
     return render_template("index.html")
 
 
-@app.route('/<path:path>')
-def catch_all(path):
-    return render_template('index.html')
-
-
 @app.post('/signup')
 def signup():
     # get json from request
@@ -548,7 +543,9 @@ def create_leader_board():
 
 
 
-
+@app.errorhandler(404)   
+def not_found(e):   
+  return app.send_static_file('index.html')
 
 
 
