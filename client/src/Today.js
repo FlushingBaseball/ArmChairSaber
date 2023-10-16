@@ -61,6 +61,7 @@ function Today({user}){
         <div id="noGames">
           <div className='leaugeSelect'>
               <button onClick={() => handleSportSelect("1")}>MLB</button>
+              <button onClick={() => handleSportSelect("17")}>AFL</button>
               <button onClick={() => handleSportSelect("11")}>AAA</button>
               <button onClick={() => handleSportSelect("12")}>AA</button>
               <button onClick={() => handleSportSelect("13")}>A+</button>
@@ -82,7 +83,7 @@ function Today({user}){
     <div className='todayfilled'>
           <div className='leaugeSelect'>
               <button onClick={() => handleSportSelect("1")}>MLB</button>
-              <button onClick={() => handleSportSelect("17")}>Winter Leauge</button>
+              <button onClick={() => handleSportSelect("17")}>AFL</button>
               <button onClick={() => handleSportSelect("11")}>AAA</button>
               <button onClick={() => handleSportSelect("12")}>AA</button>
               <button onClick={() => handleSportSelect("13")}>A+</button>

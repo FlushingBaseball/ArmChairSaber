@@ -3,9 +3,9 @@ function LeaderBoard(){
 
 
     // Major issue is now that we keep asking for unresolved games untill there no more
-    // if a game is inProgress or inPreview were going to keep asking about if forever
-    //also a game that hasn't been completed prediction was marked as resolved and graded with winners assigned, 
-    //this must be because of the use of else? and not if else???
+    // if a game is inProgress or inPreview were going to keep asking about it forever
+    //also a game that hasn't been completed's prediction was marked as resolved then graded with nonsense winners assigned, 
+
 
      /**
       * fetchedPrediction is called in the returned JSX
@@ -338,7 +338,7 @@ function LeaderBoard(){
 
 
 
-                    fetchedPrediction()
+                    // fetchedPrediction()
 
 
                 return (
@@ -359,126 +359,11 @@ function LeaderBoard(){
                 
                 export default LeaderBoard
                 
-                    // <div id="leaderBoard">
-                    //     <div className="cata">
-                    //         <h2 className="leaderBoardCata">Leaders ID</h2>
-                    //         <h2 className="LeaderBoardCata">Correct %</h2>
-                    //         <h2 className="LeaderBoardCata"># predicitons</h2>
-                    //     </div>
-                    //     {leaderboard.map((user, index) => (
-                          
-                    //             <div className="leaderEntry" key={index}>{`Rank ${index+1}: ${user.username} - ${user.percentage.toFixed(2)}% correct predictions - ${user.totalPredictions} predictions made`}</div>
-                             
-                    //     )
-                        
-                    // )}
-                
-                    // </div>
-                
-                
-
-
-// const [predictionData, setPredictionData] = useState([]);
-// const [predictiveLeaders, setPredictiveLeaders] = useState([]);
-// const [users, setUsers] = useState([]);
-
-        // useEffect(()=>{
-
-        //     fetch('/predictions')
-        //     .then((resp) => resp.json())
-        //     .then(data =>{ setPredictionData(data)
-        
-        //     });
-        
-
-//         },[])
-
-
-//         useEffect(()=>{
-//             fetch('./leaders')
-//             .then((resp)=> resp.json())
-//             .then(data =>{setPredictiveLeaders(data) })
-//         },[])
-
-//         useEffect(()=>{
-//             fetch('./users')
-//             .then((resp)=> resp.json())
-//             .then(data =>{setUsers(data) })
-//         },[])
-
-
-
-// const userStats ={};
-// predictionData.forEach(entry => {
-//     // console.log('this is entry')
-//     // console.log(entry)
-//     const userId = entry.user.id;
-//     const correctPrediction = entry.actualWinnerId === entry.predictedWinnerId;
-
-//     if(!userStats[userId]){
-//         userStats[userId] = {
-//             username: entry.user.username,
-//             totalPredictions: 0, 
-//             correctPredictions: 0, 
-//             percentage: 0,
-//         };
-//     }
-//     userStats[userId].totalPredictions++;
-//     userStats[userId].correctPredictions += correctPrediction ? 1 : 0;
-// });
-
-// const leaderboard = Object.values(userStats).map(stats => {
-//     stats.percentage = (stats.correctPredictions / stats.totalPredictions) * 100;
-//     return stats;
-// });
-
-// leaderboard.sort((a,b) => b.percentage -a.percentage);
-    
-
 
 
 
 
 
                         
-                        /** Pick back up here */
-        
-
-
-
-// useEffect(()=>{
-//     if (predictionData.length > 0){
-//         // console.log('predicitons', predictionData)
-//         resolvePredictions(predictionData)
-//     }
-
-// }, [predictionData]);
-
-
-
-
-
-
-
-// if (predictionData == []){
-//     return(
-//         <h1>Loading....</h1>
-//     )
-// }
-// if (users == []){
-//     return(
-//         <h1>Loading....</h1>
-//     )
-// }
-
-// function mapResults(predictionData){
-//     predictionData.map(prediction =>{
-//         <h3>{actualWinnerId}</h3>
-//     })
-// }
-
-
-// console.log(leaderboard)
-
 
 
