@@ -230,7 +230,7 @@ Login
 
 #bat {
     position: fixed;
-    top: 3em;
+    top: 5em;
     left: -10.5em;
     -webkit-animation: hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
     -moz-animation:    hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
@@ -2189,9 +2189,33 @@ box-shadow: 8px 8px 5px #444;
     font-family: 'zektonrg';
 }
 
+#loginPrompt{
+    display: flex;
+    align-items: center;
+}
+#promptText{
+    font-style: italic;
+}
 
-
-
+@keyframes shake {
+    0% {
+      margin-left: 0rem;
+    }
+    25% {
+      margin-left: 0.5rem;
+    }
+    75% {
+      margin-left: -0.5rem;
+    }
+    100% {
+      margin-left: 0rem;
+    }
+  }
+  
+  /* input:invalid {
+    animation: shake 0.2s ease-in-out 0s 2;
+    box-shadow: 0 0 0.6rem #ff0000;
+  } */
 
 
 

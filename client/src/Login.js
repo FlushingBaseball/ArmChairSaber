@@ -9,10 +9,12 @@ function Login({ showLogin, setShowLogin, setUser }) {
       {showLogin ? (
         <div className="login-form">
           <SignIn setUser={setUser} />
-          <p>
-            Don't have an account? &nbsp;
-            <button className="toggleBtn" onClick={() => setShowLogin(false)}>Sign Up</button>
-          </p>
+          <div id="loginPrompt">
+            <p id="promptText">
+              Don't have an account? &nbsp;
+            </p>
+              <button className="toggleBtn" onClick={() => setShowLogin(false)}>Sign Up</button>
+          </div>
         </div>
       ) : (
         <div className="login-form">
