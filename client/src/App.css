@@ -318,19 +318,7 @@ Login
       top: 0px;
       position: sticky;
     }
-    @media  (max-width: 768px) {
-        .nav { 
-            justify-content: center;
-            align-items: center;
-            font-size: .7em;
-            margin: 0;
-            height: auto;
-            top: 0px;
-            position: sticky;
-        }
-      
-      }
-      
+
     
     .logo{
         height:6vh;
@@ -339,22 +327,12 @@ Login
     
     .nav a{
         font-family: zektonrg;
-        padding: 1vh;
-        margin: 2vh;
         color: white;
         text-decoration: none;
         font-weight: bold;
     }
 
-    @media  (max-width: 768px) {
-        .nav a { 
-            font-size: .7rem;
-            margin: 0;
-        }
-      
-      }
-      
-      
+
 
 
 
@@ -371,7 +349,7 @@ Login
         color: white;
         border: none;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: bold;
     }
     
@@ -1551,6 +1529,7 @@ padding-left: 7vw;
 /*Scoring plays start*/
 
 .score{
+    background: #ffffd0;
     font-weight: bolder;
     font-size: 3vh;
     display: flex;
@@ -1676,12 +1655,6 @@ batterCard */
 
     .gameInfo{
         width: 100vw;
-    }
-
-
-    .LiveGameScoreBoard { 
-        width: 100vw;
-        
     }
 
     .RecordSpan{
@@ -2303,6 +2276,27 @@ box-shadow: 8px 8px 5px #444;
         color: white;
         padding: 6.5px 8px;
     }
+
+    .LiveGameScoreBoard { 
+        width: 100vw;
+        gap: 0vw;
+        
+    }
+    .teamNameSpan{
+        font-size: 1rem;
+    }
+
+    .boxElement{
+        padding: 4vh 0vw;
+    }
+
+    .nav { 
+        font-size: .7em;
+        margin: 0;
+        height: auto;
+    }
+
+
     /* .batterCard{
         width: 33vw;
     }
@@ -2312,5 +2306,5 @@ box-shadow: 8px 8px 5px #444;
     } */
 
 
-}
+} /* End Mobile Styling*/
 
