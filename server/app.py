@@ -82,7 +82,6 @@ def check_session():
 
 @app.post('/login')
 def login():
-    # get JSON from request
     data = request.get_json()
     # query db by username
     user = User.query.filter(

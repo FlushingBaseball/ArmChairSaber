@@ -22,7 +22,6 @@ function SignUp( {setUser}) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Make the fetch request to the sign-up route on your server
     fetch('/signup', {
       method: 'POST',
       headers: {
@@ -37,12 +36,10 @@ function SignUp( {setUser}) {
         return response.json();
       })
       .then((data) => {setUser(data)
-        //should indicate it was successful
         console.log('Sign-up successful:', data);
         navigate('/')
       })
       .catch((error) => {
-        // should indicate it was unsuccessful
         console.error('Error during sign-up:', error);
       });
   };

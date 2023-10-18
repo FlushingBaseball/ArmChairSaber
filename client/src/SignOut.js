@@ -11,7 +11,6 @@ function SignOut( { setUser }) {
         })
           .then((response) => {
             if (response.ok) {
-              // Logout successful, reset user state or perform any necessary actions
               setUser(null);
               console.log("success")
               navigate('/signin')
