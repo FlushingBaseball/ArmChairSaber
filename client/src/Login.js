@@ -1,14 +1,16 @@
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
-function Login({ showLogin, setShowLogin, setUser }) {
+function Login({ showLogin, setShowLogin, setUser}) {
   return (
     <div className="login-container">
       <h1 className='logoText'>Armchair Baseball</h1>
       <img className='signInUpLogo' src='../Images/logo.svg'></img>
       {showLogin ? (
         <div className="login-form">
-          <SignIn setUser={setUser} />
+          <SignIn
+           setUser={setUser}
+            />
           <div id="loginPrompt">
             <p id="promptText">
               Don't have an account? &nbsp;
@@ -18,7 +20,9 @@ function Login({ showLogin, setShowLogin, setUser }) {
         </div>
       ) : (
         <div className="login-form">
-          <SignUp setUser={setUser} />
+          <SignUp
+           setUser={setUser} 
+          />
           <p>
             Already have an account? &nbsp;
             <button className="toggleBtn" onClick={() => setShowLogin(true)}>Log In</button>

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import SignOut from "./SignOut";
 
-function Nav({user, setUser, isLoggedIn, setIsLoggedIn}){
+function Nav({user, setUser}){
 
 const logoLoc ="../Images/logo.svg"
 
@@ -12,8 +12,8 @@ return (
         <NavLink to='/player/'>Players</NavLink>
         <img className="logo" src={logoLoc}></img>
         <NavLink to='/leaderboard'>LeaderBoard</NavLink>
-        {isLoggedIn ? <NavLink to={`/user/${user.username}`} user={user}>{user.username}</NavLink> : null }
-        {isLoggedIn ? <SignOut user={user} setUser={setUser}/> : <NavLink to='/login'>Login</NavLink> }
+        { user ? <NavLink to={`/user/${user.username}`} user={user}>{user.username}</NavLink> : null }
+        { user ? <SignOut user={user} setUser={setUser} /> : <NavLink to='/login'>Login</NavLink> }
     </div>
 )
 }
