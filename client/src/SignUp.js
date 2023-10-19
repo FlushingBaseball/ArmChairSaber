@@ -35,7 +35,8 @@ function SignUp( {setUser}) {
         }
         return response.json();
       })
-      .then((data) => {setUser(data)
+      .then((data) => {
+        setUser(data)
         console.log('Sign-up successful:', data);
         navigate('/')
       })

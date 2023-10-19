@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-function SignOut( { setUser }) {
+function SignOut( {  setUser}) {
 
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ function SignOut( { setUser }) {
             if (response.ok) {
               setUser(null);
               console.log("success")
-              navigate('/signin')
+              navigate('/')
             } else {
               console.error('Logout failed');
             }
