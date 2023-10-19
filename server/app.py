@@ -1,11 +1,8 @@
 from config import app, db
-
 from flask import request, make_response, jsonify, session, render_template
 from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
-# from models import User, User_Prediction, Game, Player
 from models import User, User_Prediction, Game, Player
-
 from sqlalchemy import func
 
 
@@ -77,7 +74,7 @@ def check_session():
         # user doesn't exist, return 401 (unauthorized)
         return {'error': 'Unauthorized'}, 401
     
-    # user exists, return user as JSON, status code 200
+    # user exists
     return user.to_dict(), 200
 
 @app.post('/login')
@@ -223,12 +220,6 @@ def get_player_by_id(MLBAMID):
 
 
 
-
-
-
-
-
-
 @app.post('/predictions')
 def postPredicitons():
     data = request.get_json()
@@ -357,50 +348,6 @@ def patch_prediction_by_id(id):
     )
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# @app.post('/games')
-# def postGames():
-#     data = request.get_json()
-#     try:
-#         new_game =  Game(
-#             gamePk = data['gamePk'],
-#             gameWinner_id = data['gameWinner_id'],
-#             gameLoser_id =data['gameLoser_id']
-#         )
-#         db.session.add(new_game)
-#         db.session.commit()
-
-#     except Exception as e:
-#         print(e)
-#         return {'error': f'Error creating Game: {str(e)}'}, 422
-
-#     # return user as JSON, status code 201
-#     return new_game.to_dict(), 201
-
-
-
 @app.post('/games/<int:gamePk>')
 def post_Games_by_Pk(gamePk):
     data = request.get_json()
@@ -419,11 +366,6 @@ def post_Games_by_Pk(gamePk):
 
     # return user as JSON, status code 201
     return new_game.to_dict(), 201
-
-
-
-
-
 
 
 
@@ -483,14 +425,7 @@ def patch_game_by_gamePk(gamePk):
     )
 
 
-
-
-
-
-
-
-
-## leader board fuction 
+## leaderboard fuction 
 
 @app.route('/leaders')
 def create_leader_board():
@@ -500,47 +435,9 @@ def create_leader_board():
     return outPut
 
 
-#     for entry in sample_data:
-#     username = entry["user"]["username"]
-#     predicted_winner = entry["predictedWinnerId"]
-#     actual_winner = entry["actualWinnerId"]
-    
-#     # Check if the prediction was correct
-#     if username not in user_data:
-#         user_data[username] = {"total_correct": 0, "total_predictions": 0}
-    
-#     user_data[username]["total_predictions"] += 1
-    
-#     if predicted_winner == actual_winner:
-#         user_data[username]["total_correct"] += 1
-
-# # Calculate the average correct predictions for each user
-# average_correct_predictions = {}
-# for username, data in user_data.items():
-#     total_correct = data["total_correct"]
-#     total_predictions = data["total_predictions"]
-    
-#     if total_predictions > 0:
-#         average_correct = total_correct / total_predictions
-#         average_correct_predictions[username] = average_correct
-
-# print(average_correct_predictions)
-#     # leaderboard = db.session.query(User_Prediction.user_Id,
-#     #                                func.avg(db.case((User_Prediction.predictedWinnerId == User_Prediction.actualWinnerId, 100.0), else_=0.0)).label('average_percentage')) \
-#     #     .group_by(User_Prediction.user_Id,)
-#     # result = leaderboard.all()
-
-#     # average_percentage_list = [{'user_id': user_id, 'average_percentage': avg_percentage} for user_id, avg_percentage in result]
-
-#     # return jsonify(average_percentage_list)
 
 
-
-
-
-
-
-
+## returning index.html to enable dynamic routing to work on refresh
 
 @app.errorhandler(404)   
 def not_found(e):   
