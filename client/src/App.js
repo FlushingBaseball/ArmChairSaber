@@ -33,15 +33,16 @@ function App() {
 const [user, setUser] =useState(null);
 const [showLogin, setShowLogin] = useState(true);
 const [searchPlayer, setSearchPlayer] = useState(607043)
+const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 
-// useEffect(() => {
-//   fetch("/check_session").then((r) => {
-//     if (r.ok) {
-//       r.json().then((user) => setUser(user));
-//     }
-//   });
-// }, []);
+useEffect(() => {
+  fetch("/check_session").then((r) => {
+    if (r.ok) {
+      r.json().then((user) => setUser(user));
+    }
+  });
+}, []);
 
 // if (!user) {
 //   return (
@@ -60,7 +61,7 @@ const [searchPlayer, setSearchPlayer] = useState(607043)
   return (
 
       <div className='App'>
-        <Nav user={user} setUser={setUser}/>
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={user} setUser={setUser}/>
     <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/teams' element={<Teams />} />
@@ -72,7 +73,8 @@ const [searchPlayer, setSearchPlayer] = useState(607043)
         <Route path="/advancedPitching" element={<AdvancedPitching />} />
         <Route path='/advancedFielding' element={<FieldingSaber searchPlayer={searchPlayer} setSearchPlayer={setSearchPlayer}/>} />
         <Route path='/LeagueLeaders' element={<LeagueLeaders />} />
-        <Route path="/user/:username" element={<UserHome user={user}/>} />
+        <Route path="/user/:username" element={<UserHome user={user} setUser={setUser}/>} />
+        <Route path='/login' element={<Login  isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUser={setUser}/>} />
         <Route path ="/FAQ" element={<Faq />} />
 
           <Route path="TeamMap" element={<TeamMap />} />
