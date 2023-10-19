@@ -35,23 +35,23 @@ const [showLogin, setShowLogin] = useState(true);
 const [searchPlayer, setSearchPlayer] = useState(607043)
 
 
-useEffect(() => {
-  fetch("/check_session").then((r) => {
-    if (r.ok) {
-      r.json().then((user) => setUser(user));
-    }
-  });
-}, []);
+// useEffect(() => {
+//   fetch("/check_session").then((r) => {
+//     if (r.ok) {
+//       r.json().then((user) => setUser(user));
+//     }
+//   });
+// }, []);
 
-if (!user) {
-  return (
-    <Login
-      showLogin={showLogin}
-      setShowLogin={setShowLogin}
-      setUser={setUser}
-    />
-  );
-}
+// if (!user) {
+//   return (
+//     <Login
+//       showLogin={showLogin}
+//       setShowLogin={setShowLogin}
+//       setUser={setUser}
+//     />
+//   );
+// }
 
 
 

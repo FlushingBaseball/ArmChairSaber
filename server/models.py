@@ -7,12 +7,9 @@ from config import db, bcrypt
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, nullable=False, unique=True)
-
     _password_hash = db.Column(db.String)
-
     email = db.Column(db.String, nullable=True, unique=True)
     profilePic = db.Column(db.String, nullable=True)
     totalScore = db.Column(db.Integer)

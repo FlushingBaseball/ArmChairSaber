@@ -1,12 +1,8 @@
 import { NavLink } from "react-router-dom"
 import SignOut from "./SignOut";
 
-
-
 function Nav({user, setUser}){
 
-
-//There is a default class called  active class on a NavLink 
 const logoLoc ="../Images/logo.svg"
 
 return (
@@ -24,4 +20,3 @@ return (
 
 export default Nav
 
-//<Link className="liveLink" to={`/TodaysGame/${gamePk}`}> Click Live game!</Link>}

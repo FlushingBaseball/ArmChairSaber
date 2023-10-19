@@ -155,9 +155,9 @@ Login
     background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
 }
 .WrapperQuestion{
+    box-shadow: 2px 2px 2px 2px;
     padding: 1vh 7px;
     margin: 0px 8px;
-    border: solid 3px black;  
     border-radius: 13px;
     background-color: white;
 }
