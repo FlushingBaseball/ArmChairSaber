@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 function SignIn( {setUser}) {
 
+  const [isInvalid, setIsInvalid] = useState(false)
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -30,6 +31,8 @@ function SignIn( {setUser}) {
     })
       .then((response) => {
         if (!response.ok) {
+          setIsInvalid(true);
+          setTimeout(() => setIsInvalid(false), 2000);
           throw new Error('Network response was not ok');
         }
         return response.json();
@@ -41,6 +44,8 @@ function SignIn( {setUser}) {
         navigate("/")
       })
       .catch((error) => {
+        setIsInvalid(true);
+        setTimeout(() => setIsInvalid(false), 2000);
         console.error('Error during sign-in:', error);
       });
   };
@@ -49,7 +54,7 @@ function SignIn( {setUser}) {
   return (
     <div id='signInForm'> 
       <h2 className='signInUPText' >Sign In</h2>
-      <form className='signForm' onSubmit={handleSubmit}>
+      <form className={`signForm ${isInvalid ? "invalidEntry" : null}`} onSubmit={handleSubmit}>
 
       <div className='form-group'>
         <label className='signInUpLabel'>
