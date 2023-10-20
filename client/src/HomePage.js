@@ -24,7 +24,7 @@ function handleTileClick(id){
             Advanced Pitching Sabermetrics 
         </button>
 
-        <button className='homeTile' onClick={() => handleTileClick("advancedBatting")}>
+        <button className='homeTile panel-button' onClick={() => handleTileClick("advancedBatting")}>
             Advanced Batting Sabermetrics
         </button>
 

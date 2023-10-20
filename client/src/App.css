@@ -2185,10 +2185,27 @@ box-shadow: 8px 8px 5px #444;
     }
   }
   
+  .invalidEntry{
+      animation: shake 0.2s ease-in-out 0s 2;
+
+  }
+
   /* input:invalid {
-    animation: shake 0.2s ease-in-out 0s 2;
     box-shadow: 0 0 0.6rem #ff0000;
   } */
+
+
+
+
+
+  /* font-family:Helvetica,Sans-serif; */
+  /* background-color:#191919; */
+
+
+
+
+
+
 
 
 
@@ -2294,6 +2311,10 @@ box-shadow: 8px 8px 5px #444;
         font-size: .7em;
         margin: 0;
         height: auto;
+    }
+    .selectteamBat{
+        border: none;
+        width: 30vw;
     }
 
 

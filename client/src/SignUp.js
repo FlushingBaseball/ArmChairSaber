@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function SignUp( {setUser}) {
 
   const navigate = useNavigate();
+  const [isInvalid, setIsInvalid] = useState(false)
 
   const [formData, setFormData] = useState({
     username: '',
@@ -31,6 +32,8 @@ function SignUp( {setUser}) {
     })
       .then((response) => {
         if (!response.ok) {
+          setIsInvalid(true)
+          setTimeout(() => setIsInvalid(false), 2000);
           throw new Error('Network response was not ok');
         }
         return response.json();
@@ -41,12 +44,14 @@ function SignUp( {setUser}) {
         navigate('/')
       })
       .catch((error) => {
+        setIsInvalid(true);
+        setTimeout(() => setIsInvalid(false), 2000);
         console.error('Error during sign-up:', error);
       });
   };
 
   return (
-    <div className='signupDiv'>
+    <div className={`signupDiv ${isInvalid ? "invalidEntry" : null}`}>
       <h2 className='signInUPText'>Sign Up</h2>
       <form className='signupForm' onSubmit={handleSubmit}>
 
