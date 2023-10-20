@@ -386,24 +386,22 @@ Login
         justify-content: space-around;
         flex-wrap: wrap;
         flex-direction: row;
-        background-color: white;
+        background-color: #fbf7ff;
     }
     
     
-    .homeTile { 
+    .homeTile {
+        border-radius: 26px; 
         overflow-wrap: break-word;
         cursor: pointer;
-        padding: 0;
         margin: 6px 5px;
         width: 25vw;
         height: 30vh;
-        display: inline-flex;
-        /* background: linear-gradient(71deg,  #d9c2e9, #f4f4f4); */
-        background: rgb(228,230,242); 
-        border: 1px solid #333;
-        box-shadow: 8px 8px 5px #444;
-        padding-block: 0px;
-        padding-inline: 0px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+        border: 2px solid transparent;
+        box-shadow: 2px 2px 2px 2px;
         font-family: 'zektonrg';
         font-weight: bold;
         font-size: 2em;
@@ -1338,6 +1336,7 @@ table, th, td {
     flex-direction: column;
 }
 .WrapperPlayer{
+    
     box-shadow: -14px 4px 8px 0px #444;
     padding: 10px 4px;
     font-size: 1.5rem;
@@ -1557,9 +1556,6 @@ padding-left: 7vw;
     text-decoration: underline;
     font-size: 3vh;
 }
-
-
-
 
 
 
@@ -1866,14 +1862,7 @@ batterCard */
         flex-direction: column;
 
     }
-    .WrapperPlayer{
-        background-color: #ffffff;
-        border: #000000 solid 5px;
-        border-style: double;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
+
 
     #playerPhoto{
         width: 6vh;
@@ -2187,27 +2176,11 @@ box-shadow: 8px 8px 5px #444;
   
   .invalidEntry{
       animation: shake 0.2s ease-in-out 0s 2;
-
   }
-
-  /* input:invalid {
-    box-shadow: 0 0 0.6rem #ff0000;
-  } */
-
-
-#howdy{
-    color: black;
-}
 
 
   /* font-family:Helvetica,Sans-serif; */
   /* background-color:#191919; */
-
-
-
-
-/*Testing*/
-
 
 
 
@@ -2219,13 +2192,12 @@ box-shadow: 8px 8px 5px #444;
 @media  (max-width: 768px) {
 
     .homeTile { 
+        border-radius: 11px;
         font-size: .9em;
         padding-bottom: 80px;
         align-items: center;
         text-align: center;
-        display: flex;
         justify-content: center;
-
     }
 
     .MiddleRow{
@@ -2251,8 +2223,9 @@ box-shadow: 8px 8px 5px #444;
     }
     .WrapperPlayer{
         background-color: #ffffff;
-        border: #000000 solid 5px;
-        border-style: double;
+        border: #000000 3px;
+        border-style: groove;
+        border-radius: 14px;
         display: flex;
         flex-direction: row;
         align-items: center;
