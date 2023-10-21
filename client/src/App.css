@@ -1423,6 +1423,7 @@ padding-left: 7vw;
 }
 
 #searchInput{
+    width: 100%;
     width:-webkit-fill-available;
     padding: 6px 6px;
     border-width: 0px 0px 5px 0px;
@@ -1570,18 +1571,16 @@ padding-left: 7vw;
     align-items: center;
 }
 
-.headerBat{
-    
-}
+
 
 .selectteamBat{
     padding: 10px;
     font-size: 16px;
     border: 3px solid #333;
     box-shadow: 8px 8px 5px #2d1432;
-    color: white;
+    color: black;
     border-radius: 4px;
-    background-color: #6e43b5;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
     width: 200px;
     cursor: pointer;
 }
@@ -1607,18 +1606,18 @@ padding-left: 7vw;
     padding: .2vw;
     display: flex;
     width: max-content;
-    background-color: #6e43b5;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
     flex-direction: column;
 }
 
 .ABSpan{
     font-family: 'zektonrg';
-    color: white;
+    color: black;
 }
 .ABSpanName{
     text-align: center;
     font-family: 'zektonrg';
-    color: white;
+    color: black;
     text-decoration: underline;
     
 }
@@ -2081,13 +2080,118 @@ box-shadow: 8px 8px 5px #444;
     background: linear-gradient(71deg, #d9c2e9, transparent);
     padding: 7px 8px;
     margin: 1px;
-    
 }
 
-.StatDataSpan{
-    padding: 2px;
-    padding-left: 4px;
+.Colors108{
+    background: linear-gradient(182deg, #003263, #BA0021);
 }
+.Colors109{
+    background: linear-gradient(182deg, #A71930, #E3D4AD);
+}
+.Colors110{
+    background: linear-gradient(182deg, #DF4601, #000000);
+}
+.Colors111{
+    background: linear-gradient(182deg, #BD3039, #0C2340);
+}
+.Colors112{
+    background: linear-gradient(182deg, #0E3386, #CC3433);
+}
+.Colors113{
+    background: linear-gradient(182deg, #C6011F, #000000);
+}
+.Colors114{
+    background: linear-gradient(182deg, #00385D, #E50022);
+}
+.Colors115{
+    background: linear-gradient(182deg, #333366, #C4CED4);
+}
+.Colors116{
+    background: linear-gradient(182deg, #0C2340, #FA4616);
+}
+.Colors117{
+    background: linear-gradient(182deg, #002D62, #EB6E1F);
+}
+.Colors118{
+    background: linear-gradient(182deg, #004687, #BD9B60);
+}
+.Colors119{
+    background: linear-gradient(182deg, #005A9C, #A5ACAF);
+}
+.Colors120{
+    background: linear-gradient(182deg, #AB0003, #14225A);
+}
+.Colors121{
+    background: linear-gradient(182deg, #FF5910, #002D72);
+}
+.Colors133{
+    background: linear-gradient(182deg, #003831, #EFB21E);
+}
+.Colors134{
+    background: linear-gradient(182deg, #27251F, #FDB827);
+}
+.Colors135{
+    background: linear-gradient(182deg, #2F241D, #FFC425);
+}
+.Colors136{
+    background: linear-gradient(182deg, #0C2C56, #005C5C);
+}
+.Colors137{
+    background: linear-gradient(182deg, #FD5A1E, #27251F);
+}
+.Colors138{
+    background: linear-gradient(182deg, #C41E3A, #FFFFFF);
+}
+.Colors139{
+    background: linear-gradient(182deg, #092C5C, #8FBCE6);
+}
+.Colors140{
+    background: linear-gradient(182deg, #003278, #C0111F);
+}
+.Colors141{
+    background: linear-gradient(182deg, #134A8E, #1D2D5C);
+}
+.Colors142{
+    background: linear-gradient(182deg, #002B5C, #D31145);
+}
+.Colors143{
+    background: linear-gradient(182deg, #E81828, #002D72);
+}
+.Colors144{
+    background: linear-gradient(182deg, #CE1141, #13274F);
+}
+.Colors145{
+    background: linear-gradient(182deg, #27251F, #C4CED4);
+}
+.Colors146{
+    background: linear-gradient(182deg, #00A3E0, #EF3340);
+}
+.Colors147{
+    background: linear-gradient(182deg, #C4CED3, #0C2340);
+}
+.Colors158{
+    background: linear-gradient(182deg, #FFC52F, #12284B);
+}
+
+
+.leauge-Leader-Card{
+    border-radius: 26px;
+    margin: 1vh 2px;
+    box-shadow: 2px 2px 2px 2px;
+    align-items: center;
+    padding: 0.5vh 0.2vw;
+    display: flex;
+    width: max-content;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+    flex-direction: column;
+}
+
+.leauge-Leader-Image{
+    width: 10vw;
+}
+
+
+
 
 
 .MiddleRow{
@@ -2145,6 +2249,16 @@ box-shadow: 8px 8px 5px #444;
 
 }
 
+.headerBat{
+    text-align: center;
+    font-family: 'zektonrg';
+}
+
+#leaugeHeader{
+    text-align: center;
+    font-family: 'zektonrg';
+}
+
 
 #welcome{
     margin-bottom: 10px;
@@ -2179,10 +2293,21 @@ box-shadow: 8px 8px 5px #444;
   }
 
 
-  /* font-family:Helvetica,Sans-serif; */
+
   /* background-color:#191919; */
 
+  /* <div className="StatDiv">
+  <span className="ABSpan">{`${user.stat.slg}`}</span>
+  <span className="Stat"> Slugging against</span>
+</div> */
 
+/* .StatDiv{
+background-color: rgb(255, 255, 255);
+display: flex;
+flex-direction: row;
+}
+.Stat{
+} */
 
 
 
@@ -2292,7 +2417,10 @@ box-shadow: 8px 8px 5px #444;
     }
     .selectteamBat{
         border: none;
-        width: 30vw;
+        width: 80vw;
+    }
+    .leauge-Leader-Card{
+        padding: 0.5vh 5.2vw ;
     }
 
 

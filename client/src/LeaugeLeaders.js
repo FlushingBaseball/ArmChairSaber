@@ -26,10 +26,9 @@ const [selectedCata, setSelectedCata] = useState('wildPitch')
         
         
             return  fetchedGameData.map(player => (
-                <div key={player.person.fullName} className="batterCard">
-                    <img alt={`$Photo of ${player.person.fullName}`} className="batterImg10" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`}></img>
+                <div key={player.person.fullName} className="leauge-Leader-Card">
+                    <img alt={`$Photo of ${player.person.fullName}`} className="leauge-Leader-Image" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`}></img>
                     <span className="ABSpan">{`Leauge: ${player.league.name} `}</span>
-                    <span className="ABSpan">{`${player.team.name}`}</span>
                     <span className="ABSpanName">{player.person.fullName}</span>
                     <span className="ABSpan">{`${selectedCata.split(/(?=[A-Z])/).join(" ").toUpperCase()} : ${player.value}`}</span> 
                 </div>
@@ -43,7 +42,7 @@ const [selectedCata, setSelectedCata] = useState('wildPitch')
 
 return(
     <div>
-        <h1>Leauge Leaders</h1>
+        <h1 id="leaugeHeader">Leauge Leaders</h1>
         <div className="WrapperadvancedBatter">
 <select className="selectteamBat" id="selectedCata" value={selectedCata} onChange={handleCataChange}>
                 <option value={"homeRuns"}>Home Runs</option>
