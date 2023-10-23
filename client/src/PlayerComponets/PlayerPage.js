@@ -23,11 +23,23 @@ const [selectedStatType, setSelectedStatType] = useState("career")
 
 
 useEffect(()=>{
-  fetch('/players')
-  .then( (resp)=> resp.json())
-  .then(data =>{
-      setFetchedPlayers(data)
-  })
+  const fetchSearchData = () =>{
+    fetch('/players')
+    .then((resp)=> {
+      if (!resp.ok){
+        throw new Error(`Network response wasn't okay`);
+      }
+      return resp.json()
+    })
+    .then((data) =>{
+        setFetchedPlayers(data)
+    })
+    .catch((error) => {
+      console.error("Error fetching search players", error)
+        setTimeout(fetchSearchData, 1000);
+    });
+  }
+  fetchSearchData()
 },[])
 
 
@@ -43,17 +55,18 @@ useEffect(()=>{
   // fetch(`  https://statsapi.mlb.com/api/v1/people/592450?&season=2023&hydrate=stats(group=[hitting,sabermetrics],type=[seasonAdvanced,season],season=2023)`)
   fetch(`https://statsapi.mlb.com/api/v1/people/${searchPlayer}?&season=2023&hydrate=stats(group=[${selectedStatGroup}],type=[${selectedStatType}],season=2023)`)
   .then((resp) => resp.json())
-  .then(data => {setPlayerData(data)
+  .then(data => {
+          setPlayerData(data)
       })
     },[searchPlayer,selectedStatType])
     
     
-    // useEffect(()=>{
-    //   // console.log(searchPlayer)
-    //   console.log(playerData)
-    //   console.log(selectedStatGroup)
-    //   console.log(selectedStatType)
-    // },[searchPlayer,playerData,selectedStatGroup,selectedStatType])
+    useEffect(()=>{
+      // console.log(searchPlayer)
+      // console.log(playerData)
+      // console.log(selectedStatGroup)
+      // console.log(selectedStatType)
+    },[searchPlayer,playerData,selectedStatGroup,selectedStatType])
     
     
     if (playerData == ''){

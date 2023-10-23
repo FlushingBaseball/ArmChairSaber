@@ -546,31 +546,6 @@ Wrapper Today[
     background: linear-gradient(71deg,  #ecf6c6, #edd205);
   }
 
-  
- @media (max-width: 768px){
-    .predictiveinfoGroup{
-        
-    }
- } 
-
-.probPitcherPhoto{
-    
-    width: 10rem;
-    height: 10rem;
-
-   
-}
-
-
-@media (max-width: 768px){
-    .probPitcherPhoto{
-        width: 5vh;
-        height: 5vh;
-    }
-}
-
-
-
 
 
 .teamInfo{
@@ -2331,6 +2306,10 @@ flex-direction: row;
 .Stat{
 } */
 
+.probMLBPitcherPhoto{
+    width: 10rem;
+    height: 10rem;
+}
 
 
 
@@ -2456,6 +2435,10 @@ flex-direction: row;
     .AdvancedSelect{
         border: none;
         width: 80vw;
+    }
+    .probMLBPitcherPhoto{
+        width: 5vh;
+        height: 5vh;
     }
 
 
