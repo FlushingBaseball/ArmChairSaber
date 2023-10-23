@@ -1571,9 +1571,19 @@ padding-left: 7vw;
     align-items: center;
 }
 
+.UtilityTeamSelect{
+    padding: 10px;
+    font-size: 16px;
+    border: 3px solid #333;
+    box-shadow: 8px 8px 5px #2d1432;
+    color: black;
+    border-radius: 4px;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+    width: 200px;
+    cursor: pointer
+}
 
-
-.selectteamBat{
+.UtilityRosterSelect{
     padding: 10px;
     font-size: 16px;
     border: 3px solid #333;
@@ -2423,14 +2433,15 @@ flex-direction: row;
         padding: 0.5vh 5.2vw ;
     }
 
-
-    /* .batterCard{
-        width: 33vw;
+    .UtilityRosterSelect{
+        border: none;
+        width: 80vw;
     }
-    .selectteamBat{
-        width: 35vw;
-        word-break: break-all;
-    } */
+    .UtilityTeamSelect{
+        border: none;
+        width: 80vw;
+    }
+
 
 
 } /* End Mobile Styling*/
