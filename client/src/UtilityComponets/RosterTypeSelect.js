@@ -11,8 +11,7 @@ export default function RosterTypeSelect({setSelectedRoster, selectedRoster}){
 
 return (
   <div className="WrapperRosterSelect">
-      <select className="selectteamBat"
-              id="RosterSelect"
+      <select className="UtilityRosterSelect"
               value={selectedRoster}
               onChange={handleRosterChange}
               >

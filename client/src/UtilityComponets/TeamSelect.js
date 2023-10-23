@@ -20,7 +20,7 @@ export default function TeamSelect  ({setSelectedTeam, setTeamLogo, selectedTeam
 
   return (
 <div className="WrapperTeamSelect">
-  <select className="selectteamBat" id="teamSelect" value={selectedTeam} onChange={handleTeamChange}>
+  <select className="UtilityTeamSelect" value={selectedTeam} onChange={handleTeamChange}>
                   <option value={108}>Los Angeles Angels</option>
                   <option value={109}>Arizona Diamondbacks</option>
                   <option value={110}>Orioles</option>

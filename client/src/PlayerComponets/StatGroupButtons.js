@@ -92,7 +92,7 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
        >
         Streak
        </button>
-
+      
        <h3> Batting Stat Types </h3>
        <div className="WrapperHittingTypeButtons">
           <button
@@ -116,9 +116,6 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
           >
             rankingsByYear
           </button>
-
-
-
        </div>
     </div>
   )
