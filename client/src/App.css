@@ -1595,6 +1595,18 @@ padding-left: 7vw;
     cursor: pointer;
 }
 
+.AdvancedSelect{
+    padding: 10px;
+    font-size: 16px;
+    border: 3px solid #333;
+    box-shadow: 8px 8px 5px #2d1432;
+    color: black;
+    border-radius: 4px;
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+    width: 200px;
+    cursor: pointer;
+}
+
 
 .batterTeamDisplay{
     height: 8vh;
@@ -2435,9 +2447,13 @@ flex-direction: row;
 
     .UtilityRosterSelect{
         border: none;
-        width: 80vw;
+        width: 33vw;
     }
     .UtilityTeamSelect{
+        border: none;
+        width: 33vw;
+    }
+    .AdvancedSelect{
         border: none;
         width: 80vw;
     }
