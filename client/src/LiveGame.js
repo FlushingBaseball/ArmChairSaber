@@ -20,14 +20,8 @@ function LiveGame(){
 const {gamePk} = useParams();
 const [dataLiveGame, setDataLiveGame] = useState(null)
 
-    // useEffect(()=>{
-    //     fetch(`https://statsapi.mlb.com/api/v1.1/game/${gamePk}/feed/live/`)
-    //     .then(resp => resp.json())
-    //     .then(gameRESP => setDataLiveGame(gameRESP))
-    // },[])
 
-
-//Fetch new data every 10 seconds
+//Fetching new data every 10 seconds
     const fetchData = async () =>{
         try {
             const response = await fetch(`https://statsapi.mlb.com/api/v1.1/game/${gamePk}/feed/live`);
@@ -59,12 +53,8 @@ if (dataLiveGame === null){
 }
 
     return(
-        <div>
-            
+        <div>  
             {console.log(dataLiveGame)}
-            {console.log('a fetch was made')}
-
-
             <div className="gameInfo">
 
                     <LiveGameScoreBoard {...dataLiveGame}/>

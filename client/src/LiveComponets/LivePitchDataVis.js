@@ -1,11 +1,7 @@
 import { scaleLinear } from '@visx/scale'
 import { Circle } from '@visx/shape';
 
-
-
 function LivePitchDataVis({...dataLiveGame}){
-
-
 
   const data =  [];
 
@@ -15,13 +11,8 @@ function LivePitchDataVis({...dataLiveGame}){
         // console.log(dataLiveGame.liveData.plays.currentPlay.playEvents[i])
           data.push(dataLiveGame.liveData.plays.currentPlay.playEvents[i].pitchData.coordinates)
       }
-  
-  
   }
-  
-  console.log(data)
-  
-    
+
     const width = 200;
     const height = 200; 
     const margin = { top: 5, right: 5, bottom: 5, left: 5 };
@@ -43,11 +34,7 @@ function LivePitchDataVis({...dataLiveGame}){
     });
   
   
-  
-  
-  
     const formattedData = data.map(({ pX, pZ }) => ({ pX, pZ }));
-    console.log(formattedData)
 
 
   return(
@@ -63,7 +50,6 @@ function LivePitchDataVis({...dataLiveGame}){
             y2={height - margin.bottom}
             stroke="black"
           />
-
 
         {/*Y*/}
         <line x1={margin.left} y1={margin.top} x2={margin.left} y2={height - margin.bottom} stroke="black" />
@@ -106,7 +92,6 @@ function LivePitchDataVis({...dataLiveGame}){
           stroke="black"
         />
 
-
         {formattedData.map((point, index) => (
           <Circle
           key={index}
@@ -121,22 +106,8 @@ function LivePitchDataVis({...dataLiveGame}){
       {console.log(formattedData)} */}
     {dataLiveGame.liveData.plays.currentPlay.matchup.batSide.code === 'R' ? ( <img className='batterImg' src='/Images/rhb.svg'></img>) : null}
     </div>
-
-
-
-
-
-
-        </div>
-      
-
-
-
-
-
-
-      )
-
+  </div>
+  )
 }
 
 export default LivePitchDataVis

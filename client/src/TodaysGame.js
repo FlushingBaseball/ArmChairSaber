@@ -11,12 +11,8 @@ let awayImageSrc = teams.away.probablePitcher ? `https://img.mlbstatic.com/mlb-p
 let homeImageSrc = teams.home.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.home.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
 
 if (selectedSportId!=="1"){
-
    awayImageSrc = teams.away.probablePitcher ? `https://midfield.mlbstatic.com/v1/people/${teams.away.probablePitcher.id}/milb/100` : '/Images/default-batter.svg'
-
-
-  homeImageSrc = teams.home.probablePitcher ? `https://midfield.mlbstatic.com/v1/people/${teams.home.probablePitcher.id}/milb/100` : '/Images/default-batter.svg'
-  
+   homeImageSrc = teams.home.probablePitcher ? `https://midfield.mlbstatic.com/v1/people/${teams.home.probablePitcher.id}/milb/100` : '/Images/default-batter.svg'
 }
 
 
@@ -34,7 +30,8 @@ if (selectedSportId!=="1"){
 
           /*
             Old way of grabbing the id then serving a local file based on matching local filename with team id
-            this was done because the endpoint for team logos hadn't been found, Depending on packsize may be expanded as fall back for lower leauges
+            this was done because the endpoint for team logos hadn't been found, Depending on packsize may be expanded as fall back for lower leauges.
+            Looks like its needed for South American Winter Leauges.
           */
               // const homeTeamImageSrc=`./Images/logos/${teams.home.team.id}.svg`;
               // const awayTeamImageSrc=`./Images/logos/${teams.away.team.id}.svg`;
@@ -51,7 +48,7 @@ if (selectedSportId!=="1"){
                  <h4 className="teamName">Home: {teams.home.team.name} </h4>
                  <div className="pitcherInfo">
                     <span  className="pitcherName">{teams.home.probablePitcher !== undefined? teams.home.probablePitcher.fullName : "Not Announced"}</span>
-                    <img className="probPitcherPhoto" src={homeImageSrc}></img>
+                    <img className={`probMLBPitcherPhoto Colors${teams.home.team.id}`} src={homeImageSrc}></img>
                  </div>
               </div>
             <div className="CenterWrapper">
@@ -62,11 +59,11 @@ if (selectedSportId!=="1"){
             </div>
         
             <div className={`teamInfo ${predictedWinner == teams.away.team.id ? 'predictedWinner' : ' '}`}>
-                <img className="teamGameLogo" alt={teams.away.team.name} src={awayTeamImageSrc}></img>
+                <img className={`teamGameLogo`} alt={teams.away.team.name} src={awayTeamImageSrc}></img>
                 <h4 className="teamName">Away: {teams.away.team.name} </h4>
                 <div className="pitcherInfo">
                     <span className="pitcherName">{teams.away.probablePitcher !== undefined? teams.away.probablePitcher.fullName : "Not Announced"}</span>
-                    <img className="probPitcherPhoto" src={awayImageSrc}></img>
+                    <img className={`probMLBPitcherPhoto Colors${teams.away.team.id}`} src={awayImageSrc}></img>
                 </div>
             </div> 
             

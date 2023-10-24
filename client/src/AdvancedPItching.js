@@ -41,8 +41,6 @@ function AdvancedPitching(){
 
 function mapPlayer(){
     if (fetchedGameData.length > 1){
-
-
         return  fetchedGameData.map(user => (
             <div key={user.player.id} className="batterCard">
                 <img className={`batterImg10 Colors${teamLogo}`} alt="Photo of player" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${user.player.id}/headshot/silo/current`}></img>
@@ -61,7 +59,6 @@ function mapPlayer(){
                 <span className="ABSpan">{`${user.stat.slg} Slugging against`}</span>
             </div>
         ))
-
     }
 }
           
