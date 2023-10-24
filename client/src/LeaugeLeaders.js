@@ -44,7 +44,7 @@ return(
     <div>
         <h1 id="leaugeHeader">Leauge Leaders</h1>
         <div className="WrapperadvancedBatter">
-<select className="selectteamBat" id="selectedCata" value={selectedCata} onChange={handleCataChange}>
+            <select className="selectteamBat" id="selectedCata" value={selectedCata} onChange={handleCataChange}>
                 <option value={"homeRuns"}>Home Runs</option>
                 <option value={"stolenBases"}>StolenBases</option>
                 <option value={"wildPitch"}>Wild Pitch</option>
@@ -53,7 +53,7 @@ return(
                 <option value={"balk"}>Balks</option>
             </select>
             {mapPlayer()}
-            </div>
+        </div>
     </div>
 )
 

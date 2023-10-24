@@ -48,7 +48,7 @@ if (selectedSportId!=="1"){
                  <h4 className="teamName">Home: {teams.home.team.name} </h4>
                  <div className="pitcherInfo">
                     <span  className="pitcherName">{teams.home.probablePitcher !== undefined? teams.home.probablePitcher.fullName : "Not Announced"}</span>
-                    <img className="probMLBPitcherPhoto" src={homeImageSrc}></img>
+                    <img className={`probMLBPitcherPhoto Colors${teams.home.team.id}`} src={homeImageSrc}></img>
                  </div>
               </div>
             <div className="CenterWrapper">
@@ -59,11 +59,11 @@ if (selectedSportId!=="1"){
             </div>
         
             <div className={`teamInfo ${predictedWinner == teams.away.team.id ? 'predictedWinner' : ' '}`}>
-                <img className="teamGameLogo" alt={teams.away.team.name} src={awayTeamImageSrc}></img>
+                <img className={`teamGameLogo`} alt={teams.away.team.name} src={awayTeamImageSrc}></img>
                 <h4 className="teamName">Away: {teams.away.team.name} </h4>
                 <div className="pitcherInfo">
                     <span className="pitcherName">{teams.away.probablePitcher !== undefined? teams.away.probablePitcher.fullName : "Not Announced"}</span>
-                    <img className="probMLBPitcherPhoto" src={awayImageSrc}></img>
+                    <img className={`probMLBPitcherPhoto Colors${teams.away.team.id}`} src={awayImageSrc}></img>
                 </div>
             </div> 
             
