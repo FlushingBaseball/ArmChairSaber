@@ -43,7 +43,8 @@ if (!rosterData.length > 1){
             ?`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`
             :`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/83/coach/current`
           }
-          alt={player.person.fullName} id="playerPhoto"
+          alt={player.person.fullName}
+          id="playerPhoto"
           onError={handleImageError}
           />
           <span className="playerJerseyNum">#{player.jerseyNumber}&nbsp;</span> 
@@ -64,7 +65,7 @@ const pitchers = rosterData.filter(player => player.position && player.position.
 
 
 return (
-  <div className="WrapperRoster">
+  <div className={`WrapperRoster`}>
     {selectedRoster == 'coach'
      ? (mapRoster(rosterData) 
      ): (
