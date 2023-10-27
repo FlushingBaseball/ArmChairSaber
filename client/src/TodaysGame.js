@@ -4,15 +4,25 @@ import {useState} from "react"
 import PredictionGroup from "./PredictionGroup"
 
 function TodaysGame({gamePk, teams, game, status, user, selectedSportId}) {
+  
+  const [predictedWinner, setPredictedWinner] = useState('');
+  
+  let awayImageSrc = teams.away.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.away.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
+  let homeImageSrc = teams.home.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.home.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
 
-const [predictedWinner, setPredictedWinner] = useState('');
+  
+  let homeTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.home.team.id}.svg`;
+  let awayTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
 
-let awayImageSrc = teams.away.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.away.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
-let homeImageSrc = teams.home.probablePitcher ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.home.probablePitcher.id}/headshot/silo/current` : '/Images/default-batter.svg'
 
 if (selectedSportId!=="1"){
    awayImageSrc = teams.away.probablePitcher ? `https://midfield.mlbstatic.com/v1/people/${teams.away.probablePitcher.id}/milb/100` : '/Images/default-batter.svg'
    homeImageSrc = teams.home.probablePitcher ? `https://midfield.mlbstatic.com/v1/people/${teams.home.probablePitcher.id}/milb/100` : '/Images/default-batter.svg'
+  
+   homeTeamImageSrc=`./Images/logos/${teams.home.team.id}.svg`;
+   awayTeamImageSrc=`./Images/logos/${teams.away.team.id}.svg`;
+
+
 }
 
 
@@ -36,8 +46,6 @@ if (selectedSportId!=="1"){
               // const homeTeamImageSrc=`./Images/logos/${teams.home.team.id}.svg`;
               // const awayTeamImageSrc=`./Images/logos/${teams.away.team.id}.svg`;
 
-              const homeTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.home.team.id}.svg`;
-              const awayTeamImageSrc=`https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
 
           
           
@@ -65,8 +73,7 @@ if (selectedSportId!=="1"){
                     <span className="pitcherName">{teams.away.probablePitcher !== undefined? teams.away.probablePitcher.fullName : "Not Announced"}</span>
                     <img className={`probMLBPitcherPhoto Colors${teams.away.team.id}`} src={awayImageSrc}></img>
                 </div>
-            </div> 
-            
+            </div>  
         </div>
     )
 }
