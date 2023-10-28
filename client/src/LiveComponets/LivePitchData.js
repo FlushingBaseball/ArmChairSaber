@@ -12,7 +12,7 @@ function LivePitchData ({...dataLiveGame}){
             
             dataLiveGame.liveData.plays.currentPlay.playEvents.map((play)=>{
     
-                if (play.isPitch == true){
+                if (play.isPitch === true){
                   return(
 
 
@@ -38,7 +38,7 @@ function LivePitchData ({...dataLiveGame}){
                   )
                     
                 }
-    
+                    //Return ? based on warning? 
             })
 
 

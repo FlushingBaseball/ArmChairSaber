@@ -5,7 +5,7 @@ function PitcherVsBatter({...dataLiveGame}){
                 <div className="PitcherVsBatter">
                     <span >{`Pitching: `}</span>
                     <span>{dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.fullName}</span>
-                    <img className="vsImage" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.id}/headshot/silo/current`}></img>
+                    <img className="vsImage" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.id}/headshot/silo/current`} alt=''></img>
                 </div>
                         <div className="vs-text-container">
                             <span id="VS">VS</span>
@@ -17,7 +17,7 @@ function PitcherVsBatter({...dataLiveGame}){
                     <span>
                     {dataLiveGame.liveData.linescore.offense.batter.fullName}
                     </span>
-                    <img className="vsImage" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.batter.id}/headshot/silo/current`}></img>
+                    <img className="vsImage" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.batter.id}/headshot/silo/current`} alt=''></img>
                 </div>
 
             </div>
@@ -29,7 +29,7 @@ function PitcherVsBatter({...dataLiveGame}){
                 <span>
                {dataLiveGame.liveData.linescore.offense.inHole.fullName}
                 </span>
-                <img className="OnDeck" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.inHole.id}/headshot/silo/current`}></img>
+                <img className="OnDeck" src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.inHole.id}/headshot/silo/current`} alt='On deck batter'></img>
             </div>
 
 

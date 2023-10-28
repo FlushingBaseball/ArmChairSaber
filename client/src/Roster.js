@@ -39,7 +39,7 @@ if (!rosterData.length > 1){
     if (rosterData.length > 1){
         return personArray.map(player=> (
           <div className="WrapperPlayer" key={player.person.id} onClick={ () => handlePlayerClick(player.person.id, player)}>
-            <img src= {selectedRoster != "coach"
+            <img src= {selectedRoster !== "coach"
             ?`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`
             :`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/83/coach/current`
           }
@@ -66,7 +66,7 @@ const pitchers = rosterData.filter(player => player.position && player.position.
 
 return (
   <div className={`WrapperRoster`}>
-    {selectedRoster == 'coach'
+    {selectedRoster === 'coach'
      ? (mapRoster(rosterData) 
      ): (
     <>
