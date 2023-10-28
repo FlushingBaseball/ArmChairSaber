@@ -62,7 +62,6 @@ const [searchPlayer, setSearchPlayer] = useState(607043);
           <Route path='/player/' element={<PlayerPage />} />
           <Route path='/player/:mlbAmId/' element={<PlayerPage />} />
 
-
         <Route path="*" element={<NotFound />} />
     </Routes>
        </div>
