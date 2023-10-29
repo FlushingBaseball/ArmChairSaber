@@ -36,7 +36,7 @@ if (fetchedGameData.length > 1){
 
     return  fetchedGameData.map(user => (
         <div key={user.player.id} className="batterCard">
-            <img alt={`Photo of ${user.player.fullName}`} className={`batterImg10 Colors${teamLogo}`} src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${user.player.id}/headshot/silo/current`}></img>
+            <img alt={user.player.fullName} className={`batterImg10 Colors${teamLogo}`} src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${user.player.id}/headshot/silo/current`}></img>
             <span className="ABSpanName">{user.player.fullName}</span>
             <span className="ABSpan">{`${user.stat.gamesPlayed} : Games Played`}</span>
             <span className="ABSpan">{`${user.stat.atBats} : At Bats`}</span>

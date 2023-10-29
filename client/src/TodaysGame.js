@@ -51,7 +51,7 @@ if (selectedSportId!=="1"){
           
           return (
             <div className="game">       
-              <div className={`teamInfo ${predictedWinner == teams.home.team.id ? 'predictedWinner' : ' '}`}>
+              <div className={`teamInfo ${predictedWinner === teams.home.team.id ? 'predictedWinner' : ' '}`}>
                  <img className="teamGameLogo" alt={teams.home.team.name} src={homeTeamImageSrc}></img>
                  <h4 className="teamName">Home: {teams.home.team.name} </h4>
                  <div className="pitcherInfo">
@@ -66,7 +66,7 @@ if (selectedSportId!=="1"){
             {status.abstractGameState === "Preview" && <PredictionGroup game={game} user={user} predictedWinner={predictedWinner} setPredictedWinner={setPredictedWinner} />}
             </div>
         
-            <div className={`teamInfo ${predictedWinner == teams.away.team.id ? 'predictedWinner' : ' '}`}>
+            <div className={`teamInfo ${predictedWinner === teams.away.team.id ? 'predictedWinner' : ' '}`}>
                 <img className={`teamGameLogo`} alt={teams.away.team.name} src={awayTeamImageSrc}></img>
                 <h4 className="teamName">Away: {teams.away.team.name} </h4>
                 <div className="pitcherInfo">

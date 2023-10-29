@@ -23,7 +23,7 @@ return(
 
                                     <div className="scoreHeader">
                                         <div className="team">
-                                            <img className="glanceLogo" src={`/Images/logos/${dataLiveGame.gameData.teams.away.id}.svg`}></img>
+                                            <img className="glanceLogo" alt='' src={`/Images/logos/${dataLiveGame.gameData.teams.away.id}.svg`}></img>
                                             <span className="teamNameSpan">{dataLiveGame.gameData.teams.away.name}</span>
                                             <span className="RecordSpan">{`Record ${dataLiveGame.gameData.teams.away.record.wins} - ${dataLiveGame.gameData.teams.away.record.losses}`}</span>
                                         </div>

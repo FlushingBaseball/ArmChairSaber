@@ -39,10 +39,9 @@ function FieldingSaber({searchPlayer, setSearchPlayer}){
 
 
     useEffect(()=>{
-
         fetch('/players')
         .then( (resp)=> resp.json())
-        .then(data =>{
+        .then((data) =>{
             setFetchedPlayers(data)
         })
     },[])

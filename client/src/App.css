@@ -930,7 +930,7 @@ table, th, td {
     flex-direction: column;
 }
 .WrapperPlayer{
-    
+    border-radius: 22px;
     box-shadow: -14px 4px 8px 0px #444;
     padding: 10px 4px;
     font-size: 1.5rem;
@@ -939,6 +939,8 @@ table, th, td {
     align-items: center;
 }
 #playerPhoto{
+    border-radius: 19px;
+    margin-left: 9px;
     height: 8vh;
     width: 8vh;
 }
@@ -1549,6 +1551,7 @@ padding-left: 7vw;
     color: white;
     font-family: 'zektonrg';
 }
+
 
 
 

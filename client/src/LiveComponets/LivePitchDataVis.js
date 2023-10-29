@@ -39,7 +39,7 @@ function LivePitchDataVis({...dataLiveGame}){
 
   return(
         <div className='WrapperPitchingvis'>
-        {dataLiveGame.liveData.plays.currentPlay.matchup.batSide.code === 'L' ? ( <img className='batterImg' src='/Images/lhb.svg'></img>) : null}
+        {dataLiveGame.liveData.plays.currentPlay.matchup.batSide.code === 'L' ? ( <img className='batterImg' alt='Left handed batter' src='/Images/lhb.svg'></img>) : null}
       <div className='pitchVis'>
       <svg className='strikezone' width={width} height={height}>
         {/* X-axis */}
@@ -104,7 +104,7 @@ function LivePitchDataVis({...dataLiveGame}){
       </svg>
       {/* {console.log(data)}
       {console.log(formattedData)} */}
-    {dataLiveGame.liveData.plays.currentPlay.matchup.batSide.code === 'R' ? ( <img className='batterImg' src='/Images/rhb.svg'></img>) : null}
+    {dataLiveGame.liveData.plays.currentPlay.matchup.batSide.code === 'R' ? ( <img className='batterImg' alt='Right handed batter' src='/Images/rhb.svg'></img>) : null}
     </div>
   </div>
   )
