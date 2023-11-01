@@ -21,11 +21,11 @@ function handleTileClick(id){
     return(
     <div className="flexParent">
         <button className='homeTile' onClick={() => handleTileClick("advancedPitching")}>
-            Advanced Pitching Sabermetrics 
+             Rolling Pitching Metrics by Team
         </button>
 
         <button className='homeTile panel-button' onClick={() => handleTileClick("advancedBatting")}>
-            Advanced Batting Sabermetrics
+             Rolling Batting Metrics by Team
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("TeamMap")}> 
@@ -35,17 +35,18 @@ function handleTileClick(id){
         <button className='homeTile' onClick={() => handleTileClick("today")}>
             Predict Today's Games
         </button>
+        
+        <button className='homeTile' onClick={() => handleTileClick("player")}>
+            Sabermetrics
+        </button>
 
         <button className='homeTile' onClick={() => handleTileClick("Leaderboard")}>
             Predictions Leaderboard
         </button>
 
-        <button className='homeTile' /*onClick={() => handleTileClick("advancedFielding")}*/>
-            Advanced Fielding Unavailable *Relaunching Spring 2024
-        </button>
 
         <button className='homeTile' /*onClick={() => handleTileClick("test")}*/>
-            Blog *Launching November 2023
+            Blog
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("LeagueLeaders")}>

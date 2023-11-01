@@ -2,6 +2,10 @@
     font-family: 'zektonrg';
     src: url('/public/Fonts/zekton-rg.otf') format('opentype');
   }
+@font-face {
+    font-family: 'BebasNeue-Regular';
+    src: url('/public/Fonts/BebasNeue-Regular.ttf') format('truetype');
+  }
   
   /*
   CSS RESET
@@ -43,12 +47,12 @@
     border-radius: 5px;
 }
 .signInUpFormInput:focus{
-    border-color: #2c1b47;
+    border-color: #d9c2e9;
     outline: none;
 }
 
 .signInUpbtn{
-    background: linear-gradient(71deg,  #f4e4ff, #f4f4f4);
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
     border: 2px solid transparent;
     border-radius: 45px;
     box-shadow: 2px 2px 2px 2px;
@@ -286,7 +290,7 @@
         height:6vh;
         width: 6vw;
     }
-    
+
     .nav a{
         font-family: zektonrg;
         color: white;
@@ -342,8 +346,49 @@
     }
     
     .homeTile:hover {
-        color: #6e43b5; 
+        color: #606059; 
+        box-shadow: 2px 12px 10px 0px #2c1b47;
     }
+
+
+
+.line {
+  font-family: 'Wendy One', sans-serif;
+  color:  #FFA01B;
+  cursor: pointer;
+  position: relative;
+  text-shadow:
+    -6px 6px 0 #E8476A,
+    -9px 9px 0 purple;
+  font-size: 10vmin;
+}
+
+.line:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  bottom: -10px;
+  left: -4px;
+  transform: scaleX(0);
+  box-shadow:
+     0 5px 0 #E8476A,
+    0 10px 0 purple;
+  background: #FFA01B ;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
+}
+
+.line:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+
+
+
+
     
 #noGameImage{
     padding: 10px 0px;
@@ -427,24 +472,9 @@
 }
 
 .pitcherName{
+    text-wrap: nowrap;
     padding: 1.5px 0px;
     display: block;
-}
-
-
-@media (max-width: 768px){
-    .teamInfo{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin: 0px;
-        
-    }
-
-
-
-
 }
 
 
@@ -461,23 +491,11 @@
    
 }
 
-@media (max-width: 768px){
-    .teamGameLogo{
-        width: 4vw;
-        height: 4vh;
-    }
-}
 
 .teamName {
     font-size: 2rem;
 }
 
-@media (max-width: 768px){
-    .teamName{
-        font-size: .75rem;
-        padding-bottom: 5px;
-    }
-}
 
 
 
@@ -1163,6 +1181,7 @@ padding-left: 7vw;
 
 
 .batterTeamDisplay{
+    margin: 13px 0px;
     height: 8vh;
     width: 8vw;
 }
@@ -1172,9 +1191,18 @@ padding-left: 7vw;
     margin: 2vw;
     gap: .3vw;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
     
+}
+
+
+.nonMlbPitcher{
+    width: 6rem;
+    height: 8rem;
+    box-shadow: 2px 2px 2px 2px;
+    border-radius: 31px;
 }
 
 .batterCard{
@@ -1556,7 +1584,6 @@ padding-left: 7vw;
 
 
 
-
 /*Mobile style*/
 @media  (max-width: 768px) {
 
@@ -1679,6 +1706,12 @@ padding-left: 7vw;
         width: 5vh;
         height: 5vh;
         border-radius: 9px;
+    }
+    .nonMlbPitcher{
+        width: 4vh;
+        height: 5vh;
+        border-radius: 9px;
+
     }
     .signoutButton { 
         font-size: .7rem;
@@ -1832,6 +1865,22 @@ padding-left: 7vw;
     .game { 
         margin: 5px;
     }
+    .teamInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0px; 
+    }
+    .teamGameLogo{
+        width: 4vh;
+        height: 4vh;
+    }
+    .teamName{
+        font-size: .75rem;
+        padding-bottom: 5px;
+    }
+    
 
 } /* End Mobile Styling*/
 
