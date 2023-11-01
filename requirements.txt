@@ -27,6 +27,6 @@ SQLAlchemy-serializer==1.4.1
 tqdm==4.66.1
 typing_extensions==4.8.0
 urllib3==2.0.6
-Werkzeug==3.0.0
+Werkzeug==3.0.1
 wheel==0.40.0
 
