@@ -56,7 +56,7 @@ if (selectedSportId!=="1"){
                  <h4 className="teamName">Home: {teams.home.team.name} </h4>
                  <div className="pitcherInfo">
                     <span  className="pitcherName">{teams.home.probablePitcher !== undefined? teams.home.probablePitcher.fullName : "Not Announced"}</span>
-                    <img className={selectedSportId === "1" ? `probMLBPitcherPhoto Colors${teams.home.team.id}` : 'nonMlbPitcher'} src={homeImageSrc}></img>
+                    <img  alt="headshot of pitcher" className={selectedSportId === "1" ? `probMLBPitcherPhoto Colors${teams.home.team.id}` : 'nonMlbPitcher'} src={homeImageSrc}></img>
                  </div>
               </div>
             <div className="CenterWrapper">
@@ -71,7 +71,7 @@ if (selectedSportId!=="1"){
                 <h4 className="teamName">Away: {teams.away.team.name} </h4>
                 <div className="pitcherInfo">
                     <span className="pitcherName">{teams.away.probablePitcher !== undefined? teams.away.probablePitcher.fullName : "Not Announced"}</span>
-                    <img className={selectedSportId === "1" ? `probMLBPitcherPhoto Colors${teams.away.team.id}` : 'nonMlbPitcher'} src={awayImageSrc}></img>
+                    <img alt="headshot of pitcher" className={selectedSportId === "1" ? `probMLBPitcherPhoto Colors${teams.away.team.id}` : 'nonMlbPitcher'} src={awayImageSrc}></img>
                 </div>
             </div>  
         </div>

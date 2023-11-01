@@ -2,6 +2,10 @@
     font-family: 'zektonrg';
     src: url('/public/Fonts/zekton-rg.otf') format('opentype');
   }
+@font-face {
+    font-family: 'BebasNeue-Regular';
+    src: url('/public/Fonts/BebasNeue-Regular.ttf') format('truetype');
+  }
   
   /*
   CSS RESET
@@ -43,12 +47,12 @@
     border-radius: 5px;
 }
 .signInUpFormInput:focus{
-    border-color: #2c1b47;
+    border-color: #d9c2e9;
     outline: none;
 }
 
 .signInUpbtn{
-    background: linear-gradient(71deg,  #f4e4ff, #f4f4f4);
+    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
     border: 2px solid transparent;
     border-radius: 45px;
     box-shadow: 2px 2px 2px 2px;
@@ -487,23 +491,11 @@
    
 }
 
-@media (max-width: 768px){
-    .teamGameLogo{
-        width: 4vh;
-        height: 4vh;
-    }
-}S
 
 .teamName {
     font-size: 2rem;
 }
 
-@media (max-width: 768px){
-    .teamName{
-        font-size: .75rem;
-        padding-bottom: 5px;
-    }
-}
 
 
 
@@ -1880,7 +1872,15 @@ padding-left: 7vw;
         flex-direction: column;
         margin: 0px; 
     }
-
+    .teamGameLogo{
+        width: 4vh;
+        height: 4vh;
+    }
+    .teamName{
+        font-size: .75rem;
+        padding-bottom: 5px;
+    }
+    
 
 } /* End Mobile Styling*/
 
