@@ -301,6 +301,10 @@
     .nav .active{
         color: #ebeb98;
     }
+
+    button.activeSport{
+        color: #ebeb98;
+    }
     
     
     .signoutButton{
@@ -1579,6 +1583,24 @@ padding-left: 7vw;
     color: white;
     font-family: 'zektonrg';
 }
+.Alert{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-wrap: balance;
+    text-align: center;
+}
+#WS-Winner{
+}
+#Fall{
+    font-family: 'zektonrg';
+    border-radius: 45px;
+    font-size: 1rem;
+    padding: 8px 12px;
+    margin: 3px 0px;
+    background: #cbcbff;
+}
+
 
 
 

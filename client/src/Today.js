@@ -9,7 +9,7 @@ function Today({user}){
   const year = currentDate.getFullYear();
   const formattedDate = `${month}/${day}/${year}`;
 
-    const [selectedSportId, setSelectedSportId] = useState("1")
+    const [selectedSportId, setSelectedSportId] = useState("17")
     const [gameData, setGameData] = useState(null)
    
     
@@ -59,13 +59,13 @@ function Today({user}){
       return (
         <div id="noGames">
           <div className='leaugeSelect'>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("1")}>MLB</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("17")}>AFL</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("11")}>AAA</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("12")}>AA</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("13")}>A+</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("14")}>A</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("16")}>ROK</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "17" ? 'activeSport' : null}`} onClick={() => handleSportSelect("17")}>AFL</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "1" ? 'activeSport' : null}`} onClick={() => handleSportSelect("1")}>MLB</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "11" ? 'activeSport' : null}`} onClick={() => handleSportSelect("11")}>AAA</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "12" ? 'activeSport' : null}`} onClick={() => handleSportSelect("12")}>AA</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "13" ? 'activeSport' : null}`} onClick={() => handleSportSelect("13")}>A+</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "14" ? 'activeSport' : null}`} onClick={() => handleSportSelect("14")}>A</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "16" ? 'activeSport' : null}`} onClick={() => handleSportSelect("16")}>ROK</button>
           </div> 
           <h1 id='noGameHeader'>There seems to be no games scheduled for </h1>
             <h2 id='noGameDate'> {formattedDate}</h2>
@@ -81,14 +81,19 @@ function Today({user}){
     return( 
     <div className='todayfilled'>
           <div className='leaugeSelect'>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("1")}>MLB</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("17")}>AFL</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("11")}>AAA</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("12")}>AA</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("13")}>A+</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("14")}>A</button>
-              <button className='leaugeSelectButton' onClick={() => handleSportSelect("16")}>ROK</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "17" ? 'activeSport' : null}`} onClick={() => handleSportSelect("17")}>AFL</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "1" ? 'activeSport' : null}`} onClick={() => handleSportSelect("1")}>MLB</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "11" ? 'activeSport' : null}`} onClick={() => handleSportSelect("11")}>AAA</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "12" ? 'activeSport' : null}`} onClick={() => handleSportSelect("12")}>AA</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "13" ? 'activeSport' : null}`} onClick={() => handleSportSelect("13")}>A+</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "14" ? 'activeSport' : null}`} onClick={() => handleSportSelect("14")}>A</button>
+              <button className={`leaugeSelectButton ${selectedSportId === "16" ? 'activeSport' : null}`} onClick={() => handleSportSelect("16")}>ROK</button>
           </div> 
+      <div className="Alert">
+        <h2 id='WS-Winner'>🎉Congratulations to the Rangers, the 2023 World Series champions!🎉</h2>
+        <p id='Fall'>Now that the MLB season is over, I have switched to displaying the Mexican, Dominican, and Venezuelan Winter Leagues, along with the remaining Arizona Fall League, which ends on November 11th. Please note that these leauges are experimental, the Dominican leauge will enjoy full pitch by pitch data but there is limited data available for the Mexican and Venezuelan Leagues as Trackman, Hawkeye, and other tracking systems are not installed in these stadiums. 
+        </p>
+      </div>
       <div className='WrapperToday'>
          {gameData.dates[0].games.map((game)=>{
           return (
