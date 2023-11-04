@@ -6,6 +6,32 @@ function Test(){
     const [xData, setxData] = useState('')
 
 
+/**
+ * Test
+ */
+
+const currentDate = new Date();
+const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+const day = currentDate.getDate().toString().padStart(2, '0');
+const year = currentDate.getFullYear();
+const formattedDate = `${month}/${day}/${year}`;
+
+  const [selectedSportId, setSelectedSportId] = useState("17")
+  const [gameData, setGameData] = useState(null)
+ 
+  
+  useEffect(()=>{
+      fetch(`https://statsapi.mlb.com/api/v1/schedule?date=11/03/2023&sportId=17&hydrate=team(social,league)&hydrate=probablePitcher(note)`)
+      .then(resp => resp.json())
+      .then(statcastRESP => setGameData(statcastRESP) )
+    },[])  
+    
+
+useEffect(()=>{
+    console.log(gameData)
+},[gameData])
+
+
    
     /**
      * Leaderboard Structure test
@@ -159,11 +185,11 @@ function Test(){
 // }
 
   
-useEffect(()=>{
-  fetch(`https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=pitching&teamId=121`)
-  .then((resp)=> resp.json())
-  .then((data)=>setxData(data))
-},[])
+// useEffect(()=>{
+//   fetch(`https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=pitching&teamId=121`)
+//   .then((resp)=> resp.json())
+//   .then((data)=>setxData(data))
+// },[])
 
 
 
