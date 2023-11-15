@@ -347,10 +347,9 @@ function LeaderBoard(){
                              Temporary Pause in standings:
                         </h1>
                         <p>
-                        My cron job that resolves Predictions is having some issues. <br></br>
                         No data has been lost.<br></br>
-                        You may continue to predict<br></br>
-                        These Predictions will be resolved upon completion of the new system:
+                        You may continue to predict winter leauge games.<br></br>
+                        These Predictions will be resolved upon completion of the new system.
                         </p>
                     </div>
                 )

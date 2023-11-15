@@ -45,7 +45,7 @@ function handleTileClick(id){
         </button>
 
 
-        <button className='homeTile' onClick={() => handleTileClick("test")}>
+        <button className='homeTile' /* onClick={() => handleTileClick("test")} */>
             Blog
         </button>
 
