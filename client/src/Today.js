@@ -91,7 +91,7 @@ function Today({user}){
           </div> 
       <div className="Alert">
         <h2 id='WS-Winner'>🎉Congratulations to the Rangers, the 2023 World Series champions!🎉</h2>
-        <p id='Fall'>Now that the MLB season is over, I have switched to displaying the Mexican, Dominican, and Venezuelan Winter Leagues. Please note that these leauges are experimental, the Dominican leauge will enjoy full pitch by pitch data but there is limited data available for the Mexican and Venezuelan Leagues as Trackman, Hawkeye, and other tracking systems are not installed in these stadiums. 
+        <p id='Fall'>Now that the MLB season is over, I have switched to displaying the Mexican, Australian, Dominican, and Venezuelan Winter Leagues. Please note that these leauges are experimental, the Dominican leauge will enjoy full pitch by pitch data but there is limited data available for other Leagues as Trackman, Hawkeye, and other tracking systems are not installed in these stadiums. 
         </p>
       </div>
       <div className='WrapperToday'>

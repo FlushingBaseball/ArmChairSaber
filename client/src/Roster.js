@@ -38,7 +38,7 @@ if (!rosterData.length > 1){
   function mapRoster(personArray){
     if (rosterData.length > 1){
         return personArray.map(player=> (
-          <div className="WrapperPlayer" key={player.person.id} onClick={ () => handlePlayerClick(player.person.id, player)}>
+          <div className='WrapperPlayer' key={player.person.id} onClick={ () => handlePlayerClick(player.person.id, player)}>
             <img src= {selectedRoster !== "coach"
             ?`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`
             :`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/83/coach/current`
@@ -50,7 +50,7 @@ if (!rosterData.length > 1){
           <span className="playerJerseyNum">#{player.jerseyNumber}&nbsp;</span> 
           <span className="playerName">{player.person.fullName}&nbsp;</span>
           <span className="playerPosition">{player.position ? player.position.name : ''} </span>&nbsp;
-          <span id="playerAge">{`${player.person.currentAge} Years old`}</span>&nbsp;
+          <span id="playerAge">{`${player.person.currentAge}`}</span>&nbsp;
           <span className="playerStatus ">{player.status ? player.status.description : ''} </span>&nbsp;
           <div className="CoachTitle">{player.title ? player.title : ''}</div>
           </div> 
@@ -76,7 +76,7 @@ return (
       <div className="RosterGrouping">
         <span className="rosterCount">{`${rosterData.length} players listed`}</span>
       <div className="RosterGrouping">
-        <h2 className="RosterCata">Catchers</h2>
+        <h2 className='RosterCata'>Catchers</h2>
         {mapRoster(catchers)}
       </div>
         {console.log(rosterData)}
