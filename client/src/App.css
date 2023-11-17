@@ -1,384 +1,454 @@
 @font-face {
-    font-family: 'zektonrg';
-    src: url('/public/Fonts/zekton-rg.otf') format('opentype');
-  }
+  font-family: "zektonrg";
+  src: url("/public/Fonts/zekton-rg.otf") format("opentype");
+}
 @font-face {
-    font-family: 'BebasNeue-Regular';
-    src: url('/public/Fonts/BebasNeue-Regular.ttf') format('truetype');
-  }
-  
-  /*
+  font-family: "BebasNeue-Regular";
+  src: url("/public/Fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+
+/*
   CSS RESET
   */
-  
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-.login-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10vh;
-    height: 100vh;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-.logoText{
-    text-align: center;
-    font-family: 'zektonrg';
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10vh;
+  height: 100vh;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
 }
 
-
-.form-group{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   margin-bottom: 10px;
-   width: 100%;
+.logoText {
+  text-align: center;
+  font-family: "zektonrg";
 }
 
-.signInUpFormInput{
-    width: 200px;
-    background: #fbf7ff;
-    border-radius: 5px;
-}
-.signInUpFormInput:focus{
-    border-color: #d9c2e9;
-    outline: none;
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
-.signInUpbtn{
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-    border: 2px solid transparent;
-    border-radius: 45px;
-    box-shadow: 2px 2px 2px 2px;
-    font-family: 'zektonrg';
-    font-weight: bolder;
-    height: 4vh;
-    margin-top: 1vh;
-    margin-bottom: 2vh;
-    margin-left: 1vh;
-    margin-right: 1vh;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+.signInUpFormInput {
+  width: 200px;
+  background: #fbf7ff;
+  border-radius: 5px;
+}
+.signInUpFormInput:focus {
+  border-color: #d9c2e9;
+  outline: none;
 }
 
-.signInUpbtn:hover{ 
-    color: #66046a;
+.signInUpbtn {
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  border: 2px solid transparent;
+  border-radius: 45px;
+  box-shadow: 2px 2px 2px 2px;
+  font-family: "zektonrg";
+  font-weight: bolder;
+  height: 4vh;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+  margin-left: 1vh;
+  margin-right: 1vh;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
-#WrapperLeaderBoard{
-    display: flex;
-    text-align: center;
-    flex-direction: column;
+.signInUpbtn:hover {
+  color: #66046a;
 }
 
-#LeaderBoardHeader{
-    font-family: 'zektonrg';
-    padding: 1vh 0vh;
+#WrapperLeaderBoard {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
 }
 
-.toggleBtn{
-    background: linear-gradient(71deg,  #f4e4ff, #f4f4f4);
-    border: 2px solid transparent;
-    border-radius: 45px;
-    box-shadow: 2px 2px 2px 2px;
-    font-family: 'zektonrg';
-    font-weight: bolder;
-    text-align: center;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 4px;  
+#LeaderBoardHeader {
+  font-family: "zektonrg";
+  padding: 1vh 0vh;
 }
 
-.toggleBtn:hover{ 
-    color: #66046a;
+.toggleBtn {
+  background: linear-gradient(71deg, #f4e4ff, #f4f4f4);
+  border: 2px solid transparent;
+  border-radius: 45px;
+  box-shadow: 2px 2px 2px 2px;
+  font-family: "zektonrg";
+  font-weight: bolder;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
 }
 
-.signInForm{
-    display: flex;
-    width: 100%;
-    justify-content: center;
+.toggleBtn:hover {
+  color: #66046a;
 }
 
-.signInUPText{
-    font-size: 2rem;
-    font-family: 'zektonrg';
-    text-align: center;
-    padding: 1vh 0;
+.signInForm {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
-
-.signInUpLogo{
-    height: 20vh;
-    width: 20vh;
-}
-.signInUpLabel{
-    font-family: 'zektonrg';
-    font-style: italic;
-    font-size: 1.5rem;
-    flex: 1;
-    text-align: right;
-    margin-right: 10px;
+.signInUPText {
+  font-size: 2rem;
+  font-family: "zektonrg";
+  text-align: center;
+  padding: 1vh 0;
 }
 
-#WrapperFaq{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
+.signInUpLogo {
+  height: 20vh;
+  width: 20vh;
 }
-.WrapperQuestion{
-    box-shadow: 2px 2px 2px 2px;
-    padding: 1vh 7px;
-    margin: 0px 8px;
-    border-radius: 13px;
-    background-color: white;
+.signInUpLabel {
+  font-family: "zektonrg";
+  font-style: italic;
+  font-size: 1.5rem;
+  flex: 1;
+  text-align: right;
+  margin-right: 10px;
 }
 
-
-.QuestionHeader{
-    padding: 2px 0px;
-    font-family: 'zektonrg';
-    font-weight: bolder;
-    text-decoration: underline;
+#WrapperFaq {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+}
+.WrapperQuestion {
+  box-shadow: 2px 2px 2px 2px;
+  padding: 1vh 7px;
+  margin: 0px 8px;
+  border-radius: 13px;
+  background-color: white;
 }
 
-#FaqHeader{
-    font-weight: bold;
-    font-family: 'zektonrg';
-    text-align: center;
+.QuestionHeader {
+  padding: 2px 0px;
+  font-family: "zektonrg";
+  font-weight: bolder;
+  text-decoration: underline;
 }
 
-.signupDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#FaqHeader {
+  font-weight: bold;
+  font-family: "zektonrg";
+  text-align: center;
 }
 
-.signupForm{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.signupDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.signForm{
-    display: flex;
-    flex-direction: column;
+.signupForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
+.signForm {
+  display: flex;
+  flex-direction: column;
+}
 
-.batholder{
-    margin-top: 5vh;
+.batholder {
+  margin-top: 5vh;
 }
 
 .loader {
-    margin-top: 25vh;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  margin-top: 25vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 #ball {
-    position: fixed;
-    top: 3em;
-    width: 3em;
-    height: 3em;
-    left: 6em;
-    -webkit-animation: bounce .3s cubic-bezier(.63,.09,.76,.45) infinite alternate;
-    -moz-animation:    bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
-    -o-animation:      bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
-    animation:         bounce .3s cubic-bezier(.63,.09,.76,.45)  infinite alternate;
+  position: fixed;
+  top: 3em;
+  width: 3em;
+  height: 3em;
+  left: 6em;
+  -webkit-animation: bounce 0.3s cubic-bezier(0.63, 0.09, 0.76, 0.45) infinite
+    alternate;
+  -moz-animation: bounce 0.3s cubic-bezier(0.63, 0.09, 0.76, 0.45) infinite
+    alternate;
+  -o-animation: bounce 0.3s cubic-bezier(0.63, 0.09, 0.76, 0.45) infinite
+    alternate;
+  animation: bounce 0.3s cubic-bezier(0.63, 0.09, 0.76, 0.45) infinite alternate;
 }
 
 #bat {
-    position: fixed;
-    top: 5em;
-    left: -10.5em;
-    -webkit-animation: hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
-    -moz-animation:    hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
-    -o-animation:      hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
-    animation:         hit .3s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+  position: fixed;
+  top: 5em;
+  left: -10.5em;
+  -webkit-animation: hit 0.3s cubic-bezier(0.63, 0.09, 0.75, 0.46) infinite
+    alternate;
+  -moz-animation: hit 0.3s cubic-bezier(0.63, 0.09, 0.75, 0.46) infinite
+    alternate;
+  -o-animation: hit 0.3s cubic-bezier(0.63, 0.09, 0.75, 0.46) infinite alternate;
+  animation: hit 0.3s cubic-bezier(0.63, 0.09, 0.75, 0.46) infinite alternate;
 }
 
 .red {
-    fill:#D7172A;
+  fill: #d7172a;
 }
 
 .tan {
-    fill:#FFD87D;
+  fill: #ffd87d;
 }
 
 .white {
-    fill:#ffffff;
+  fill: #ffffff;
 }
 
 @-webkit-keyframes hit {
-    0% { transform: rotate(0deg);} 
-    100% { transform: rotate(-10deg); }
+  0% {
+    transform: rotate(0deg);
   }
-  
-  @-webkit-keyframes bounce {
-      0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-      25% { height: 3em; width: 3em; }
-      75% { height: 3em; width: 3em; }
-      100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-    }
-    
-    @-moz-keyframes bounce {
-        0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-        25% { height: 3em; width: 3em; }
-        75% { height: 3em; width: 3em; }
-        100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-    }
-    
-    @-moz-keyframes hit {
-        0% { transform: rotate(0deg);} 
-        100% { transform: rotate(-10deg); }
-    }
-    
-    @-o-keyframes bounce {
-        0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-        25% { height: 3em; width: 3em; }
-        75% { height: 3em; width: 3em; }
-        100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-    }
-    
-    @-o-keyframes hit {
-        0% { transform: rotate(0deg);} 
-        100% { transform: rotate(-10deg); }
-    }
-    
-    @keyframes bounce {
-        0% { top: -7em; height: 3em; width: 3em; transform: rotate(20deg); }
-        25% { height: 3em; width: 3em; }
-        75% { height: 3em; width: 3em; }
-        100% { top: 0; height: 3em; width: 3em; transform: rotate(-20deg); }
-    } 
-    
-    @keyframes hit {
-    0% { transform: rotate(0deg);} 
-    100% { transform: rotate(-10deg); }
+  100% {
+    transform: rotate(-10deg);
   }
-  
+}
 
-  .nav{
-      z-index: 9999;
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      height: 6vh;
-      background-color: #2c1b47;
-      padding: 0px;
-      align-items: center;  
-      top: 0px;
-      position: sticky;
-    }
+@-webkit-keyframes bounce {
+  0% {
+    top: -7em;
+    height: 3em;
+    width: 3em;
+    transform: rotate(20deg);
+  }
+  25% {
+    height: 3em;
+    width: 3em;
+  }
+  75% {
+    height: 3em;
+    width: 3em;
+  }
+  100% {
+    top: 0;
+    height: 3em;
+    width: 3em;
+    transform: rotate(-20deg);
+  }
+}
 
-    
-    .logo{
-        height:6vh;
-        width: 6vw;
-    }
+@-moz-keyframes bounce {
+  0% {
+    top: -7em;
+    height: 3em;
+    width: 3em;
+    transform: rotate(20deg);
+  }
+  25% {
+    height: 3em;
+    width: 3em;
+  }
+  75% {
+    height: 3em;
+    width: 3em;
+  }
+  100% {
+    top: 0;
+    height: 3em;
+    width: 3em;
+    transform: rotate(-20deg);
+  }
+}
 
-    .nav a{
-        font-family: zektonrg;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-    }
+@-moz-keyframes hit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
 
-    .nav .active{
-        color: #ebeb98;
-    }
+@-o-keyframes bounce {
+  0% {
+    top: -7em;
+    height: 3em;
+    width: 3em;
+    transform: rotate(20deg);
+  }
+  25% {
+    height: 3em;
+    width: 3em;
+  }
+  75% {
+    height: 3em;
+    width: 3em;
+  }
+  100% {
+    top: 0;
+    height: 3em;
+    width: 3em;
+    transform: rotate(-20deg);
+  }
+}
 
-    button.activeSport{
-        color: #ebeb98;
-    }
-    
-    
-    .signoutButton{
-        font-family: zektonrg;
-        display: inline-block;
-        background-color: #2c1b47;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: bold;
-    }
-    
-    .flexParent{
-        margin: 0 -5px;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        flex-direction: row;
-        background-color: #fbf7ff;
-    }
-    
-    
-    .homeTile {
-        border-radius: 26px; 
-        overflow-wrap: break-word;
-        cursor: pointer;
-        margin: 6px 5px;
-        width: 25vw;
-        height: 30vh;
-        display: flex;
-        align-items: center;
-        background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-        border: 2px solid transparent;
-        box-shadow: 2px 2px 2px 2px;
-        font-family: 'zektonrg';
-        font-weight: bold;
-        font-size: 2em;
-        transition: color 0.3s ease;
-        justify-content: center;
-    }
-    
-    .homeTile:hover {
-        color: #606059; 
-        box-shadow: 2px 12px 10px 0px #2c1b47;
-    }
+@-o-keyframes hit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
 
+@keyframes bounce {
+  0% {
+    top: -7em;
+    height: 3em;
+    width: 3em;
+    transform: rotate(20deg);
+  }
+  25% {
+    height: 3em;
+    width: 3em;
+  }
+  75% {
+    height: 3em;
+    width: 3em;
+  }
+  100% {
+    top: 0;
+    height: 3em;
+    width: 3em;
+    transform: rotate(-20deg);
+  }
+}
 
+@keyframes hit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+.nav {
+  z-index: 9999;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 6vh;
+  background-color: #2c1b47;
+  padding: 0px;
+  align-items: center;
+  top: 0px;
+  position: sticky;
+}
+
+.logo {
+  height: 6vh;
+  width: 6vw;
+}
+
+.nav a {
+  font-family: zektonrg;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav .active {
+  color: #ebeb98;
+}
+
+button.activeSport {
+  color: #ebeb98;
+}
+
+.signoutButton {
+  font-family: zektonrg;
+  display: inline-block;
+  background-color: #2c1b47;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.flexParent {
+  margin: 0 -5px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #fbf7ff;
+}
+
+.homeTile {
+  border-radius: 26px;
+  overflow-wrap: break-word;
+  cursor: pointer;
+  margin: 6px 5px;
+  width: 25vw;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  border: 2px solid transparent;
+  box-shadow: 2px 2px 2px 2px;
+  font-family: "zektonrg";
+  font-weight: bold;
+  font-size: 2em;
+  transition: color 0.3s ease;
+  justify-content: center;
+}
+
+.homeTile:hover {
+  color: #606059;
+  box-shadow: 2px 12px 10px 0px #2c1b47;
+}
 
 .line {
-  font-family: 'Wendy One', sans-serif;
-  color:  #FFA01B;
+  font-family: "Wendy One", sans-serif;
+  color: #ffa01b;
   cursor: pointer;
   position: relative;
-  text-shadow:
-    -6px 6px 0 #E8476A,
-    -9px 9px 0 purple;
+  text-shadow: -6px 6px 0 #e8476a, -9px 9px 0 purple;
   font-size: 10vmin;
 }
 
 .line:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 5px;
   bottom: -10px;
   left: -4px;
   transform: scaleX(0);
-  box-shadow:
-     0 5px 0 #E8476A,
-    0 10px 0 purple;
-  background: #FFA01B ;
+  box-shadow: 0 5px 0 #e8476a, 0 10px 0 purple;
+  background: #ffa01b;
   transform-origin: bottom right;
   transition: transform 0.5s ease-out;
 }
@@ -388,1527 +458,1470 @@
   transform-origin: bottom left;
 }
 
-
-
-
-
-
-    
-#noGameImage{
-    padding: 10px 0px;
-    width: 50vw;
-    height: 50vh;
-    background-repeat: no-repeat;
-    
+#noGameImage {
+  padding: 10px 0px;
+  width: 50vw;
+  height: 50vh;
+  background-repeat: no-repeat;
 }
 
-
-.WrapperToday{
-    display: flex;
-    flex-wrap: wrap;
-    background-color: white;
-
+.WrapperToday {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
 }
 
-#gameCompleteSpan{
-    display: block;
+#gameCompleteSpan {
+  display: block;
 }
 
-
-
-.game{
-    width: 48%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    margin: 10px;
-    text-align: center;
-    border: 2px solid #333;
-    border-radius: 10px;
-    box-shadow: 8px 8px 5px #444;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);;
+.game {
+  width: 48%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 10px;
+  text-align: center;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: 8px 8px 5px #444;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
 }
 
-
-.WrapperPredictionRadios{
-    display: flex;
-    gap: 15px;
-    justify-content: center;
+.WrapperPredictionRadios {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
 }
 
-.radioButton{
-    display: block;
-    cursor: pointer;
+.radioButton {
+  display: block;
+  cursor: pointer;
 }
 
-
-.radioButtonLabel{
-    font-family: 'BebasNeue-Regular';
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
+.radioButtonLabel {
+  font-family: "BebasNeue-Regular";
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
-  .predictiveinfoGroup{
-    display: flex;
-    flex-direction: column;
-  }
-  .SubmitButton{
-    align-items: center;
-    justify-content: center;
-    padding: 11px 11px;
-    border: 2px solid transparent;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-    border-radius: 45px;
-    box-shadow: 2px 2px 2px 2px;
-    font-family: 'zektonrg';
-    font-weight: bolder;
-  }
-  .SubmitButton:hover
-  {
-    background: linear-gradient(71deg,  #ecf6c6, #edd205);
-  }
-
-
-
-.teamInfo{
- margin: 10px;
- display: inline-block;
- padding: 3px;
-
+.predictiveinfoGroup {
+  display: flex;
+  flex-direction: column;
+}
+.SubmitButton {
+  align-items: center;
+  justify-content: center;
+  padding: 11px 11px;
+  border: 2px solid transparent;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  border-radius: 45px;
+  box-shadow: 2px 2px 2px 2px;
+  font-family: "zektonrg";
+  font-weight: bolder;
+}
+.SubmitButton:hover {
+  background: linear-gradient(71deg, #ecf6c6, #edd205);
 }
 
-.pitcherName{
-    text-wrap: nowrap;
-    padding: 1.5px 0px;
-    display: block;
+.teamInfo {
+  margin: 10px;
+  display: inline-block;
+  padding: 3px;
 }
 
-
-.todayLiveScore{
-    font-size: 1.4rem;
-    font-weight: bold;
-
+.pitcherName {
+  text-wrap: nowrap;
+  padding: 1.5px 0px;
+  display: block;
 }
 
-
-.teamGameLogo{
-     width: 4vw;
-    height: 4vh; 
-   
+.todayLiveScore {
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
+.teamGameLogo {
+  width: 4vw;
+  height: 4vh;
+}
 
 .teamName {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
-
-
-
-.liveLink{
-    color: red;
-
+.WrapperHittingTypeButtons {
+  display: flex;
+  gap: 8px;
 }
 
-.predictedWinner{
-    background-color: rgb(0, 195, 23);
+.liveLink {
+  color: red;
 }
 
-.firstLiveRow{
-    display: flex;
-    justify-content: center;
-    gap: 10vw;
-    padding: 4vh;
-    
+.predictedWinner {
+  background-color: rgb(0, 195, 23);
 }
 
-.AllBaseInfoWrapper{
-border: rgb(200, 200, 248) solid 8px;
-box-shadow: 8px 8px 5px #444;
- display: inline-flex;
- padding: 3vh;  
- flex-direction: column;
- justify-content: space-evenly;
- align-items: center;
- height: 30vh;
- background-color: #e1e9f2;
- width: max-content;
+.firstLiveRow {
+  display: flex;
+  justify-content: center;
+  gap: 10vw;
+  padding: 4vh;
 }
 
-.Bases{
-    flex-direction: row-reverse;
-    float: none;
-    flex: relative;
-    justify-content: center;
-    position: relative;
-    display: flex;
-}
-
-#firstBase{
-    border-width: 3vh;
-    border-style: solid;
-    align-self: flex-end;
-    transform: rotate(45deg);
-    display: block;
-}
-
-#secondBase{
-    border-width: 3vh;
-    margin-bottom: 6vh;
-    border-style: solid;
-    transform: rotate(45deg);
-    transition-duration: 0.5s; 
-    display: block;
-}
-
-#thirdBase{
-    border-width: 3vh;
-    border-style: solid;
-    align-self: flex-end;
-    transform: rotate(45deg);
-    transition-duration: 0.5s; 
-    display: block;
-}
-
-.activeBase{
-    border-color: rgb(235, 199, 82);
-}
-
-.inactiveBase{
-    border-color: rgb(200, 200, 248);
-}
-
-.pitchComponets{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.PitchWrapper{
-    padding: 1vh;
-}
-
-.LivePitch{
-    display: flex;
-    font-size: 2vh;
-    color: black;
-}    
-
-.PitchType{
-    font-weight: bold;
-    flex-wrap: wrap;
-    text-decoration: underline;
-    padding: 1vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-}
-
-.outGroup{
+.AllBaseInfoWrapper {
+  border: rgb(200, 200, 248) solid 8px;
+  box-shadow: 8px 8px 5px #444;
+  display: inline-flex;
+  padding: 3vh;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30vh;
+  background-color: #e1e9f2;
   width: max-content;
-
 }
 
-.OutMade{
-    background-color: red;
+.Bases {
+  flex-direction: row-reverse;
+  float: none;
+  flex: relative;
+  justify-content: center;
+  position: relative;
+  display: flex;
 }
 
-#outOne{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
-}
-#outTwo{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
-}
-#outThree{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
+#firstBase {
+  border-width: 3vh;
+  border-style: solid;
+  align-self: flex-end;
+  transform: rotate(45deg);
+  display: block;
 }
 
-.strikeGroup{
-    width: max-content;
+#secondBase {
+  border-width: 3vh;
+  margin-bottom: 6vh;
+  border-style: solid;
+  transform: rotate(45deg);
+  transition-duration: 0.5s;
+  display: block;
 }
 
-
-.StrikeMade{
-    background-color: red;
+#thirdBase {
+  border-width: 3vh;
+  border-style: solid;
+  align-self: flex-end;
+  transform: rotate(45deg);
+  transition-duration: 0.5s;
+  display: block;
 }
 
-
-#strikeOne{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
-}
-#strikeTwo{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
-}
-#strikeThree{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
+.activeBase {
+  border-color: rgb(235, 199, 82);
 }
 
-.WrapperLiveCircles{
-    display: inline-flex;
-    background-color:  #e1e9f2;
-    flex-direction: column;
-    padding: .5vw;
-    border: rgb(200, 200, 248) solid 8px;
-    border-radius: 10px;
-    box-shadow: 8px 8px 5px #444;
+.inactiveBase {
+  border-color: rgb(200, 200, 248);
 }
 
-.ballGroup{
-    width: max-content;
-
+.pitchComponets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.BallMade{
-    background-color: rgb(17, 99, 6);
+.PitchWrapper {
+  padding: 1vh;
 }
 
-#ballOne{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
-}
-#ballTwo{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
-}
-#ballThree{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
-}
-#ballFour{
-    border: 1px solid;
-    height: 20px;
-    position: relative;
-    top: 1px;
-    width: 8px;
-    display: inline-block;
-    margin-right: 2px!important;
-    border-radius: 10px;
+.LivePitch {
+  display: flex;
+  font-size: 2vh;
+  color: black;
 }
 
-.WrapperPitcherVsBatter{
-    display: flex;
-    justify-content: center;
+.PitchType {
+  font-weight: bold;
+  flex-wrap: wrap;
+  text-decoration: underline;
+  padding: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
-.matchup{
-    display: flex;
-    align-items: center;
-    gap: 2vw;
+.outGroup {
+  width: max-content;
 }
 
-.matchup span{
-    display: block;
+.OutMade {
+  background-color: red;
+}
+
+#outOne {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+#outTwo {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+#outThree {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+
+.strikeGroup {
+  width: max-content;
+}
+
+.StrikeMade {
+  background-color: red;
+}
+
+#strikeOne {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+#strikeTwo {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+#strikeThree {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+
+.WrapperLiveCircles {
+  display: inline-flex;
+  background-color: #e1e9f2;
+  flex-direction: column;
+  padding: 0.5vw;
+  border: rgb(200, 200, 248) solid 8px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 5px #444;
+}
+
+.ballGroup {
+  width: max-content;
+}
+
+.BallMade {
+  background-color: rgb(17, 99, 6);
+}
+
+#ballOne {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+#ballTwo {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+#ballThree {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+#ballFour {
+  border: 1px solid;
+  height: 20px;
+  position: relative;
+  top: 1px;
+  width: 8px;
+  display: inline-block;
+  margin-right: 2px !important;
+  border-radius: 10px;
+}
+
+.WrapperPitcherVsBatter {
+  display: flex;
+  justify-content: center;
+}
+
+.matchup {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.matchup span {
+  display: block;
 }
 
 .PitcherVsBatter .vs-text-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.vs-text-container{
-    justify-content: center;
+.vs-text-container {
+  justify-content: center;
 }
 
-
-.OnDeck{
-    height: 10vh;
+.OnDeck {
+  height: 10vh;
 }
 
-.vsImage{
-    height:  20vh;
+.vsImage {
+  height: 20vh;
 }
 
-#VS{
-    font-size: 1.5rem;
-    margin: 0 10px;
+#VS {
+  font-size: 1.5rem;
+  margin: 0 10px;
 }
 
-.scoreNum{
-    display: inline-flex;
-    padding-inline: 2vw;
-    font-size: 12vh;
+.scoreNum {
+  display: inline-flex;
+  padding-inline: 2vw;
+  font-size: 12vh;
 }
-
 
-
-.LiveGameScoreBoard{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    gap: 10vw;
-    padding: 1vh;
-    margin-top: 0.1vh;
-    margin-bottom: 1vh;
-    
+.LiveGameScoreBoard {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 10vw;
+  padding: 1vh;
+  margin-top: 0.1vh;
+  margin-bottom: 1vh;
 }
 
-.scoreHeader{
-    display: inline-block;
+.scoreHeader {
+  display: inline-block;
 }
 
-.glanceLogo{
-    display: block;
-    width: 10vw;
-    height: 10vh;
+.glanceLogo {
+  display: block;
+  width: 10vw;
+  height: 10vh;
 }
 
-.teamNameSpan{
-    font-size: 1.3rem;
-    font-weight: bold;
+.teamNameSpan {
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
-.RecordSpan{
-    display: block;
+.RecordSpan {
+  display: block;
 }
 
-.glanceSpan{
-    display: flex;
-    justify-content: center;
-    font-size: 2.5vh;
+.glanceSpan {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5vh;
 
-    font-weight: bold;
+  font-weight: bold;
 }
 
-.boxElement{
-    display: flex;
-    justify-content: center;
+.boxElement {
+  display: flex;
+  justify-content: center;
 }
 
-
-table, th, td {
-    border:1px solid rgb(84, 83, 83);
-    font-size: 2vh;
+table,
+th,
+td {
+  border: 1px solid rgb(84, 83, 83);
+  font-size: 2vh;
 }
-
 
-.boxLogo{
-    height: 2vh;
-
+.boxLogo {
+  height: 2vh;
 }
 
-.WrapperPitchingvis{
-    display: flex;
+.WrapperPitchingvis {
+  display: flex;
 }
 
-.batterImg{
-    display: inline;
-    height: 50%;
+.batterImg {
+  display: inline;
+  height: 50%;
 }
 
-.pitchVis{
-    display: flex;
-    align-items: center;
+.pitchVis {
+  display: flex;
+  align-items: center;
 }
 
-.awayLineups{
-    display: flex;
+.awayLineups {
+  display: flex;
 }
 
-.bothLineups{
-    display: flex;
-    justify-content: space-around;
+.bothLineups {
+  display: flex;
+  justify-content: space-around;
 }
 
-.lineup{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    width: max-content;
-    box-shadow: 1px 8px 8px 5px #444;
-    
+.lineup {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  box-shadow: 1px 8px 8px 5px #444;
 }
 
-.lineupBatter{
-    padding: 3px;
-    display: flex;
+.lineupBatter {
+  padding: 3px;
+  display: flex;
 }
 
-
-.BatterActive{
-    background-color: rgb(238, 238, 83);
+.BatterActive {
+  background-color: rgb(238, 238, 83);
 }
 
-#leaderBoard{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: rgb(200, 200, 248) solid 8px;
-    border-radius: 20px;
-    background: rgb(228,230,242);
-    background: linear-gradient(180deg, rgba(228,230,242,1) 0%, rgba(200,200,248,1) 100%);
+#leaderBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: rgb(200, 200, 248) solid 8px;
+  border-radius: 20px;
+  background: rgb(228, 230, 242);
+  background: linear-gradient(
+    180deg,
+    rgba(228, 230, 242, 1) 0%,
+    rgba(200, 200, 248, 1) 100%
+  );
 }
 
-.leaderEntry{
-    background-color: white;
-    border: 1px solid #333;
-    box-shadow: 8px 8px 5px #444;
-    width: 50vw;
-    padding: 2vh;
-    font-size: 1.5rem;
-    font-weight: bold;
+.leaderEntry {
+  background-color: white;
+  border: 1px solid #333;
+  box-shadow: 8px 8px 5px #444;
+  width: 50vw;
+  padding: 2vh;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.cata{
-    display: flex;
-    gap: 4vw;
-    text-decoration: underline;
+.cata {
+  display: flex;
+  gap: 4vw;
+  text-decoration: underline;
 }
 
-.leaderBoardCata{
-    display: flex;
-    gap: 2vw;
+.leaderBoardCata {
+  display: flex;
+  gap: 2vw;
 }
-
 
-.leaderEntry{
-    font-family: zektonrg;
-    justify-content: center;
-    font-size: 1.5vh;
-    display: flex;
-    gap: 8vw;
+.leaderEntry {
+  font-family: zektonrg;
+  justify-content: center;
+  font-size: 1.5vh;
+  display: flex;
+  gap: 8vw;
 }
 
-#selectDropDowns{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 3px 0px;
+#selectDropDowns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 3px 0px;
 }
 
-
-#RosterTitle{
-    text-align: center;
-    font-size: 5rem;
-    font-family: zektonrg;
+#RosterTitle {
+  text-align: center;
+  font-size: 5rem;
+  font-family: zektonrg;
 }
 
-.RosterGroup{
-    display: flex;
-    flex-direction: column;
+.RosterGroup {
+  display: flex;
+  flex-direction: column;
 }
-.WrapperPlayer{
-    border-radius: 22px;
-    box-shadow: -14px 4px 8px 0px #444;
-    padding: 10px 4px;
-    font-size: 1.5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.WrapperPlayer {
+  border-radius: 22px;
+  box-shadow: -14px 4px 8px 0px #444;
+  padding: 10px 4px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-#playerPhoto{
-    border-radius: 19px;
-    margin-left: 9px;
-    height: 8vh;
-    width: 8vh;
+#playerPhoto {
+  border-radius: 19px;
+  margin-left: 9px;
+  height: 8vh;
+  width: 8vh;
 }
-.WrapperRoster{
-    display: flex;
-    flex-direction: column;
-    }
-.WrapperTeamMapRoster{
-display: flex;
-padding-left: 7vw;
+.WrapperRoster {
+  display: flex;
+  flex-direction: column;
 }
-
-.RosterCata{
-    padding: 5px 0px;
-    font-size: 3rem;
-    font-family: zektonrg;
-    text-decoration: underline;
+.WrapperTeamMapRoster {
+  display: flex;
+  padding-left: 7vw;
 }
 
-.playerJerseyNum{
-    color: #726565;
+.RosterCata {
+  padding: 5px 0px;
+  font-size: 3rem;
+  font-family: zektonrg;
+  text-decoration: underline;
 }
-
-.playerName{
-    font-size: 2rem;
-    font-weight: bold;
 
+.playerJerseyNum {
+  font-size: 0.8rem;
+  color: #726565;
 }
 
-.playerStatus{
-    color: gray;
-    font-size: 1rem;
-
+.playerName {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.playerFieldCard{
-    display: flex;
-    gap: 2vw;
-    justify-content: center;
-    
+.playerStatus {
+  color: gray;
+  font-size: 1rem;
 }
 
-.WrappersaberField{
-    display: flex;
-    flex-direction: column;
+.playerFieldCard {
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
 }
 
-.fieldImg{
-    background: linear-gradient(71deg, #d9c2e9, transparent);
-    display: inline-flex;
-    border-radius: 10px;
-    width: 18vw;
+.WrappersaberField {
+  display: flex;
+  flex-direction: column;
 }
 
-.saberSpan{
-    display: flex;
-    flex-direction: column;
+.fieldImg {
+  background: linear-gradient(71deg, #d9c2e9, transparent);
+  display: inline-flex;
+  border-radius: 10px;
+  width: 18vw;
 }
 
+.saberSpan {
+  display: flex;
+  flex-direction: column;
+}
 
-.SearchBarRow{
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    gap: 5px;
+.SearchBarRow {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  gap: 5px;
 }
 
-#searchInput{
-    width: 100%;
-    width:-webkit-fill-available;
-    padding: 6px 6px;
-    border-width: 0px 0px 5px 0px;
-    border-bottom-color: #2c1b47;
-    border-radius: 6px;
+#searchInput {
+  width: 100%;
+  width: -webkit-fill-available;
+  padding: 6px 6px;
+  border-width: 0px 0px 5px 0px;
+  border-bottom-color: #2c1b47;
+  border-radius: 6px;
 }
-.displayedSearchOption{
-    color: gray;
-    padding-left: 2rem;
+.displayedSearchOption {
+  color: gray;
+  padding-left: 2rem;
 }
-
 
-.fa-2x{
-    font-size: 1.2em;
+.fa-2x {
+  font-size: 1.2em;
 }
 
-.search{
-    display: flex;
-    width: 50vw;
-    flex-direction: column;
+.search {
+  display: flex;
+  width: 50vw;
+  flex-direction: column;
 }
 
-
-.topLineWrapper{
-    padding: 4vh;
-    display: flex;
-    justify-content: center;
-    gap: 5vw;
+.topLineWrapper {
+  padding: 4vh;
+  display: flex;
+  justify-content: center;
+  gap: 5vw;
 }
 
-#WrapperUserHome{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#WrapperUserHome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.wrapperUserResults{
-    width: 50vw;
-    border: 3px #6e43b5 solid;
-    border-radius: 45px;
+.wrapperUserResults {
+  width: 50vw;
+  border: 3px #6e43b5 solid;
+  border-radius: 45px;
 }
 
-.SummaryInstance{
-    width: 33%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.SummaryInstance {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#UserResultsSummary{
-    display: flex;
-    width: 50vw;
+#UserResultsSummary {
+  display: flex;
+  width: 50vw;
 }
 
-#HeaderSummary{
-    text-align: center;
-    width: 100%;
+#HeaderSummary {
+  text-align: center;
+  width: 100%;
 }
-.summarySpan{
-    font-family: 'zektonrg';
+.summarySpan {
+  font-family: "zektonrg";
 }
 
-.currentPlay{
-    display: flex;
-    flex-direction: column;
-    padding: 1vh;
-    border: rgb(200, 200, 248) solid .5vh;
-    box-shadow: 8px 8px 5px #444;
-    width: max-content;
-    align-items: center;
-    height: max-content; 
+.currentPlay {
+  display: flex;
+  flex-direction: column;
+  padding: 1vh;
+  border: rgb(200, 200, 248) solid 0.5vh;
+  box-shadow: 8px 8px 5px #444;
+  width: max-content;
+  align-items: center;
+  height: max-content;
 }
 
-.playSpan{
-    display: flex;
-    flex-direction: column;
-    padding: .5vh;
+.playSpan {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5vh;
 }
 
-
-.score{
-    background: #ffffd0;
-    font-weight: bolder;
-    font-size: 3vh;
-    display: flex;
-    justify-content: center;
+.score {
+  background: #ffffd0;
+  font-weight: bolder;
+  font-size: 3vh;
+  display: flex;
+  justify-content: center;
 }
 
-.WrapperScoringPlays{
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    padding: .5vh;
-    border: rgb(200, 200, 248) solid .5vh;
-    box-shadow: 8px 8px 5px #444;
+.WrapperScoringPlays {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 0.5vh;
+  border: rgb(200, 200, 248) solid 0.5vh;
+  box-shadow: 8px 8px 5px #444;
 }
 
-.ScoringPlays{
-    display: flex;
-    justify-content: center;  
+.ScoringPlays {
+  display: flex;
+  justify-content: center;
 }
-.scoreheader{
-    display: flex;
-    justify-content: center;
-    text-decoration: underline;
-    font-size: 3vh;
+.scoreheader {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  font-size: 3vh;
 }
 
-.displayWrap{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100vw;
-    align-items: center;
+.displayWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  align-items: center;
 }
 
-.UtilityTeamSelect{
-    padding: 10px;
-    font-size: 16px;
-    border: 3px solid #333;
-    box-shadow: 8px 8px 5px #2d1432;
-    color: black;
-    border-radius: 4px;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-    width: 200px;
-    cursor: pointer
+.UtilityTeamSelect {
+  padding: 10px;
+  font-size: 16px;
+  border: 3px solid #333;
+  box-shadow: 8px 8px 5px #2d1432;
+  color: black;
+  border-radius: 4px;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  width: 200px;
+  cursor: pointer;
 }
 
-.UtilityRosterSelect{
-    padding: 10px;
-    font-size: 16px;
-    border: 3px solid #333;
-    box-shadow: 8px 8px 5px #2d1432;
-    color: black;
-    border-radius: 4px;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-    width: 200px;
-    cursor: pointer;
+.UtilityRosterSelect {
+  padding: 10px;
+  font-size: 16px;
+  border: 3px solid #333;
+  box-shadow: 8px 8px 5px #2d1432;
+  color: black;
+  border-radius: 4px;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  width: 200px;
+  cursor: pointer;
 }
 
-.AdvancedSelect{
-    padding: 10px;
-    font-size: 16px;
-    border: 3px solid #333;
-    box-shadow: 8px 8px 5px #2d1432;
-    color: black;
-    border-radius: 4px;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-    width: 200px;
-    cursor: pointer;
+.AdvancedSelect {
+  padding: 10px;
+  font-size: 16px;
+  border: 3px solid #333;
+  box-shadow: 8px 8px 5px #2d1432;
+  color: black;
+  border-radius: 4px;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  width: 200px;
+  cursor: pointer;
 }
-
 
-.batterTeamDisplay{
-    margin: 13px 0px;
-    height: 8vh;
-    width: 8vw;
+.batterTeamDisplay {
+  margin: 13px 0px;
+  height: 8vh;
+  width: 8vw;
 }
 
-
-.WrapperadvancedBatter{
-    margin: 2vw;
-    gap: .3vw;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    
+.WrapperadvancedBatter {
+  margin: 2vw;
+  gap: 0.3vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-
-.nonMlbPitcher{
-    width: 6rem;
-    height: 8rem;
-    box-shadow: 2px 2px 2px 2px;
-    border-radius: 31px;
+.nonMlbPitcher {
+  width: 6rem;
+  height: 8rem;
+  box-shadow: 2px 2px 2px 2px;
+  border-radius: 31px;
 }
 
-.batterCard{
-    justify-content: space-evenly;
-    padding: .2vw;
-    display: flex;
-    width: max-content;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-    flex-direction: column;
+.batterCard {
+  justify-content: space-evenly;
+  padding: 0.2vw;
+  display: flex;
+  width: max-content;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  flex-direction: column;
 }
 
-.ABSpan{
-    font-family: 'zektonrg';
-    color: black;
+.ABSpan {
+  font-family: "zektonrg";
+  color: black;
+}
+.ABSpanName {
+  text-align: center;
+  font-family: "zektonrg";
+  color: black;
+  text-decoration: underline;
 }
-.ABSpanName{
-    text-align: center;
-    font-family: 'zektonrg';
-    color: black;
-    text-decoration: underline;
-    
+
+#noGames {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#noGames{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   }
-   
-   #noGameHeader{
-    font-family: 'zektonrg';
-    padding: 5px 0px;
-   }
+#noGameHeader {
+  font-family: "zektonrg";
+  padding: 5px 0px;
+}
 
-   #noGameImage{
-    border-radius: 3rem;
-    height: 65vh;
-   }
+#noGameImage {
+  border-radius: 3rem;
+  height: 65vh;
+}
 
-.GroupTopRow{
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    align-items: center;
+.GroupTopRow {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
 }
 
 .WrapperPlayerCardBio {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 13px 14px;
-    border: 2px solid transparent;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-    border-radius: 45px;
-    box-shadow: 2px 2px 2px 2px;
-    width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 14px;
+  border: 2px solid transparent;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  border-radius: 45px;
+  box-shadow: 2px 2px 2px 2px;
+  width: max-content;
 }
 
-.WrapperBioText{
-    display: flex;
-    flex-direction: column;
-    padding: 2vh 1vw;
-    gap: 3px;
-    color: black;
+.WrapperBioText {
+  display: flex;
+  flex-direction: column;
+  padding: 2vh 1vw;
+  gap: 3px;
+  color: black;
 }
 
-#PlayerCardImage{
-    height: 20vh;
-    width: 20vh;
+#PlayerCardImage {
+  height: 20vh;
+  width: 20vh;
 }
-#ImageName{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#playerName{
-    font-size: 2rem;
-    font-family: 'zektonrg';
+#ImageName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.BioFeild{
-    font-weight: bolder;
+#playerName {
+  font-size: 2rem;
+  font-family: "zektonrg";
 }
 
-.StatFeild{
-    border-radius: 4px;
-    box-shadow: 0px 2px 0px 0px;
-    width: 204px;
-    padding: 3px;
-    background: #ececff;
-    font-weight: bolder;
+.BioFeild {
+  font-weight: bolder;
 }
 
-
-.StatWrapper{
-    display: flex;
-    flex: 1 0 calc(10% - 10px);
-    margin: 5px;
-    flex-direction: column;
-    gap: 3px;
-} 
-
-.WrapperPlayerStats{
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 4vw;
-    flex-direction: row;
-    gap: 2px;
+.StatFeild {
+  border-radius: 4px;
+  box-shadow: 0px 2px 0px 0px;
+  width: 204px;
+  padding: 3px;
+  background: #ececff;
+  font-weight: bolder;
 }
 
-.statGroupButton{
-    /* display: flex; */
-    /* background-color: #c8d4fe; */
-    align-items: center;
-    justify-content: center;
-    padding: 11px 11px;
-    border: 2px solid transparent;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-    border-radius: 45px;
-    box-shadow: 2px 2px 2px 2px;
-    font-family: 'zektonrg';
-    font-weight: bolder;
-
+.StatWrapper {
+  display: flex;
+  flex: 1 0 calc(10% - 10px);
+  margin: 5px;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.statGroupButton:hover{
-    background: #d9c2e9;
-    border: 4px gold;
+.WrapperPlayerStats {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 4vw;
+  flex-direction: row;
+  gap: 2px;
 }
 
-
-.WrapperStatGroupButtons{
-    padding: 11px;
-    gap: 7px;
-    align-items: center;
-    justify-content: space-around;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 28%;
+.statGroupButton {
+  /* display: flex; */
+  /* background-color: #c8d4fe; */
+  align-items: center;
+  justify-content: center;
+  padding: 11px 11px;
+  border: 2px solid transparent;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  border-radius: 45px;
+  box-shadow: 2px 2px 2px 2px;
+  font-family: "zektonrg";
+  font-weight: bolder;
 }
 
-.statHeader{
-    width: 100%;
-    font-family: 'zektonrg';
-    font-size: 2rem;
-    background: linear-gradient(71deg, #d9c2e9, transparent);
-    padding: 7px 8px;
-    margin: 1px;
+.statGroupButton:hover {
+  background: #d9c2e9;
+  border: 4px gold;
 }
 
-.Colors108{
-    background: linear-gradient(182deg, #003263, #BA0021);
-}
-.Colors109{
-    background: linear-gradient(182deg, #A71930, #E3D4AD);
-}
-.Colors110{
-    background: linear-gradient(182deg, #DF4601, #000000);
-}
-.Colors111{
-    background: linear-gradient(182deg, #BD3039, #0C2340);
-}
-.Colors112{
-    background: linear-gradient(182deg, #0E3386, #CC3433);
-}
-.Colors113{
-    background: linear-gradient(182deg, #C6011F, #000000);
-}
-.Colors114{
-    background: linear-gradient(182deg, #00385D, #E50022);
-}
-.Colors115{
-    background: linear-gradient(182deg, #333366, #C4CED4);
-}
-.Colors116{
-    background: linear-gradient(182deg, #0C2340, #FA4616);
-}
-.Colors117{
-    background: linear-gradient(182deg, #002D62, #EB6E1F);
-}
-.Colors118{
-    background: linear-gradient(182deg, #004687, #BD9B60);
-}
-.Colors119{
-    background: linear-gradient(182deg, #005A9C, #A5ACAF);
-}
-.Colors120{
-    background: linear-gradient(182deg, #AB0003, #14225A);
-}
-.Colors121{
-    background: linear-gradient(182deg, #FF5910, #002D72);
-}
-.Colors133{
-    background: linear-gradient(182deg, #003831, #EFB21E);
-}
-.Colors134{
-    background: linear-gradient(182deg, #27251F, #FDB827);
-}
-.Colors135{
-    background: linear-gradient(182deg, #2F241D, #FFC425);
-}
-.Colors136{
-    background: linear-gradient(182deg, #0C2C56, #005C5C);
-}
-.Colors137{
-    background: linear-gradient(182deg, #FD5A1E, #27251F);
-}
-.Colors138{
-    background: linear-gradient(182deg, #C41E3A, #FFFFFF);
-}
-.Colors139{
-    background: linear-gradient(182deg, #092C5C, #8FBCE6);
-}
-.Colors140{
-    background: linear-gradient(182deg, #003278, #C0111F);
-}
-.Colors141{
-    background: linear-gradient(182deg, #134A8E, #1D2D5C);
-}
-.Colors142{
-    background: linear-gradient(182deg, #002B5C, #D31145);
-}
-.Colors143{
-    background: linear-gradient(182deg, #E81828, #002D72);
-}
-.Colors144{
-    background: linear-gradient(182deg, #CE1141, #13274F);
-}
-.Colors145{
-    background: linear-gradient(182deg, #27251F, #C4CED4);
-}
-.Colors146{
-    background: linear-gradient(182deg, #00A3E0, #EF3340);
-}
-.Colors147{
-    background: linear-gradient(182deg, #C4CED3, #0C2340);
-}
-.Colors158{
-    background: linear-gradient(182deg, #FFC52F, #12284B);
+.WrapperStatGroupButtons {
+  padding: 11px;
+  gap: 7px;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 28%;
 }
 
-
-.leauge-Leader-Card{
-    border-radius: 26px;
-    margin: 1vh 2px;
-    box-shadow: 2px 2px 2px 2px;
-    align-items: center;
-    padding: 0.5vh 0.2vw;
-    display: flex;
-    width: max-content;
-    background: linear-gradient(71deg,  #d9c2e9, #f4f4f4);
-    flex-direction: column;
+.statHeader {
+  width: 100%;
+  font-family: "zektonrg";
+  font-size: 2rem;
+  background: linear-gradient(71deg, #d9c2e9, transparent);
+  padding: 7px 8px;
+  margin: 1px;
 }
 
-.leauge-Leader-Image{
-    width: 10vw;
+.Colors108 {
+  background: linear-gradient(182deg, #003263, #ba0021);
+}
+.Colors109 {
+  background: linear-gradient(182deg, #a71930, #e3d4ad);
+}
+.Colors110 {
+  background: linear-gradient(182deg, #df4601, #000000);
+}
+.Colors111 {
+  background: linear-gradient(182deg, #bd3039, #0c2340);
+}
+.Colors112 {
+  background: linear-gradient(182deg, #0e3386, #cc3433);
+}
+.Colors113 {
+  background: linear-gradient(182deg, #c6011f, #000000);
+}
+.Colors114 {
+  background: linear-gradient(182deg, #00385d, #e50022);
+}
+.Colors115 {
+  background: linear-gradient(182deg, #333366, #c4ced4);
+}
+.Colors116 {
+  background: linear-gradient(182deg, #0c2340, #fa4616);
+}
+.Colors117 {
+  background: linear-gradient(182deg, #002d62, #eb6e1f);
+}
+.Colors118 {
+  background: linear-gradient(182deg, #004687, #bd9b60);
+}
+.Colors119 {
+  background: linear-gradient(182deg, #005a9c, #a5acaf);
+}
+.Colors120 {
+  background: linear-gradient(182deg, #ab0003, #14225a);
+}
+.Colors121 {
+  background: linear-gradient(182deg, #ff5910, #002d72);
+}
+.Colors133 {
+  background: linear-gradient(182deg, #003831, #efb21e);
+}
+.Colors134 {
+  background: linear-gradient(182deg, #27251f, #fdb827);
+}
+.Colors135 {
+  background: linear-gradient(182deg, #2f241d, #ffc425);
+}
+.Colors136 {
+  background: linear-gradient(182deg, #0c2c56, #005c5c);
+}
+.Colors137 {
+  background: linear-gradient(182deg, #fd5a1e, #27251f);
+}
+.Colors138 {
+  background: linear-gradient(182deg, #c41e3a, #ffffff);
+}
+.Colors139 {
+  background: linear-gradient(182deg, #092c5c, #8fbce6);
+}
+.Colors140 {
+  background: linear-gradient(182deg, #003278, #c0111f);
+}
+.Colors141 {
+  background: linear-gradient(182deg, #134a8e, #1d2d5c);
+}
+.Colors142 {
+  background: linear-gradient(182deg, #002b5c, #d31145);
+}
+.Colors143 {
+  background: linear-gradient(182deg, #e81828, #002d72);
+}
+.Colors144 {
+  background: linear-gradient(182deg, #ce1141, #13274f);
+}
+.Colors145 {
+  background: linear-gradient(182deg, #27251f, #c4ced4);
+}
+.Colors146 {
+  background: linear-gradient(182deg, #00a3e0, #ef3340);
+}
+.Colors147 {
+  background: linear-gradient(182deg, #c4ced3, #0c2340);
+}
+.Colors158 {
+  background: linear-gradient(182deg, #ffc52f, #12284b);
 }
 
-.MiddleRow{
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    margin: 0vw 10vw;
+.leauge-Leader-Card {
+  border-radius: 26px;
+  margin: 1vh 2px;
+  box-shadow: 2px 2px 2px 2px;
+  align-items: center;
+  padding: 0.5vh 0.2vw;
+  display: flex;
+  width: max-content;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+  flex-direction: column;
 }
 
-.StatSearchBtn{
-    font-size: 1.1rem;
-    font-family: 'zektonrg';
-    border: none;
-    border-radius: 11px;
-    color: white;
-    background: #2c1b47;
-    width: 100%;
-    height: 39px;
+.leauge-Leader-Image {
+  width: 10vw;
 }
 
-#Wrapper404{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1vh;
-}
-#SubHeader404{
-    color: #9e7c7c;
-    font-style: italic;
+.MiddleRow {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  margin: 0vw 10vw;
 }
 
-.rosterCount{
-    font-family: BebasNeue-Regular;
+.StatSearchBtn {
+  font-size: 1.1rem;
+  font-family: "zektonrg";
+  border: none;
+  border-radius: 11px;
+  color: white;
+  background: #2c1b47;
+  width: 100%;
+  height: 39px;
 }
 
-.WrapperPlayer:hover{
-    background: rgb(255, 255, 226);
-
+#Wrapper404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh;
+}
+#SubHeader404 {
+  color: #9e7c7c;
+  font-style: italic;
 }
 
-.leaugeSelect{
-    position: sticky;
-    display: flex;
-    gap: 30px;
-    flex-direction: row;
-    justify-content: center;
-    position: sticky;
-    top: inherit;
+.rosterCount {
+  font-family: BebasNeue-Regular;
 }
 
-
-.leaugeSelectButton{
-    background-color: #6e43b5;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 6.5px 8px;
-    width: 12vw;
-    margin-top: 5px
-
+.WrapperPlayer:hover {
+  background: rgb(255, 255, 226);
 }
 
-.headerBat{
-    text-align: center;
-    font-family: 'zektonrg';
+.leaugeSelect {
+  position: sticky;
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  justify-content: center;
+  position: sticky;
+  top: inherit;
 }
 
-#leaugeHeader{
-    text-align: center;
-    font-family: 'zektonrg';
+.leaugeSelectButton {
+  background-color: #6e43b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6.5px 8px;
+  width: 12vw;
+  margin-top: 5px;
 }
 
-
-#welcome{
-    margin-bottom: 10px;
-    font-family: 'zektonrg';
+.headerBat {
+  text-align: center;
+  font-family: "zektonrg";
 }
 
-#loginPrompt{
-    display: flex;
-    align-items: center;
+#leaugeHeader {
+  text-align: center;
+  font-family: "zektonrg";
 }
-#promptText{
-    font-style: italic;
+
+#welcome {
+  margin-bottom: 10px;
+  font-family: "zektonrg";
+}
+
+#loginPrompt {
+  display: flex;
+  align-items: center;
+}
+#promptText {
+  font-style: italic;
 }
 
 @keyframes shake {
-    0% {
-      margin-left: 0rem;
-    }
-    25% {
-      margin-left: 0.5rem;
-    }
-    75% {
-      margin-left: -0.5rem;
-    }
-    100% {
-      margin-left: 0rem;
-    }
+  0% {
+    margin-left: 0rem;
   }
-  
-  .invalidEntry{
-      animation: shake 0.2s ease-in-out 0s 2;
+  25% {
+    margin-left: 0.5rem;
   }
-
-.probMLBPitcherPhoto{
-    width: 10rem;
-    height: 10rem;
-    box-shadow: 2px 2px 2px 2px;
-    border-radius: 31px;
-}
-.selectteamBat{
-    align-self: center;
-    height: 11vh;
-    text-align: center;
-    padding: 6px;
-    font-size: 1rem;
-    border-radius: 8px;
-    background: #2c1b47;
-    color: white;
-    font-family: 'zektonrg';
-}
-.Alert{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-wrap: balance;
-    text-align: center;
-}
-#WS-Winner{
-}
-#Fall{
-    font-family: 'zektonrg';
-    border-radius: 45px;
-    font-size: 1rem;
-    padding: 8px 12px;
-    margin: 3px 0px;
-    background: #cbcbff;
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
 }
 
+.invalidEntry {
+  animation: shake 0.2s ease-in-out 0s 2;
+}
 
-
-
-
+.probMLBPitcherPhoto {
+  width: 10rem;
+  height: 10rem;
+  box-shadow: 2px 2px 2px 2px;
+  border-radius: 31px;
+}
+.selectteamBat {
+  align-self: center;
+  height: 11vh;
+  text-align: center;
+  padding: 6px;
+  font-size: 1rem;
+  border-radius: 8px;
+  background: #2c1b47;
+  color: white;
+  font-family: "zektonrg";
+}
+.Alert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-wrap: balance;
+  text-align: center;
+}
+#WS-Winner {
+}
+#Fall {
+  font-family: "zektonrg";
+  border-radius: 45px;
+  font-size: 1rem;
+  padding: 8px 12px;
+  margin: 3px 0px;
+  background: #cbcbff;
+}
 
 /*Mobile style*/
-@media  (max-width: 768px) {
+@media (max-width: 768px) {
+  .homeTile {
+    border-radius: 11px;
+    font-size: 0.9em;
+    padding-bottom: 80px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
 
-    .homeTile { 
-        border-radius: 11px;
-        font-size: .9em;
-        padding-bottom: 80px;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-    }
+  .MiddleRow {
+    flex-wrap: wrap;
+  }
+  .WrapperStatGroupButtons {
+    width: 100vw;
+  }
+  #playerName {
+    text-align: center;
+  }
+  .statGroupButton {
+    margin: 0.2vh 1vw;
+    padding: 1.5px 4px;
+  }
+  .search {
+    width: 65vw;
+  }
 
-    .MiddleRow{
-        flex-wrap: wrap;
-    }
-    .WrapperStatGroupButtons{
-        width: 100vw;
-    }
-    #playerName{
-        text-align: center;
-    }
-    .statGroupButton{
-        margin: 0.2vh 1vw;
-        padding: 1.5px 4px;
-    }
-    .search{
-        width: 65vw;
-    }
+  .WrapperRoster {
+    display: flex;
+    flex-direction: column;
+  }
+  .WrapperPlayer {
+    width: 98vw;
+    background-color: #ffffff;
+    border: #000000 3px;
+    border-style: groove;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px 0px;
+  }
+  #RosterTitle {
+    font-size: 4rem;
+  }
+  .RosterCata {
+    font-size: 2rem;
+  }
 
-    .WrapperRoster{
-        display: flex;
-        flex-direction: column;
-    }
-    .WrapperPlayer{
-        background-color: #ffffff;
-        border: #000000 3px;
-        border-style: groove;
-        border-radius: 14px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 3px 0px;
-    }
-    #RosterTitle{
-        font-size: 4rem;
-    }
-    .RosterCata{
-        font-size: 2rem;
-    }
+  .WrapperTeamMapRoster {
+    padding-left: 1vw;
+  }
 
-    .WrapperTeamMapRoster{
-        padding-left: 3vw;
-    }
+  #playerPhoto {
+    width: 6vh;
+  }
+  .playerName {
+    text-wrap: nowrap;
+    width: min-content;
+    padding-right: 4px;
+    font-size: 1rem;
+  }
+  .playerPosition {
+    font-size: 1rem;
+  }
+  #playerAge {
+    font-size: 1rem;
+  }
+  .wrapperUserResults {
+    width: 100vw;
+  }
+  #UserResultsSummary {
+    width: 100vw;
+  }
+  .leaugeSelect {
+    gap: 0.4rem;
+  }
+  .leaugeSelectButton {
+    border-radius: 4px;
+    color: white;
+    padding: 6.5px 8px;
+  }
+  .LiveGameScoreBoard {
+    width: 100vw;
+    gap: 0vw;
+  }
+  .teamNameSpan {
+    font-size: 1rem;
+  }
 
-    #playerPhoto{
-        width: 6vh;
-    }
-    .playerName{
-        font-size: 1rem;
-    }
-    .playerPosition{
-        font-size: 1rem;
-    }
-    #playerAge{
-        font-size: 1rem;
-    }
-    .wrapperUserResults{
-        width: 100vw;
-    }
-    #UserResultsSummary{
-        width: 100vw;
-    }
-    .leaugeSelect {
-        gap: .4rem;
-    }
-    .leaugeSelectButton{
-        border-radius: 4px;
-        color: white;
-        padding: 6.5px 8px;
-    }
-    .LiveGameScoreBoard { 
-        width: 100vw;
-        gap: 0vw;
-        
-    }
-    .teamNameSpan{
-        font-size: 1rem;
-    }
+  .boxElement {
+    padding: 4vh 0vw;
+  }
 
-    .boxElement{
-        padding: 4vh 0vw;
-    }
-
-    .nav { 
-        font-size: .7em;
-        margin: 0;
-        height: auto;
-    }
-    .selectteamBat{
-        border: none;
-        width: 80vw;
-        height: 4vh;
-    }
-    .leauge-Leader-Card{
-        padding: 0.5vh 5.2vw ;
-    }
-    .UtilityRosterSelect{
-        border: none;
-        width: 33vw;
-    }
-    .UtilityTeamSelect{
-        border: none;
-        width: 33vw;
-    }
-    .AdvancedSelect{
-        border: none;
-        width: 80vw;
-    }
-    .probMLBPitcherPhoto{
-        width: 5vh;
-        height: 5vh;
-        border-radius: 9px;
-    }
-    .nonMlbPitcher{
-        width: 4vh;
-        height: 5vh;
-        border-radius: 9px;
-
-    }
-    .signoutButton { 
-        font-size: .7rem;
-    }
-    .gameInfo{
-        width: 100vw;
-    }
-    .RecordSpan{
-        font-size: .6rem;
-    }
-    .team{
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-    }
-    .glanceSpan{
-        font-size: 1rem;
-    }
-    .glanceLogo{
-        width: 2rem;
-        height: 2rem;
-        padding-bottom: 5px;
-        display: flex;
-        align-self: center;
-    }
-    .bigOldScoreNums{
-        display: flex;
-        align-items: center;
-    }
-    .scoreNum{
-        font-size: 2rem;
-        font-weight: bold;
-    }
-    .firstLiveRow{
-        justify-content: space-around;
-        gap: 1vw;
-        padding: 1vw;
-        margin-bottom: 20px;
-    }
-    .AllBaseInfoWrapper{
-        display: inline-flex;
-        flex-direction: column;
-        height: fit-content;
-        width: fit-content;
-        padding: 5px;
-    }
-    #firstBase{
-        border-width: .5rem;
-    }
-    #secondBase{
-        border-width: .5rem;
-        margin-bottom: 1rem;
-    }
-    #thirdBase{
-        border-width: .5rem;
-    }
-    .WrapperLiveCircles{
-        height: fit-content;
-    }
-    .currentPlay {
-        padding: 2px;
-    }
-    .playSpan{
-        font-size: .8rem;
-        font-weight: bold;
-    }
-    .AllBaseInfoWrapper h3 {
-        font-size: 1rem;
-        font-weight: bold;
-        text-align: center;
-        padding: 3px 0px;
-    }
-    .onBaseSpan{
-        display: flex;
-        flex-direction: column;
-        font-size: .8rem;
-    }
-    .WrapperPitcherVsBatter{
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-    .PitcherVsBatter{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    .onDeckDiv{
-        background: linear-gradient(71deg, #d9c2e9, transparent);
-        display: flex;
-        align-items: center;
-    }
-    .vsImage{
-        width: 3rem;
-        height: 3rem;
-    }
-    .batterImg{
-        height: 5rem;
-    }
-    .OnDeck{
-        height: 2rem;
-    }
-    .bothLineups{
-        font-size: .8rem;
-    }
-    .lineup{
-        padding: 2px;
-    }
-    .WrapperScoringPlays{
-        width: 100vw;
-    }
-   #noGames{
+  .nav {
+    font-size: 0.7em;
+    margin: 0;
+    height: auto;
+  }
+  .selectteamBat {
+    border: none;
+    width: 80vw;
+    height: 4vh;
+  }
+  .leauge-Leader-Card {
+    padding: 0.5vh 5.2vw;
+  }
+  .UtilityRosterSelect {
+    border: none;
+    width: 33vw;
+  }
+  .UtilityTeamSelect {
+    border: none;
+    width: 33vw;
+  }
+  .AdvancedSelect {
+    border: none;
+    width: 80vw;
+  }
+  .probMLBPitcherPhoto {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 9px;
+  }
+  .nonMlbPitcher {
+    width: 4vh;
+    height: 5vh;
+    border-radius: 9px;
+  }
+  .signoutButton {
+    font-size: 0.7rem;
+  }
+  .gameInfo {
+    width: 100vw;
+  }
+  .RecordSpan {
+    font-size: 0.6rem;
+  }
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+  .glanceSpan {
+    font-size: 1rem;
+  }
+  .glanceLogo {
+    width: 2rem;
+    height: 2rem;
+    padding-bottom: 5px;
+    display: flex;
+    align-self: center;
+  }
+  .bigOldScoreNums {
+    display: flex;
+    align-items: center;
+  }
+  .scoreNum {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .firstLiveRow {
+    justify-content: space-around;
+    gap: 1vw;
+    padding: 1vw;
+    margin-bottom: 20px;
+  }
+  .AllBaseInfoWrapper {
+    display: inline-flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+  }
+  #firstBase {
+    border-width: 0.5rem;
+  }
+  #secondBase {
+    border-width: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  #thirdBase {
+    border-width: 0.5rem;
+  }
+  .WrapperLiveCircles {
+    height: fit-content;
+  }
+  .currentPlay {
+    padding: 2px;
+  }
+  .playSpan {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  .AllBaseInfoWrapper h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px 0px;
+  }
+  .onBaseSpan {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+  }
+  .WrapperPitcherVsBatter {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .PitcherVsBatter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .onDeckDiv {
+    background: linear-gradient(71deg, #d9c2e9, transparent);
+    display: flex;
+    align-items: center;
+  }
+  .vsImage {
+    width: 3rem;
+    height: 3rem;
+  }
+  .batterImg {
+    height: 5rem;
+  }
+  .OnDeck {
+    height: 2rem;
+  }
+  .bothLineups {
+    font-size: 0.8rem;
+  }
+  .lineup {
+    padding: 2px;
+  }
+  .WrapperScoringPlays {
+    width: 100vw;
+  }
+  #noGames {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   }
-   #noGameHeader{
+  }
+  #noGameHeader {
     padding: 10px 0px;
     display: flex;
     font-size: 1.1rem;
     font-family: zektonrg;
-   }
-    #noGameImage{
-        padding: 10px 0px;
-        width: 90vw;
-        height: 40vh;
-        background-repeat: no-repeat; 
-    }
-    .WrapperadvancedBatter{
-        justify-content: center;
-    }
-    .CalledBall{
-        color: rgb(17, 99, 6)
-    }
-    .CalledStrike{
-        color: red;
-    }
-    .WrapperRoster{
-        display: flex;
-        flex-direction: column;
-    }
-    #playerPhoto{
-        width: 6vh;
-    }
-    .fieldImg{
-        border: #2c1b47 5px solid;
-        border-radius: 5px;
-    }
-    .game { 
-        margin: 5px;
-    }
-    .teamInfo{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin: 0px; 
-    }
-    .teamGameLogo{
-        width: 4vh;
-        height: 4vh;
-    }
-    .teamName{
-        font-size: .75rem;
-        padding-bottom: 5px;
-    }
-    
-
+  }
+  #noGameImage {
+    padding: 10px 0px;
+    width: 90vw;
+    height: 40vh;
+    background-repeat: no-repeat;
+  }
+  .WrapperadvancedBatter {
+    justify-content: center;
+  }
+  .CalledBall {
+    color: rgb(17, 99, 6);
+  }
+  .CalledStrike {
+    color: red;
+  }
+  .WrapperRoster {
+    display: flex;
+    flex-direction: column;
+  }
+  #playerPhoto {
+    width: 6vh;
+  }
+  .fieldImg {
+    border: #2c1b47 5px solid;
+    border-radius: 5px;
+  }
+  .game {
+    margin: 5px;
+  }
+  .teamInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px;
+  }
+  .teamGameLogo {
+    width: 4vh;
+    height: 4vh;
+  }
+  .teamName {
+    font-size: 0.75rem;
+    padding-bottom: 5px;
+  }
 } /* End Mobile Styling*/
-
