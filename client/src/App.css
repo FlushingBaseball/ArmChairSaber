@@ -438,12 +438,16 @@
 }
 
 .radioButton{
+    display: block;
     cursor: pointer;
-
 }
 
+
 .radioButtonLabel{
-        cursor: pointer;
+    font-family: 'BebasNeue-Regular';
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
 }
 
   .predictiveinfoGroup{

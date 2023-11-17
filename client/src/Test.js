@@ -204,6 +204,9 @@ useEffect(()=>{
             {/* {populatePlayers()} */}
             <TableComponent xData={xData}/>
 
+
+
+
         </div>
     )
 }
