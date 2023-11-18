@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { handleImageError } from "./UtilityFunctions/UtilityFunctions";
 
 function Roster({ selectedTeam, selectedRoster }) {
   const [rosterData, setRosterData] = useState([]);
@@ -17,16 +18,6 @@ function Roster({ selectedTeam, selectedRoster }) {
 
   if (!rosterData.length > 1) {
     return <h1>...loading</h1>;
-  }
-
-  function handleImageError(img, player) {
-    //clearing the inital onError so if the Milb photo isn't found either there's no infinite loop
-    img.onError = null;
-    img.src = `https://midfield.mlbstatic.com/v1/people/${player.person.id}/milb/100`;
-    // New onError so the default is shown if the Milb isn't found after the first error is handled
-    img.OnError = function () {
-      img.src = "/Images/default-batter.svg";
-    };
   }
 
   function handlePlayerClick(value, player) {
@@ -52,7 +43,7 @@ function Roster({ selectedTeam, selectedRoster }) {
             }
             alt={player.person.fullName}
             id="playerPhoto"
-            onError={(e) => handleImageError(e.target, player)}
+            onError={(e) => handleImageError(e.target, player.person.id)}
           />
           <span className="playerJerseyNum">
             # {player.jerseyNumber ? player.jerseyNumber : "NA"}&nbsp;

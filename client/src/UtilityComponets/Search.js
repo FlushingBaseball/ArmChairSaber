@@ -33,7 +33,7 @@ const [query, setQuery] = useState('');
 return (
     <div className="search">
         <div className="SearchBarRow">
-            <i id="searchIcon" class="fa fa-search fa-2x"></i>
+            <i id="searchIcon" className="fa fa-search fa-2x"></i>
             <input
                 id="searchInput"
                 type="text"

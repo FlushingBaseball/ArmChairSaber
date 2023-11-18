@@ -1,125 +1,118 @@
-export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatType}){
-
+export default function StatGroupButtons({
+  setSelectedStatGroup,
+  setSelectedStatType,
+}) {
   let requestedStatgroups = [];
-  let requestedStatTypes = []
+  let requestedStatTypes = [];
 
-  function handleStatButtonGroupClick(event){
-    requestedStatgroups.push(String(event.target.value))
+  function handleStatButtonGroupClick(event) {
+    requestedStatgroups.push(String(event.target.value));
     // console.log("Stat Group Btn Was clicked")
     // console.log(requestedStatgroups);
-
   }
 
-  function handleStatButtonTypeClick(event){
+  function handleStatButtonTypeClick(event) {
     // console.log('Stat Button Type was clicked')
     // console.log(requestedStatTypes);
-    requestedStatTypes.push(String(event.target.value))
-
+    requestedStatTypes.push(String(event.target.value));
   }
 
-  function handleSearchButtonClick(){
-    setSelectedStatGroup(String(requestedStatgroups))
-    setSelectedStatType(String(requestedStatTypes))
+  function handleSearchButtonClick() {
+    setSelectedStatGroup(String(requestedStatgroups));
+    setSelectedStatType(String(requestedStatTypes));
   }
-  
 
   return (
     <div className="WrapperStatGroupButtons">
-                 
-
-      <button
-        className="StatSearchBtn"
-        onClick={handleSearchButtonClick}
-        > { <i id="searchIcon" className="fa fa-search "></i> }
-       &nbsp; SEARCH
+      <button className="StatSearchBtn" onClick={handleSearchButtonClick}>
+        {" "}
+        {<i id="searchIcon" className="fa fa-search "></i>}
+        &nbsp; SEARCH
       </button>
 
       <h3>Stat Groups</h3>
 
       <button
-       className="statGroupButton"
-       onClick={handleStatButtonGroupClick}
-       value={'hitting'}
-       >
+        className="statGroupButton"
+        onClick={handleStatButtonGroupClick}
+        value={"hitting"}
+      >
         Hitting
-       </button>
+      </button>
       <button
-       className="statGroupButton"
-       onClick={handleStatButtonGroupClick}
-       value={'pitching'}
-       >
+        className="statGroupButton"
+        onClick={handleStatButtonGroupClick}
+        value={"pitching"}
+      >
         Pitching
-       </button>
+      </button>
       <button
-       className="statGroupButton"
-       onClick={handleStatButtonGroupClick}
-       value={'fielding'}
-       >
+        className="statGroupButton"
+        onClick={handleStatButtonGroupClick}
+        value={"fielding"}
+      >
         Fielding
-       </button>
+      </button>
       <button
-       className="statGroupButton"
-       onClick={handleStatButtonGroupClick}
-       value={'catching'}
-       >
+        className="statGroupButton"
+        onClick={handleStatButtonGroupClick}
+        value={"catching"}
+      >
         Catching
-       </button>
+      </button>
       <button
-       className="statGroupButton"
-       onClick={handleStatButtonGroupClick}
-       value={'running'}
-       >
+        className="statGroupButton"
+        onClick={handleStatButtonGroupClick}
+        value={"running"}
+      >
         Running
-       </button>
+      </button>
       <button
-       className="statGroupButton"
-       onClick={handleStatButtonGroupClick}
-       value={'game'}
-       >
+        className="statGroupButton"
+        onClick={handleStatButtonGroupClick}
+        value={"game"}
+      >
         Game
-       </button>
+      </button>
       <button
-       className="statGroupButton"
-       onClick={handleStatButtonGroupClick}
-       value={'team'}
-       >
+        className="statGroupButton"
+        onClick={handleStatButtonGroupClick}
+        value={"team"}
+      >
         Team
-       </button>
+      </button>
       <button
-       className="statGroupButton"
-       onClick={handleStatButtonGroupClick}
-       value={'streak'}
-       >
+        className="statGroupButton"
+        onClick={handleStatButtonGroupClick}
+        value={"streak"}
+      >
         Streak
-       </button>
-      
-       <h3> Batting Stat Types </h3>
-       <div className="WrapperHittingTypeButtons">
-          <button
+      </button>
+
+      <h3> Batting Stat Types </h3>
+      <div className="WrapperHittingTypeButtons">
+        <button
           className="statGroupButton"
           onClick={handleStatButtonTypeClick}
-          value={'sabermetrics'}
-          >
-            sabermetrics
-          </button>
-          <button
+          value={"sabermetrics"}
+        >
+          sabermetrics
+        </button>
+        <button
           className="statGroupButton"
           onClick={handleStatButtonTypeClick}
-          value={'seasonAdvanced'}
-          >
-            Season Advanced
-          </button>
-          <button
+          value={"seasonAdvanced"}
+        >
+          Season Advanced
+        </button>
+        <button
           className="statGroupButton"
           onClick={handleStatButtonTypeClick}
-          value={'rankingsByYear'}
-          >
-            rankingsByYear
-          </button>
-       </div>
+          value={"rankingsByYear"}
+        >
+          rankingsByYear
+        </button>
+      </div>
     </div>
-  )
-
-
-
+  );
 }
