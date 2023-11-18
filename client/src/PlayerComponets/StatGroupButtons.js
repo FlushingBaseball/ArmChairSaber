@@ -30,7 +30,7 @@ export default function StatGroupButtons({setSelectedStatGroup,setSelectedStatTy
       <button
         className="StatSearchBtn"
         onClick={handleSearchButtonClick}
-        > { <i id="searchIcon" class="fa fa-search "></i> }
+        > { <i id="searchIcon" className="fa fa-search "></i> }
        &nbsp; SEARCH
       </button>
 

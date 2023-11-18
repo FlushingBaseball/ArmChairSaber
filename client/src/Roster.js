@@ -101,7 +101,6 @@ function Roster({ selectedTeam, selectedRoster }) {
               <h2 className="RosterCata">Catchers</h2>
               {mapRoster(catchers)}
             </div>
-            {console.log(rosterData)}
             <h2 className="RosterCata">Infielders</h2>
             {mapRoster(infielders)}
           </div>
