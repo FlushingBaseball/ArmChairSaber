@@ -1,107 +1,89 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Search from "../UtilityComponets/Search"
+import Search from "../UtilityComponets/Search";
 import PlayerCardBio from "./PlayerCardBio";
 import PlayerStats from "./PlayerStats";
-import StatGroupButtons from "./StatGroupButtons"
+import StatGroupButtons from "./StatGroupButtons";
 
-export default function PlayerPage(){
+export default function PlayerPage() {
+  let { mlbAmId } = useParams();
 
-let {mlbAmId} = useParams();
+  const initalPlayerId = mlbAmId ? mlbAmId : "592450";
 
+  const [searchPlayer, setSearchPlayer] = useState(initalPlayerId);
+  const [fetchedPlayers, setFetchedPlayers] = useState("");
+  const [playerData, setPlayerData] = useState("");
 
-const initalPlayerId = mlbAmId ? mlbAmId : '592450'
+  const [selectedStatGroup, setSelectedStatGroup] = useState("");
+  const [selectedStatType, setSelectedStatType] = useState("career");
 
-const  [searchPlayer, setSearchPlayer] = useState(initalPlayerId);
-const [fetchedPlayers, setFetchedPlayers] = useState('');
-const [playerData, setPlayerData] = useState('');
+  useEffect(() => {
+    const fetchSearchData = () => {
+      fetch("/players")
+        .then((resp) => {
+          if (!resp.ok) {
+            throw new Error(`Network response wasn't okay`);
+          }
+          return resp.json();
+        })
+        .then((data) => {
+          setFetchedPlayers(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching search players", error);
+          setTimeout(fetchSearchData, 1000);
+        });
+    };
+    fetchSearchData();
+  }, []);
 
-const [selectedStatGroup, setSelectedStatGroup] = useState("")
-const [selectedStatType, setSelectedStatType] = useState("career")
-
-
-
-
-useEffect(()=>{
-  const fetchSearchData = () =>{
-    fetch('/players')
-    .then((resp)=> {
-      if (!resp.ok){
-        throw new Error(`Network response wasn't okay`);
-      }
-      return resp.json()
-    })
-    .then((data) =>{
-        setFetchedPlayers(data)
-    })
-    .catch((error) => {
-      console.error("Error fetching search players", error)
-        setTimeout(fetchSearchData, 1000);
-    });
-  }
-  fetchSearchData()
-},[])
-
-
-
-
-useEffect(()=>{
-  // fetch(`https://baseballsavant.mlb.com/players-services/range?playerId=${searchPlayer}&season=2023`) // not the right endpoint
-  // fetch(`https://baseballsavant.mlb.com/players-services/range?playerId=${searchPlayer}&season=2023`) 
-  // fetch(`https://statsapi.mlb.com/api/v1/people/${searchPlayer}?hydrate=stats(group=[hitting]`)
-  // fetch(`https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting,sabermetrics],type=[career,career])`)
-  // https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting]
-  // not the right endpoint
-  // fetch(`  https://statsapi.mlb.com/api/v1/people/592450?&season=2023&hydrate=stats(group=[hitting,sabermetrics],type=[seasonAdvanced,season],season=2023)`)
-  fetch(`https://statsapi.mlb.com/api/v1/people/${searchPlayer}?&season=2023&hydrate=stats(group=[${selectedStatGroup}],type=[${selectedStatType}],season=2023)`)
-  .then((resp) => resp.json())
-  .then(data => {
-          setPlayerData(data)
+  useEffect(() => {
+    // fetch(`https://baseballsavant.mlb.com/players-services/range?playerId=${searchPlayer}&season=2023`) // not the right endpoint
+    // fetch(`https://baseballsavant.mlb.com/players-services/range?playerId=${searchPlayer}&season=2023`)
+    // fetch(`https://statsapi.mlb.com/api/v1/people/${searchPlayer}?hydrate=stats(group=[hitting]`)
+    // fetch(`https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting,sabermetrics],type=[career,career])`)
+    // https://statsapi.mlb.com/api/v1/people/605151?hydrate=stats(group=[hitting]
+    // not the right endpoint
+    // fetch(`  https://statsapi.mlb.com/api/v1/people/592450?&season=2023&hydrate=stats(group=[hitting,sabermetrics],type=[seasonAdvanced,season],season=2023)`)
+    fetch(
+      `https://statsapi.mlb.com/api/v1/people/${searchPlayer}?&season=2023&hydrate=stats(group=[${selectedStatGroup}],type=[${selectedStatType}],season=2023)`
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        setPlayerData(data);
       })
-    },[searchPlayer,selectedStatType])
-    
-    
-    useEffect(()=>{
-      // console.log(searchPlayer)
-      // console.log(playerData)
-      // console.log(selectedStatGroup)
-      // console.log(selectedStatType)
-    },[searchPlayer,playerData,selectedStatGroup,selectedStatType])
-    
-    
-    if (playerData == ''){
-      return (
-        <h1>...Loading</h1>
-      )
-    }
+      .catch((error) => {
+        console.error("an error occured", error);
+      });
+  }, [searchPlayer, selectedStatType]);
 
-    
+  useEffect(() => {
+    // console.log(searchPlayer)
+    // console.log(playerData)
+    // console.log(selectedStatGroup)
+    // console.log(selectedStatType)
+  }, [searchPlayer, playerData, selectedStatGroup, selectedStatType]);
+
+  if (playerData == "") {
+    return <h1>...Loading</h1>;
+  }
+
   return (
     <div className="PlayerWrapper">
       <div className="GroupTopRow">
         <Search
           setSearchPlayer={setSearchPlayer}
           fetchedPlayers={fetchedPlayers}
-          />
+        />
       </div>
       <div className="MiddleRow">
-        <PlayerCardBio
-          searchPlayer={searchPlayer}
-          playerData={playerData}
-        />
+        <PlayerCardBio searchPlayer={searchPlayer} playerData={playerData} />
         <StatGroupButtons
           setSelectedStatGroup={setSelectedStatGroup}
           setSelectedStatType={setSelectedStatType}
         />
       </div>
-      <PlayerStats
-        searchPlayer={searchPlayer}
-        playerData={playerData}
-      />
+      <PlayerStats searchPlayer={searchPlayer} playerData={playerData} />
     </div>
-
-  )
-
+  );
 }
-
-
