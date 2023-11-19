@@ -75,11 +75,19 @@
   display: flex;
   text-align: center;
   flex-direction: column;
+  align-items: center;
 }
 
+#sorryPara{
+  font-size: 2rem;
+  font-family: 'BebasNeue-Regular';
+  text-wrap: balance;
+  padding: 2vh 0vh;
+}
 #LeaderBoardHeader {
   font-family: "zektonrg";
   padding: 1vh 0vh;
+  background:  #f3ff2e;
 }
 
 .toggleBtn {
@@ -718,6 +726,11 @@ button.activeSport {
 
 .StrikeMade {
   background-color: red;
+}
+#sorryImage{
+  box-shadow: -4px -2px 2px 2px black;
+  border-radius: 45px;
+  width: 50vw;
 }
 
 #strikeOne {
@@ -1953,5 +1966,13 @@ td {
   .teamName {
     font-size: 0.75rem;
     padding-bottom: 5px;
+  }
+  #sorryImage{
+    width: 80vw;
+
+  }
+  #sorryPara{
+    font-size: 1rem;
+
   }
 } /* End Mobile Styling*/
