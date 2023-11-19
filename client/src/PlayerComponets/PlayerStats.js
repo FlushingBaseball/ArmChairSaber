@@ -17,7 +17,7 @@ export default function PlayerStats({ playerData }) {
       );
       for (const feild in playerData.people[0].stats[i].splits[0].stat) {
         statCollection.push(
-          <div className="StatWrapper" key={feild}>
+          <div className="StatWrapper" key={playerData.people[0].stats[i].splits[0].stat[feild] + Math.random()}>
             <span className="StatFeild">
               {feild
                 .split(/(?=[A-Z])/)

@@ -75,11 +75,21 @@
   display: flex;
   text-align: center;
   flex-direction: column;
+  align-items: center;
 }
 
+#sorryPara{
+  font-size: 2rem;
+  font-family: 'BebasNeue-Regular';
+  text-wrap: balance;
+  padding: 2vh 0vh;
+}
 #LeaderBoardHeader {
   font-family: "zektonrg";
-  padding: 1vh 0vh;
+  padding: 1vh 1vh;
+  background:  #f3ff2e;
+  margin: 3px 0px;
+  border-radius: 22px;
 }
 
 .toggleBtn {
@@ -351,14 +361,6 @@
   }
 }
 
-.loader {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #3498db;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  animation: spin 2s linear infinite;
-}
 
 @keyframes spin {
   0% {
@@ -719,6 +721,11 @@ button.activeSport {
 .StrikeMade {
   background-color: red;
 }
+#sorryImage{
+  box-shadow: -4px -2px 2px 2px black;
+  border-radius: 45px;
+  width: 50vw;
+}
 
 #strikeOne {
   border: 1px solid;
@@ -848,8 +855,13 @@ button.activeSport {
   font-size: 1.5rem;
   margin: 0 10px;
 }
-
+.CoachTitle{
+  font-size: 1rem;
+  font-family: 'BebasNeue-Regular';
+  text-wrap: balance;
+}
 .scoreNum {
+  font-family: 'BebasNeue-Regular';
   display: inline-flex;
   padding-inline: 2vw;
   font-size: 12vh;
@@ -914,7 +926,7 @@ td {
 
 .batterImg {
   display: inline;
-  height: 50%;
+  height: 34vh;
 }
 
 .pitchVis {
@@ -1403,6 +1415,12 @@ td {
   margin: 1px;
 }
 
+
+/* :root {
+  --mets-primary-color: #ff5910;
+  --mets-secondary-color: #002d72;
+} */
+
 .Colors108 {
   background: linear-gradient(182deg, #003263, #ba0021);
 }
@@ -1501,7 +1519,7 @@ td {
   align-items: center;
   padding: 0.5vh 0.2vw;
   display: flex;
-  width: max-content;
+  width: 14vw;
   background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
   flex-direction: column;
 }
@@ -1751,6 +1769,7 @@ td {
     height: 4vh;
   }
   .leauge-Leader-Card {
+    width: max-content;
     padding: 0.5vh 5.2vw;
   }
   .UtilityRosterSelect {
@@ -1941,5 +1960,23 @@ td {
   .teamName {
     font-size: 0.75rem;
     padding-bottom: 5px;
+  }
+  #sorryImage{
+    width: 80vw;
+
+  }
+  #sorryPara{
+    font-size: 1rem;
+  }
+  .StatWrapper{
+    flex-direction: row;
+    background: #fbf7ff;
+  }
+  .StatFeild{
+    width: 251px;
+
+  }
+  .StatDataSpan{
+    font-family: 'BebasNeue-Regular' ;
   }
 } /* End Mobile Styling*/

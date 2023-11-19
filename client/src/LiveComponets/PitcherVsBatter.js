@@ -12,8 +12,15 @@ function PitcherVsBatter({ ...dataLiveGame }) {
           <img
             className="vsImage"
             src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.id}/headshot/silo/current`}
-            alt={dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.fullName}
-            onError={(e)=> handleImageError(e.target, dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.id)}
+            alt={
+              dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.fullName
+            }
+            onError={(e) =>
+              handleImageError(
+                e.target,
+                dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.id
+              )
+            }
           ></img>
         </div>
         <div className="vs-text-container">
@@ -26,7 +33,12 @@ function PitcherVsBatter({ ...dataLiveGame }) {
           <img
             className="vsImage"
             src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.batter.id}/headshot/silo/current`}
-            onError={(e) => handleImageError(e.target, dataLiveGame.liveData.linescore.offense.batter.id)}
+            onError={(e) =>
+              handleImageError(
+                e.target,
+                dataLiveGame.liveData.linescore.offense.batter.id
+              )
+            }
             alt={dataLiveGame.liveData.linescore.offense.batter.fullName}
           ></img>
         </div>
@@ -39,7 +51,12 @@ function PitcherVsBatter({ ...dataLiveGame }) {
           className="OnDeck"
           src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.inHole.id}/headshot/silo/current`}
           alt={`On deck batter ${dataLiveGame.liveData.linescore.offense.inHole.fullName}`}
-          onError={(e)=> handleImageError(e.target, dataLiveGame.liveData.linescore.offense.inHole.id)}
+          onError={(e) =>
+            handleImageError(
+              e.target,
+              dataLiveGame.liveData.linescore.offense.inHole.id
+            )
+          }
         ></img>
       </div>
     </div>
