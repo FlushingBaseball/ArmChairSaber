@@ -850,6 +850,7 @@ button.activeSport {
 }
 
 .scoreNum {
+  font-family: 'BebasNeue-Regular';
   display: inline-flex;
   padding-inline: 2vw;
   font-size: 12vh;
@@ -914,7 +915,7 @@ td {
 
 .batterImg {
   display: inline;
-  height: 50%;
+  height: 34vh;
 }
 
 .pitchVis {
