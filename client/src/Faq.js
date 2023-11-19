@@ -26,8 +26,8 @@ export default function Faq(){
           </p>
         </div>
         <div className="WrapperQuestion">
-          <h3 className="QuestionHeader">Now that the Season is over, what will change for 2024?</h3>
-          <p>The statistical features will continue to improve as the off season rolls along. The Blog is going to get a lot of attention and you may be interested in some of the content</p>
+          <h3 className="QuestionHeader">Now that the MLB Season is over, what will change for the 2024 launch?</h3>
+          <p>The statistical features will continue to improve as the off season rolls along. The Blog is going to get a lot of attention and you may be interested in some of the Winter Leauge content</p>
         </div>
         <div className="WrapperQuestion">
           <h3 className="QuestionHeader">Why haven't you included the game Odds from various gambling sites?</h3>
@@ -37,8 +37,8 @@ export default function Faq(){
         </div>
         <div className="WrapperQuestion">
           <h3 className="QuestionHeader">There's a bug with how my prediction was graded! / something is wrong with my data</h3>
-          <p>Please reach out to me via the contact form with your username and any details if you see or suspect a bug, the more bugs we squash together
-            the better the site gets so thank you for reaching out. 
+          <p>Please reach out to me with your username and any details if you see or suspect a bug, the more bugs we squash together
+            the better the site gets, so thank you for reaching out. 
           </p>
         </div>
         <div className="WrapperQuestion">
