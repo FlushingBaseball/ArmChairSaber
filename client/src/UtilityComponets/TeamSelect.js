@@ -21,8 +21,8 @@ export default function TeamSelect({
         value={selectedTeam}
         onChange={handleTeamChange}
       >
-        <option value={108}>Los Angeles Angels</option>
-        <option value={109}>Arizona Diamondbacks</option>
+        <option value={108}>Angels</option>
+        <option value={109}>Diamondbacks</option>
         <option value={110}>Orioles</option>
         <option value={111}>Red Sox</option>
         <option value={112}>Cubs</option>

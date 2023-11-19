@@ -848,7 +848,11 @@ button.activeSport {
   font-size: 1.5rem;
   margin: 0 10px;
 }
-
+.CoachTitle{
+  font-size: 1rem;
+  font-family: 'BebasNeue-Regular';
+  text-wrap: balance;
+}
 .scoreNum {
   font-family: 'BebasNeue-Regular';
   display: inline-flex;
@@ -1403,6 +1407,12 @@ td {
   padding: 7px 8px;
   margin: 1px;
 }
+
+
+/* :root {
+  --mets-primary-color: #ff5910;
+  --mets-secondary-color: #002d72;
+} */
 
 .Colors108 {
   background: linear-gradient(182deg, #003263, #ba0021);

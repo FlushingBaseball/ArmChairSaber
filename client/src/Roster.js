@@ -43,6 +43,7 @@ function Roster({ selectedTeam, selectedRoster }) {
             }
             alt={player.person.fullName}
             id="playerPhoto"
+            // className={`Colors${selectedTeam}`}
             onError={(e) => handleImageError(e.target, player.person.id)}
           />
           <span className="playerJerseyNum">
