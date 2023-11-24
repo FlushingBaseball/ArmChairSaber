@@ -24,42 +24,42 @@ function handleTileClick(id){
             Rolling Pitching Metrics by Team
             <img  
              className='homeIcon'
-             src='Images/HomePageIcons/trial5.svg'></img>
+             src='Images/HomePageIcons/done3.svg'></img>
         </button>
 
         <button className='homeTile panel-button' onClick={() => handleTileClick("advancedBatting")}>
              Rolling Batting Metrics by Team
              <img  
              className='homeIcon'
-             src='Images/HomePageIcons/trial5.svg'></img>
+             src='Images/HomePageIcons/tileBattingDone.svg'></img>
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("TeamMap")}> 
             Roster Resource
             <img  
              className='homeIcon'
-             src='Images/HomePageIcons/trial5.svg'></img>
+             src='Images/HomePageIcons/Done1.svg'></img>
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("today")}>
             Predict Today's Games
             <img  
              className='homeIcon'
-             src='Images/HomePageIcons/trial5.svg'></img>
+             src='Images/HomePageIcons/done2.svg'></img>
         </button>
         
         <button className='homeTile' onClick={() => handleTileClick("player")}>
             Sabermetrics
             <img  
              className='homeIcon'
-             src='Images/HomePageIcons/trial5.svg'></img>
+             src='Images/HomePageIcons/done5.svg'></img>
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("Leaderboard")}>
             Predictions Leaderboard
             <img  
              className='homeIcon'
-             src='Images/HomePageIcons/trial5.svg'></img>
+             src='Images/HomePageIcons/done4.svg'></img>
         </button>
 
 
@@ -67,21 +67,21 @@ function handleTileClick(id){
             Blog
             <img  
              className='homeIcon'
-             src='Images/HomePageIcons/trial5.svg'></img>
+             src='Images/HomePageIcons/done7.svg'></img>
         </button>
 
         <button className='homeTile' onClick={() => handleTileClick("LeagueLeaders")}>
             League Leaders
              <img  
              className='homeIcon'
-             src='Images/HomePageIcons/trial4.svg'></img>
+             src='Images/HomePageIcons/done8.svg'></img>
         </button>
 
         <button className='homeTile' onClick={()=> handleTileClick("FAQ")}>
             FAQ
             <img  
              className='homeIcon'
-             src='Images/HomePageIcons/trial5.svg'></img>
+             src='Images/HomePageIcons/done6.svg'></img>
         </button>
     </div>
     )
