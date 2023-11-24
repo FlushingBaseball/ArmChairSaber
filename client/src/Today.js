@@ -12,17 +12,24 @@ function Today({ user }) {
   const [selectedSportId, setSelectedSportId] = useState("17");
   const [gameData, setGameData] = useState(null);
 
+  // useEffect(() => {
+  //   fetch(
+  //     `https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`
+  //   )
+  //     .then((resp) => resp.json())
+  //     .then((statcastRESP) => setGameData(statcastRESP));
+  // }, [selectedSportId]);
   useEffect(() => {
     fetch(
-      `https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`
+      `https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=probablePitcher(note)`
     )
       .then((resp) => resp.json())
       .then((statcastRESP) => setGameData(statcastRESP));
   }, [selectedSportId]);
 
-  // useEffect(()=>{
-  //   console.log(gameData)
-  // },[gameData])
+  useEffect(()=>{
+    console.log(gameData)
+  },[gameData])
 
   /**
    * Used After Midnight in season for development because formattedDate changes

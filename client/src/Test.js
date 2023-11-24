@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import TableComponent from "./UtilityComponets/TableComponent"
+import Collapse from "./TestComponets/Collapse";
 
 function Test(){
 
@@ -199,10 +200,12 @@ useEffect(()=>{
             <h2 >Testing Page</h2>
             <h4>Various tests are commented out</h4>
             {/* {fetchedPrediction()} */}
-
-            <h2>Populate Players</h2>
+{/* 
+            <h2>Populate Players</h2> */}
             {/* {populatePlayers()} */}
-            <TableComponent xData={xData}/>
+            {/* <TableComponent xData={xData}/> */}
+
+            <Collapse />
 
 
 
