@@ -11,6 +11,11 @@ function Today({ user }) {
 
   const [selectedSportId, setSelectedSportId] = useState("17");
   const [gameData, setGameData] = useState(null);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  function handleCollapseShow() {
+    setIsCollapsed((isCollapsed) => !isCollapsed);
+  }
 
   // useEffect(() => {
   //   fetch(
@@ -27,9 +32,9 @@ function Today({ user }) {
       .then((statcastRESP) => setGameData(statcastRESP));
   }, [selectedSportId]);
 
-  useEffect(()=>{
-    console.log(gameData)
-  },[gameData])
+  useEffect(() => {
+    console.log(gameData);
+  }, [gameData]);
 
   /**
    * Used After Midnight in season for development because formattedDate changes
@@ -76,6 +81,8 @@ function Today({ user }) {
         <h2 id="WS-Winner">
           🎉Congratulations to the Rangers, the 2023 World Series champions!🎉
         </h2>
+        <div  className={`Collapser ${isCollapsed ? 'collapsed' : ''}`} onClick={handleCollapseShow}>
+          <i className="fa-solid fa-caret-up" id="alertArrow" />
         <p id="Fall">
           Now that the MLB season is over, I have switched to displaying the
           Mexican, Australian, Dominican, and Venezuelan Winter Leagues. Please
@@ -84,6 +91,13 @@ function Today({ user }) {
           other Leagues as Trackman, Hawkeye, and other tracking systems are not
           installed in these stadiums.
         </p>
+        </div>
+        {isCollapsed ? (
+          <i
+            onClick={handleCollapseShow}
+            className="fa-solid fa-caret-up fa-rotate-180"
+          ></i>
+        ) : null}
       </div>
       <div className="WrapperToday">
         {gameData.dates[0].games.map((game) => {
