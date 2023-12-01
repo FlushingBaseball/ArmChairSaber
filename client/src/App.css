@@ -17,6 +17,11 @@
   box-sizing: border-box;
 }
 
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -78,32 +83,27 @@
   align-items: center;
 }
 
-#sorryPara{
+#sorryPara {
   font-size: 2rem;
-  font-family: 'BebasNeue-Regular';
+  font-family: "BebasNeue-Regular";
   text-wrap: balance;
   padding: 2vh 0vh;
 }
 #LeaderBoardHeader {
   font-family: "zektonrg";
   padding: 1vh 1vh;
-  background:  #f3ff2e;
+  background: #f3ff2e;
   margin: 3px 0px;
   border-radius: 22px;
 }
 
-.collapsed{
+.collapsed {
   display: none;
 }
 
-
-.WrapperCollapse{
+.WrapperCollapse {
   background: blue;
 }
-
-
-
-
 
 .toggleBtn {
   background: linear-gradient(71deg, #f4e4ff, #f4f4f4);
@@ -153,10 +153,12 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1vh;
   background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
 }
 .WrapperQuestion {
+  width: 50vw;
   box-shadow: 2px 2px 2px 2px;
   padding: 1vh 7px;
   margin: 0px 8px;
@@ -171,6 +173,7 @@
 }
 
 #FaqHeader {
+  margin: 2vh 0vh;
   font-weight: bold;
   font-family: "zektonrg";
   text-align: center;
@@ -373,7 +376,6 @@
   }
 }
 
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -463,7 +465,7 @@ button.activeSport {
   box-shadow: 2px 12px 10px 0px #2c1b47;
 }
 
-.homeIcon{
+.homeIcon {
   width: 50%;
   height: 50%;
 }
@@ -739,7 +741,7 @@ button.activeSport {
 .StrikeMade {
   background-color: red;
 }
-#sorryImage{
+#sorryImage {
   box-shadow: -4px -2px 2px 2px black;
   border-radius: 45px;
   width: 50vw;
@@ -873,13 +875,13 @@ button.activeSport {
   font-size: 1.5rem;
   margin: 0 10px;
 }
-.CoachTitle{
+.CoachTitle {
   font-size: 1rem;
-  font-family: 'BebasNeue-Regular';
+  font-family: "BebasNeue-Regular";
   text-wrap: balance;
 }
 .scoreNum {
-  font-family: 'BebasNeue-Regular';
+  font-family: "BebasNeue-Regular";
   display: inline-flex;
   padding-inline: 2vw;
   font-size: 12vh;
@@ -1101,7 +1103,6 @@ td {
   border-radius: 10px;
   width: 18vw;
 }
-
 
 .saberSpan {
   display: flex;
@@ -1434,7 +1435,6 @@ td {
   margin: 1px;
 }
 
-
 /* :root {
   --mets-primary-color: #ff5910;
   --mets-secondary-color: #002d72;
@@ -1585,11 +1585,10 @@ td {
   background: rgb(255, 255, 226);
 }
 
-.ShownHeader{
+.ShownHeader {
   display: flex;
   align-items: center;
 }
-
 
 .leaugeSelect {
   position: sticky;
@@ -1649,7 +1648,6 @@ td {
   }
 }
 
-
 .invalidEntry {
   animation: shake 0.2s ease-in-out 0s 2;
 }
@@ -1679,10 +1677,9 @@ td {
   text-align: center;
 }
 #WS-Winner {
-  font-family: 'zektonrg';
+  font-family: "zektonrg";
 }
 #Fall {
-
   font-family: "zektonrg";
   border-radius: 45px;
   font-size: 1rem;
@@ -1701,9 +1698,7 @@ td {
     text-align: center;
     justify-content: center;
   }
-  .homeIcon{
-
-
+  .homeIcon {
   }
 
   .MiddleRow {
@@ -1993,22 +1988,26 @@ td {
     font-size: 0.75rem;
     padding-bottom: 5px;
   }
-  #sorryImage{
+  #sorryImage {
     width: 80vw;
-
   }
-  #sorryPara{
+  #sorryPara {
     font-size: 1rem;
   }
-  .StatWrapper{
+  .StatWrapper {
     flex-direction: row;
     background: #fbf7ff;
   }
-  .StatFeild{
+  .StatFeild {
     width: 251px;
-
   }
-  .StatDataSpan{
-    font-family: 'BebasNeue-Regular' ;
+  .StatDataSpan {
+    font-family: "BebasNeue-Regular";
+  }
+  .WrapperQuestion {
+    width: auto;
+  }
+  #WrapperFaq {
+    align-items: normal;
   }
 } /* End Mobile Styling*/
