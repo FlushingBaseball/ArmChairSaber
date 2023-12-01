@@ -172,6 +172,20 @@
   font-weight: bolder;
 }
 
+.bpStatWrapper{
+  display: flex;
+  padding: 0vh 2vh;
+  justify-content: space-between;
+}
+.bpStatFeild{
+  font-family: "zektonrg";
+
+}
+.bpStatDataSpan{
+  font-family: "BebasNeue-Regular";
+
+}
+
 #FaqHeader {
   margin: 2vh 0vh;
   font-weight: bold;
@@ -943,6 +957,9 @@ td {
 .WrapperPitchingvis {
   display: flex;
 }
+.batterImg10{
+  border-radius: 12px;
+}
 
 .batterImg {
   display: inline;
@@ -1289,6 +1306,7 @@ td {
 }
 
 .batterCard {
+  border-radius: 12px;
   justify-content: space-evenly;
   padding: 0.2vw;
   display: flex;
@@ -1302,6 +1320,7 @@ td {
   color: black;
 }
 .ABSpanName {
+  padding: 2px 0px;
   text-align: center;
   font-family: "zektonrg";
   color: black;

@@ -30,17 +30,48 @@ function AdvancedBatting() {
             className={`batterImg10 Colors${teamLogo}`}
             src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${user.player.id}/headshot/silo/current`}
           ></img>
+
           <span className="ABSpanName">{user.player.fullName}</span>
-          <span className="ABSpan">{`${user.stat.gamesPlayed} : Games Played`}</span>
-          <span className="ABSpan">{`${user.stat.atBats} : At Bats`}</span>
-          <span className="ABSpan">{`${user.stat.airOuts} : Air Outs`}</span>
-          <span className="ABSpan">{`${user.stat.atBatsPerHomeRun} : At Bats Per Home Run`}</span>
-          <span className="ABSpan">{`${user.stat.avg} : Average`}</span>
-          <span className="ABSpan">{`${user.stat.babip} : Batting Average on balls in play`}</span>
-          <span className="ABSpan">{`${user.stat.obp} : On Base Percentage`}</span>
-          <span className="ABSpan">{`${user.stat.slg} : Slugging Percentage`}</span>
-          <span className="ABSpan">{`${user.stat.ops} : On Base Plus Slugging`}</span>
-          <span className="ABSpan">{`${user.stat.strikeOuts} : Strike outs`}</span>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`Games Played`}</span>
+            <span className="bpStatDataSpan">{user.stat.gamesPlayed}</span>
+          </div>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`At Bats`}</span>
+            <span className="bpStatDataSpan">{user.stat.atBats}</span>
+          </div>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`Air Outs`}</span>
+            <span className="bpStatDataSpan">{user.stat.airOuts}</span>
+          </div>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`At Bats Per Home Run`}</span>
+            <span className="bpStatDataSpan">{user.stat.atBatsPerHomeRun}</span>
+          </div>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`Average`}</span>
+            <span className="bpStatDataSpan">{user.stat.avg}</span>
+          </div>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`Batting Average on balls in play`}</span>
+            <span className="bpStatDataSpan">{user.stat.babip}</span>
+          </div>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`On Base Percentage`}</span>
+            <span className="bpStatDataSpan">{user.stat.obp}</span>
+          </div>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`Slugging Percentage`}</span>
+            <span className="bpStatDataSpan">{user.stat.slg}</span>
+          </div>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`On Base Plus Slugging`}</span>
+            <span className="bpStatDataSpan">{user.stat.ops}</span>
+          </div>
+          <div className="bpStatWrapper">
+            <span className="bpStatFeild">{`Strike outs`}</span>
+            <span className="bpStatDataSpan">{user.stat.strikeOuts}</span>
+          </div>
         </div>
       ));
     }
