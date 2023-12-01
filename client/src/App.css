@@ -168,7 +168,6 @@
   padding: 2px 0px;
   font-family: "zektonrg";
   font-weight: bolder;
-  text-decoration: underline;
 }
 
 #FaqHeader {
@@ -1585,6 +1584,12 @@ td {
 .WrapperPlayer:hover {
   background: rgb(255, 255, 226);
 }
+
+.ShownHeader{
+  display: flex;
+  align-items: center;
+}
+
 
 .leaugeSelect {
   position: sticky;
