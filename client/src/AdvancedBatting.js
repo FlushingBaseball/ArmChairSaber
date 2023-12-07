@@ -1,21 +1,23 @@
 import TeamSelect from "./UtilityComponets/TeamSelect";
+import GroupSelect from "./UtilityComponets/GroupSelect";
 import { useEffect, useState } from "react";
 
 function AdvancedBatting() {
   const [fetchedGameData, setFetchedGameData] = useState("");
   const [selectedTeam, setSelectedTeam] = useState(136);
+  const [selectedGroup, setSelectedGroup] = useState('hitting')
   const [teamLogo, setTeamLogo] = useState(136);
   const TeamImageSrc = `./Images/logos/${teamLogo}.svg`;
-
+  //const GroupSelectedText =
   useEffect(() => {
     fetch(
-      `https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=hitting&teamId=${selectedTeam}`
+      `https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=${selectedGroup}&teamId=${selectedTeam}`
     )
       .then((resp) => resp.json())
       .then((data) => {
         setFetchedGameData(data.stats[0].splits);
       });
-  }, [selectedTeam]);
+  }, [selectedTeam,selectedGroup]);
 
   if (!fetchedGameData.length) {
     return <h1>Loading...</h1>;
@@ -84,13 +86,17 @@ function AdvancedBatting() {
         setSelectedTeam={setSelectedTeam}
         setTeamLogo={setTeamLogo}
       />
+      <GroupSelect 
+        selectedGroup={selectedGroup}
+        setSelectedGroup={setSelectedGroup}
+      />
       <div className="displayWrap">
         <img
           className="batterTeamDisplay"
           alt={`Team Logo`}
           src={TeamImageSrc}
         ></img>
-        <h1 className="headerBat">Advanced Batting Metrics by team</h1>
+        <h1 className="headerBat">{`Advanced ${selectedGroup} Metrics by team`}</h1>
         <h3 className="headerBat">Rolling Ten Day average</h3>
       </div>
       {mapPlayer()}
