@@ -25,7 +25,7 @@ function HomePage() {
         Rolling Pitching Metrics by Team
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/hpPitch.svg"
+          src="Images/HomePageIcons/PITCHINGv2.svg"
           alt="Man throwing ball"
         ></img>
       </button>
@@ -37,7 +37,7 @@ function HomePage() {
         Rolling Batting Metrics by Team
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/tileBattingDone.svg"
+          src="Images/HomePageIcons/BATTINGv3.svg"
           alt="Man batting ball"
         ></img>
       </button>
@@ -87,7 +87,7 @@ function HomePage() {
         Blog
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/hpBlog.svg"
+          src="Images/HomePageIcons/BLOGv2.svg"
           alt="man running to catch sinking fly ball"
         ></img>
       </button>
@@ -100,6 +100,7 @@ function HomePage() {
         <img
           className="homeIcon"
           src="Images/HomePageIcons/hpLeaugeLeaders.svg"
+          // src="Images/HomePageIcons/hpLeaugeLeaders.svg"
           alt="Men Running up stairs"
         ></img>
       </button>
@@ -108,7 +109,7 @@ function HomePage() {
         FAQ
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/hpFAQ.svg"
+          src="Images/HomePageIcons/FAQv2.svg"
           alt="Baseball mascot with math symbols swirling around it"
         ></img>
       </button>

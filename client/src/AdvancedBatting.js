@@ -1,5 +1,5 @@
 import TeamSelect from "./UtilityComponets/TeamSelect";
-import GroupSelect from "./UtilityComponets/GroupSelect";
+// import GroupSelect from "./UtilityComponets/GroupSelect";
 import { useEffect, useState } from "react";
 
 function AdvancedBatting() {
@@ -8,7 +8,7 @@ function AdvancedBatting() {
   const [selectedGroup, setSelectedGroup] = useState('hitting')
   const [teamLogo, setTeamLogo] = useState(136);
   const TeamImageSrc = `./Images/logos/${teamLogo}.svg`;
-  //const GroupSelectedText =
+
   useEffect(() => {
     fetch(
       `https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=${selectedGroup}&teamId=${selectedTeam}`
@@ -86,10 +86,10 @@ function AdvancedBatting() {
         setSelectedTeam={setSelectedTeam}
         setTeamLogo={setTeamLogo}
       />
-      <GroupSelect 
+      {/* <GroupSelect 
         selectedGroup={selectedGroup}
         setSelectedGroup={setSelectedGroup}
-      />
+      /> */}
       <div className="displayWrap">
         <img
           className="batterTeamDisplay"

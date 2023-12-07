@@ -1290,7 +1290,7 @@ td {
 }
 
 .WrapperadvancedBatter {
-  margin: 2vw;
+  padding-top: 5px;
   gap: 0.3vw;
   display: flex;
   justify-content: center;
