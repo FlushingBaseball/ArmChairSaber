@@ -76,7 +76,7 @@ function HomePage() {
         Predictions Leaderboard
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/hpLeader.svg"
+          src="Images/HomePageIcons/LEADERv2.svg"
           alt="Mascots watching TV togeather"
         ></img>
       </button>
@@ -87,7 +87,7 @@ function HomePage() {
         Blog
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/BLOGv2.svg"
+          src="Images/HomePageIcons/BLOGv3.svg"
           alt="man running to catch sinking fly ball"
         ></img>
       </button>
@@ -109,8 +109,8 @@ function HomePage() {
         FAQ
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/FAQv2.svg"
-          alt="Baseball mascot with math symbols swirling around it"
+          src="Images/HomePageIcons/FAQv3.svg"
+          alt="Overwhelmed Baseball mascot with math symbols swirling around it"
         ></img>
       </button>
     </div>
