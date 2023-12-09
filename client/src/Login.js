@@ -5,7 +5,7 @@ function Login({ showLogin, setShowLogin, setUser}) {
   return (
     <div className="login-container">
       <h1 className='logoText'>Armchair Baseball</h1>
-      <img className='signInUpLogo' src='../Images/LOGOv4.svg'></img>
+      <img className='signInUpLogo' src='../Images/LOGOv4.svg' alt="Baseball in Napoleonic hat logo"></img>
       {showLogin ? (
         <div className="login-form">
           <SignIn

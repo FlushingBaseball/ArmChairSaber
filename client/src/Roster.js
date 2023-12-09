@@ -8,7 +8,7 @@ function Roster({ selectedTeam, selectedRoster }) {
 
   useEffect(() => {
     fetch(
-      `https://statsapi.mlb.com/api/v1/teams/${selectedTeam}/roster/${selectedRoster}?hydrate=person(video,social)`
+      `https://statsapi.mlb.com/api/v1/teams/${selectedTeam}/roster/${selectedRoster}?hydrate=person(transactions,video,social)`
     )
       .then((resp) => resp.json())
       .then((data) => {
@@ -31,7 +31,7 @@ function Roster({ selectedTeam, selectedRoster }) {
     if (rosterData.length > 1) {
       return personArray.map((player) => (
         <div
-          className="WrapperPlayer"
+          className={`WrapperPlayer Colors${selectedTeam}`}
           key={player.person.id}
           onClick={() => handlePlayerClick(player.person.id, player)}
         >
@@ -43,7 +43,6 @@ function Roster({ selectedTeam, selectedRoster }) {
             }
             alt={player.person.fullName}
             id="playerPhoto"
-            // className={`Colors${selectedTeam}`}
             onError={(e) => handleImageError(e.target, player.person.id)}
           />
           <span className="playerJerseyNum">
