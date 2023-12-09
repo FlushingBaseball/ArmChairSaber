@@ -46,7 +46,7 @@ function HomePage() {
         Roster Resource
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/Done1.svg"
+          src="Images/HomePageIcons/ROSTERv4.svg"
           alt="Group of players from behind looking at floating math symbols"
         ></img>
       </button>
@@ -55,7 +55,7 @@ function HomePage() {
         Predict Today's Games
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/done2.svg"
+          src="Images/HomePageIcons/PREDICTv3.svg"
           alt="Manager taking notes on dugout railing"
         ></img>
       </button>
@@ -64,7 +64,7 @@ function HomePage() {
         Sabermetrics
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/hpSaber.svg"
+          src="Images/HomePageIcons/SABERv3.svg"
           alt="Back of mans head looking at math"
         ></img>
       </button>
@@ -99,8 +99,7 @@ function HomePage() {
         League Leaders
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/hpLeaugeLeaders.svg"
-          // src="Images/HomePageIcons/hpLeaugeLeaders.svg"
+          src="Images/HomePageIcons/LEAUGEv2.svg"
           alt="Men Running up stairs"
         ></img>
       </button>
