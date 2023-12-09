@@ -46,7 +46,7 @@ function HomePage() {
         Roster Resource
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/ROSTERv4.svg"
+          src="Images/HomePageIcons/ROSTERv5.svg"
           alt="Group of players from behind looking at floating math symbols"
         ></img>
       </button>
@@ -64,7 +64,7 @@ function HomePage() {
         Sabermetrics
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/SABERv3.svg"
+          src="Images/HomePageIcons/SABERv4.svg"
           alt="Back of mans head looking at math"
         ></img>
       </button>
@@ -87,7 +87,7 @@ function HomePage() {
         Blog
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/BLOGv3.svg"
+          src="Images/HomePageIcons/BLOGv5.svg"
           alt="man running to catch sinking fly ball"
         ></img>
       </button>
