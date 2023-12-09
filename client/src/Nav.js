@@ -3,7 +3,7 @@ import SignOut from "./SignOut";
 
 function Nav({user, setUser}){
 
-const logoLoc ="../Images/logo.svg"
+const logoLoc ="../Images/LOGOv4.svg"
 
 return (
     <div className="nav">
