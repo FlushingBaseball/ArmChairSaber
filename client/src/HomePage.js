@@ -25,7 +25,7 @@ function HomePage() {
         Rolling Pitching Metrics by Team
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/PITCHINGv2.svg"
+          src="Images/HomePageIcons/PITCHINGv3.svg"
           alt="Man throwing ball"
         ></img>
       </button>
