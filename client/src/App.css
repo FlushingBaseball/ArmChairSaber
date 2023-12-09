@@ -1058,6 +1058,7 @@ td {
   flex-direction: column;
 }
 .WrapperPlayer {
+  margin: 7px 0px;
   border-radius: 22px;
   box-shadow: -14px 4px 8px 0px #444;
   padding: 10px 4px;
@@ -1090,16 +1091,18 @@ td {
 
 .playerJerseyNum {
   font-size: 0.8rem;
-  color: #726565;
+  color: #d9c9c9;
 }
 
 .playerName {
+  color: white;
   font-size: 2rem;
   font-weight: bold;
 }
 
 .playerStatus {
-  color: gray;
+  color: white;
+  /* color: gray; */
   font-size: 1rem;
 }
 
@@ -1549,6 +1552,105 @@ td {
 .Colors158 {
   background: linear-gradient(182deg, #ffc52f, #12284b);
 }
+.RosterColors108 {
+  background: linear-gradient(281deg, #003263, #ba0021);
+}
+.RosterColors109 {
+  background: linear-gradient(114deg, #a71930, #e3d4ad);
+}
+.RosterColors110 {
+  background: linear-gradient(114deg, #df4601, #000000);
+}
+.RosterColors111 {
+  background: linear-gradient(99deg, #bd3039, #0c2340);
+}
+.RosterColors112 {
+  background: linear-gradient(116deg, #0e3386, #cc3433);
+}
+.RosterColors113 {
+  background: linear-gradient(98deg, #c6011f, #000000);
+}
+.RosterColors114 {
+  background: linear-gradient(272deg, #00385d, #e50022);
+}
+.RosterColors115 {
+  background: linear-gradient(102deg, #333366, #c4ced4);
+}
+.RosterColors116 {
+  background: linear-gradient(96deg, #0c2340, #fa4616);
+}
+.RosterColors117 {
+  background: linear-gradient(91deg, #002d62, #eb6e1f);
+}
+.RosterColors118 {
+  background: linear-gradient(93deg, #004687, #bd9b60);
+}
+.RosterColors119 {
+  background: linear-gradient(95deg, #005a9c, #a5acaf);
+}
+.RosterColors120 {
+  background: linear-gradient(91deg, #ab0003, #14225a);
+}
+.RosterColors121 {
+  background: linear-gradient(93deg, #ff5910, #002d72);
+}
+.RosterColors133 {
+  background: linear-gradient(271deg, #003831, #efb21e);
+}
+.RosterColors134 {
+  background: linear-gradient(102deg, #27251f, #fdb827);
+}
+.RosterColors135 {
+  background: linear-gradient(265deg, #2f241d, #ffc425);
+}
+.RosterColors136 {
+  background: linear-gradient(269deg, #0c2c56, #005c5c);
+}
+.RosterColors137 {
+  background: linear-gradient(90deg, #fd5a1e, #27251f);
+}
+.RosterColors138 {
+  background: linear-gradient(100deg, #c41e3a, #ffffff);
+}
+.RosterColors139 {
+  background: linear-gradient(267deg, #092c5c, #8fbce6);
+}
+.RosterColors140 {
+  background: linear-gradient(112deg, #003278, #c0111f);
+}
+.RosterColors141 {
+  background: linear-gradient(90deg, #134a8e, #1d2d5c);
+}
+.RosterColors142 {
+  background: linear-gradient(81deg, #002b5c, #d31145);
+}
+.RosterColors143 {
+  background: linear-gradient(109deg, #e81828, #002d72);
+}
+.RosterColors144 {
+  background: linear-gradient(273deg, #ce1141, #13274f);
+}
+.RosterColors145 {
+  background: linear-gradient(268deg, #27251f, #c4ced4);
+}
+.RosterColors146 {
+  background: linear-gradient(96deg, #00a3e0, #ef3340);
+}
+.RosterColors147 {
+  background: linear-gradient(277deg, #c4ced3, #0c2340);
+}
+.RosterColors158 {
+  background: linear-gradient(274deg, #ffc52f, #12284b);
+}
+
+
+.playerPosition{
+  color: white;
+}
+#playerAge{
+  color: white;
+
+}
 
 .leauge-Leader-Card {
   border-radius: 26px;
@@ -1601,7 +1703,7 @@ td {
 }
 
 .WrapperPlayer:hover {
-  background: rgb(255, 255, 226);
+  background: #2c1b47
 }
 
 .ShownHeader {
@@ -1742,15 +1844,15 @@ td {
     flex-direction: column;
   }
   .WrapperPlayer {
+    margin: 5px 0px;
     width: 98vw;
-    background-color: #ffffff;
     border: #000000 3px;
     border-style: groove;
     border-radius: 14px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 3px 0px;
+    padding: 2px 0px;
   }
   #RosterTitle {
     font-size: 4rem;
