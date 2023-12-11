@@ -172,18 +172,16 @@
   font-weight: bolder;
 }
 
-.bpStatWrapper{
+.bpStatWrapper {
   display: flex;
   padding: 0vh 2vh;
   justify-content: space-between;
 }
-.bpStatFeild{
+.bpStatFeild {
   font-family: "zektonrg";
-
 }
-.bpStatDataSpan{
+.bpStatDataSpan {
   font-family: "BebasNeue-Regular";
-
 }
 
 #FaqHeader {
@@ -957,7 +955,7 @@ td {
 .WrapperPitchingvis {
   display: flex;
 }
-.batterImg10{
+.batterImg10 {
   border-radius: 12px;
 }
 
@@ -1068,6 +1066,7 @@ td {
   align-items: center;
 }
 #playerPhoto {
+  box-shadow: -4px 2px 8px 2px;
   border-radius: 19px;
   margin-left: 9px;
   height: 8vh;
@@ -1090,19 +1089,20 @@ td {
 }
 
 .playerJerseyNum {
+  padding-left: 2px;
+  font-family: 'zektonrg';
   font-size: 0.8rem;
-  color: #d9c9c9;
+  color: #4a4a4a;
 }
 
 .playerName {
-  color: white;
+  font-family: 'zektonrg';
   font-size: 2rem;
   font-weight: bold;
 }
 
 .playerStatus {
-  color: white;
-  /* color: gray; */
+  font-family: 'zektonrg';
   font-size: 1rem;
 }
 
@@ -1552,106 +1552,12 @@ td {
 .Colors158 {
   background: linear-gradient(182deg, #ffc52f, #12284b);
 }
-.RosterColors108 {
-  background: linear-gradient(281deg, #003263, #ba0021);
+.playerPosition {
+  font-family: 'zektonrg';
 }
-.RosterColors109 {
-  background: linear-gradient(114deg, #a71930, #e3d4ad);
+#playerAge {
+  font-family: 'zektonrg';
 }
-.RosterColors110 {
-  background: linear-gradient(114deg, #df4601, #000000);
-}
-.RosterColors111 {
-  background: linear-gradient(99deg, #bd3039, #0c2340);
-}
-.RosterColors112 {
-  background: linear-gradient(116deg, #0e3386, #cc3433);
-}
-.RosterColors113 {
-  background: linear-gradient(98deg, #c6011f, #000000);
-}
-.RosterColors114 {
-  background: linear-gradient(272deg, #00385d, #e50022);
-}
-.RosterColors115 {
-  background: linear-gradient(102deg, #333366, #c4ced4);
-}
-.RosterColors116 {
-  background: linear-gradient(96deg, #0c2340, #fa4616);
-}
-.RosterColors117 {
-  background: linear-gradient(91deg, #002d62, #eb6e1f);
-}
-.RosterColors118 {
-  background: linear-gradient(93deg, #004687, #bd9b60);
-}
-.RosterColors119 {
-  background: linear-gradient(95deg, #005a9c, #a5acaf);
-}
-.RosterColors120 {
-  background: linear-gradient(91deg, #ab0003, #14225a);
-}
-.RosterColors121 {
-  background: linear-gradient(93deg, #ff5910, #002d72);
-}
-.RosterColors133 {
-  background: linear-gradient(271deg, #003831, #efb21e);
-}
-.RosterColors134 {
-  background: linear-gradient(102deg, #27251f, #fdb827);
-}
-.RosterColors135 {
-  background: linear-gradient(265deg, #2f241d, #ffc425);
-}
-.RosterColors136 {
-  background: linear-gradient(269deg, #0c2c56, #005c5c);
-}
-.RosterColors137 {
-  background: linear-gradient(90deg, #fd5a1e, #27251f);
-}
-.RosterColors138 {
-  background: linear-gradient(100deg, #c41e3a, #ffffff);
-}
-.RosterColors139 {
-  background: linear-gradient(267deg, #092c5c, #8fbce6);
-}
-.RosterColors140 {
-  background: linear-gradient(112deg, #003278, #c0111f);
-}
-.RosterColors141 {
-  background: linear-gradient(90deg, #134a8e, #1d2d5c);
-}
-.RosterColors142 {
-  background: linear-gradient(81deg, #002b5c, #d31145);
-}
-.RosterColors143 {
-  background: linear-gradient(109deg, #e81828, #002d72);
-}
-.RosterColors144 {
-  background: linear-gradient(273deg, #ce1141, #13274f);
-}
-.RosterColors145 {
-  background: linear-gradient(268deg, #27251f, #c4ced4);
-}
-.RosterColors146 {
-  background: linear-gradient(96deg, #00a3e0, #ef3340);
-}
-.RosterColors147 {
-  background: linear-gradient(277deg, #c4ced3, #0c2340);
-}
-.RosterColors158 {
-  background: linear-gradient(274deg, #ffc52f, #12284b);
-}
-
-
-.playerPosition{
-  color: white;
-}
-#playerAge{
-  color: white;
-
-}
-
 .leauge-Leader-Card {
   border-radius: 26px;
   margin: 1vh 2px;
@@ -1703,7 +1609,7 @@ td {
 }
 
 .WrapperPlayer:hover {
-  background: #2c1b47
+  background: #ffffe2
 }
 
 .ShownHeader {
@@ -1863,10 +1769,6 @@ td {
 
   .WrapperTeamMapRoster {
     padding-left: 1vw;
-  }
-
-  #playerPhoto {
-    width: 6vh;
   }
   .playerName {
     text-wrap: nowrap;

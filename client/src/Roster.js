@@ -31,7 +31,7 @@ function Roster({ selectedTeam, selectedRoster }) {
     if (rosterData.length > 1) {
       return personArray.map((player) => (
         <div
-          className={`WrapperPlayer Colors${selectedTeam}`}
+          className={`WrapperPlayer`}
           key={player.person.id}
           onClick={() => handlePlayerClick(player.person.id, player)}
         >
@@ -41,6 +41,7 @@ function Roster({ selectedTeam, selectedRoster }) {
                 ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`
                 : `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/83/coach/current`
             }
+            className={`Colors${selectedTeam}`}
             alt={player.person.fullName}
             id="playerPhoto"
             onError={(e) => handleImageError(e.target, player.person.id)}
