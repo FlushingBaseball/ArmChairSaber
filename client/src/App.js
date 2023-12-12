@@ -25,6 +25,7 @@ import LeagueLeaders from './LeaugeLeaders';
 
 import UserHome from './UserPageComponets/UserHome';
 import Faq from './Faq';
+import Venue from './TeamComponets/Venue';
 
 import PlayerPage from './PlayerComponets/PlayerPage';
 
@@ -57,6 +58,7 @@ const [searchPlayer, setSearchPlayer] = useState(607043);
         <Route path='/login' element={<Login  setUser={setUser}  showLogin={showLogin} setShowLogin={setShowLogin}/>} />
         <Route path='/signout' element={<SignOut setUser={setUser}/>}/>
         <Route path ="/FAQ" element={<Faq />} />
+        <Route path='/Venue' element={<Venue />} />
 
           <Route path="TeamMap" element={<TeamMap />} />
           <Route path='/player/' element={<PlayerPage />} />
