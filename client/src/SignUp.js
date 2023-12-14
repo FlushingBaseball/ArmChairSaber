@@ -40,7 +40,7 @@ function SignUp( {setUser}) {
       })
       .then((data) => {
         setUser(data)
-        console.log('Sign-up successful:', data);
+        console.log('Sign-up successful:');
         navigate('/')
       })
       .catch((error) => {

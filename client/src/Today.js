@@ -32,9 +32,9 @@ function Today({ user }) {
       .then((statcastRESP) => setGameData(statcastRESP));
   }, [selectedSportId]);
 
-  useEffect(() => {
-    console.log(gameData);
-  }, [gameData]);
+  // useEffect(() => {
+  //   console.log(gameData);
+  // }, [gameData]);
 
   /**
    * Used After Midnight in season for development because formattedDate changes
