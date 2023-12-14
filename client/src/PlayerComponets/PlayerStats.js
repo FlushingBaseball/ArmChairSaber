@@ -8,24 +8,26 @@ export default function PlayerStats({ playerData }) {
 
     for (let i = 0; i < playerData.people[0].stats.length; i++) {
       statCollection.push(
-        <h3 className="statHeader">
+        <h3 className="statHeader"
+          key={'person'+ Math.random()}
+        >
           {playerData.people[0].stats[i].type.displayName
             .split(/(?=[A-Z])/)
             .join(" ")
             .toUpperCase()}
         </h3>
       );
-      for (const feild in playerData.people[0].stats[i].splits[0].stat) {
+      for (const field in playerData.people[0].stats[i].splits[0].stat) {
         statCollection.push(
-          <div className="StatWrapper" key={playerData.people[0].stats[i].splits[0].stat[feild] + Math.random()}>
+          <div className="StatWrapper" key={`stat-${i}-${field}`}>
             <span className="StatFeild">
-              {feild
+              {field
                 .split(/(?=[A-Z])/)
                 .join(" ")
                 .toUpperCase()}
             </span>
             <span className="StatDataSpan">
-              {playerData.people[0].stats[i].splits[0].stat[feild]}
+              {playerData.people[0].stats[i].splits[0].stat[field]}
             </span>
           </div>
         );

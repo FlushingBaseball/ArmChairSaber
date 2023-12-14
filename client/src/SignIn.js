@@ -39,7 +39,7 @@ function SignIn( {setUser}) {
       })
       .then((data) => {
         setUser(data)
-        console.log('Sign-in successful:', data);
+        console.log('Sign-in successful:');
         // console.log(data)
         navigate("/")
       })
