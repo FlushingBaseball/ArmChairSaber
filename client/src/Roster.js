@@ -75,7 +75,9 @@ function Roster({ selectedTeam, selectedRoster }) {
     (player) => player.position && player.position.type === "Pitcher"
   );
   const designatedHitters = rosterData.filter(
-    (player) => player.position && player.position.type === "Hitter"
+    (player) =>
+      (player.position && player.position.type === "Hitter") ||
+      (player.position && player.position.type === "Two-Way Player")
   );
   const catchers = rosterData.filter(
     (player) => player.position && player.position.type === "Catcher"
