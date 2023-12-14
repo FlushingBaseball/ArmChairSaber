@@ -72,7 +72,8 @@ def check_session():
 
     if not user:
         # user doesn't exist, return 401 (unauthorized)
-        return {'error': 'Unauthorized'}, 401
+        # return {'error': 'Unauthorized'}, 401
+        return
     
     # user exists
     return user.to_dict(), 200
