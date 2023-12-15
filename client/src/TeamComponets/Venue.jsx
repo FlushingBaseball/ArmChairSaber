@@ -14,6 +14,7 @@ export default function Venue(){
   //trackingVersion
   useEffect(()=>{
     fetch(`https://statsapi.mlb.com/api/v1/teams/147/affiliates?season=2023`)
+    fetch()
     .then((resp) => resp.json())
     .then((data)=>{
         setVenueInfo(data)
@@ -27,6 +28,12 @@ export default function Venue(){
   return(
     <div className="WrapperVenue">
       <h1>Venue</h1>
+      <table>
+        <tr>
+          <th></th>
+        </tr>
+        
+      </table>
 
     </div>
   )
