@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { handleImageError } from "./UtilityFunctions/UtilityFunctions";
+import { handleImageError } from "../UtilityFunctions/UtilityFunctions";
 
 function Roster({ selectedTeam, selectedRoster }) {
   const [rosterData, setRosterData] = useState([]);

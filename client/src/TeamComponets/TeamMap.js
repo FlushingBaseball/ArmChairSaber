@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import Roster from "./Roster";
-import TeamSelect from "./UtilityComponets/TeamSelect";
-import RosterTypeSelect from "./UtilityComponets/RosterTypeSelect";
+import TeamSelect from "../UtilityComponets/TeamSelect";
+import RosterTypeSelect from "../UtilityComponets/RosterTypeSelect";
 
 function TeamMap() {
   const [selectedTeam, setSelectedTeam] = useState(121);
