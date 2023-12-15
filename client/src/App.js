@@ -21,6 +21,7 @@ import UserHome from "./UserPageComponets/UserHome";
 import Faq from "./Faq";
 import Venue from "./TeamComponets/Venue";
 import PlayerPage from "./PlayerComponets/PlayerPage";
+import Standings from "./Standings";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -71,6 +72,10 @@ function App() {
             />
           }
         />
+
+        <Route path="/standings" element={<Standings />} />
+
+
         <Route path="/signout" element={<SignOut setUser={setUser} />} />
         <Route path="/FAQ" element={<Faq />} />
         <Route path="/Venue" element={<Venue />} />
