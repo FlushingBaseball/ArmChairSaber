@@ -19,10 +19,10 @@ export default function Standings({ selectedTeam }) {
       });
   }, []);
 
-  useEffect(() => {
-    console.log("in use Effect standingData")
-    console.log(standingData);
-  }, [standingData]);
+  // useEffect(() => {
+  //   console.log("in use Effect standingData")
+  //   console.log(standingData);
+  // }, [standingData]);
 
   if (standingData === ''){
     return(
