@@ -8,7 +8,7 @@ import Today from "./Today";
 import Nav from "./Nav";
 import NotFound from "./NotFound";
 import LiveGame from "./LiveGame";
-import TeamMap from "./TeamMap";
+import TeamMap from "./TeamComponets/TeamMap";
 import LeaderBoard from "./LeaderBoard";
 import Login from "./Login";
 import SignOut from "./SignOut";
@@ -21,7 +21,7 @@ import UserHome from "./UserPageComponets/UserHome";
 import Faq from "./Faq";
 import Venue from "./TeamComponets/Venue";
 import PlayerPage from "./PlayerComponets/PlayerPage";
-import Standings from "./Standings";
+import Standings from "./TeamComponets/Standings";
 
 function App() {
   const [user, setUser] = useState(null);
