@@ -37,9 +37,9 @@ export default function Standings({ selectedTeam }) {
   
     const tables = updatedData.records.map((recordGrouping) => {
       const rows = recordGrouping.teamRecords.map((team) => (
-        <tr key={team.team.id}>
-          <th><img src={`https://www.mlbstatic.com/team-logos/${team.team.id}.svg`} alt={team.team.name} /></th>
-          <th>{team.team.name}</th>
+        <tr className={selectedTeam == team.team.id ? "highlightTeam" : null} key={team.team.id}>
+          <th id="logoTh"><img id="standingLogo" src={`https://www.mlbstatic.com/team-logos/${team.team.id}.svg`} alt={team.team.name} /></th>
+          <th id="teamNameTh">{team.team.name}</th>
           <th>{team.wins}</th>
           <th>{team.losses}</th>
           <th>{team.winningPercentage}</th>
@@ -50,7 +50,7 @@ export default function Standings({ selectedTeam }) {
   
       return (
         <table id="standingsTable" key={Math.random()}>
-          <thead>
+          <thead id="standingsHead">
             <tr>
               <th className="teamLogoTh"></th>
               <th className="team-th">Team</th>
@@ -61,7 +61,7 @@ export default function Standings({ selectedTeam }) {
               <th>Run Differential</th>
             </tr>
           </thead>
-          <tbody>{rows}</tbody>
+          <tbody id="standingsBody">{rows}</tbody>
         </table>
       );
     });

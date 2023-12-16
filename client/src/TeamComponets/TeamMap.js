@@ -3,6 +3,7 @@ import { useState } from "react";
 import Roster from "./Roster";
 import TeamSelect from "../UtilityComponets/TeamSelect";
 import RosterTypeSelect from "../UtilityComponets/RosterTypeSelect";
+import Standings from "./Standings";
 
 function TeamMap() {
   const [selectedTeam, setSelectedTeam] = useState(121);
@@ -23,8 +24,14 @@ function TeamMap() {
           <RosterTypeSelect setSelectedRoster={setSelectedRoster} />
         </div>
         <h1 id="RosterTitle">Roster</h1>
+        <div className="TeamElementGroupings">
         <div className="WrapperTeamMapRoster">
           <Roster selectedTeam={selectedTeam} selectedRoster={selectedRoster} />
+        </div>
+        <Standings selectedTeam={selectedTeam}/>
+
+
+
         </div>
       </div>
     </div>
