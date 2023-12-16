@@ -2117,6 +2117,8 @@ th.team-th {
     display: flex;
     flex-direction: column;
   }
-  
+  #standingsTable{
+    width: auto;
+  }
   
 } /* End Mobile Styling*/
