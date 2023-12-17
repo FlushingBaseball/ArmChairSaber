@@ -22,6 +22,7 @@ import Faq from "./Faq";
 import Venue from "./TeamComponets/Venue";
 import PlayerPage from "./PlayerComponets/PlayerPage";
 import Standings from "./TeamComponets/Standings";
+import Transactions from "./TeamComponets/Transactions";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -74,6 +75,8 @@ function App() {
         />
 
         <Route path="/standings" element={<Standings />} />
+        <Route path="/transactions" element={<Transactions />} />
+
 
 
         <Route path="/signout" element={<SignOut setUser={setUser} />} />

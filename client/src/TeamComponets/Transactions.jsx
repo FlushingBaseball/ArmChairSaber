@@ -1,30 +1,49 @@
-import { useEffect, useState } from "react"
-export default function Transactions({selectedTeam}){
+import { useEffect, useState } from "react";
+import TeamSelect from "../UtilityComponets/TeamSelect";
 
-const [TransactionData, setTransactionData] = useState('');
+export default function Transactions() {
+  const [TransactionData, setTransactionData] = useState("");
+  const [selectedTeam, setSelectedTeam] = useState("121");
 
-const [season, setSeason] = useState('2023');
-const []
+  const currentDate = new Date();
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+  const day = currentDate.getDate().toString().padStart(2, "0");
+  const year = currentDate.getFullYear();
+  const formattedCurrentDate = `${year}-${month}-${day}`;
 
-//(`http://statsapi.mlb.com/api/v1/people/freeAgents?season=2023&hydrate=person(person(stats(group=hitting,type=season))`
+  function getFormattedDate30DaysAgo() {
+    const today = new Date();
+    const oldDate = new Date();
+    oldDate.setDate(today.getDate() - 30);
 
-useEffect(()=>{
-  fetch(`https://statsapi.mlb.com/api/v1/transactions?teamId=${selectedTeam}&startDate=2023-01-01&endDate=2023-12-31`)
-  .then((resp)=>resp.json())
-  .then((data)=>{
-    setTransactionData(data)
-  })
-},[])
+    //formating the old date
+    const month = (oldDate.getMonth() + 1).toString().padStart(2, "0");
+    const day = oldDate.getDate().toString().padStart(2, "0");
+    const year = oldDate.getFullYear();
+    const formattedOldDate = `${year}-${month}-${day}`;
 
+      return formattedOldDate;
+  }
 
+  const startingDate = getFormattedDate30DaysAgo();
 
+  useEffect(() => {
+    fetch(
+      `https://statsapi.mlb.com/api/v1/transactions?teamId=${selectedTeam}&startDate=${startingDate}&endDate=${formattedCurrentDate}`
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        setTransactionData(data);
+      });
+  }, []);
 
+  useEffect(() => {
+    console.log(TransactionData);
+  }, [TransactionData]);
 
   return (
     <div className="WrapperTransactions">
-
-
-
+      <h1>This </h1>
     </div>
-  )
+  );
 }
