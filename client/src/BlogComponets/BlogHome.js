@@ -1,4 +1,12 @@
+import { useState } from "react"
+
+import ArticleOne from "./ArticleOne"
+import ArticleTwo from "./ArticleTwo"
+
 export default function BlogHome(){
+
+  
+
   return (
     <div id="WrapperBlogHome">
       <h1>The ArmChair Sabermetrican</h1>
