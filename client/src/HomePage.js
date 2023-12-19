@@ -82,7 +82,7 @@ function HomePage() {
       </button>
 
       <button
-        className="homeTile" /* onClick={() => handleTileClick("test")} */
+        className="homeTile"  onClick={() => handleTileClick("blog")} 
       >
         Blog
         <img

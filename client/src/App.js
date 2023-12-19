@@ -23,6 +23,9 @@ import Venue from "./TeamComponets/Venue";
 import PlayerPage from "./PlayerComponets/PlayerPage";
 import Standings from "./TeamComponets/Standings";
 import Transactions from "./TeamComponets/Transactions";
+import BlogHome from "./BlogComponets/BlogHome";
+
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -49,6 +52,7 @@ function App() {
         <Route path="test" element={<Test />} />
         <Route path="/advancedBatting" element={<AdvancedBatting />} />
         <Route path="/advancedPitching" element={<AdvancedPitching />} />
+        <Route path="/blog" element={<BlogHome />} />
         <Route
           path="/advancedFielding"
           element={
