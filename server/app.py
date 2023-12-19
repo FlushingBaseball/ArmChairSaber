@@ -253,7 +253,7 @@ def postPredicitons():
     # return user as JSON, status code 201
     return new_prediction.to_dict(), 201
 
-@app.get('/predictionsNotResolved')
+@app.get('/api/predictionsNotResolved')
 def get_all_not_resolved_predictions():
     un_Predictions = User_Prediction.query.filter(
         User_Prediction.isResolved == False
