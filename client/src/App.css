@@ -1795,6 +1795,29 @@ th.team-th {
   justify-content: space-evenly;
 }
 
+
+
+
+.WrapperBlogHome{
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+}
+
+
+.WrapperArticle{
+  color: white;
+}
+
+
+
+/* font-family: 'zektonrg'; */
+
+
+
+
+
 /*Mobile style*/
 @media (max-width: 768px) {
   .homeTile {

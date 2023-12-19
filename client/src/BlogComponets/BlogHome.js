@@ -8,7 +8,8 @@ export default function BlogHome(){
   
 
   return (
-    <div id="WrapperBlogHome">
+    <div className="WrapperBlogHome">
+      
       <ArticleOne />
     </div>
   )
