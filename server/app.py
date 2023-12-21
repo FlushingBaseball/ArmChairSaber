@@ -382,7 +382,7 @@ def get_all_games():
         200
     )
 
-@app.get('/games/<int:gamePk>')
+@app.get('/api/games/<int:gamePk>')
 def get_game_by_id(gamePk):
     game = Game.query.filter(
         Game.gamePk == gamePk
