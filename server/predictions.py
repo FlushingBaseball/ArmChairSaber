@@ -4,7 +4,7 @@ import asyncio
 
 
 
-
+users_streak_cache = {}
 
 
 
@@ -18,7 +18,6 @@ async def handle_unresolved_predictions_pool():
       print("response from the server")
       data = response.json() 
       print("data recieved")
-      # print(f"data is now of type {type(data)}") ## List
       check_for_winners(data)
 
      else:
@@ -29,17 +28,19 @@ async def handle_unresolved_predictions_pool():
 
 
 
-
-
-
 def check_for_winners(data):
   print(f"Successfully called CFW")
   for prediction in data:
-    print(prediction)
+    if prediction['user']['id'] in users_streak_cache:
+      print("had this user")
+    else:
+      print("didn't have this user")
+      users_streak_cache[prediction['user']['id']] = prediction['user']['currentStreak']
+
     if (prediction['actualWinnerId'] != None):
       handleWinnerKnown(prediction)
     else:
-      print(f"Prediction actualWinnerId property is {prediction['actualWinnerId']}")
+      # print(f"Prediction actualWinnerId property is {prediction['actualWinnerId']}")
       handle_winner_not_known(prediction)
 
 
@@ -60,7 +61,8 @@ def handle_winner_not_known(prediction):
     print("Game Wasn't on backend")
     # print(f"Error: {game_response.status_code} - {game_response.text}")
     # call_mlb_patch_prediction(prediction, game_id)
-    call_mlb_patch_prediction(prediction, game_id)
+    # call_mlb_patch_prediction(prediction, game_id)
+    print(users_streak_cache)
 
 
 
@@ -76,11 +78,23 @@ def call_mlb_patch_prediction(prediction, game_id):
     mlb_game_response = mlb_Data.json()
     print(f'This is the response from MLB: {mlb_game_response}')
     print(f'The type of the response is: {type(mlb_game_response)}')
+    # if 
   
   else:
     print(f"Error: {mlb_Data.status_code} - {mlb_Data.text}")
 
 
+
+
+
+
+# ## Stale fetches 
+# Either I can make a dict where the key is the user id and the value is the current streak
+# at inital pull. and update those values as the grading proccess evolves and at the end 
+# make all those updates at once? 
+
+# or with the grading of each prediction I can make a fetch for the user and only update 
+# based on that data instead of the stale copy of user attached to a prediction. 
 
 
 ## for every prediction 
