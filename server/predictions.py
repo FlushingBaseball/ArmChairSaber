@@ -55,8 +55,7 @@ def handle_winner_not_known(prediction):
     print("Game wasn't in database")
     call_mlb_patch_prediction(prediction, game_id)
     # print(users_streak_cache)
-
-
+ 
 
 def call_mlb_patch_prediction(prediction, game_id):
   print("In: call_mlb_patch_prediction")
@@ -66,7 +65,11 @@ def call_mlb_patch_prediction(prediction, game_id):
   if mlb_Data.status_code ==200:
     mlb_game_response = mlb_Data.json()
     print(f'This is the response from MLB: {mlb_game_response}')
-    if (not mlb_game_response['dates'][0]['games'][0]['teams']['away']["isWinner"] and mlb_game_response["dates"][1] and not mlb_game_response['dates'][1]['games']['teams']['away']['isWinner']):
+    if (
+      not mlb_game_response['dates'][0]['games'][0]['teams']['away'].get("isWinner" ) and 
+      '1' in mlb_game_response["dates"] and
+      not mlb_game_response['dates'][1]['games']['teams']['away'].get('isWinner')
+      ):
       print("game has no winner")
       return
     else:
@@ -93,8 +96,8 @@ def call_mlb_patch_prediction(prediction, game_id):
 
 
 
-    if mlb_game_response[dates][1] in mlb_game_response:
-      print("Multi date game")
+    # if mlb_game_response[dates][1] in mlb_game_response:
+    #   print("Multi date game")
   
 
 
