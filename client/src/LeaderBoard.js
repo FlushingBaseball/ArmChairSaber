@@ -122,6 +122,24 @@ http://localhost:5000/
   //   });
   // }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   // function handleWinnerKnown(prediction) {
   //   console.log("this is prediction in handleWinnerknown", prediction);
   //   if (prediction.actualWinnerId !== null) {
@@ -212,6 +230,10 @@ http://localhost:5000/
   //   if (fetchedPredictionData.actualWinnerId === null) {
   //     console.log("In handleWinnerNotKnown");
   //     fetch(`/games/${fetchedPredictionData.game_Id}`).then((resp) => {
+
+
+
+        
   //       if (!resp.ok) {
   //         console.log("didn't have this game on backend");
   //         fetch(
@@ -298,6 +320,9 @@ http://localhost:5000/
   //       postNewGame(newGame);
   //     }
   //   } //end of multi day game cases
+
+
+
   //   else {
   //     console.log("game took place over one day");
   //     if (resp.dates[0].games[0].teams.away.isWinner === true) {
