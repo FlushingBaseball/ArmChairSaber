@@ -74,50 +74,49 @@ def call_mlb_patch_prediction(prediction, game_id):
       return
     else:
       print("game has a winner!")
+      send_game_to_backend(mlb_game_response)
     
     
     
 
-# if prediction['user']['id'] in users_streak_cache:
 
 
+def send_game_to_backend(mlb_game_response):
+  GameWinner = None
+  GameLoser = None
+  game_id = mlb_game_response['dates'][0]['games'][0]['gamePk']
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # if mlb_game_response[dates][1] in mlb_game_response:
-    #   print("Multi date game")
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  if mlb_game_response['dates'][0]['games'][0]['teams']['away']["isWinner" ] == True:
+    GameWinner = mlb_game_response['dates'][0]['games'][0]['teams']['away']['team']['id']
+    GameLoser =  mlb_game_response['dates'][0]['games'][0]['teams']['home']['team']['id']
   else:
-    print(f"Error: {mlb_Data.status_code} - {mlb_Data.text}")
+    GameWinner = mlb_game_response['dates'][0]['games'][0]['teams']['home']['team']['id']
+    GameLoser =  mlb_game_response['dates'][0]['games'][0]['teams']['away']['team']['id']
+
+
+  game = {'gamePk': game_id, 'gameWinner_id': GameWinner, 'gameLoser_id': GameLoser, 'gameResolved': True}
+
+
+  postResponse = requests.post(f'http://localhost:5555/api/games/{game_id}', json=game)
+
+  if postResponse.status_code == 201:
+    print('Success post of game to backend', postResponse.status_code)
+  else:
+    print('Error posting game to backend:', postResponse.status_code)
+    print('Response Content:', postResponse.text)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
