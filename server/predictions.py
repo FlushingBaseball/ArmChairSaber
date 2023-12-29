@@ -40,20 +40,20 @@ def check_for_winners(data):
       handle_winner_not_known(prediction)
 
 
-    
+    # /api/games/<int:gamePk
 
 def handle_winner_not_known(prediction):
 
   game_id = prediction['game_Id']
-  game_response = requests.get('http://localhost:5555/api/games/{game_id}')
+  game_response = requests.get(f'http://localhost:5555/api/games/{str(game_id)}')
 
-  if  game_response.status_code == 200:
+  if  game_response.status_code == 200: ## need to check if the game is resolved or not
     print("200 from server")
     game_data = game_response.json()
     print(f'Server Game Data: {game_data}')
   else:
     print("Game wasn't in database")
-    call_mlb_patch_prediction(prediction, game_id)
+    # call_mlb_patch_prediction(prediction, game_id)
     # print(users_streak_cache)
  
 
@@ -96,7 +96,6 @@ def send_game_to_backend(mlb_game_response):
 
   game = {'gamePk': game_id, 'gameWinner_id': GameWinner, 'gameLoser_id': GameLoser, 'gameResolved': True}
 
-
   postResponse = requests.post(f'http://localhost:5555/api/games/{game_id}', json=game)
 
   if postResponse.status_code == 201:
@@ -112,7 +111,8 @@ def send_game_to_backend(mlb_game_response):
 
 
 
-
+# 2. we aren't checking the games right to see if they're on the backend and have the info? 
+# 1. we have the games we need to patch them
 
 
 
