@@ -349,7 +349,7 @@ def patch_prediction_by_id(id):
     )
 
 
-@app.post('/games/<int:gamePk>')
+@app.post('/api/games/<int:gamePk>')
 def post_Games_by_Pk(gamePk):
     data = request.get_json()
     try:

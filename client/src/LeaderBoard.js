@@ -219,12 +219,6 @@ http://localhost:5000/
   // }
 
 
-
-
-
-
-
-
   
   // function handleWinnerNotKnown(fetchedPredictionData) {
   //   if (fetchedPredictionData.actualWinnerId === null) {
