@@ -7,6 +7,11 @@
   src: url("/public/Fonts/BebasNeue-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "alarmclock";
+  src: url("/public/Fonts/alarmclock.ttf") format("truetype");
+}
+
 /*
   CSS RESET
   */
