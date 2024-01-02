@@ -40,8 +40,7 @@ function handlePredictionSubmit (){
             gameWinner_id: null,
             gameLoser_id: null
         }
-        
-        fetch(`/games/${game.gamePk}`, {
+        fetch(`/api/games/${game.gamePk}`, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json',

@@ -47,7 +47,8 @@ def handle_winner_not_known(prediction):
   game_id = prediction['game_Id']
   game_response = requests.get(f'http://localhost:5555/api/games/{str(game_id)}')
 
-  if  game_response.status_code == 200: ## need to check if the game is resolved or not
+  if  game_response.status_code == 200: ## need to check if the game is resolved or not ,lll
+  v
     print("200 from server")
     game_data = game_response.json()
     print(f'Server Game Data: {game_data}')
