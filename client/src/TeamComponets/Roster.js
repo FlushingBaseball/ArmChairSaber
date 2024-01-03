@@ -12,7 +12,10 @@ function Roster({ selectedTeam, selectedRoster }) {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        setRosterData(data.roster);
+        // console.log(data)
+        data.roster
+          ? setRosterData(data.roster)
+          : alert("There's no data for this roster type as of now");
       });
   }, [selectedTeam, selectedRoster]);
 

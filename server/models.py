@@ -20,7 +20,6 @@ class User(db.Model, SerializerMixin):
     longestStreak = db.Column(db.Integer)
     User_Predictions = db.relationship('User_Prediction', backref="user")
 
-
     @hybrid_property
     def password_hash(self):
         raise AttributeError('Cannot access password hash!')
@@ -44,9 +43,6 @@ class User(db.Model, SerializerMixin):
     
     serialize_rules = ("-_password_hash", "-User_Predictions.user")
 
-
-
-
 class Player(db.Model, SerializerMixin):
     __tablename__ = "players"
 
@@ -57,8 +53,6 @@ class Player(db.Model, SerializerMixin):
     mlbId = db.Column(db.Integer, nullable=False, unique=True)
 
     serialize_rules = () 
-
-
 
 
 class User_Prediction(db.Model, SerializerMixin):
@@ -80,17 +74,9 @@ class User_Prediction(db.Model, SerializerMixin):
     isResolved = db.Column(db.Boolean, nullable = True, default = False)
     ##back ref user = relationship
     ##back ref game = relationship
+
     serialize_rules=("-game.Game_Predictions", "-user.User_Predictions")
 
-    ## for when teams table is added to database
-
-    # @validates('predictedWinnerId')
-    # def validate_predictedWinner(self, key, team):
-    #     teams = db.session.query(Teams.id).all()
-    #     if team not in teams:
-    #         raise ValueError("Invalid team ID")
-    #     return team
-    
 
 class Game(db.Model, SerializerMixin):
     __tablename__ = "games"
@@ -99,10 +85,8 @@ class Game(db.Model, SerializerMixin):
     gamePk = db.Column(db.Integer, nullable=False, unique=True)
     gameWinner_id = db.Column(db.Integer, nullable=True)
     gameLoser_id= db.Column(db.Integer, nullable=True)
-    gameResolved = db.Column(db.Boolean, nullable = True)
+    gameResolved = db.Column(db.Boolean, nullable = False, default = False)
     Game_Predictions = db.relationship('User_Prediction', backref='game')
-
-
 
     serialize_rules=("-user_predictions.game",)
 
