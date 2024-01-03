@@ -102,6 +102,7 @@ class Game(db.Model, SerializerMixin):
     gameResolved = db.Column(db.Boolean, nullable = True)
     Game_Predictions = db.relationship('User_Prediction', backref='game')
 
+##    gameResolved = db.Column(db.Boolean, nullable = False, default = False)
 
 
     serialize_rules=("-user_predictions.game",)
