@@ -323,7 +323,7 @@ def get_prediction_by_id(id):
     )
 
 
-@app.patch('/predictions/<int:id>')
+@app.patch('/api/predictions/<int:id>')
 def patch_prediction_by_id(id):
     prediciton = User_Prediction.query.filter(
         User_Prediction.id == id
@@ -399,41 +399,60 @@ def get_game_by_id(gamePk):
         200
     )
 
-
-@app.patch('/games/<int:gamePk>')
+@app.patch('/api/games/<int:gamePk>')
 def patch_game_by_gamePk(gamePk):
-    game = Game.query.filter(
-        Game.gamePk == gamePk
-    ).first()
+    try:
+        game = Game.query.filter(
+            Game.gamePk == gamePk
+        ).first()
+            
+        if not game:
+            return make_response(
+                jsonify({"error": 'Game not found to patch'}),
+                404
+            )
 
-    if not game:
+        data = request.get_json()
+
+        if not data:
+            return make_response(
+                jsonify({"Error": "Invalid or missing JSON data"}),
+                400
+            )
+        
+        for field in data:
+            setattr(game, field, data[field])
+            
+        db.session.add(game)
+        db.session.commit()
+        
         return make_response(
-            jsonify({"error": 'Game not found to patch'}),
-            404
+            jsonify(game.to_dict()),
+            200
         )
-    
-    data = request.get_json()
-
-    for field in data:
-        setattr(vs, field, data[field])
-
-    db.session.add(game)
-    db.session.commit()
-
-    return make_response(
-        jsonify(game.to_dict()),
-        200
-    )
+            
+    except Exception as e:
+        return make_response(
+            jsonify({"Error": "Internal Server Error"}),
+            500
+        )
 
 
-## leaderboard fuction 
 
-@app.route('/leaders')
-def create_leader_board():
-    leaderboard = User_Prediction.query.all()
-    outPut = [p.to_dict() for p in leaderboard]
 
-    return outPut
+
+
+
+
+
+
+# ## leaderboard fuction 
+# @app.route('/leaders')
+# def create_leader_board():
+#     leaderboard = User_Prediction.query.all()
+#     outPut = [p.to_dict() for p in leaderboard]
+
+#     return outPut
 
 
 
