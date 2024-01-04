@@ -144,7 +144,7 @@ def get_user_by_id(id):
 
 
 
-@app.patch('/users/<int:id>')
+@app.patch('/api/users/<int:id>')
 def patch_user_by_id(id):
     user = User.query.filter(
         User.id == id
@@ -159,7 +159,10 @@ def patch_user_by_id(id):
     data = request.get_json()
 
     for field in data:
-        setattr(user, field, data[field])
+        if hasattr(User, field):
+            setattr(user, field, data[field])
+        else:
+            print(f"Patch data did not have field {field}")
 
     db.session.add(user)
     db.session.commit()
@@ -291,8 +294,6 @@ def get_single_unresolved_prediction():
 
 
 
-
-
 @app.get('/predictions')
 def get_all_Predicitons():
     predictions = User_Prediction.query.all()
@@ -323,30 +324,43 @@ def get_prediction_by_id(id):
     )
 
 
-@app.patch('/predictions/<int:id>')
+@app.patch('/api/predictions/<int:id>')
 def patch_prediction_by_id(id):
-    prediciton = User_Prediction.query.filter(
-        User_Prediction.id == id
-    ).first()
+    try:
+        prediction = User_Prediction.query.filter(
+            User_Prediction.id == id
+        ).first()
+        
+        if not prediction:
+            return make_response(
+                jsonify({"error": 'prediction not found to patch'}),
+                404
+            )
+        
+        data = request.get_json()
 
-    if not prediciton:
+        if not data:
+            return make_response(
+                jsonify({"Error": "Invalid or missing incoming JSON data"}),
+                400
+            )
+        
+        for field in data:
+            setattr(prediction, field, data[field])
+        
+        db.session.add(prediction)
+        db.session.commit()
+        
         return make_response(
-            jsonify({"error": 'Predition not found to patch'}),
-            404
+            jsonify(prediction.to_dict()),
+            200
         )
-    
-    data = request.get_json()
+    except Exception as e:
+        return make_response(
+            jsonify({"Error": "Internal Server Error"}),
+            500
+        )
 
-    for field in data:
-        setattr(prediciton, field, data[field])
-
-    db.session.add(prediciton)
-    db.session.commit()
-
-    return make_response(
-        jsonify(prediciton.to_dict()),
-        200
-    )
 
 
 @app.post('/api/games/<int:gamePk>')
@@ -399,55 +413,49 @@ def get_game_by_id(gamePk):
         200
     )
 
-
-@app.patch('/games/<int:gamePk>')
+@app.patch('/api/games/<int:gamePk>')
 def patch_game_by_gamePk(gamePk):
-    game = Game.query.filter(
-        Game.gamePk == gamePk
-    ).first()
+    try:
+        game = Game.query.filter(
+            Game.gamePk == gamePk
+        ).first()
+            
+        if not game:
+            return make_response(
+                jsonify({"error": 'Game not found to patch'}),
+                404
+            )
 
-    if not game:
+        data = request.get_json()
+
+        if not data:
+            return make_response(
+                jsonify({"Error": "Invalid or missing JSON data"}),
+                400
+            )
+        
+        for field in data:
+            setattr(game, field, data[field])
+            
+        db.session.add(game)
+        db.session.commit()
+        
         return make_response(
-            jsonify({"error": 'Game not found to patch'}),
-            404
+            jsonify(game.to_dict()),
+            200
         )
-    
-    data = request.get_json()
-
-    for field in data:
-        setattr(vs, field, data[field])
-
-    db.session.add(game)
-    db.session.commit()
-
-    return make_response(
-        jsonify(game.to_dict()),
-        200
-    )
-
-
-## leaderboard fuction 
-
-@app.route('/leaders')
-def create_leader_board():
-    leaderboard = User_Prediction.query.all()
-    outPut = [p.to_dict() for p in leaderboard]
-
-    return outPut
-
-
+            
+    except Exception as e:
+        return make_response(
+            jsonify({"Error": "Internal Server Error"}),
+            500
+        )
 
 
 ## returning index.html to enable dynamic routing to work on refresh
-
 @app.errorhandler(404)   
 def not_found(e):   
   return app.send_static_file('index.html')
-
-
-
-
-
 
 
 if __name__ == '__main__':
