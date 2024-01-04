@@ -112,11 +112,14 @@ def patch_game_on_backend(mlb_game_response, last_date):
 
 
 
+
+
+
 def patch_user_prediction(prediction, backend_game_data):
   prediction_actual_Winner_Id = backend_game_data['gameWinner_id']
   prediction_actual_Loser_Id = backend_game_data['gameWinner_id']
   prediction_id = prediction['id']
-
+  user_id = prediction['user']['id']
 
 
   patched_prediction = {
@@ -138,6 +141,23 @@ def patch_user_prediction(prediction, backend_game_data):
     print("Response Content:", postResponse.text)
     print("\n" *5)
 
+  # Both Comparators are int's
+  if (prediction['predictedWinnerId'] == prediction_actual_Winner_Id):
+    users_cache[user_id]["totalGuessesCorrect"] += 1
+    users_cache[user_id]["totalScore"] += 10
+    users_cache[user_id]["currentStreak"] += 1
+  else:
+    users_cache[user_id]["totalGuessesIncorrect"] += 1
+    users_cache[user_id]["totalScore"] -= 10
+    users_cache[user_id]["currentStreak"] =0
+
+
+
+  if(users_cache[user_id]["currentStreak"] > users_cache[user_id]["longestStreak"]):
+    ## something something
+
+
+
   """ 
   users_cache
   if (prediction['predictedWinnerId'] == backend_game_data['gameWinner_id']):
@@ -149,18 +169,7 @@ def patch_user_prediction(prediction, backend_game_data):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+# ['user']["totalGuessesCorrect"] + 1
 
 
 def patch_user_info():
