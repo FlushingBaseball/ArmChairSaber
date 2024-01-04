@@ -1,7 +1,8 @@
 import requests
 import asyncio
 
-users_streak_cache = {}
+users_cache = {}
+
 
 ## Fetch all unresolved predictions
 async def handle_unresolved_predictions_pool():
@@ -23,17 +24,21 @@ def check_for_winners_contamination(data):
   print(f"Successfully called CFW")
   for prediction in data:
     ## building out streak cache 
-    if prediction['user']['id'] in users_streak_cache:
+    if prediction['user']['id'] in users_cache:
       print("had this user")
     else:
       print("didn't have this user")
-      users_streak_cache[prediction['user']['id']] = prediction['user']['currentStreak']
+      users_cache[prediction['user']['id']] = prediction['user']
     ## checking for ActualWinnerData contamination don't know if this is needed but flask sqlAlchemy has done some weird stuff so -_(0-0)_-
+    # print(users_cache)
+    # print("\n" *10)
     if (prediction['actualWinnerId'] != None):
       print("You should have never gotten here big problem")
       print("\n" * 20 )
     else:
       handle_winner_not_known(prediction)
+  print("after all the predictions were processed")
+  #patch_user_info
 
 
 def handle_winner_not_known(prediction):
@@ -49,16 +54,16 @@ def handle_winner_not_known(prediction):
       call_mlb_patch_prediction(prediction, game_id, backend_game_data)
     else:
       print("backend game isResolved")
-      patch_user_prediction(prediciton, backend_game_data)
-
+      patch_user_prediction(prediction, backend_game_data)
 
   else:
-    print("Game wasn't in database")
+    print("Game wasn't in database, this shouldn't be possible")
     print("\n" * 10)
-    # call_mlb_patch_prediction(prediction, game_id)
-    # print(users_streak_cache)
- 
 
+
+"""
+  Attempts to resolve backend game by calling the MLB API and checking if the game has been offically scored
+"""
 def call_mlb_patch_prediction(prediction, game_id, backend_game_data=None):
   print("In: call_mlb_patch_prediction")
 
@@ -66,9 +71,7 @@ def call_mlb_patch_prediction(prediction, game_id, backend_game_data=None):
 
   if mlb_Data.status_code ==200:
     mlb_game_response = mlb_Data.json()
-
     last_date = len(mlb_game_response.get('dates')) -1
-
     # print(f'This is the response from MLB: {mlb_game_response}')
     print(f"Abstract Game State is {mlb_game_response['dates'][last_date]['games'][0]['status']['abstractGameState']}")
     if (mlb_game_response['dates'][last_date]['games'][0]['status']['abstractGameState'] != 'Final'):
@@ -109,24 +112,71 @@ def patch_game_on_backend(mlb_game_response, last_date):
 
 
 
-# def patch_user_prediction(prediciton, backend_game_data):
-
-#   PredictionactualWinnerId = backend_game_data['gameWinner_id']
-#   PredictionactualLoserId = backend_game_data['gameWinner_id']
-
-#   patched_predictions = {"actualWinnerId": PredictionactualWinnerId, "actualLoserId": PredictionactualLoserId, "isResolved": True} 
-
-
-#   """ 
-#   if (prediction['predictedWinnerId'] == backend_game_data['gameWinner_id']):
-#     users_streak_cache[prediction['user']['id']] + 1
-#   else:
-#     users_streak_cache[prediction['user']['id']] = 0
-#   """
+def patch_user_prediction(prediction, backend_game_data):
+  prediction_actual_Winner_Id = backend_game_data['gameWinner_id']
+  prediction_actual_Loser_Id = backend_game_data['gameWinner_id']
+  prediction_id = prediction['id']
 
 
 
-#     prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{}')
+  patched_prediction = {
+    "actualWinnerId": prediction_actual_Winner_Id,
+    "actualLoserId":  prediction_actual_Loser_Id,
+    "isResolved": True
+  } 
+
+  prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
+  json=patched_prediction
+  )
+
+  if prediction_patch_response.status_code==200:
+    print("Success, prediction patched", prediction_patch_response.status_code)
+    print("\n" * 5 )
+
+  else:
+    print("Error patching game on backend", prediction_patch_response.status_code)
+    print("Response Content:", postResponse.text)
+    print("\n" *5)
+
+  """ 
+  users_cache
+  if (prediction['predictedWinnerId'] == backend_game_data['gameWinner_id']):
+    users_streak_cache[prediction['user']['id']] + 1
+  else:
+    users_streak_cache[prediction['user']['id']] = 0
+  """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def patch_user_info():
+  """
+  /api/users/<int:id>
+
+  totalScore
+        ##users_streak_cache[prediction['user']['id']] = prediction['user']['currentStreak']
+
+  totalGuessesCorrect
+  totalGuessesIncorrect
+  currentStreak
+  longestStreak
+  """
+
+
 
 
 
@@ -135,3 +185,12 @@ asyncio.run(handle_unresolved_predictions_pool())
 
 ## Remember to update user feilds longest Streak, Currentstreak total guesses correct
 ##totalguessedincorrect total score etc
+
+
+## build out better user cache nested dicts? 
+
+
+
+
+
+## Game resolved on backend should be the single source of truth? 
