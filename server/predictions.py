@@ -122,24 +122,24 @@ def patch_user_prediction(prediction, backend_game_data):
   user_id = prediction['user']['id']
 
 
-  patched_prediction = {
-    "actualWinnerId": prediction_actual_Winner_Id,
-    "actualLoserId":  prediction_actual_Loser_Id,
-    "isResolved": True
-  } 
+  # patched_prediction = {
+  #   "actualWinnerId": prediction_actual_Winner_Id,
+  #   "actualLoserId":  prediction_actual_Loser_Id,
+  #   "isResolved": True
+  # } 
 
-  prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
-  json=patched_prediction
-  )
+  # prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
+  # json=patched_prediction
+  # )
 
-  if prediction_patch_response.status_code==200:
-    print("Success, prediction patched", prediction_patch_response.status_code)
-    print("\n" * 5 )
+  # if prediction_patch_response.status_code==200:
+  #   print("Success, prediction patched", prediction_patch_response.status_code)
+  #   print("\n" * 5 )
 
-  else:
-    print("Error patching game on backend", prediction_patch_response.status_code)
-    print("Response Content:", postResponse.text)
-    print("\n" *5)
+  # else:
+  #   print("Error patching game on backend", prediction_patch_response.status_code)
+  #   print("Response Content:", postResponse.text)
+  #   print("\n" *5)
 
   # Both Comparators are int's
   if (prediction['predictedWinnerId'] == prediction_actual_Winner_Id):
@@ -154,7 +154,18 @@ def patch_user_prediction(prediction, backend_game_data):
 
 
   if(users_cache[user_id]["currentStreak"] > users_cache[user_id]["longestStreak"]):
+    print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
+    print("users current steak was longer than longeststreak")
+  
+  elif (users_cache[user_id]["currentStreak"] == users_cache[user_id]["longestStreak"]):
+    print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
+    print("Current and longest were equal")
     ## something something
+  else:
+    print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
+    print("users longest streak was greater than current streak")
+  
+  patch_user_info()
 
 
 
@@ -173,6 +184,26 @@ def patch_user_prediction(prediction, backend_game_data):
 
 
 def patch_user_info():
+  for key in users_cache:
+    print("\n" *10)
+    print(f"This is the user being handled {users_cache[key]}")
+  #   user_patch_response = requests.patch(f"http://localhost:5555/api/users/{str(user)}")
+  #   /api/users/<int:id>
+
+
+  #     prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
+  # json=patched_prediction
+  # )
+
+  # if prediction_patch_response.status_code==200:
+  #   print("Success, prediction patched", prediction_patch_response.status_code)
+  #   print("\n" * 5 )
+
+  # else:
+  #   print("Error patching game on backend", prediction_patch_response.status_code)
+  #   print("Response Content:", postResponse.text)
+  #   print("\n" *5)
+
   """
   /api/users/<int:id>
 
