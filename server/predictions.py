@@ -234,3 +234,12 @@ asyncio.run(handle_unresolved_predictions_pool())
 
 
 ## Game resolved on backend should be the single source of truth? 
+
+
+
+
+
+
+
+## Need to be careful not to destroy my data with a bad update
+## cant let predictions resolved and user updates mess up
