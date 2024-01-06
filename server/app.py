@@ -173,6 +173,77 @@ def patch_user_by_id(id):
     )
 
 
+## batch_update users for prediction grading
+@app.patch('/api/batch_update_users')
+def batch_update_users():
+    try:
+        db.session.begin()
+
+        data = request.get_json()
+        print("this is the data recieved", data)
+        print("\n" * 5)
+
+
+
+        print("here is the request method", request.method)
+        print("here is the request headers", request.headers)
+        print("\n" * 5)
+
+
+        for user_update in data:
+            print("this is user_update", user_update)
+            print("\n" * 5)
+
+            user_id = user_update.get('id')
+            user = User.query.filter(
+                User.id == user_id
+            ).first()
+            print("this is the user we found", user)
+            print("\n" * 5)
+
+            if user:
+                for field, value in user_update.items():
+                    if hasattr(User, field):
+                        setattr(user, field, value)
+                    else:
+                        print(f"Patch data for user {user_id} did not have field {field}")
+
+        # Commit the transaction if all updates are successful
+        db.session.commit()
+
+        return make_response(
+            jsonify({"message": "Batch update successful"}),
+            200
+        )
+
+    except Exception as e:
+        # Rollingback the transaction if there's an error
+        db.session.rollback()
+        print("Error during batch update:", str(e))
+
+        return make_response(
+            jsonify({"error": "Batch update failed"}),
+            500
+        )
+
+    finally:
+        db.session.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.post('/players')
 def post_player():

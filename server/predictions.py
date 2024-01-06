@@ -1,5 +1,6 @@
 import requests
 import asyncio
+import time
 
 users_cache = {}
 
@@ -33,44 +34,44 @@ def check_for_winners_contamination(data):
     # print(users_cache)
     # print("\n" *10)
     if (prediction['actualWinnerId'] != None):
-      print("You should have never gotten here big problem")
+      print("You should have never gotten here, big problem")
       print("\n" * 20 )
     else:
+      ##Entry point for handling each prediction 
       handle_winner_not_known(prediction)
   print("after all the predictions were processed")
-  #patch_user_info
+  patch_user_info()
 
 
 def handle_winner_not_known(prediction):
-
   game_id = prediction['game_Id']
+
+  ## Checking if the game is already on the backend (It should always be)
   game_response = requests.get(f'http://localhost:5555/api/games/{str(game_id)}')
 
   if  game_response.status_code == 200:
-    print("Game entry was on backend")
+    print("Game was on backend")
     backend_game_data = game_response.json()
-    print(f'Server Game Data: {backend_game_data}')
+    ## Checking if the prediction can be soley graded with data not from MLB API
     if (backend_game_data['gameResolved']== False):
       call_mlb_patch_prediction(prediction, game_id, backend_game_data)
     else:
       print("backend game isResolved")
       patch_user_prediction(prediction, backend_game_data)
-
   else:
     print("Game wasn't in database, this shouldn't be possible")
     print("\n" * 10)
 
 
-"""
-  Attempts to resolve backend game by calling the MLB API and checking if the game has been offically scored
-"""
+
 def call_mlb_patch_prediction(prediction, game_id, backend_game_data=None):
   print("In: call_mlb_patch_prediction")
-
+  ## Calling MLB API to request status of game the prediction was made on
   mlb_Data = requests.get(f'https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk={str(game_id)}')
 
   if mlb_Data.status_code ==200:
     mlb_game_response = mlb_Data.json()
+    ## Always checking the last date of a game object in order to handle rainouts etc
     last_date = len(mlb_game_response.get('dates')) -1
     # print(f'This is the response from MLB: {mlb_game_response}')
     print(f"Abstract Game State is {mlb_game_response['dates'][last_date]['games'][0]['status']['abstractGameState']}")
@@ -80,11 +81,15 @@ def call_mlb_patch_prediction(prediction, game_id, backend_game_data=None):
     else:
       print("Game has a winner!")
       patch_game_on_backend(mlb_game_response, last_date)
+  else:
+    print("Request to the MLB API failed!", mlb_game_response.status_code)
+    print('Response Content:', postResponse.text)
+    print("\n" *5)
       
 
 
 
-
+## Patching our unresolved game on the backend so we never have to ask MLB for the same game info again
 def patch_game_on_backend(mlb_game_response, last_date):
   GameWinner = None
   GameLoser = None
@@ -114,132 +119,100 @@ def patch_game_on_backend(mlb_game_response, last_date):
 
 
 
-
+## I've decided games will only be patched from the backend game data for now, one function should be grading all predictions
 def patch_user_prediction(prediction, backend_game_data):
-  prediction_actual_Winner_Id = backend_game_data['gameWinner_id']
-  prediction_actual_Loser_Id = backend_game_data['gameWinner_id']
   prediction_id = prediction['id']
   user_id = prediction['user']['id']
 
+  prediction_actual_Winner_Id = backend_game_data['gameWinner_id']
+  prediction_actual_Loser_Id = backend_game_data['gameWinner_id']
 
-  # patched_prediction = {
-  #   "actualWinnerId": prediction_actual_Winner_Id,
-  #   "actualLoserId":  prediction_actual_Loser_Id,
-  #   "isResolved": True
-  # } 
 
-  # prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
-  # json=patched_prediction
-  # )
+  patched_prediction = {
+    "actualWinnerId": prediction_actual_Winner_Id,
+    "actualLoserId":  prediction_actual_Loser_Id,
+    "isResolved": True
+  } 
 
-  # if prediction_patch_response.status_code==200:
-  #   print("Success, prediction patched", prediction_patch_response.status_code)
-  #   print("\n" * 5 )
+  prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
+  json=patched_prediction
+  )
 
-  # else:
-  #   print("Error patching game on backend", prediction_patch_response.status_code)
-  #   print("Response Content:", postResponse.text)
-  #   print("\n" *5)
+  if prediction_patch_response.status_code==200:
+    print("Success, prediction patched", prediction_patch_response.status_code)
+    print("\n" * 2 )
+    print("Starting cache work")
+    if (prediction['predictedWinnerId'] == prediction_actual_Winner_Id):
+      users_cache[user_id]["totalGuessesCorrect"] += 1
+      users_cache[user_id]["totalScore"] += 10
+      users_cache[user_id]["currentStreak"] += 1
+    else:
+      users_cache[user_id]["totalGuessesIncorrect"] += 1
+      users_cache[user_id]["totalScore"] -= 10
+      users_cache[user_id]["currentStreak"] =0
+      ## handling streaks
+    if(users_cache[user_id]["currentStreak"] > users_cache[user_id]["longestStreak"]):
+      print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
+      print("users current steak was longer than longeststreak")
+      users_cache[user_id]["longestStreak"] = users_cache[user_id]["currentStreak"]
+    elif (users_cache[user_id]["currentStreak"] == users_cache[user_id]["longestStreak"]):
+      print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
+      print("Current and longest were equal")
+    else:
+      print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
+      print("users longest streak was greater than current streak")
 
-  # Both Comparators are int's
-  if (prediction['predictedWinnerId'] == prediction_actual_Winner_Id):
-    users_cache[user_id]["totalGuessesCorrect"] += 1
-    users_cache[user_id]["totalScore"] += 10
-    users_cache[user_id]["currentStreak"] += 1
   else:
-    users_cache[user_id]["totalGuessesIncorrect"] += 1
-    users_cache[user_id]["totalScore"] -= 10
-    users_cache[user_id]["currentStreak"] =0
+    print("Error patching game on backend", prediction_patch_response.status_code)
+    print("Response Content:", postResponse.text)
+    print("\n" *5)
 
 
-
-  if(users_cache[user_id]["currentStreak"] > users_cache[user_id]["longestStreak"]):
-    print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
-    print("users current steak was longer than longeststreak")
-  
-  elif (users_cache[user_id]["currentStreak"] == users_cache[user_id]["longestStreak"]):
-    print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
-    print("Current and longest were equal")
-    ## something something
-  else:
-    print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
-    print("users longest streak was greater than current streak")
-  
-  patch_user_info()
-
-
-
-  """ 
-  users_cache
-  if (prediction['predictedWinnerId'] == backend_game_data['gameWinner_id']):
-    users_streak_cache[prediction['user']['id']] + 1
-  else:
-    users_streak_cache[prediction['user']['id']] = 0
-  """
-
-
-
-
-# ['user']["totalGuessesCorrect"] + 1
 
 
 def patch_user_info():
-  for key in users_cache:
-    print("\n" *10)
-    print(f"This is the user being handled {users_cache[key]}")
-  #   user_patch_response = requests.patch(f"http://localhost:5555/api/users/{str(user)}")
-  #   /api/users/<int:id>
+    max_retry_limit = 3
+    retry_delay_seconds = 5
+    attempts = 0
+
+    formatted_user_data = list(users_cache.values())
+    print("this is the formatted user data", formatted_user_data)
+    print("\n" * 5)
 
 
-  #     prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
-  # json=patched_prediction
-  # )
+    while attempts < max_retry_limit:
+        try:
+            batch_user_update_response = requests.patch('http://localhost:5555/api/batch_update_users',json=formatted_user_data)
 
-  # if prediction_patch_response.status_code==200:
-  #   print("Success, prediction patched", prediction_patch_response.status_code)
-  #   print("\n" * 5 )
+            if batch_user_update_response.status_code == 200:
+                print("Success, all users patched", batch_user_update_response.status_code)
+                print("\n" * 5)
+                break  # The update worked, exit the while loop
 
-  # else:
-  #   print("Error patching game on backend", prediction_patch_response.status_code)
-  #   print("Response Content:", postResponse.text)
-  #   print("\n" *5)
+            print("Error patching users on backend", batch_user_update_response.status_code)
+            print("Response Content:", batch_user_update_response.text)
+            print("\n" * 5)
+        except Exception as e:
+            print(f"Exception during patch attempt (Attempt {attempts + 1}):", str(e))
 
-  """
-  /api/users/<int:id>
+        attempts += 1
 
-  totalScore
-        ##users_streak_cache[prediction['user']['id']] = prediction['user']['currentStreak']
+        if attempts < max_retry_limit:
+            # delay before trying again
+            time.sleep(retry_delay_seconds)
+            print(f"Retrying in {retry_delay_seconds} seconds... \n")
 
-  totalGuessesCorrect
-  totalGuessesIncorrect
-  currentStreak
-  longestStreak
-  """
+    if attempts == max_retry_limit:
+        print("Max retries reached. Failed to patch users")
+        print("\n" * 10)
 
+  
+
+
+  
 
 
 
 
 asyncio.run(handle_unresolved_predictions_pool())
 
-
-## Remember to update user feilds longest Streak, Currentstreak total guesses correct
-##totalguessedincorrect total score etc
-
-
-## build out better user cache nested dicts? 
-
-
-
-
-
-## Game resolved on backend should be the single source of truth? 
-
-
-
-
-
-
-
-## Need to be careful not to destroy my data with a bad update
-## cant let predictions resolved and user updates mess up
