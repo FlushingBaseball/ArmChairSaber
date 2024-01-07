@@ -82,6 +82,9 @@
 }
 
 #WrapperLeaderBoard {
+  background-color: #fbfbca;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -1820,6 +1823,50 @@ th.team-th {
 
 
 
+
+#Leaderboard{
+  background: #2c1b47;
+  color: white;
+  border-collapse: collapse;
+}
+#Leaderboard-Head{
+  background-color: rgb(36, 162, 144);
+  color: black;
+}
+
+
+#leaderboard-banner{
+  padding-top: 2.5vh; 
+  font-family: alarmclock;
+  text-transform: uppercase;
+
+}
+#leaderboard-sub{
+  font-family: alarmclock;
+  text-transform: uppercase;
+  margin-bottom: 2vh;
+}
+
+
+#thanks{
+  margin-top: 100px;
+  font-family: zektonrg;
+  width: 33vw;
+}
+
+#leaderboard-pic{
+  width: 3vw;
+}
+
+.leader-row{
+  padding: 20px 0px;
+}
+
+.leader-head{
+  padding: 2px;
+}
+
+
 /* font-family: 'zektonrg'; */
 
 
@@ -1854,6 +1901,13 @@ th.team-th {
   }
   .search {
     width: 65vw;
+  }
+  #Leaderboard{
+    width: 98vw;
+  }
+  #thanks{
+    width: 98vw;
+    text-wrap: pretty;
   }
 
   .WrapperRoster {
