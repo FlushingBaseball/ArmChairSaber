@@ -1801,7 +1801,10 @@ th.team-th {
 }
 
 
-
+.WrapperSelect{
+  display: flex;
+  gap: 7vw;
+}
 
 .WrapperBlogHome{
   width: 100vw;

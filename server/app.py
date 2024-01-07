@@ -142,8 +142,6 @@ def get_user_by_id(id):
     return user.to_dict(), 200
 
 
-
-
 @app.patch('/api/users/<int:id>')
 def patch_user_by_id(id):
     user = User.query.filter(
@@ -171,6 +169,77 @@ def patch_user_by_id(id):
         jsonify(user.to_dict()),
         200
     )
+
+
+## batch_update users for prediction grading
+@app.patch('/api/batch_update_users')
+def batch_update_users():
+    try:
+        db.session.begin()
+
+        data = request.get_json()
+        print("this is the data recieved", data)
+        print("\n" * 5)
+
+
+
+        print("here is the request method", request.method)
+        print("here is the request headers", request.headers)
+        print("\n" * 5)
+
+
+        for user_update in data:
+            print("this is user_update", user_update)
+            print("\n" * 5)
+
+            user_id = user_update.get('id')
+            user = User.query.filter(
+                User.id == user_id
+            ).first()
+            print("this is the user we found", user)
+            print("\n" * 5)
+
+            if user:
+                for field, value in user_update.items():
+                    if hasattr(User, field):
+                        setattr(user, field, value)
+                    else:
+                        print(f"Patch data for user {user_id} did not have field {field}")
+
+        # Commit the transaction if all updates are successful
+        db.session.commit()
+
+        return make_response(
+            jsonify({"message": "Batch update successful"}),
+            200
+        )
+
+    except Exception as e:
+        # Rollingback the transaction if there's an error
+        db.session.rollback()
+        print("Error during batch update:", str(e))
+
+        return make_response(
+            jsonify({"error": "Batch update failed"}),
+            500
+        )
+
+    finally:
+        db.session.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -271,25 +340,6 @@ def get_all_not_resolved_predictions():
         jsonify(data),
         200
     )
-
-
-@app.get('/nextUnresolvedPrediction')
-def get_single_unresolved_prediction():
-    un_res_prediction = User_Prediction.query.filter(
-        User_Prediction.isResolved == False
-    ).first()
-
-    if not un_res_prediction:
-        return make_response(
-            jsonify({'error': 'Unresolved Predictions not found'}),
-            404
-        )
-    
-    return make_response(
-        jsonify(un_res_prediction.to_dict()),
-        200
-    )
-
 
 
 
@@ -450,6 +500,83 @@ def patch_game_by_gamePk(gamePk):
             jsonify({"Error": "Internal Server Error"}),
             500
         )
+
+
+
+
+
+
+@app.get('/api/leaderboard')
+def get_leaders():
+    leaders = User.query.all()
+    data = [l.to_dict() for l in leaders]
+
+    if not leaders:
+        return make_response(
+            jsonify({"Error": "couldn't make leaderboard"}),
+            500
+        )
+    
+    return make_response(
+        jsonify(data),
+        200
+        )
+
+
+
+
+
+
+
+
+# @app.get('/players')
+# def get_all_Players():
+#     players = Player.query.all()
+#     data = [p.to_dict() for p in players]
+
+#     return make_response(
+#         jsonify(data),
+#         200
+#         )
+
+
+        # leaderboard_users = User.query.filter(User.totalNumGuesses >= 1).all()
+
+    #     if not leaderboard_users:
+    #         return make_response(
+    #             jsonify({"Error": "couldn't make leaderboard"}),
+    #             500
+    #         )
+
+    #     # leaderboard_user_list = [
+    #     #     {
+    #     #     'username' : user.username,
+    #     #     'totalScore': user.totalScore,
+    #     #     'totalNumGuesses': user.totalNumGuesses,
+    #     #     'totalGuessesCorrect': user.totalGuessesCorrect,
+    #     #     'totalGuessesIncorrect': user.totalGuessesIncorrect,
+    #     #     'currentStreak': user.currentStreak,
+    #     #     'longestStreak': user.longestStreak
+    #     #     }
+    #     #     for user in leaderboard_users
+    #     # ]
+
+    #     return make_response(
+    #         # jsonify(leaderboard_user_list),
+    #         jsonify(data),
+    #         200
+    #     )
+
+    # except Exception as e:
+    #     # Failed to get leaderboard?
+    #     print("Error making leaderboard on backend:", str(e))
+    #     return make_response(
+    #         jsonify({"error": "Leaderboard failed"}),
+    #         500
+    #     )
+
+
+
 
 
 ## returning index.html to enable dynamic routing to work on refresh

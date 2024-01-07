@@ -9,13 +9,13 @@ import Nav from "./Nav";
 import NotFound from "./NotFound";
 import LiveGame from "./LiveGame";
 import TeamMap from "./TeamComponets/TeamMap";
-import LeaderBoard from "./LeaderBoard";
+import Leaderboard from "./LeaderboardComponets/Leaderboard";
 import Login from "./Login";
 import SignOut from "./SignOut";
 import Test from "./Test";
-import AdvancedPitching from "./AdvancedPItching";
+
 import FieldingSaber from "./FieldingSaber";
-import AdvancedBatting from "./AdvancedBatting";
+import RollingMetrics from "./RollingMetrics";
 import LeagueLeaders from "./LeaugeLeaders";
 import UserHome from "./UserPageComponets/UserHome";
 import Faq from "./Faq";
@@ -48,10 +48,10 @@ function App() {
         <Route path="/teams" element={<Teams />} />
         <Route path="/today" element={<Today user={user} />} />
         <Route path="TodaysGame/:gamePk" element={<LiveGame />} />
-        <Route path="Leaderboard" element={<LeaderBoard />} />
+        <Route path="Leaderboard" element={<Leaderboard />} />
         <Route path="test" element={<Test />} />
-        <Route path="/advancedBatting" element={<AdvancedBatting />} />
-        <Route path="/advancedPitching" element={<AdvancedPitching />} />
+        <Route path="/rolling-metrics" element={<RollingMetrics />} />
+
         <Route path="/blog" element={<BlogHome />} />
         <Route
           path="/advancedFielding"

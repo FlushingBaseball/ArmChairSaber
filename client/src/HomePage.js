@@ -12,17 +12,13 @@ function HomePage() {
     navigate(`/${id}`);
   }
 
-  /**
-   * Switched from clickable Div's to buttons. Accessibility is better and the styling challenge is rough but funny to dig into
-   */
-
   return (
     <div className="flexParent">
       <button
         className="homeTile"
-        onClick={() => handleTileClick("advancedPitching")}
+        // onClick={() => handleTileClick("advancedPitching")}
       >
-        Rolling Pitching Metrics by Team
+        Temporary pause
         <img
           className="homeIcon"
           src="Images/HomePageIcons/PITCHINGv3.svg"
@@ -32,9 +28,9 @@ function HomePage() {
 
       <button
         className="homeTile panel-button"
-        onClick={() => handleTileClick("advancedBatting")}
+        onClick={() => handleTileClick("rolling-metrics")}
       >
-        Rolling Batting Metrics by Team
+        Rolling Player Metrics By Team
         <img
           className="homeIcon"
           src="Images/HomePageIcons/BATTINGv3.svg"
@@ -81,9 +77,7 @@ function HomePage() {
         ></img>
       </button>
 
-      <button
-        className="homeTile"  /*onClick={() => handleTileClick("blog")} */ 
-      >
+      <button className="homeTile" /*onClick={() => handleTileClick("blog")} */>
         Blog
         <img
           className="homeIcon"
