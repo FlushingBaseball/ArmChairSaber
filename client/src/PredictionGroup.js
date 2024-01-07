@@ -85,7 +85,7 @@ function PredictionGroup({ game, user, key, setPredictedWinner }) {
               });
             }
           } else if (response.ok) {
-            fetch(`/users/${user.id}`, {
+            fetch(`/api/users/${user.id}`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
