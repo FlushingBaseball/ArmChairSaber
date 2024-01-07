@@ -2,7 +2,7 @@ import TeamSelect from "./UtilityComponets/TeamSelect";
 import GroupSelect from "./UtilityComponets/GroupSelect";
 import { useEffect, useState } from "react";
 
-function AdvancedBatting() {
+function RollingMetrics() {
   const [fetchedGameData, setFetchedGameData] = useState("");
   const [selectedTeam, setSelectedTeam] = useState(136);
   const [selectedGroup, setSelectedGroup] = useState('hitting')
@@ -92,6 +92,7 @@ const rollingStatsToDisplay = selectedGroup === "hitting" ? rollingHittingStatsT
 
   return (
     <div className="WrapperadvancedBatter">
+      <div className="WrapperSelect">
       <TeamSelect
         selectedTeam={selectedTeam}
         setSelectedTeam={setSelectedTeam}
@@ -101,6 +102,7 @@ const rollingStatsToDisplay = selectedGroup === "hitting" ? rollingHittingStatsT
         selectedGroup={selectedGroup}
         setSelectedGroup={setSelectedGroup}
       />
+      </div>
       <div className="displayWrap">
         <img
           className="batterTeamDisplay"
@@ -115,4 +117,4 @@ const rollingStatsToDisplay = selectedGroup === "hitting" ? rollingHittingStatsT
   );
 }
 
-export default AdvancedBatting;
+export default RollingMetrics;

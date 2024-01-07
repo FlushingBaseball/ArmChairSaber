@@ -13,9 +13,9 @@ import LeaderBoard from "./LeaderBoard";
 import Login from "./Login";
 import SignOut from "./SignOut";
 import Test from "./Test";
-import AdvancedPitching from "./AdvancedPItching";
+
 import FieldingSaber from "./FieldingSaber";
-import AdvancedBatting from "./AdvancedBatting";
+import RollingMetrics from "./RollingMetrics";
 import LeagueLeaders from "./LeaugeLeaders";
 import UserHome from "./UserPageComponets/UserHome";
 import Faq from "./Faq";
@@ -50,8 +50,8 @@ function App() {
         <Route path="TodaysGame/:gamePk" element={<LiveGame />} />
         <Route path="Leaderboard" element={<LeaderBoard />} />
         <Route path="test" element={<Test />} />
-        <Route path="/advancedBatting" element={<AdvancedBatting />} />
-        <Route path="/advancedPitching" element={<AdvancedPitching />} />
+        <Route path="/rolling-metrics" element={<RollingMetrics />} />
+
         <Route path="/blog" element={<BlogHome />} />
         <Route
           path="/advancedFielding"
