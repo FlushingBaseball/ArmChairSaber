@@ -9,7 +9,7 @@ import Nav from "./Nav";
 import NotFound from "./NotFound";
 import LiveGame from "./LiveGame";
 import TeamMap from "./TeamComponets/TeamMap";
-import LeaderBoard from "./LeaderBoard";
+import Leaderboard from "./LeaderboardComponets/Leaderboard";
 import Login from "./Login";
 import SignOut from "./SignOut";
 import Test from "./Test";
@@ -48,7 +48,7 @@ function App() {
         <Route path="/teams" element={<Teams />} />
         <Route path="/today" element={<Today user={user} />} />
         <Route path="TodaysGame/:gamePk" element={<LiveGame />} />
-        <Route path="Leaderboard" element={<LeaderBoard />} />
+        <Route path="Leaderboard" element={<Leaderboard />} />
         <Route path="test" element={<Test />} />
         <Route path="/rolling-metrics" element={<RollingMetrics />} />
 

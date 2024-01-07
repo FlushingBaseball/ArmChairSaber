@@ -142,47 +142,6 @@ def get_user_by_id(id):
     return user.to_dict(), 200
 
 
-
-
-@app.get('/api/users/leaderboard/')
-def get_users_for_leaderboard():
-    try:
-        leaderboard_users = User.query.filter(User.totalNumGuesses >= 1).all()
-
-        # leaderboard_user_list = [
-        #     {
-        #     'username' : user.username,
-        #     'totalScore': user.totalScore,
-        #     'totalNumGuesses': user.totalNumGuesses,
-        #     'totalGuessesCorrect': user.totalGuessesCorrect,
-        #     'totalGuessesIncorrect': user.totalGuessesIncorrect,
-        #     'currentStreak': user.currentStreak,
-        #     'longestStreak': user.longestStreak
-        #     }
-        #     for user in leaderboard_users
-        # ]
-    #      return make_response(
-    #     jsonify(user.to_dict()),
-    #     200
-    # )
-
-        return make_response(
-            jsonify(leaderboard_users.to_dict()),
-            200
-        )
-
-    except Exception as e:
-        # Failed to get leaderboard?
-        print("Error making leaderboard on backend:", str(e))
-        return make_response(
-            jsonify({"error": "Leaderboard failed"}),
-            500
-        )
-
-
-
-
-
 @app.patch('/api/users/<int:id>')
 def patch_user_by_id(id):
     user = User.query.filter(
@@ -541,6 +500,83 @@ def patch_game_by_gamePk(gamePk):
             jsonify({"Error": "Internal Server Error"}),
             500
         )
+
+
+
+
+
+
+@app.get('/api/leaderboard')
+def get_leaders():
+    leaders = User.query.all()
+    data = [l.to_dict() for l in leaders]
+
+    if not leaders:
+        return make_response(
+            jsonify({"Error": "couldn't make leaderboard"}),
+            500
+        )
+    
+    return make_response(
+        jsonify(data),
+        200
+        )
+
+
+
+
+
+
+
+
+# @app.get('/players')
+# def get_all_Players():
+#     players = Player.query.all()
+#     data = [p.to_dict() for p in players]
+
+#     return make_response(
+#         jsonify(data),
+#         200
+#         )
+
+
+        # leaderboard_users = User.query.filter(User.totalNumGuesses >= 1).all()
+
+    #     if not leaderboard_users:
+    #         return make_response(
+    #             jsonify({"Error": "couldn't make leaderboard"}),
+    #             500
+    #         )
+
+    #     # leaderboard_user_list = [
+    #     #     {
+    #     #     'username' : user.username,
+    #     #     'totalScore': user.totalScore,
+    #     #     'totalNumGuesses': user.totalNumGuesses,
+    #     #     'totalGuessesCorrect': user.totalGuessesCorrect,
+    #     #     'totalGuessesIncorrect': user.totalGuessesIncorrect,
+    #     #     'currentStreak': user.currentStreak,
+    #     #     'longestStreak': user.longestStreak
+    #     #     }
+    #     #     for user in leaderboard_users
+    #     # ]
+
+    #     return make_response(
+    #         # jsonify(leaderboard_user_list),
+    #         jsonify(data),
+    #         200
+    #     )
+
+    # except Exception as e:
+    #     # Failed to get leaderboard?
+    #     print("Error making leaderboard on backend:", str(e))
+    #     return make_response(
+    #         jsonify({"error": "Leaderboard failed"}),
+    #         500
+    #     )
+
+
+
 
 
 ## returning index.html to enable dynamic routing to work on refresh
