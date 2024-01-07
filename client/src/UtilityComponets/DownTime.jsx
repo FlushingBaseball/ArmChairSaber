@@ -4,11 +4,11 @@ export default function DownTime(){
 
   return (
     <div className="DownTime">
-      <h1 id="LeaderBoardHeader">Temporary Pause in standings:</h1>
+      <h1 id="LeaderBoardHeader">Temporary feature pause:</h1>
         <p id='sorryPara'>
-          No data has been lost.<br></br>
+          This feature is being reworked.<br></br>
           You may continue to predict winter leauge games.<br></br>
-          These Predictions will be resolved upon completion of the new system.
+          You may also watch live winter leauge games once a game goes live.
         </p>
         <p id="sorryPara">
           Please enjoy this .gif in the meantime

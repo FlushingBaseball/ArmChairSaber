@@ -48,15 +48,15 @@ function mapLeaderboardData() {
       <table id="Leaderboard" key={Math.random()}>
         <thead id="Leaderboard-Head">
           <tr>
-            <th className="">PLACE</th>
-            <th className=""></th>
-            <th className="">USERNAME</th>
-            <th>SCORE</th>
-            <th>LONGEST STREAK</th>
-            <th>CURRENT STREAK</th>
-            <th>TOTAL GUESSES</th>
-            <th>CORRECT PREDICTIONS</th>
-            <th>WRONG PREDICTIONS</th>
+            <th className="leader-head">PLACE</th>
+            <th className="leader-head"></th>
+            <th className="leader-head">USERNAME</th>
+            <th className="leader-head">SCORE</th>
+            <th className="leader-head">LONGEST STREAK</th>
+            <th className="leader-head">CURRENT STREAK</th>
+            <th className="leader-head">TOTAL GUESSES</th>
+            <th className="leader-head">CORRECT PREDICTIONS</th>
+            <th className="leader-head">WRONG PREDICTIONS</th>
           </tr>
         </thead>
         <tbody id="">{rows}</tbody>

@@ -6,25 +6,27 @@ function HomePage() {
   /**
    *
    * @param {the page name you want to navigate to} id
-   *
-   */
+  *
+  */
   function handleTileClick(id) {
     navigate(`/${id}`);
   }
 
   return (
     <div className="flexParent">
-      <button
-        className="homeTile"
-        // onClick={() => handleTileClick("advancedPitching")}
-      >
-        Temporary pause
-        <img
-          className="homeIcon"
-          src="Images/HomePageIcons/PITCHINGv3.svg"
-          alt="Man throwing ball"
-        ></img>
-      </button>
+
+  <button
+    className="homeTile"
+    onClick={() => handleTileClick("Leaderboard")}
+  >
+    Predictions Leaderboard
+    <img
+      className="homeIcon"
+      src="Images/HomePageIcons/LEADERv2.svg"
+      alt="Mascots watching TV togeather"
+    ></img>
+  </button>
+
 
       <button
         className="homeTile panel-button"
@@ -67,13 +69,13 @@ function HomePage() {
 
       <button
         className="homeTile"
-        onClick={() => handleTileClick("Leaderboard")}
+        // onClick={() => handleTileClick("advancedPitching")}
       >
-        Predictions Leaderboard
+        Advanced Fielding *2024 spring* 
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/LEADERv2.svg"
-          alt="Mascots watching TV togeather"
+          src="Images/HomePageIcons/PITCHINGv3.svg"
+          alt="Man throwing ball"
         ></img>
       </button>
 
