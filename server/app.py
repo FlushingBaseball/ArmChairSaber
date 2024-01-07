@@ -227,22 +227,6 @@ def batch_update_users():
     finally:
         db.session.close()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @app.post('/players')
 def post_player():
     data = request.get_json()
@@ -508,74 +492,40 @@ def patch_game_by_gamePk(gamePk):
 
 @app.get('/api/leaderboard')
 def get_leaders():
-    leaders = User.query.all()
-    data = [l.to_dict() for l in leaders]
+    try:
+        leaderboard_users = User.query.filter(User.totalNumGuesses >= 1).all()
 
-    if not leaders:
+        if not leaderboard_users:
+            return make_response(
+                jsonify({"Error": "couldn't make leaderboard"}),
+                500
+            )
+
+        leaderboard_user_list = [
+            {
+            'username' : user.username,
+            'totalScore': user.totalScore,
+            'totalNumGuesses': user.totalNumGuesses,
+            'totalGuessesCorrect': user.totalGuessesCorrect,
+            'totalGuessesIncorrect': user.totalGuessesIncorrect,
+            'currentStreak': user.currentStreak,
+            'longestStreak': user.longestStreak
+            }
+            for user in leaderboard_users
+        ]
+
         return make_response(
-            jsonify({"Error": "couldn't make leaderboard"}),
+            jsonify(leaderboard_user_list),
+            200
+        )
+
+    except Exception as e:
+        # Failed to get leaderboard?
+        print("Error making leaderboard on backend:", str(e))
+        return make_response(
+            jsonify({"error": "Leaderboard failed"}),
             500
         )
-    
-    return make_response(
-        jsonify(data),
-        200
-        )
-
-
-
-
-
-
-
-
-# @app.get('/players')
-# def get_all_Players():
-#     players = Player.query.all()
-#     data = [p.to_dict() for p in players]
-
-#     return make_response(
-#         jsonify(data),
-#         200
-#         )
-
-
-        # leaderboard_users = User.query.filter(User.totalNumGuesses >= 1).all()
-
-    #     if not leaderboard_users:
-    #         return make_response(
-    #             jsonify({"Error": "couldn't make leaderboard"}),
-    #             500
-    #         )
-
-    #     # leaderboard_user_list = [
-    #     #     {
-    #     #     'username' : user.username,
-    #     #     'totalScore': user.totalScore,
-    #     #     'totalNumGuesses': user.totalNumGuesses,
-    #     #     'totalGuessesCorrect': user.totalGuessesCorrect,
-    #     #     'totalGuessesIncorrect': user.totalGuessesIncorrect,
-    #     #     'currentStreak': user.currentStreak,
-    #     #     'longestStreak': user.longestStreak
-    #     #     }
-    #     #     for user in leaderboard_users
-    #     # ]
-
-    #     return make_response(
-    #         # jsonify(leaderboard_user_list),
-    #         jsonify(data),
-    #         200
-    #     )
-
-    # except Exception as e:
-    #     # Failed to get leaderboard?
-    #     print("Error making leaderboard on backend:", str(e))
-    #     return make_response(
-    #         jsonify({"error": "Leaderboard failed"}),
-    #         500
-    #     )
-
-
 
 
 
