@@ -144,6 +144,45 @@ def get_user_by_id(id):
 
 
 
+@app.get('/api/users/leaderboard/')
+def get_users_for_leaderboard():
+    try:
+        leaderboard_users = User.query.filter(User.totalNumGuesses >= 1).all()
+
+        # leaderboard_user_list = [
+        #     {
+        #     'username' : user.username,
+        #     'totalScore': user.totalScore,
+        #     'totalNumGuesses': user.totalNumGuesses,
+        #     'totalGuessesCorrect': user.totalGuessesCorrect,
+        #     'totalGuessesIncorrect': user.totalGuessesIncorrect,
+        #     'currentStreak': user.currentStreak,
+        #     'longestStreak': user.longestStreak
+        #     }
+        #     for user in leaderboard_users
+        # ]
+    #      return make_response(
+    #     jsonify(user.to_dict()),
+    #     200
+    # )
+
+        return make_response(
+            jsonify(leaderboard_users.to_dict()),
+            200
+        )
+
+    except Exception as e:
+        # Failed to get leaderboard?
+        print("Error making leaderboard on backend:", str(e))
+        return make_response(
+            jsonify({"error": "Leaderboard failed"}),
+            500
+        )
+
+
+
+
+
 @app.patch('/api/users/<int:id>')
 def patch_user_by_id(id):
     user = User.query.filter(
@@ -342,25 +381,6 @@ def get_all_not_resolved_predictions():
         jsonify(data),
         200
     )
-
-
-@app.get('/nextUnresolvedPrediction')
-def get_single_unresolved_prediction():
-    un_res_prediction = User_Prediction.query.filter(
-        User_Prediction.isResolved == False
-    ).first()
-
-    if not un_res_prediction:
-        return make_response(
-            jsonify({'error': 'Unresolved Predictions not found'}),
-            404
-        )
-    
-    return make_response(
-        jsonify(un_res_prediction.to_dict()),
-        200
-    )
-
 
 
 
