@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function PredictionGroup({ game, user, key, setPredictedWinner }) {
-  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedValue, setSelectedValue] = useState(undefined);
   const [notSelectedValue, setNotSelectValue] = useState(undefined);
   const [submitNotSignedIn, setSubmitNotSignedIn] = useState(false);
 
@@ -21,11 +21,18 @@ function PredictionGroup({ game, user, key, setPredictedWinner }) {
   }
 
   function handlePredictionSubmit() {
+    if(notSelectedValue === undefined || selectedValue === undefined){
+      alert("You need to select a winner before submitting");
+      setSubmitNotSignedIn(true);
+      setTimeout(() => setSubmitNotSignedIn(false), 2000);
+      return
+    }
     if (user === null) {
       alert("You need to sign in to submit predictions");
       setSubmitNotSignedIn(true);
       setTimeout(() => setSubmitNotSignedIn(false), 2000);
-    } else {
+    }
+    else {
       const newGame = {
         gamePk: game.gamePk,
         gameWinner_id: null,
@@ -119,6 +126,12 @@ function PredictionGroup({ game, user, key, setPredictedWinner }) {
         });
     }
   }
+
+
+
+
+
+
 
   return (
     <div

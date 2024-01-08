@@ -12,10 +12,10 @@ function Leaderboard() {
     })
   },[])
 
-useEffect(()=>{
-  console.log("leaderboard data is", leaderboardData)
+// useEffect(()=>{
+//   console.log("leaderboard data is", leaderboardData)
 
-},[leaderboardData])
+// },[leaderboardData])
 
 
 
@@ -32,15 +32,14 @@ function mapLeaderboardData() {
 
     const rows = newData.map((user, index) => (
       <tr key={index} className="leader-row">
-        <td>{index + 1}</td>
-        <td id="leaderboard-pic"><img src="./Images/default-batter.svg"></img></td>
-        <td id="">{user.username}</td>
-        <td>{user.totalScore}</td>
-        <td>{user.longestStreak}</td>
-        <td>{user.currentStreak}</td>
-        <td>{user.totalNumGuesses}</td>
-        <td>{user.totalGuessesCorrect}</td>
-        <td>{user.totalGuessesIncorrect}</td>
+        <td className="leader-data">{index + 1}</td>
+        <td className="leader-data" id="leaderboard-pic"><img src="./Images/default-batter.svg"></img></td>
+        <td className="leader-data" id="">{user.username}</td>
+        <td className="leader-data">{user.totalScore}</td>
+        <td className="leader-data">{user.longestStreak}</td>
+        <td className="leader-data">{user.currentStreak}</td>
+        <td className="leader-data">{user.totalGuessesCorrect}</td>
+        <td className="leader-data">{user.totalGuessesIncorrect}</td>
       </tr>
     ));
 
@@ -54,9 +53,8 @@ function mapLeaderboardData() {
             <th className="leader-head">SCORE</th>
             <th className="leader-head">LONGEST STREAK</th>
             <th className="leader-head">CURRENT STREAK</th>
-            <th className="leader-head">TOTAL GUESSES</th>
             <th className="leader-head">CORRECT PREDICTIONS</th>
-            <th className="leader-head">WRONG PREDICTIONS</th>
+            <th className="leader-head">INCORRECT PREDICTIONS</th>
           </tr>
         </thead>
         <tbody id="">{rows}</tbody>
