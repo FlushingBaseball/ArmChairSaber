@@ -50,7 +50,7 @@ export default function UserResults({ user }) {
         </div>
         <div className="SummaryInstance">
           <span className="summarySpan">% Correct</span>
-          {percentage}
+          {percentage.toFixed(4)}
         </div>
       </div>
     </div>

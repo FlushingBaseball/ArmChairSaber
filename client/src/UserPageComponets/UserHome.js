@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import UserResults from "./UserResults";
+import UserStreaks from "./UserStreaks";
 
 function UserHome({ user }) {
   // console.log('user in userHOme is', user)
@@ -25,6 +26,7 @@ function UserHome({ user }) {
       <h1 id="welcome">Welcome home {user.username}</h1>
 
       <UserResults user={user} />
+      <UserStreaks user={user} />
     </div>
   );
 }
