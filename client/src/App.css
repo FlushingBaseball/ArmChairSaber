@@ -1429,6 +1429,7 @@ td {
 
 .WrapperPlayerStats {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin-left: 4vw;
   flex-direction: row;
@@ -1847,7 +1848,31 @@ th#standingsTable {
 .leader-head {
   padding: 2px;
 }
+#attempt-load-header{
+  font-family: alarmclock;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: pretty;
+  background: #2c1b47;
+  color: yellow;
+}
 
+#bad-load-header{
+  border: 2px dashed red;
+  border-radius: 14px;
+  color: #d9c2e9;
+  background: #2c1b47;
+  margin-top: 8px;
+  margin-bottom: 14px;
+  font-family: alarmclock;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: pretty;
+}
+.WrapperBatLoader{
+  display: flex;
+  justify-content: center;
+}
 
 /* #c8c8f8
 #e4e6f2 */

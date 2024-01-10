@@ -46,7 +46,7 @@ export default function PlayerPage() {
     // not the right endpoint
     // fetch(`  https://statsapi.mlb.com/api/v1/people/592450?&season=2023&hydrate=stats(group=[hitting,sabermetrics],type=[seasonAdvanced,season],season=2023)`)
     fetch(
-      `https://statsapi.mlb.com/api/v1/people/${searchPlayer}?&season=2023&hydrate=stats(group=[${selectedStatGroup}],type=[${selectedStatType}],season=2023)`
+      `https://statsapi.mlb.com/api/v1/people/${searchPlayer}?&season=2023&hydrate=stats(group=[${selectedStatGroup}],type=[${selectedStatType}])`
     )
       .then((resp) => resp.json())
       .then((data) => {
@@ -58,7 +58,7 @@ export default function PlayerPage() {
   }, [searchPlayer, selectedStatType]);
 
   useEffect(() => {
-    // console.log(searchPlayer)
+    // console.log(`SelectedStatGroup ${selectedStatGroup}, SelectedStatType ${selectedStatType}`)
     // console.log(playerData)
     // console.log(selectedStatGroup)
     // console.log(selectedStatType)

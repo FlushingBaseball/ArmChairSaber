@@ -1,9 +1,13 @@
+import BatLoader from "../UtilityComponets/BatLoader";
+
 export default function PlayerStats({ playerData }) {
   const statCollection = [];
 
   function makeStats() {
     if (!playerData.people[0].stats) {
-      return <h3>...Loading</h3>;
+      // return <h3>...Loading</h3>;
+      return <BatLoader />;
+
     }
 
     for (let i = 0; i < playerData.people[0].stats.length; i++) {
