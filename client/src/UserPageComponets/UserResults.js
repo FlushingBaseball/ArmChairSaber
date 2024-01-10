@@ -50,7 +50,7 @@ export default function UserResults({ user }) {
         </div>
         <div className="SummaryInstance">
           <span className="summarySpan">% Correct</span>
-          {percentage.toFixed(4)}
+          {typeof(percentage) === "number" ? percentage.toFixed(4) : percentage}
         </div>
       </div>
     </div>
