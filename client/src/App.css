@@ -1845,6 +1845,10 @@ th#standingsTable {
   padding: 20px 0px;
 }
 
+#playerStatsError{
+  width: 10vw;
+}
+
 .leader-head {
   padding: 2px;
 }
@@ -1856,9 +1860,18 @@ th#standingsTable {
   background: #2c1b47;
   color: yellow;
 }
-
+.WrapperBadLoad{
+  box-shadow: 2px 6px 10px 6px;
+  padding: 22px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
 #bad-load-header{
-  border: 2px dashed red;
+  padding: 6px;
+  font-size: 1rem;
   border-radius: 14px;
   color: #d9c2e9;
   background: #2c1b47;
@@ -2219,5 +2232,13 @@ th#standingsTable {
   }
   .leader-head {
     font-size: 0.5rem;
+  }
+  .WrapperBadLoad{
+    width: 90vw;
+    margin-bottom: 15px;
+    padding: 4px;
+  }
+  #playerStatsError{
+    width: 22vw;
   }
 } /* End Mobile Styling*/

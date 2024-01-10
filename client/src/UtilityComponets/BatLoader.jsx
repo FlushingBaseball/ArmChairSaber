@@ -19,6 +19,7 @@ export default function BatLoader() {
           <h1 id="bad-load-header">
             Sorry Your Request Could not be completed
           </h1>
+          <img id="playerStatsError" src="/Images/UtilityIcons/ERRORv1.svg"></img>
         </div>
       ) : (
         <div className="loader">
