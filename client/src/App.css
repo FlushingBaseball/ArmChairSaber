@@ -1873,7 +1873,7 @@ th#standingsTable {
   padding: 6px;
   font-size: 1rem;
   border-radius: 14px;
-  color: #d9c2e9;
+  color: white;
   background: #2c1b47;
   margin-top: 8px;
   margin-bottom: 14px;
@@ -1885,6 +1885,13 @@ th#standingsTable {
 .WrapperBatLoader{
   display: flex;
   justify-content: center;
+}
+.onDeckDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
 }
 
 /* #c8c8f8
@@ -2124,6 +2131,7 @@ th#standingsTable {
   .onDeckDiv {
     background: linear-gradient(71deg, #d9c2e9, transparent);
     display: flex;
+    flex-direction: row;
     align-items: center;
   }
   .vsImage {
