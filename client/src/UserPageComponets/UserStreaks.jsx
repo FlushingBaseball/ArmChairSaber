@@ -4,12 +4,12 @@ export default function UserStreaks({user}){
   return(
     <div className="WrapperUserStreaks">
       <div className="StreakSummary">
-      <span className="summarySpan">Longest Streak </span>
-        {user.longestStreak}
+        <span className="streakSpan">Longest Streak </span>
+        <div className="userDataSpan"> {user.longestStreak} </div>
       </div>
       <div className="StreakSummary">
-      <span className="summarySpan">Current Streak </span>
-        {user.currentStreak}
+        <span className="streakSpan">Current Streak </span>
+        <div className="userDataSpan"> {user.currentStreak} </div>
       </div>
     </div>
   )

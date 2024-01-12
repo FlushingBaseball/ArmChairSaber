@@ -1213,6 +1213,15 @@ td {
 .summarySpan {
   font-family: "zektonrg";
 }
+.streakSpan{
+  font-family: "zektonrg";
+}
+.userDataSpan{
+  color: red;
+  background: black;
+  font-family: alarmclock;
+  text-transform: uppercase;
+}
 
 .currentPlay {
   display: flex;
@@ -1835,6 +1844,11 @@ th#standingsTable {
   width: 33vw;
 }
 
+.StreakSummary{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #leaderboard-pic {
   width: 3vw;
