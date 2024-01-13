@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import UserResults from "./UserResults";
 import UserStreaks from "./UserStreaks";
 import UserSettingsPanel from "./UserSettingsPanel";
+import UserSettingsImage from "./UserSettingsImage";
 
 function UserHome({ user }) {
   // console.log('user in userHOme is', user)
@@ -29,6 +30,7 @@ function UserHome({ user }) {
       <UserResults user={user} />
       <UserStreaks user={user} />
       {/* <UserSettingsPanel /> */}
+      <UserSettingsImage />
     </div>
   );
 }
