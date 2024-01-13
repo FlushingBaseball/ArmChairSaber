@@ -33,7 +33,7 @@ function mapLeaderboardData() {
     const rows = newData.map((user, index) => (
       <tr key={index} className="leader-row">
         <td className="leader-data">{index + 1}</td>
-        <td className="leader-data" id="leaderboard-pic"><img src={ user.profilePic ? `/Images/profilePics/p${Number(user.profilePic)}.webp` : "./Images/default-batter.svg"}></img></td>
+        <td className="leader-data" ><img id="leaderboard-pic" src={ user.profilePic ? `/Images/profilePics/p${Number(user.profilePic)}.webp` : "./Images/default-batter.svg"}></img></td>
         <td className="leader-data" id="">{user.username}</td>
         <td className="leader-data">{user.totalScore}</td>
         <td className="leader-data">{user.longestStreak}</td>
