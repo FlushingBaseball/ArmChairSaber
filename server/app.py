@@ -509,7 +509,8 @@ def get_leaders():
             'totalGuessesCorrect': user.totalGuessesCorrect,
             'totalGuessesIncorrect': user.totalGuessesIncorrect,
             'currentStreak': user.currentStreak,
-            'longestStreak': user.longestStreak
+            'longestStreak': user.longestStreak,
+            'profilePic' : user.profilePic
             }
             for user in leaderboard_users
         ]

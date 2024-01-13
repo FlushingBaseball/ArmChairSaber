@@ -1209,6 +1209,10 @@ td {
   flex-wrap: wrap;
 }
 
+.currentProPic{
+  box-shadow: 2px 2px 2px 2px yellow;
+}
+
 .settingsImageOption{
   width: 5vw;
   margin: 0px 3px;

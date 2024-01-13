@@ -30,7 +30,7 @@ function UserHome({ user }) {
       <UserResults user={user} />
       <UserStreaks user={user} />
       {/* <UserSettingsPanel /> */}
-      {/* <UserSettingsImage /> */}
+      {/* <UserSettingsImage userId={user.id} userProfilePicId={user.profilePic} /> */}
     </div>
   );
 }
