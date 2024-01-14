@@ -2,12 +2,10 @@ import { useState } from "react"
 
 export default function UserSettingsImage({currentProfilepic, setCurrentProfilepic, userId}) {
 
-
-console.log(userId)
-console.log(currentProfilepic)
-
   function handleImageClick(i){
-    if (i === currentProfilepic){
+    // console.log(i)
+    // console.log(currentProfilepic)
+    if (i === Number(currentProfilepic)){
       console.log("picture already selected")
       return
     }
@@ -43,7 +41,7 @@ console.log(currentProfilepic)
 
   function mapProfileImages() {
     const images = [];
-    for (let i = 1; i < 9; i++) {
+    for (let i = 1; i < 10; i++) {
       images.push(
         <img
           className={`settingsImageOption ${Number(currentProfilepic) === i ? "currentProPic" : "notCurrentPic"}`}

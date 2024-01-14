@@ -1,8 +1,28 @@
-export default function UserSettingsPanel(){
+import TeamSelect from "../UtilityComponets/TeamSelect";
+import UserSettingsImage from "./UserSettingsImage";
+import { useState, useEffect } from "react";
+
+
+export default function UserSettingsPanel({userId, currentProfilepic, setCurrentProfilepic}){
+  const [selectedTeam, setSelectedTeam ] = useState()
+
+  //   useEffect(()=>{
+  //     console.log(selectedTeam)
+
+  // },[selectedTeam])
 
   return (
     <div className="WrapperUserSettingsPanel">
-      <div className="Setting">
+      <UserSettingsImage
+          userId={userId}
+          currentProfilepic={currentProfilepic}
+          setCurrentProfilepic={setCurrentProfilepic}
+        />
+
+      {/* <TeamSelect selectedTeam={selectedTeam} setSelectedTeam={setSelectedTeam}/> */}
+
+
+      {/* <div className="Setting">
         <div className="SettingSpan"></div>
         <div className="radio">
           <label>
@@ -18,7 +38,7 @@ export default function UserSettingsPanel(){
             SIERA
           </label>
         </div>
-      </div>
+      </div> */}
         
     </div>
   )

@@ -11,7 +11,9 @@ export default function TeamSelect({
   function handleTeamChange(event) {
     const newTeamValue = parseInt(event.target.value);
     setSelectedTeam(newTeamValue);
-    setTeamLogo(newTeamValue);
+    if (setTeamLogo){
+      setTeamLogo(newTeamValue);
+    }
   }
 
   return (

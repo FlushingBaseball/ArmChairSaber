@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import UserResults from "./UserResults";
 import UserStreaks from "./UserStreaks";
 import UserSettingsPanel from "./UserSettingsPanel";
-import UserSettingsImage from "./UserSettingsImage";
 import UserSummary from "./UserSummary";
 
 // function UserHome({ user }) {
@@ -16,14 +15,17 @@ function UserHome() {
       if (r.ok) {
         r.json().then((user) => {
           SetUserInfo(user);
-          setCurrentProfilepic(user.profilePic ? Number(user.profilePic) : 0);
+          if (user.profilePic != false){
+            const tempNum = Number(user.profilePic)
+            setCurrentProfilepic(tempNum);
+          }
         });
       }
     });
   }, []);
 
   // useEffect(()=>{
-  //   console.log(userInfo)
+  //    console.log(userInfo)
   // },[userInfo])
 
   return (
@@ -36,13 +38,14 @@ function UserHome() {
       />
       <UserResults user={userInfo} />
       <UserStreaks user={userInfo} />
-      {/* <UserSettingsPanel /> */}
       {showSettings ? (
-        <UserSettingsImage
-          userId={userInfo.id}
-          currentProfilepic={currentProfilepic}
-          setCurrentProfilepic={setCurrentProfilepic}
+        <UserSettingsPanel
+        userId={userInfo.id}
+        currentProfilepic={currentProfilepic}
+        setCurrentProfilepic={setCurrentProfilepic}  
+        
         />
+        
       ) : null}
     </div>
   );
