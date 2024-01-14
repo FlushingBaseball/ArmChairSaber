@@ -1,9 +1,16 @@
-export default function UserSettingsImage({userProfilePicId, userId}) {
+import { useState } from "react"
+
+export default function UserSettingsImage({currentProfilepic, setCurrentProfilepic, userId}) {
+
 
 console.log(userId)
-console.log(userProfilePicId)
+console.log(currentProfilepic)
 
   function handleImageClick(i){
+    if (i === currentProfilepic){
+      console.log("picture already selected")
+      return
+    }
     const idSelected = String(i)
     const userProfilePictureId = {profilePic: idSelected}
     console.log(`Image ${i} was clicked`)
@@ -23,6 +30,7 @@ console.log(userProfilePicId)
       })
       .then((data) => {
         console.log('User Profile picture patch success:', data)
+        // setCurrentProfilepic()
       })
       .catch(error => {
         console.error('Error during patching of Profile Pic', error)
@@ -38,7 +46,7 @@ console.log(userProfilePicId)
     for (let i = 1; i < 9; i++) {
       images.push(
         <img
-          className={`settingsImageOption ${Number(userProfilePicId) === i ? "currentProPic" : null}`}
+          className={`settingsImageOption ${Number(currentProfilepic) === i ? "currentProPic" : null}`}
           key={i}
           alt="neon user avatar"
           loading="lazy"

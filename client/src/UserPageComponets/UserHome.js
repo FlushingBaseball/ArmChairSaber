@@ -3,6 +3,7 @@ import UserResults from "./UserResults";
 import UserStreaks from "./UserStreaks";
 import UserSettingsPanel from "./UserSettingsPanel";
 import UserSettingsImage from "./UserSettingsImage";
+import UserSummary from "./UserSummary";
 
 function UserHome({ user }) {
   // console.log('user in userHOme is', user)
@@ -10,6 +11,11 @@ function UserHome({ user }) {
   // const userWins = user.totalGuessesCorrect;
   // const userLoses = user.totalGuessesIncorrect;
   const [userInfo, SetUserInfo] = useState("");
+  const [showSettings, setShowSettings] = useState(false);
+
+  const profilePicId = user.profilePic ? Number(user.profilePic) : 0;
+  const [currentProfilepic, setCurrentProfilepic] = useState(profilePicId);
+
 
   useEffect(() => {
     fetch(`/users/${user.id}`)
@@ -26,11 +32,15 @@ function UserHome({ user }) {
   return (
     <div id="WrapperUserHome">
       <h1 id="welcome">Welcome home {user.username}</h1>
-
+      <UserSummary
+        showSettings={showSettings}
+        setShowSettings={setShowSettings}
+      />
       <UserResults user={user} />
       <UserStreaks user={user} />
       {/* <UserSettingsPanel /> */}
-      <UserSettingsImage userId={user.id} userProfilePicId={user.profilePic} />
+      {showSettings ? <UserSettingsImage userId={user.id} currentProfilepic={currentProfilepic} setCurrentProfilepic={setCurrentProfilepic} /> : null }
+      {/* <UserSettingsImage userId={user.id} userProfilePicId={user.profilePic} /> */}
     </div>
   );
 }
