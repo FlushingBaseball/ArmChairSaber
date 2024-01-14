@@ -35,6 +35,7 @@ function UserHome({ user }) {
       <UserSummary
         showSettings={showSettings}
         setShowSettings={setShowSettings}
+        currentProfilepic={currentProfilepic}
       />
       <UserResults user={user} />
       <UserStreaks user={user} />

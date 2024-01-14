@@ -30,7 +30,7 @@ console.log(currentProfilepic)
       })
       .then((data) => {
         console.log('User Profile picture patch success:', data)
-        // setCurrentProfilepic()
+        setCurrentProfilepic(i)
       })
       .catch(error => {
         console.error('Error during patching of Profile Pic', error)
@@ -46,7 +46,7 @@ console.log(currentProfilepic)
     for (let i = 1; i < 9; i++) {
       images.push(
         <img
-          className={`settingsImageOption ${Number(currentProfilepic) === i ? "currentProPic" : null}`}
+          className={`settingsImageOption ${Number(currentProfilepic) === i ? "currentProPic" : "notCurrentPic"}`}
           key={i}
           alt="neon user avatar"
           loading="lazy"
@@ -60,8 +60,10 @@ console.log(currentProfilepic)
 
   return (
     <div className="WrapperChooseImage">
-      <h1>Choose a profile photo</h1>
-      {mapProfileImages()}
+      <h3 id="choosePhoto">CHOOSE A PROFILE PHOTO</h3>
+      <div className="picOptions">
+        {mapProfileImages()}
+      </div>
     </div>
   );
 }
