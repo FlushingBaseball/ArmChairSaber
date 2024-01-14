@@ -21,14 +21,21 @@ export default function UserResults({ user }) {
   //  <h4>You guess correctly "cant put anything here untill resolutions are fixed" % of the time</h4>
 
   //  {mapPredictions()}
-  let operandOne = Number(user.totalGuessesCorrect);
-  let operandTwo = Number(user.totalGuessesIncorrect);
+
+  /**
+   * totalNumGuesses on user is currently not the best way to derive percentage
+   * games can be not resolved yet
+   */
+
+
+  let total = Number(user.totalGuessesCorrect) + Number(user.totalGuessesIncorrect);
+  let correct = Number(user.totalGuessesCorrect);
   let percentage = "";
   function percentageCheck() {
-    if (operandOne > 0 && operandTwo > 0) {
-      percentage = operandOne / operandTwo;
-    } else if (operandOne > 0 && operandTwo <= 0) {
-      percentage = operandOne;
+    if (total > 0) {
+      percentage = correct / total;
+    } else if (total > 0 && correct === 0) {
+      percentage = correct;
     } else {
       percentage = "NA";
     }
@@ -50,7 +57,7 @@ export default function UserResults({ user }) {
         </div>
         <div className="SummaryInstance">
           <span className="summarySpan">% Correct</span>
-          {typeof(percentage) === "number" ? percentage.toFixed(4) : percentage}
+          {typeof(percentage) === "number" ? percentage.toFixed(4) * 100 : percentage}
         </div>
       </div>
     </div>

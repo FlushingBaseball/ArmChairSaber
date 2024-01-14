@@ -5,24 +5,21 @@ import UserSettingsPanel from "./UserSettingsPanel";
 import UserSettingsImage from "./UserSettingsImage";
 import UserSummary from "./UserSummary";
 
-function UserHome({ user }) {
-  // console.log('user in userHOme is', user)
-
-  // const userWins = user.totalGuessesCorrect;
-  // const userLoses = user.totalGuessesIncorrect;
+// function UserHome({ user }) {
+function UserHome() {
   const [userInfo, SetUserInfo] = useState("");
+  const [currentProfilepic, setCurrentProfilepic] = useState(0);
   const [showSettings, setShowSettings] = useState(false);
 
-  const profilePicId = user.profilePic ? Number(user.profilePic) : 0;
-  const [currentProfilepic, setCurrentProfilepic] = useState(profilePicId);
-
-
   useEffect(() => {
-    fetch(`/users/${user.id}`)
-      .then((resp) => resp.json())
-      .then((data) => {
-        SetUserInfo(data);
-      });
+    fetch("/check_session").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          SetUserInfo(user);
+          setCurrentProfilepic(user.profilePic ? Number(user.profilePic) : 0);
+        });
+      }
+    });
   }, []);
 
   // useEffect(()=>{
@@ -31,17 +28,22 @@ function UserHome({ user }) {
 
   return (
     <div id="WrapperUserHome">
-      <h1 id="welcome">Welcome home {user.username}</h1>
+      <h1 id="welcome">Welcome home {userInfo.username}</h1>
       <UserSummary
         showSettings={showSettings}
         setShowSettings={setShowSettings}
         currentProfilepic={currentProfilepic}
       />
-      <UserResults user={user} />
-      <UserStreaks user={user} />
+      <UserResults user={userInfo} />
+      <UserStreaks user={userInfo} />
       {/* <UserSettingsPanel /> */}
-      {showSettings ? <UserSettingsImage userId={user.id} currentProfilepic={currentProfilepic} setCurrentProfilepic={setCurrentProfilepic} /> : null }
-      {/* <UserSettingsImage userId={user.id} userProfilePicId={user.profilePic} /> */}
+      {showSettings ? (
+        <UserSettingsImage
+          userId={userInfo.id}
+          currentProfilepic={currentProfilepic}
+          setCurrentProfilepic={setCurrentProfilepic}
+        />
+      ) : null}
     </div>
   );
 }
