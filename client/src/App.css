@@ -1190,6 +1190,10 @@ td {
   align-items: center;
 }
 .wrapperUserResults {
+  box-shadow: 2px 2px 2px 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 50vw;
   border: 3px #6e43b5 solid;
   border-radius: 45px;
@@ -1247,6 +1251,25 @@ td {
   width: 50vw;
 }
 
+#SettingsWrapperHeader{
+    letter-spacing: 5px;
+    text-decoration: underline;
+    color: #2d1432;
+    font-family: zektonrg;
+}
+
+.WrapperUserSettingsPanel{
+    border-radius: 25px;
+    padding: 3vw;
+    background: rgb(200, 200, 248);
+    gap: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 #HeaderSummary {
   text-align: center;
   width: 100%;
@@ -1258,6 +1281,8 @@ td {
   font-family: "zektonrg";
 }
 .userDataSpan{
+  padding: 3px;
+  border-radius: 45px;
   color: red;
   background: black;
   font-family: alarmclock;
@@ -2035,7 +2060,7 @@ th#standingsTable {
     font-size: 1rem;
   }
   .wrapperUserResults {
-    width: 100vw;
+    width: 95vw;
   }
   #UserResultsSummary {
     width: 100vw;
@@ -2303,5 +2328,11 @@ th#standingsTable {
   }
   #playerStatsError{
     width: 22vw;
+  }
+  .settingsImageOption{
+    width: 15vw;
+  }
+  #UserSummaryImage{
+    width: 25vw;
   }
 } /* End Mobile Styling*/

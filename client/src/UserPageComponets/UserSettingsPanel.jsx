@@ -1,5 +1,7 @@
 import TeamSelect from "../UtilityComponets/TeamSelect";
 import UserSettingsImage from "./UserSettingsImage";
+import UserSetting from "./UserSetting";
+
 import { useState, useEffect } from "react";
 
 
@@ -11,8 +13,18 @@ export default function UserSettingsPanel({userId, currentProfilepic, setCurrent
 
   // },[selectedTeam])
 
+
+const favPitchingStat = {
+  ERA : "Earned Run Average",
+  xERA : "Expected Earned Run Average",
+  FIP : "Fielding Independent Pitching",
+  xFIP : "Expected Fielding Independent Pitching",
+  SIERA : "Skills Interactive ERA",
+}
+
   return (
     <div className="WrapperUserSettingsPanel">
+      <h2 id="SettingsWrapperHeader">SETTINGS</h2>
       <UserSettingsImage
           userId={userId}
           currentProfilepic={currentProfilepic}
@@ -21,24 +33,8 @@ export default function UserSettingsPanel({userId, currentProfilepic, setCurrent
 
       {/* <TeamSelect selectedTeam={selectedTeam} setSelectedTeam={setSelectedTeam}/> */}
 
+      {/* <UserSetting settingCategory={"Pitching Value"} settingOptionsObject={favPitchingStat} /> */}
 
-      {/* <div className="Setting">
-        <div className="SettingSpan"></div>
-        <div className="radio">
-          <label>
-            <input name="favPitchingStat" type="radio" value="fip" checked={true} />
-            ERA
-          </label>
-          <label>
-            <input name="favPitchingStat" type="radio" value="fip" checked={true} />
-            FIP
-          </label>
-          <label >
-            <input name="favPitchingStat" type="radio" value="fip" checked={true} />
-            SIERA
-          </label>
-        </div>
-      </div> */}
         
     </div>
   )

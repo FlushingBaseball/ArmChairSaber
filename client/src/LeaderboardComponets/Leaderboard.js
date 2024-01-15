@@ -34,7 +34,9 @@ function mapLeaderboardData() {
       <tr key={index} className="leader-row">
         <td className="leader-data">{index + 1}</td>
         <td className="leader-data" ><img id="leaderboard-pic" src={ user.profilePic ? `/Images/profilePics/p${Number(user.profilePic)}.webp` : "./Images/default-batter.svg"}></img></td>
-        <td className="leader-data" id="">{user.username}</td>
+        <td className="leader-data" id="">{user.username.length > 15
+  ? user.username.substring(0, 9) + "..."
+  : user.username}</td>
         <td className="leader-data">{user.totalScore}</td>
         <td className="leader-data">{user.longestStreak}</td>
         <td className="leader-data">{user.currentStreak}</td>
