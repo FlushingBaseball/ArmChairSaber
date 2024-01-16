@@ -8,7 +8,10 @@ import StatGroupButtons from "./StatGroupButtons";
 export default function PlayerPage() {
   let { mlbAmId } = useParams();
 
-  const initalPlayerId = mlbAmId ? mlbAmId : "592450";
+  const randomPlayerArray = ["665742", "660670", "624413", "605141", "543037", "660271", "673540", "628317", "547943" ];
+  const randomStartingPlayer = Math.floor(Math.random()* randomPlayerArray.length);
+
+  const initalPlayerId = mlbAmId ? mlbAmId : randomPlayerArray[randomStartingPlayer];
 
   const [searchPlayer, setSearchPlayer] = useState(initalPlayerId);
   const [fetchedPlayers, setFetchedPlayers] = useState("");
@@ -59,7 +62,8 @@ export default function PlayerPage() {
 
   useEffect(() => {
     // console.log(`SelectedStatGroup ${selectedStatGroup}, SelectedStatType ${selectedStatType}`)
-    // console.log(playerData)
+    console.log(playerData)
+    console.log(searchPlayer)
     // console.log(selectedStatGroup)
     // console.log(selectedStatType)
   }, [searchPlayer, playerData, selectedStatGroup, selectedStatType]);

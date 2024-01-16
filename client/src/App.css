@@ -1207,7 +1207,7 @@ td {
 }
 .WrapperChooseImage{
   padding: 2vh;
-  background: linear-gradient(45deg, #d9c2e9, #c8c8f8);
+  background: linear-gradient(180deg, #d9c2e9, #c8c8f8);
   display: flex;
   flex-direction: column;
   border-radius: 25px;
