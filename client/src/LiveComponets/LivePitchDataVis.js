@@ -10,9 +10,9 @@ function LivePitchDataVis({ ...dataLiveGame }) {
       dataLiveGame.liveData.plays.currentPlay.playEvents[i].isPitch === true
     ) {
       // console.log(dataLiveGame.liveData.plays.currentPlay.playEvents[i])
-      console.log(
-        dataLiveGame.liveData.plays.currentPlay.playEvents[i].pitchData
-      );
+      // console.log(
+      //   dataLiveGame.liveData.plays.currentPlay.playEvents[i].pitchData
+      // );
       data.push(
         dataLiveGame.liveData.plays.currentPlay.playEvents[i].pitchData
           .coordinates
@@ -20,6 +20,7 @@ function LivePitchDataVis({ ...dataLiveGame }) {
     }
   }
 
+    //Using the players own particular strike zone based on their height and leg length
   const strikeZoneTop =
     dataLiveGame.liveData.plays.currentPlay.matchup.strikeZoneTop !== undefined
       ? dataLiveGame.liveData.plays.currentPlay.matchup.strikeZoneTop
@@ -33,6 +34,11 @@ function LivePitchDataVis({ ...dataLiveGame }) {
 
   const strikeZoneTopInches = strikeZoneTop * 12;
   const strikeZoneBottomInches = strikeZoneBottom * 12;
+
+
+
+
+
 
   const width = 150;
   const height = 150;
@@ -54,6 +60,7 @@ function LivePitchDataVis({ ...dataLiveGame }) {
     range: [-height, height],
   });
 
+    // Formatting the pitch data to get rid of the different 3D axis if included 
   const formattedData = data.map(({ x, y }) => ({
     x: pitchDataXScale(x),
     y: pitchDataYScale(y),
@@ -189,8 +196,8 @@ function LivePitchDataVis({ ...dataLiveGame }) {
           ))}
         </svg>
 
-        {console.log(data)}
-        {console.log(formattedData)}
+        {/* {console.log(data)}
+        {console.log(formattedData)} */}
         {dataLiveGame.liveData.plays.currentPlay.matchup.batSide.code ===
         "R" ? (
           <img

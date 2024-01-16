@@ -37,7 +37,7 @@ function LiveGame() {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 10000000);
+    const interval = setInterval(fetchData, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -47,7 +47,7 @@ function LiveGame() {
 
   return (
     <div>
-      {console.log(dataLiveGame)}
+      {/* {console.log(dataLiveGame)} */}
       <div className="gameInfo">
         <LiveGameScoreBoard {...dataLiveGame} />
         <div className="atAGlance">

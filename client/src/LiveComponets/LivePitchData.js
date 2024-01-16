@@ -1,10 +1,10 @@
 function LivePitchData({ ...dataLiveGame }) {
   function mapPitches() {
     // console.log(dataLiveGame.liveData.plays.currentPlay.playEvents)
-    return dataLiveGame.liveData.plays.currentPlay.playEvents.map((play) => {
+    return dataLiveGame.liveData.plays.currentPlay.playEvents.map((play, index) => {
       if (play.isPitch === true) {
         return (
-          <div key={play.pitchData.startTime} className="PitchWrapper">
+          <div key={index} className="PitchWrapper">
             <div className="PitchType">
               <span className="PitchDescription">
                 {play.details.type &&
