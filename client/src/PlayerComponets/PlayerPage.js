@@ -8,7 +8,8 @@ import StatGroupButtons from "./StatGroupButtons";
 export default function PlayerPage() {
   let { mlbAmId } = useParams();
 
-  const randomPlayerArray = ["665742", "660670", "624413", "605141", "543037", "660271", "673540", "628317", "547943" ];
+  // Random good player on startup, the endpoint for just Judge got locked down after hitting it too many times in a month
+  const randomPlayerArray = ["665742", "660670", "624413", "605141", "543037", "660271", "673540", "628317", "547943", "668939", "547180", "596019","646240", "514888" ];
   const randomStartingPlayer = Math.floor(Math.random()* randomPlayerArray.length);
 
   const initalPlayerId = mlbAmId ? mlbAmId : randomPlayerArray[randomStartingPlayer];
@@ -63,7 +64,7 @@ export default function PlayerPage() {
   useEffect(() => {
     // console.log(`SelectedStatGroup ${selectedStatGroup}, SelectedStatType ${selectedStatType}`)
     console.log(playerData)
-    console.log(searchPlayer)
+    // console.log(searchPlayer)
     // console.log(selectedStatGroup)
     // console.log(selectedStatType)
   }, [searchPlayer, playerData, selectedStatGroup, selectedStatType]);
