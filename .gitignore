@@ -1,7 +1,8 @@
 /client/node_modules
 /node_modules
 
-
+/dist/
+/client/dist/
 ## Development stuff Test stuff
 
 ##/client/src/TestComponets
