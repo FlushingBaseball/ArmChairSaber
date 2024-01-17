@@ -31,9 +31,9 @@ const favPitchingStat = {
           setCurrentProfilepic={setCurrentProfilepic}
         />
 
-      {/* <TeamSelect selectedTeam={selectedTeam} setSelectedTeam={setSelectedTeam}/> */}
+      <TeamSelect selectedTeam={selectedTeam} setSelectedTeam={setSelectedTeam}/>
 
-      {/* <UserSetting settingCategory={"Pitching Value"} settingOptionsObject={favPitchingStat} /> */}
+      <UserSetting settingCategory={"Pitching Value"} settingOptionsObject={favPitchingStat} />
 
         
     </div>
