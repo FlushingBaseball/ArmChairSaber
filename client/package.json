@@ -1,6 +1,5 @@
 {
   "type": "module",
-  "proxy": "https://armchairsaber.onrender.com",
   "name": "finalpro",
   "version": "0.1.0",
   "private": true,
