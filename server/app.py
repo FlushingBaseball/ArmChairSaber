@@ -26,10 +26,22 @@ CORS(app)
 
 
 
-@app.route('/')
-@app.route('/<int:id>')
-def index(id=0):
+# @app.route('/')
+# @app.route('/<int:id>')
+# def index(id=0):
+#     return render_template("index.html")
+
+# # returning index.html to enable dynamic routing to work on refresh
+# @app.errorhandler(404)   
+# def not_found(e):   
+#   return app.send_static_file('index.html')
+
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
     return render_template("index.html")
+
 
 
 @app.post('/signup')
@@ -530,10 +542,7 @@ def get_leaders():
 
 
 
-## returning index.html to enable dynamic routing to work on refresh
-@app.errorhandler(404)   
-def not_found(e):   
-  return app.send_static_file('index.html')
+
 
 
 if __name__ == '__main__':
