@@ -24,17 +24,24 @@ CORS(app)
 #             ##return {'error': 'User is not logged in'}, 401
 #             ##+redirect(url_for('login')
 
-
-
-@app.route('/')
-@app.route('/<int:id>')
-def index(id=0):
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
     return render_template("index.html")
+
+# @app.route('/')
+# @app.route('/<int:id>')
+# def index(id=0):
+#     return render_template("index.html")
 
 # # returning index.html to enable dynamic routing to work on refresh
 # @app.errorhandler(404)   
 # def not_found(e):   
 #   return app.send_static_file('index.html')
+
+# @app.route('/')
+# def index():
+#     return '<h1>Phase 4 Project Server</h1>'
 
 
 # @app.route('/', defaults={'path': ''})
@@ -90,7 +97,7 @@ def check_session():
     # user exists
     return user.to_dict(), 200
 
-@app.post('/login')
+@app.post('/api/login')
 def login():
     data = request.get_json()
     # query db by username

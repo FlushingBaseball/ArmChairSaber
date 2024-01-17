@@ -10,11 +10,12 @@ export default defineConfig({
   // build:{
   //   outDir: 'build',
   // },
+  build: {
+    assetsDir: 'static',
+  },
 
   server: {
-    open: true,
-    port: 4000,
-    cors:true
+    open: true
   },
 
   plugins: [
