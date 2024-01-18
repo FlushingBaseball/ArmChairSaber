@@ -723,6 +723,7 @@ button.activeSport {
   display: flex;
   font-size: 2vh;
   color: black;
+  font-family: 'BebasNeue-Regular';
 }
 
 .PitchType {
@@ -734,6 +735,7 @@ button.activeSport {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  align-items: center;
 }
 
 .outGroup {
@@ -1727,6 +1729,24 @@ td {
   align-items: center;
 }
 
+
+.PitchDescription{
+  font-family: zektonrg;
+}
+
+.pitches{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.PitchWrapper{
+  border: 2px dashed red;
+  border-radius: 15px;
+  font-family: alarmclock;
+  text-transform: uppercase;
+}
+
 .leaugeSelect {
   position: sticky;
   display: flex;
@@ -1735,6 +1755,11 @@ td {
   justify-content: center;
   position: sticky;
   top: inherit;
+}
+.PitchBreak{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .leaugeSelectButton {
@@ -2361,4 +2386,8 @@ th#standingsTable {
   #UserSummaryImage{
     width: 25vw;
   }
+  .pitchComponets{
+    font-size: 8px;
+  }
+  
 } /* End Mobile Styling*/
