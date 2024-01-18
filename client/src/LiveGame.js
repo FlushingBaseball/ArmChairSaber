@@ -37,7 +37,7 @@ function LiveGame() {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 10000);
+    const interval = setInterval(fetchData, 1000000);
     return () => clearInterval(interval);
   }, []);
 
