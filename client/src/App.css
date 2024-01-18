@@ -1913,12 +1913,11 @@ th#standingsTable {
 .WrapperBlogHome {
   width: 100vw;
   height: 100vh;
-  background: black;
   display: flex;
+  flex-direction: column;
 }
 
 .WrapperArticle {
-  color: white;
 }
 
 #Leaderboard {
