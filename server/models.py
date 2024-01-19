@@ -12,7 +12,6 @@ class User(db.Model, SerializerMixin):
     _password_hash = db.Column(db.String)
     email = db.Column(db.String, nullable=True, unique=True)
     profilePic = db.Column(db.String, nullable=True)
-    favorite_team = db.Column(db.Integer, nullable = True)
     totalScore = db.Column(db.Integer)
     totalNumGuesses = db.Column(db.Integer)
     totalGuessesCorrect = db.Column(db.Integer)
@@ -20,6 +19,7 @@ class User(db.Model, SerializerMixin):
     currentStreak = db.Column(db.Integer)
     longestStreak = db.Column(db.Integer)
     User_Predictions = db.relationship('User_Prediction', backref="user")
+    favorite_team = db.Column(db.Integer, nullable =True)
 
     @hybrid_property
     def password_hash(self):

@@ -1917,8 +1917,24 @@ th#standingsTable {
   flex-direction: column;
 }
 
-.WrapperArticle {
+.Wrapper-hill{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+#hill{
+  height: 18vh;
+  border-radius: 25px;
+  width: 34vw;
+}
+
+.hill-header{
+  font-family: 'zektonrg';
+}
+
+/* .WrapperArticle {
+} */
 
 #Leaderboard {
   background: #2c1b47;
