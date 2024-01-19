@@ -29,4 +29,5 @@ typing_extensions==4.8.0
 urllib3==2.0.7
 Werkzeug==3.0.1
 wheel==0.40.0
+schedule==1.2.1
 
