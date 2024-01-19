@@ -21,17 +21,15 @@ function PredictionGroup({ game, user, key, setPredictedWinner }) {
   }
 
   function handlePredictionSubmit() {
-    if(notSelectedValue === undefined || selectedValue === undefined){
-      alert("You need to select a winner before submitting");
+    if (notSelectedValue === undefined || selectedValue === undefined || user === null) {
+      const message = user === null ? "You need to sign in to submit predictions" : "You need to select a winner before submitting";
+      
+      alert(message);
       setSubmitNotSignedIn(true);
       setTimeout(() => setSubmitNotSignedIn(false), 2000);
-      return
+      return;
     }
-    if (user === null) {
-      alert("You need to sign in to submit predictions");
-      setSubmitNotSignedIn(true);
-      setTimeout(() => setSubmitNotSignedIn(false), 2000);
-    }
+    
     else {
       const newGame = {
         gamePk: game.gamePk,
