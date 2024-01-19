@@ -5,14 +5,14 @@ function LivePitchDataVis({ ...dataLiveGame }) {
   const data = [];
 
   // Taking all "pitch" events from play events in general
-  for (let i = 0; i < dataLiveGame.liveData.plays.currentPlay.playEvents.length; i++) {
+  for (
+    let i = 0;
+    i < dataLiveGame.liveData.plays.currentPlay.playEvents.length;
+    i++
+  ) {
     if (
       dataLiveGame.liveData.plays.currentPlay.playEvents[i].isPitch === true
     ) {
-      // console.log(dataLiveGame.liveData.plays.currentPlay.playEvents[i])
-      // console.log(
-      //   dataLiveGame.liveData.plays.currentPlay.playEvents[i].pitchData
-      // );
       data.push(
         dataLiveGame.liveData.plays.currentPlay.playEvents[i].pitchData
           .coordinates
@@ -20,11 +20,11 @@ function LivePitchDataVis({ ...dataLiveGame }) {
     }
   }
 
-    //Using the players own particular strike zone based on their height and leg length
+  //Using the players own particular strike zone based on their body proportions
   const strikeZoneTop =
     dataLiveGame.liveData.plays.currentPlay.matchup.strikeZoneTop !== undefined
       ? dataLiveGame.liveData.plays.currentPlay.matchup.strikeZoneTop
-      : 3.49;
+      : 3.49; //Rough guess for an "average" player, when data isn't provided
 
   const strikeZoneBottom =
     dataLiveGame.liveData.plays.currentPlay.matchup.strikeZoneBottom !==
@@ -34,12 +34,7 @@ function LivePitchDataVis({ ...dataLiveGame }) {
 
   const strikeZoneTopInches = strikeZoneTop * 12;
   const strikeZoneBottomInches = strikeZoneBottom * 12;
-
-
-
-
-
-
+  //Visx graph display units 
   const width = 150;
   const height = 150;
   const margin = { top: 5, right: 5, bottom: 5, left: 5 };
@@ -60,7 +55,7 @@ function LivePitchDataVis({ ...dataLiveGame }) {
     range: [-height, height],
   });
 
-    // Formatting the pitch data to get rid of the different 3D axis if included 
+  // Formatting the pitch data to get rid of points xZ xY zY zX etc
   const formattedData = data.map(({ x, y }) => ({
     x: pitchDataXScale(x),
     y: pitchDataYScale(y),
@@ -79,14 +74,14 @@ function LivePitchDataVis({ ...dataLiveGame }) {
         <svg className="strikezone" width={width} height={height}>
           {/* X-axis */}
           <line
-            x1={width / 2} // Start from the center
+            x1={width / 2} // Starting from the center
             y1={height - margin.bottom}
-            x2={width / 2} // End at the center
+            x2={width / 2} // Ending at the center
             y2={height - margin.bottom}
             stroke="black"
           />
 
-          {/*Y*/}
+          {/*Y-axis*/}
           <line
             x1={margin.left}
             y1={margin.top}
@@ -95,7 +90,7 @@ function LivePitchDataVis({ ...dataLiveGame }) {
             stroke="black"
           />
 
-          {/* OUTER BOX FOR STRIKEZONE CONTEXT*/}
+          {/* OUTER BOX FOR STRIKEZONE play-area context*/}
 
           <line
             x1={margin.left}

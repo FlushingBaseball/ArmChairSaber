@@ -13,10 +13,26 @@ function Today({ user }) {
   const [gameData, setGameData] = useState(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  function handleCollapseShow() {
-    setIsCollapsed((isCollapsed) => !isCollapsed);
-  }
-
+  
+  useEffect(() => {
+    fetch(
+      `https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=probablePitcher(note)`
+      )
+      .then((resp) => {
+        if (!resp.ok) {
+          throw new Error(`Failed to fetch API. Code: ${resp.status}`);
+        }
+        return resp.json();
+      })
+      .then((statcastRESP) => setGameData(statcastRESP))
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+    }, [selectedSportId]);
+    
+    function handleCollapseShow() {
+      setIsCollapsed((isCollapsed) => !isCollapsed);
+    }
   // useEffect(() => {
   //   fetch(
   //     `https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`
@@ -24,13 +40,6 @@ function Today({ user }) {
   //     .then((resp) => resp.json())
   //     .then((statcastRESP) => setGameData(statcastRESP));
   // }, [selectedSportId]);
-  useEffect(() => {
-    fetch(
-      `https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=probablePitcher(note)`
-    )
-      .then((resp) => resp.json())
-      .then((statcastRESP) => setGameData(statcastRESP));
-  }, [selectedSportId]);
 
   // useEffect(() => {
   //   console.log(gameData);
@@ -81,16 +90,19 @@ function Today({ user }) {
         <h2 id="WS-Winner">
           🎉Congratulations to the Rangers, the 2023 World Series champions!🎉
         </h2>
-        <div  className={`Collapser ${isCollapsed ? 'collapsed' : ''}`} onClick={handleCollapseShow}>
+        <div
+          className={`Collapser ${isCollapsed ? "collapsed" : ""}`}
+          onClick={handleCollapseShow}
+        >
           <i className="fa-solid fa-caret-up" id="alertArrow" />
-        <p id="Fall">
-          Now that the MLB season is over, I have switched to displaying the
-          Mexican, Australian, Dominican, and Venezuelan Winter Leagues. Please
-          note that these leauges are experimental, the Dominican leauge will
-          enjoy full pitch by pitch data but there is limited data available for
-          other Leagues as Trackman, Hawkeye, and other tracking systems are not
-          installed in these stadiums.
-        </p>
+          <p id="Fall">
+            Now that the MLB season is over, I have switched to displaying the
+            Mexican, Australian, Dominican, and Venezuelan Winter Leagues.
+            Please note that these leauges are experimental, the Dominican
+            leauge will enjoy full pitch by pitch data but there is limited data
+            available for other Leagues as Trackman, Hawkeye, and other tracking
+            systems are not installed in these stadiums.
+          </p>
         </div>
         {isCollapsed ? (
           <i
