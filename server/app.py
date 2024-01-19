@@ -4,7 +4,10 @@ from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
 from models import User, User_Prediction, Game, Player
 from sqlalchemy import func
-
+import schedule
+import time
+import subprocess
+import threading
 
     
 CORS(app)
@@ -23,6 +26,7 @@ CORS(app)
 #             return render_template("index.html")
 #             ##return {'error': 'User is not logged in'}, 401
 #             ##+redirect(url_for('login')
+
 
 
 
@@ -528,7 +532,24 @@ def get_leaders():
             500
         )
 
+    # Run predictions.py using subprocess and a seperate thread
+def run_predictions():
+    subprocess.run(["python", "./predictions.py"])
 
+## Run at 2 AM and again at 2:10
+schedule.every().day.at("02:00").do(run_predictions)
+schedule.every().day.at("02:10").do(run_predictions)
+
+def job_scheduler():
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+        
+## will exit when the program exits
+scheduler_thread = threading.Thread(target=job_scheduler,name="SchedulerThread", daemon=True)
+
+## running the thread
+scheduler_thread.start()
 
 ## returning index.html to enable dynamic routing to work on refresh
 @app.errorhandler(404)   

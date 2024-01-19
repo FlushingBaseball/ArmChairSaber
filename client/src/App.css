@@ -700,6 +700,11 @@ button.activeSport {
   display: block;
 }
 
+.article{
+  text-align: center;
+  text-wrap: pretty;
+}
+
 .activeBase {
   border-color: rgb(235, 199, 82);
 }
@@ -1921,6 +1926,22 @@ th#standingsTable {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@keyframes jumpAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.jump {
+  animation: jumpAnimation 0.5s ease-in-out;
 }
 
 #hill{

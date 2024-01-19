@@ -16,6 +16,7 @@ alembic = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
 requests = "*"
+schedule = "*"
 
 [dev-packages]
 
