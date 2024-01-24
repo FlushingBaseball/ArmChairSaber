@@ -700,10 +700,6 @@ button.activeSport {
   display: block;
 }
 
-.article{
-  text-align: center;
-  text-wrap: pretty;
-}
 
 .activeBase {
   border-color: rgb(235, 199, 82);
@@ -1921,11 +1917,35 @@ th#standingsTable {
   display: flex;
   flex-direction: column;
 }
+.article{
+  height: 100%;
+  width: 100%;
+  text-wrap: pretty;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.article h1 {
+  font-family: zektonrg;
+  margin-bottom: 20px;
+}
+
+.article > h2 {
+  color: blue;
+}
 
 .Wrapper-hill{
+  width: fit-content;
+  padding: 0px 30px;
+  background: url('../public/Images/backgrounds/greengrid.jpg');
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: white;
+}
+.hill-header{
+  font-family: 'BebasNeue-Regular';
 }
 
 @keyframes jumpAnimation {
@@ -1945,14 +1965,15 @@ th#standingsTable {
 }
 
 #hill{
-  height: 18vh;
+  margin: 5px 0px;
+  box-shadow: 2px 4px 11px 5px #2d1432;
+  object-fit: cover;
+  height: 30vh;
   border-radius: 25px;
-  width: 34vw;
+  width: 16vw;
 }
 
-.hill-header{
-  font-family: 'zektonrg';
-}
+
 
 /* .WrapperArticle {
 } */
@@ -2424,6 +2445,11 @@ th#standingsTable {
   }
   .pitchComponets{
     font-size: 8px;
+  }
+  #hill{
+    height: 21vh;
+    width: 29vw;
+
   }
   
 } /* End Mobile Styling*/
