@@ -12,6 +12,11 @@
   src: url("/public/Fonts/alarmclock.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "13_Misa";
+  src: url("/public/Fonts/13_Misa.TTF") format("truetype");
+}
+
 /*
   CSS RESET
   */
@@ -1929,13 +1934,26 @@ th#standingsTable {
 .article h1 {
   font-family: zektonrg;
   margin-bottom: 20px;
+  align-self: center;
 }
 
 .article > h2 {
-  color: blue;
+  letter-spacing: 4px;
+  padding: 5px;
+  border-radius: 45px;
+  color: #2c1b47;
+  font-family: '13_Misa';
+}
+
+.article > p {
+  margin-left: 44px;
+  text-wrap: balance;
 }
 
 .Wrapper-hill{
+  box-shadow: 2px 4px 17px 2px #2d1432;
+  margin: 8px 0px;
+  align-self: center;
   width: fit-content;
   padding: 0px 30px;
   background: url('../public/Images/backgrounds/greengrid.jpg');

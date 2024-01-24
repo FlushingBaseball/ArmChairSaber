@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 export default function HillClicker () {
 
   const [imageIndex, setImageIndex] = useState(0);
+  // const [teamIndex, setTeamIndex] = useState(0)
   const [jump, setJump] = useState(false);
 
   const images = [
@@ -23,10 +24,23 @@ export default function HillClicker () {
     "./Images/RichHill/hill15.jpg",
     "./Images/RichHill/hill16.jpg",
     "./Images/RichHill/hill17.jpg",
-    // "../../../public/Images/Rich HIll/hill1.jpg",
-    // "../Images/Rich HIll/hill2.jpg",
-    // ".public/Images/Rich HIll/hill3.jpg",
   ];
+
+
+//   const teams = {
+//     "Athletics" :
+//     "Ducks":
+//     "Dodgers":
+//     "Pirates":
+//     "PawSox":
+//     "Twins":
+//     "Cleveland":
+//     "Padres":
+//     "Cubs":
+//     "Yankees":
+//     "Sox's again":
+    
+// }
 
   const changeImage = () => {
     // Update the imageIndex to the next one in the array, or go back to the first image if it reaches the end
@@ -46,6 +60,7 @@ export default function HillClicker () {
         alt={`Image ${imageIndex + 1}`}
         onClick={changeImage}
       />
+      {/* <span>{team}</span> */}
     </div>
   );
 };
