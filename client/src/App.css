@@ -18,8 +18,12 @@
 }
 
 @font-face {
-  font-family: "unicode.compacta";
-  src: url("/public/Fonts/unicode.compacta.ttf") format("truetype");
+  font-family: "BrandinkSans";
+  src: url("/public/Fonts/BrandinkSans.otf") format("truetype");
+}
+@font-face {
+  font-family: "BrandinkSans-light";
+  src: url("/public/Fonts/BrandinkSansLight.otf") format("truetype");
 }
 
 /*
@@ -1946,6 +1950,7 @@ th#standingsTable {
 }
 
 .article > h2 {
+  margin-left: 5vw;
   letter-spacing: 4px;
   padding: 5px;
   border-radius: 45px;
@@ -1954,9 +1959,10 @@ th#standingsTable {
 }
 
 .article > p {
-  margin-left: 44px;
+  margin-left: 7vw;
   text-wrap: balance;
-  font-family: "unicode.compacta";
+  font-family: "BrandinkSans";
+  text-rendering: optimizeLegibility;
 }
 
 .Wrapper-hill{
