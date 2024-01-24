@@ -17,6 +17,11 @@
   src: url("/public/Fonts/13_Misa.TTF") format("truetype");
 }
 
+@font-face {
+  font-family: "unicode.compacta";
+  src: url("/public/Fonts/unicode.compacta.ttf") format("truetype");
+}
+
 /*
   CSS RESET
   */
@@ -1932,9 +1937,12 @@ th#standingsTable {
 
 
 .article h1 {
+  text-align: center;
+  margin-top: 2px;
   font-family: zektonrg;
   margin-bottom: 20px;
   align-self: center;
+  border-bottom: 2px #2d1432 solid;
 }
 
 .article > h2 {
@@ -1948,6 +1956,7 @@ th#standingsTable {
 .article > p {
   margin-left: 44px;
   text-wrap: balance;
+  font-family: "unicode.compacta";
 }
 
 .Wrapper-hill{
@@ -1986,9 +1995,9 @@ th#standingsTable {
   margin: 5px 0px;
   box-shadow: 2px 4px 11px 5px #2d1432;
   object-fit: cover;
-  height: 30vh;
+  height: 20vh;
   border-radius: 25px;
-  width: 16vw;
+  width: 9vw;
 }
 
 
