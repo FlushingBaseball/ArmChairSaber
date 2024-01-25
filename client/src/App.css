@@ -1963,6 +1963,7 @@ th#standingsTable {
 
 .article > p {
   margin-left: 7vw;
+  margin-right: 2vw;
   text-wrap: balance;
   font-family: "BrandinkSans";
   text-rendering: optimizeLegibility;
