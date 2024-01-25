@@ -1941,6 +1941,9 @@ th#standingsTable {
 
 
 .article h1 {
+  color: black;
+  padding: 3vh 3vw;
+  text-shadow: 2px 2px 5px #d9c2e9;
   text-align: center;
   margin-top: 2px;
   font-family: zektonrg;
@@ -1960,6 +1963,7 @@ th#standingsTable {
 
 .article > p {
   margin-left: 7vw;
+  margin-right: 2vw;
   text-wrap: balance;
   font-family: "BrandinkSans";
   text-rendering: optimizeLegibility;
@@ -1978,6 +1982,7 @@ th#standingsTable {
   color: white;
 }
 .hill-header{
+  text-shadow: 2px 2px 5px #d9c2e9;
   font-family: 'BebasNeue-Regular';
 }
 
