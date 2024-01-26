@@ -20,9 +20,9 @@ export default function HillClicker () {
     "./Images/RichHill/hill11.webp",
     "./Images/RichHill/hill12.webp",
     "./Images/RichHill/hill13.jpg",
-    "./Images/RichHill/hill14.jpg",
+    "./Images/RichHill/hill14.webp",
     "./Images/RichHill/hill15.webp",
-    "./Images/RichHill/hill16.jpg",
+    "./Images/RichHill/hill16.webp",
     "./Images/RichHill/hill17.webp",
     "./Images/RichHill/hill18.webp",
   ];
