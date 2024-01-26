@@ -78,8 +78,12 @@ def call_mlb_patch_prediction(prediction, game_id, backend_game_data=None):
   if mlb_Data.status_code ==200:
     mlb_game_response = mlb_Data.json()
     ## Always checking the last date of a game object in order to handle rainouts etc
-    last_date = len(mlb_game_response.get('dates')) -1
-    # print(f'This is the response from MLB: {mlb_game_response}')
+    if 'dates' in mlb_game_response and len(mlb_game_response['dates']) > 0:
+      last_date = len(mlb_game_response.get('dates')) -1
+    else:
+      print("No Dates in mlb_game_response")
+      return
+    print(f'This is the response from MLB: {mlb_game_response}')
     print(f"Abstract Game State is {mlb_game_response['dates'][last_date]['games'][0]['status']['abstractGameState']}")
     if (mlb_game_response['dates'][last_date]['games'][0]['status']['abstractGameState'] != 'Final'):
       print("Game isn't final yet")
