@@ -1,12 +1,14 @@
+#!/usr/bin/env python
+
 import requests
 import asyncio
 import time
 
 
-environment = "development"
-BASE_URL='https://armchairsaber.onrender.com'
-if environment == "development":
-  BASE_URL="http://localhost:5555"
+# environment = "development"
+# BASE_URL='https://armchairsaber.onrender.com'
+# if environment == "development":
+#   BASE_URL="http://localhost:5555"
 
 users_cache = {}
 
