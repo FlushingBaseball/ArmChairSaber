@@ -83,7 +83,7 @@ def call_mlb_patch_prediction(prediction, game_id, backend_game_data=None):
     else:
       print("No Dates in mlb_game_response")
       return
-    print(f'This is the response from MLB: {mlb_game_response}')
+    # print(f'This is the response from MLB: {mlb_game_response}')
     print(f"Abstract Game State is {mlb_game_response['dates'][last_date]['games'][0]['status']['abstractGameState']}")
     if (mlb_game_response['dates'][last_date]['games'][0]['status']['abstractGameState'] != 'Final'):
       print("Game isn't final yet")
