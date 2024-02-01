@@ -39,9 +39,9 @@ function Today({ user }) {
   //     .then((statcastRESP) => setGameData(statcastRESP));
   // }, [selectedSportId]);
 
-  // useEffect(() => {
-  //   console.log(gameData);
-  // }, [gameData]);
+  useEffect(() => {
+    console.log(gameData);
+  }, [gameData]);
 
   /**
    * Used After Midnight in season for development because formattedDate changes
@@ -90,12 +90,7 @@ function Today({ user }) {
       />
       <SiteAlert 
         alertHeading={"🎉Congratulations to the Rangers, the 2023 World Series champions!🎉"}
-        alertMessage={`Now that the MLB season is over, I have switched to displaying the
-        Mexican, Australian, Dominican, and Venezuelan Winter Leagues.
-        Please note that these leauges are experimental, the Dominican
-        leauge will enjoy full pitch by pitch data but there is limited data
-        available for other Leagues as Trackman, Hawkeye, and other tracking
-        systems are not installed in these stadiums.`}
+        alertMessage={`The Caribbean Series is in full swing! There may be limited pitch data available for some games that Trackman, Hawkeye, and other tracking systems are not installed for. There will be no games in the quite period between the Series completion and Spring Training`}
       />
       <div className="WrapperToday">
         {gameData.dates[0].games.map((game) => {
