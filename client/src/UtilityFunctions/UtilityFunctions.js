@@ -7,3 +7,4 @@ export function handleImageError(img, playerid){
       img.src = "/Images/default-batter.svg";
     };
 }
+
