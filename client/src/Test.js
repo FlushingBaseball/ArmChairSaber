@@ -4,7 +4,7 @@ import Collapse from "./TestComponets/Collapse";
 
 function Test(){
 
-    const [xData, setxData] = useState('')
+    // const [xData, setxData] = useState('')
 
 
 /**
@@ -205,7 +205,7 @@ useEffect(()=>{
             {/* {populatePlayers()} */}
             {/* <TableComponent xData={xData}/> */}
 
-            <Collapse />
+            {/* <Collapse /> */}
 
 
 

@@ -1,4 +1,4 @@
-import Question from "./UtilityComponets/Question";
+import Question from "../UtilityComponets/Question";
 
 export default function Faq() {
   return (

@@ -18,7 +18,7 @@ import FieldingSaber from "./FieldingSaber";
 import RollingMetrics from "./RollingMetrics";
 import LeagueLeaders from "./LeaugeLeaders";
 import UserHome from "./UserPageComponets/UserHome";
-import Faq from "./Faq";
+import Faq from "./FaqComponets/Faq";
 import Venue from "./TeamComponets/Venue";
 import PlayerPage from "./PlayerComponets/PlayerPage";
 import Standings from "./TeamComponets/Standings";

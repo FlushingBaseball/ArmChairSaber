@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import TodaysGame from "./TodaysGame";
 import LeaugeSelect from "./UtilityComponets/LeaugeSelect";
+import SiteAlert from "./UtilityComponets/SiteAlert";
 
 function Today({ user }) {
   const currentDate = new Date();
@@ -11,7 +12,6 @@ function Today({ user }) {
 
   const [selectedSportId, setSelectedSportId] = useState("17");
   const [gameData, setGameData] = useState(null);
-  const [isCollapsed, setIsCollapsed] = useState(false);
 
   
   useEffect(() => {
@@ -30,9 +30,7 @@ function Today({ user }) {
       });
     }, [selectedSportId]);
     
-    function handleCollapseShow() {
-      setIsCollapsed((isCollapsed) => !isCollapsed);
-    }
+
   // useEffect(() => {
   //   fetch(
   //     `https://statsapi.mlb.com/api/v1/schedule?date=${formattedDate}&sportId=${selectedSportId}&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`
@@ -69,6 +67,10 @@ function Today({ user }) {
   if (!gameData.dates.length) {
     return (
       <div id="noGames">
+        <SiteAlert 
+          alertHeading={"☹️ The Winter Leauges have ended ☹️"}
+          alertMessage={"We're in that small period between the start of Spring training and the end of the Winter Leagues. Most spring training games will have limited pitch data available, as Trackman, Hawkeye, and other tracking systems are usually not active."}
+        />
         <LeaugeSelect
           handleSportSelect={handleSportSelect}
           selectedSportId={selectedSportId}
@@ -86,31 +88,15 @@ function Today({ user }) {
         handleSportSelect={handleSportSelect}
         selectedSportId={selectedSportId}
       />
-      <div className="Alert">
-        <h2 id="WS-Winner">
-          🎉Congratulations to the Rangers, the 2023 World Series champions!🎉
-        </h2>
-        <div
-          className={`Collapser ${isCollapsed ? "collapsed" : ""}`}
-          onClick={handleCollapseShow}
-        >
-          <i className="fa-solid fa-caret-up" id="alertArrow" />
-          <p id="Fall">
-            Now that the MLB season is over, I have switched to displaying the
-            Mexican, Australian, Dominican, and Venezuelan Winter Leagues.
-            Please note that these leauges are experimental, the Dominican
-            leauge will enjoy full pitch by pitch data but there is limited data
-            available for other Leagues as Trackman, Hawkeye, and other tracking
-            systems are not installed in these stadiums.
-          </p>
-        </div>
-        {isCollapsed ? (
-          <i
-            onClick={handleCollapseShow}
-            className="fa-solid fa-caret-up fa-rotate-180"
-          ></i>
-        ) : null}
-      </div>
+      <SiteAlert 
+        alertHeading={"🎉Congratulations to the Rangers, the 2023 World Series champions!🎉"}
+        alertMessage={`Now that the MLB season is over, I have switched to displaying the
+        Mexican, Australian, Dominican, and Venezuelan Winter Leagues.
+        Please note that these leauges are experimental, the Dominican
+        leauge will enjoy full pitch by pitch data but there is limited data
+        available for other Leagues as Trackman, Hawkeye, and other tracking
+        systems are not installed in these stadiums.`}
+      />
       <div className="WrapperToday">
         {gameData.dates[0].games.map((game) => {
           return (
