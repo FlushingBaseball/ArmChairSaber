@@ -90,7 +90,7 @@ function Today({ user }) {
       />
       <SiteAlert 
         alertHeading={"🎉Congratulations to the Rangers, the 2023 World Series champions!🎉"}
-        alertMessage={`The Caribbean Series is in full swing! There may be limited pitch data available for some games that Trackman, Hawkeye, and other tracking systems are not installed for. There will be no games in the quite period between the Series completion and Spring Training`}
+        alertMessage={`The Caribbean Series is in full swing! There may be limited pitch data available for some games that Trackman, Hawkeye, and other tracking systems are not installed for. There will be no games in the quiet period between the Series completion and Spring Training`}
       />
       <div className="WrapperToday">
         {gameData.dates[0].games.map((game) => {
