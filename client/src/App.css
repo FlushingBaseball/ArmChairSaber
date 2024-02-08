@@ -2051,7 +2051,6 @@ th#standingsTable {
   flex-direction: row;
   justify-content: center;
   gap: 3vw;
-  overflow: hidden;
 }
 
 .Preview-Article-Title{
@@ -2535,5 +2534,11 @@ th#standingsTable {
     width: 29vw;
 
   }
+.Preview-Article-Title{
+  font-size: .8rem;
+}
+#Recent-Articles-Header{
+  font-size: .8rem;
+}
   
 } /* End Mobile Styling*/

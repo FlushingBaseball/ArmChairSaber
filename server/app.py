@@ -551,6 +551,24 @@ scheduler_thread = threading.Thread(target=job_scheduler,name="SchedulerThread",
 ## running the thread
 scheduler_thread.start()
 
+
+
+
+def run_predictions():
+    print("Running predictions.py")
+    subprocess.run(["python", "./predictions.py"])
+
+def job_scheduler():
+    while True:
+        print("Checking schedule")
+        schedule.run_pending()
+        time.sleep(1)
+
+# run_predictions()
+
+# job_scheduler()
+
+
 ## returning index.html to enable dynamic routing to work on refresh
 @app.errorhandler(404)   
 def not_found(e):   
