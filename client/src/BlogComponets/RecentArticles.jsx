@@ -8,10 +8,10 @@ export default function RecentArticles() {
         {" "}
         Rich Hill
       </Link>
-      <Link className="Preview-Article-Title" to={`/blog/MLB-Expansion`}>
+      {/* <Link className="Preview-Article-Title" to={`/blog/MLB-Expansion`}>
         {" "}
         MLB Expansion
-      </Link>
+      </Link> */}
     </div>
   );
 }

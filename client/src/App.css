@@ -417,6 +417,35 @@
   }
 }
 
+#vidSpan {
+  text-shadow: -1px -1px 3px beige;
+  color: black;
+  font-family: "BebasNeue-Regular";
+  font-style: italic;
+  text-align: center;
+}
+
+.Wrapper-Video-Player {
+  margin: 9px 5px;
+  padding: 8px;
+  box-shadow: 0px 7px 6px 2px #2c1b47;
+  background: linear-gradient(45deg, #d9c2e9, #673ab7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  width: fit-content;
+}
+#hillVidComp {
+  flex-wrap: wrap;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+#Armchair-Video {
+  height: 40vh;
+}
+
 .nav {
   z-index: 9999;
   display: flex;
@@ -714,7 +743,6 @@ button.activeSport {
   display: block;
 }
 
-
 .activeBase {
   border-color: rgb(235, 199, 82);
 }
@@ -738,7 +766,7 @@ button.activeSport {
   display: flex;
   font-size: 2vh;
   color: black;
-  font-family: 'BebasNeue-Regular';
+  font-family: "BebasNeue-Regular";
 }
 
 .PitchType {
@@ -932,7 +960,7 @@ button.activeSport {
 .OnDeck {
   height: 10vh;
 }
-.onDeckSpan{
+.onDeckSpan {
   font-family: zektonrg;
 }
 
@@ -945,7 +973,7 @@ button.activeSport {
 
 #VS {
   text-shadow: -1px 2px black;
-  font-family: 'zektonrg';
+  font-family: "zektonrg";
   font-size: 1.5rem;
   margin: 0 10px;
 }
@@ -1058,8 +1086,6 @@ td {
   background-color: rgb(238, 238, 83);
 }
 
-
-
 .leaderEntry {
   background-color: white;
   border: 1px solid #333;
@@ -1156,6 +1182,18 @@ td {
   font-family: "zektonrg";
   font-size: 1rem;
 }
+#hill-comp {
+  align-self: center;
+  background: beige;
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.hillComp {
+  height: 68vh;
+  margin: 9px;
+}
 
 .playerFieldCard {
   display: flex;
@@ -1239,7 +1277,7 @@ td {
   flex-direction: column;
   align-items: center;
 }
-.WrapperChooseImage{
+.WrapperChooseImage {
   padding: 2vh;
   background: linear-gradient(180deg, #d9c2e9, #c8c8f8);
   display: flex;
@@ -1249,33 +1287,33 @@ td {
   justify-content: center;
   flex-wrap: wrap;
 }
-#choosePhoto{
+#choosePhoto {
   font-family: zektonrg;
   margin-bottom: 6px;
 }
 
-.WrapperUserSummary{
+.WrapperUserSummary {
   display: flex;
 }
 
-#UserSummaryImage{
+#UserSummaryImage {
   width: 10vw;
 }
 
-.currentProPic{
+.currentProPic {
   box-shadow: 2px 4px 10px 2px green;
 }
-.notCurrentPic{
-  box-shadow: -2px 1px 10px 0px red
+.notCurrentPic {
+  box-shadow: -2px 1px 10px 0px red;
 }
 
-.picOptions{
+.picOptions {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.settingsImageOption{
+.settingsImageOption {
   width: 5vw;
   margin: 0px 3px;
 }
@@ -1285,23 +1323,23 @@ td {
   width: 50vw;
 }
 
-#SettingsWrapperHeader{
-    letter-spacing: 5px;
-    text-decoration: underline;
-    color: #2d1432;
-    font-family: zektonrg;
+#SettingsWrapperHeader {
+  letter-spacing: 5px;
+  text-decoration: underline;
+  color: #2d1432;
+  font-family: zektonrg;
 }
 
-.WrapperUserSettingsPanel{
-    border-radius: 25px;
-    padding: 3vw;
-    background: rgb(200, 200, 248);
-    gap: 1vh;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: wrap;
-    align-items: center;
+.WrapperUserSettingsPanel {
+  border-radius: 25px;
+  padding: 3vw;
+  background: rgb(200, 200, 248);
+  gap: 1vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 #HeaderSummary {
@@ -1311,10 +1349,10 @@ td {
 .summarySpan {
   font-family: "zektonrg";
 }
-.streakSpan{
+.streakSpan {
   font-family: "zektonrg";
 }
-.userDataSpan{
+.userDataSpan {
   padding: 3px;
   border-radius: 45px;
   color: red;
@@ -1744,18 +1782,17 @@ td {
   align-items: center;
 }
 
-
-.PitchDescription{
+.PitchDescription {
   font-family: zektonrg;
 }
 
-.pitches{
+.pitches {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.PitchWrapper{
+.PitchWrapper {
   border: 2px dashed red;
   border-radius: 15px;
   font-family: alarmclock;
@@ -1771,7 +1808,7 @@ td {
   position: sticky;
   top: inherit;
 }
-.PitchBreak{
+.PitchBreak {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -1931,14 +1968,13 @@ th#standingsTable {
   display: flex;
   flex-direction: column;
 }
-.article{
+.article {
   height: 100%;
   width: 100%;
   text-wrap: pretty;
   display: flex;
   flex-direction: column;
 }
-
 
 .article h1 {
   color: black;
@@ -1958,7 +1994,7 @@ th#standingsTable {
   padding: 5px;
   border-radius: 45px;
   color: #2c1b47;
-  font-family: '13_Misa';
+  font-family: "13_Misa";
 }
 
 .article > p {
@@ -1969,21 +2005,21 @@ th#standingsTable {
   text-rendering: optimizeLegibility;
 }
 
-.Wrapper-hill{
+.Wrapper-hill {
   box-shadow: 2px 4px 17px 2px #2d1432;
   margin: 8px 0px;
   align-self: center;
   width: fit-content;
   padding: 0px 30px;
-  background: url('../public/Images/backgrounds/greengrid.jpg');
+  background: url("../public/Images/backgrounds/greengrid.jpg");
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
 }
-.hill-header{
+.hill-header {
   text-shadow: 2px 2px 5px #d9c2e9;
-  font-family: 'BebasNeue-Regular';
+  font-family: "BebasNeue-Regular";
 }
 
 @keyframes jumpAnimation {
@@ -2002,7 +2038,7 @@ th#standingsTable {
   animation: jumpAnimation 0.5s ease-in-out;
 }
 
-#hill{
+#hill {
   margin: 5px 0px;
   box-shadow: 2px 4px 11px 5px #2d1432;
   object-fit: cover;
@@ -2011,9 +2047,8 @@ th#standingsTable {
   width: 9vw;
 }
 
-#Recent-Articles-Header{
-  font-family: 
-  "BebasNeue-Regular";
+#Recent-Articles-Header {
+  font-family: "BebasNeue-Regular";
   letter-spacing: 2px;
 }
 /* @font-face {
@@ -2043,7 +2078,7 @@ th#standingsTable {
   font-family: "BrandinkSans-light";
   src: url("/public/Fonts/BrandinkSansLight.otf") format("truetype"); */
 
-.Wrapper-Recent-Posts{
+.Wrapper-Recent-Posts {
   padding-top: 5px;
   padding-bottom: 1px;
   background: linear-gradient(71deg, #d9c2e9, transparent);
@@ -2053,7 +2088,7 @@ th#standingsTable {
   gap: 3vw;
 }
 
-.Preview-Article-Title{
+.Preview-Article-Title {
   text-decoration: none;
   font-family: "13_Misa";
 }
@@ -2093,7 +2128,7 @@ th#standingsTable {
   width: 33vw;
 }
 
-.StreakSummary{
+.StreakSummary {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2108,14 +2143,14 @@ th#standingsTable {
   padding: 20px 0px;
 }
 
-#playerStatsError{
+#playerStatsError {
   width: 10vw;
 }
 
 .leader-head {
   padding: 2px;
 }
-#attempt-load-header{
+#attempt-load-header {
   font-family: alarmclock;
   text-transform: uppercase;
   text-align: center;
@@ -2123,7 +2158,7 @@ th#standingsTable {
   background: #2c1b47;
   color: yellow;
 }
-.WrapperBadLoad{
+.WrapperBadLoad {
   box-shadow: 2px 6px 10px 6px;
   padding: 22px;
   border-radius: 25px;
@@ -2132,7 +2167,7 @@ th#standingsTable {
   flex-direction: column;
   justify-content: center;
 }
-#bad-load-header{
+#bad-load-header {
   padding: 6px;
   font-size: 1rem;
   border-radius: 14px;
@@ -2145,30 +2180,21 @@ th#standingsTable {
   text-align: center;
   text-wrap: pretty;
 }
-.WrapperBatLoader{
+.WrapperBatLoader {
   display: flex;
   justify-content: center;
 }
-.onDeckDiv{
+.onDeckDiv {
   margin-left: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 
 /* #c8c8f8
 #e4e6f2 */
 /* background: linear-gradient(103deg, #ebeb98, #f4e4ff); */
-
-
-
-
-
-
-
-
 
 /* font-family: 'zektonrg'; */
 
@@ -2512,33 +2538,41 @@ th#standingsTable {
   .leader-head {
     font-size: 0.5rem;
   }
-  .WrapperBadLoad{
+  .WrapperBadLoad {
     width: 90vw;
     margin-bottom: 15px;
     padding: 4px;
   }
-  #playerStatsError{
+  #playerStatsError {
     width: 22vw;
   }
-  .settingsImageOption{
+  .settingsImageOption {
     width: 15vw;
   }
-  #UserSummaryImage{
+  #UserSummaryImage {
     width: 25vw;
   }
-  .pitchComponets{
+  .pitchComponets {
     font-size: 8px;
   }
-  #hill{
+  #hill {
     height: 21vh;
     width: 29vw;
-
   }
-.Preview-Article-Title{
-  font-size: .8rem;
-}
-#Recent-Articles-Header{
-  font-size: .8rem;
-}
-  
+  .Preview-Article-Title {
+    font-size: 0.8rem;
+  }
+  #Recent-Articles-Header {
+    font-size: 0.8rem;
+  }
+  .Wrapper-Video-Player {
+    margin: 9px 0px;
+    width: 92vw;
+  }
+  #Armchair-Video {
+    height: 25vh;
+  }
+  #hill-comp {
+    flex-direction: column;
+  }
 } /* End Mobile Styling*/
