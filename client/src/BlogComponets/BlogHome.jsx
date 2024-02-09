@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 
 import RichHill from "./Articles/RichHill.mdx";
+import MLBExpansion from "./Articles/MLBExpansion.mdx"
 
 export default function BlogHome() {
   return (
@@ -20,13 +21,12 @@ export default function BlogHome() {
           MLB Expansion
         </Link>
       </div>
-
+      
 
 
  
       <RichHill />
 
-      {/* <ArticleOne /> */}
     </div>
   );
 }
