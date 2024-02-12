@@ -1,37 +1,31 @@
+import FlipCard from '../ArticleInteractions/FlipCard.jsx'
+import RecentArticles from "../RecentArticles.jsx"
+
+import {firstCardData, secondCardData, thirdCardData} from '../Article-Data.js'
+
 <div className="article">
 
-# Hope, bullpen construction and the art of the unkown.
+<RecentArticles />
+# Hope, Bullpen Construction, and the Art of the Unknown
 
-It's the start of Spring training, there's alot of players on split and minor leauge deals showing up to camp ready to try and compete there way into the final sport on a roster. 
-Theres AAA relievers looking to get their chance, theres guys who are looking for another shot who once preformed, theres guys that seem to never be out of a job like Oliver Perez
-but every team is convinced that they have a shot at having a decent pen, they might not delulde themselves into thinking they're any good but a glance over at the pen and hey we might have something here!
+## Click on a card to flip it
 
-The stats
+ <div className='Article-Card-Divs'>
+    <FlipCard frontText={firstCardData.frontText} backText={firstCardData.backText} />
+    <FlipCard frontText={secondCardData.frontText} backText={secondCardData.backText} />
+    <FlipCard frontText={thirdCardData.frontText} backText={thirdCardData.backText} />
 
-W.A.R or wins above replacment is the go to, all in one, holloistic stat for judiging a baseball player, but if WAR has a major flaw its an inablity to give good relievers their just desserts.
-
-The ability to build a bullpen is a still somewhat shouded in mystery, is churn incredibily important? that is taking the last few spots and only filling them with pitchers who still have minor leauge 
-options in order to always have fresh arms avaialbe wihtout sorting through the waiver wire, is a proved track record important? Aaron loop, etc do you want to be paying for the season a reliever has just had?
-or are you paying for the one their likley to have this season. 
-
-
-Predictioning what will be good
-
-Quiz componet 
-
-Descripes a season and asks were they good the next year!
-
-
-## in seasaon challenges
-Robert stephesnon waas awful? well what if I told you he was great!
-David Robertson was amazing, well what if I told you he would be un=useable?
-Try and out smart everyone and get Mycheal Givens? Well he was bad too. 
+  </div>
 
 
 
+As Spring training commences, unfortunately, hope is not universally in the air (looking at you, A’s). However, if there's one area where there's a universal sense of optimism, it's your team's bullpen. Players on split contracts and minor leaguers with one outstanding pitch are ready to compete for the final spot on a roster after an offseason of hard work. Those who struggled last season don’t have a ballooned ERA hovering over their heads, and those who excelled see no reason why this season should be any different. The mediocre are the happiest, free from expectations.
 
+Every team can be convinced they have a genuine shot at having a decent bullpen, and it’s not just self-delusion. Glancing over at, say, the generally doomed A’s, Mason Miller could be one of the best relievers in the league with his stuff, Zach Jackson has been consistently good for two seasons, Trevor Gott had a FIP of 3.20 and was just unlucky, and Dany Jiménez and Lucas Erceg boast some promising underlying metrics.
 
+Some of the most exciting teams that defied projection algorithms and competed in the playoffs did so because of effective bullpens. The 2012 Baltimore Orioles, projected to win just 70 games, went on to win 93 on the shoulders of FIVE amazing seasons from Jim Johnson (2.49 ERA), Luis Ayala (2.64), Darren O’Day (2.27), Pedro Strop (2.44), and Troy Patton (2.43). That kind of right side of the bell curve outcome is what every fan can dream of, regardless of what STEAMER, PECOTA, VEGAS, or any algorithmic or non-algorithmic entity says about their team. Bullpens become more important every year as starting pitchers throw fewer total innings.
 
-
+## More to Come
+Testing out componets, not much of a blogger but enjoying building these interactions.
 
 </div>
