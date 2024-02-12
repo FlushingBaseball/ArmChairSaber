@@ -3,7 +3,6 @@
 import RecentArticles from "./RecentArticles";
 
 import RichHill from "./Articles/RichHill.mdx";
-// import MLBExpansion from "./Articles/MLBExpansion.mdx"
 
 export default function BlogHome() {
   return (

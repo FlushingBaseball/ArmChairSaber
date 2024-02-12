@@ -1969,8 +1969,7 @@ th#standingsTable {
   flex-direction: column;
 }
 .article {
-  height: 100%;
-  width: 100%;
+  padding-bottom: 6vh;
   text-wrap: pretty;
   display: flex;
   flex-direction: column;
@@ -2050,6 +2049,7 @@ th#standingsTable {
 #Recent-Articles-Header {
   font-family: "BebasNeue-Regular";
   letter-spacing: 2px;
+  padding-left: 12px;
 }
 /* @font-face {
   font-family: "zektonrg";
@@ -2085,10 +2085,10 @@ th#standingsTable {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 3vw;
 }
 
 .Preview-Article-Title {
+  margin: 0px 20px;
   text-decoration: none;
   font-family: "13_Misa";
 }
@@ -2560,9 +2560,13 @@ th#standingsTable {
     width: 29vw;
   }
   .Preview-Article-Title {
+    text-align: center;
     font-size: 0.8rem;
+    margin: 0px 2px;
+
   }
   #Recent-Articles-Header {
+    text-align: center;
     font-size: 0.8rem;
   }
   .Wrapper-Video-Player {

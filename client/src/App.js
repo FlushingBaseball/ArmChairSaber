@@ -28,6 +28,7 @@ import Transactions from "./TeamComponets/Transactions";
 import BlogHome from "./BlogComponets/BlogHome";
 import RichHill from "./BlogComponets/Articles/RichHill.mdx";
 import MLBExpansion from "./BlogComponets/Articles/MLBExpansion.mdx"
+import BullpenHope from "./BlogComponets/Articles/BullpenHope.mdx"
 
 
 
@@ -85,8 +86,10 @@ function App() {
         <Route path="/standings" element={<Standings />} />
         <Route path="/transactions" element={<Transactions />} />
 
+        {/**Blog article paths **/}
         <Route path="/blog/Rich-Hill" element={<RichHill />} />
         <Route path="/blog/MLB-Expansion" element={<MLBExpansion />} />
+        <Route path="/blog/Bullpen-Hope" element={<BullpenHope />} />
 
 
 
