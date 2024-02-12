@@ -12,7 +12,7 @@ export default function RecentArticles() {
         {" "}
         MLB Expansion
       </Link>
-      <Link className="Preview-Article-Title" to={`/blog/MLB-Expansion`}>
+      <Link className="Preview-Article-Title" to={`/blog/Bullpen-Hope`}>
         {" "}
         Bullpen Hope
       </Link>
