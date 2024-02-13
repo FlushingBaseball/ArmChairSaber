@@ -21,6 +21,9 @@ class User(db.Model, SerializerMixin):
     User_Predictions = db.relationship('User_Prediction', backref="user")
     favorite_team = db.Column(db.Integer, nullable =True)
 
+    ## Access level 
+    access_level = db.Column(db.Integer, nullable = False, default=0)
+
     @hybrid_property
     def password_hash(self):
         raise AttributeError('Cannot access password hash!')
@@ -73,6 +76,10 @@ class User_Prediction(db.Model, SerializerMixin):
                                   )
     actualLoserId = db.Column(db.Integer, nullable=True)
     isResolved = db.Column(db.Boolean, nullable = True, default = False)
+
+ 
+
+
     ##back ref user = relationship
     ##back ref game = relationship
 
@@ -87,6 +94,8 @@ class Game(db.Model, SerializerMixin):
     gameWinner_id = db.Column(db.Integer, nullable=True)
     gameLoser_id= db.Column(db.Integer, nullable=True)
     gameResolved = db.Column(db.Boolean, nullable = False, default = False)
+    ## If a game (most likey a winter ball game has no winner after a few checks system should be able to flag it for review for removal of game predictions and fix users)
+    stale_game_pull_counter = db.Column(db.Integer, nullable=False, default = 0)
     Game_Predictions = db.relationship('User_Prediction', backref='game')
 
     serialize_rules=("-user_predictions.game",)
