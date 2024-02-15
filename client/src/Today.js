@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TodaysGame from "./TodaysGame";
 import LeaugeSelect from "./UtilityComponets/LeaugeSelect";
 import SiteAlert from "./UtilityComponets/SiteAlert";
+import BatLoader from "./UtilityComponets/BatLoader";
 
 function Today({ user }) {
   const currentDate = new Date();
@@ -61,7 +62,7 @@ function Today({ user }) {
   }
 
   if (gameData === null) {
-    return <h3>...loading</h3>;
+    return <BatLoader />
   }
 
   if (!gameData.dates.length) {
