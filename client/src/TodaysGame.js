@@ -3,6 +3,8 @@ import { useState } from "react";
 import PredictionGroup from "./PredictionGroup";
 import { handleImageError } from "./UtilityFunctions/UtilityFunctions";
 
+import BatLoader from "./UtilityComponets/BatLoader"
+
 function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   const [predictedWinner, setPredictedWinner] = useState("");
 
@@ -29,10 +31,10 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   }
 
   if (teams.home.team.id === undefined || teams.away.team.id === undefined) {
-    return <h3>...loading</h3>;
+    return <BatLoader />
   }
   if (status === undefined) {
-    return <h3>...loading</h3>;
+    return <BatLoader />
   }
 
   /*

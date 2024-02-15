@@ -1,3 +1,4 @@
+import BatLoader from "../UtilityComponets/BatLoader";
 import { useEffect, useState } from "react";
 
 function Leaderboard() {
@@ -21,7 +22,7 @@ function Leaderboard() {
 
 if (!leaderboardData){
   return (
-    <h1>...Loading</h1>
+    <BatLoader />
   )
 }
 

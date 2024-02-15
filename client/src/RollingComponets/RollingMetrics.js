@@ -1,6 +1,8 @@
-import TeamSelect from "./UtilityComponets/TeamSelect";
-import GroupSelect from "./UtilityComponets/GroupSelect";
+import TeamSelect from "../UtilityComponets/TeamSelect";
+import GroupSelect from "../UtilityComponets/GroupSelect";
+import BatLoader from "../UtilityComponets/BatLoader"
 import { useEffect, useState } from "react";
+
 
 function RollingMetrics() {
   const [fetchedGameData, setFetchedGameData] = useState("");
@@ -26,7 +28,7 @@ function RollingMetrics() {
 
 
   if (!fetchedGameData.length) {
-    return <h1>Loading...</h1>;
+    return <BatLoader />
   }
 
 
