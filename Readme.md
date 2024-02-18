@@ -2,12 +2,11 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Farmchairsaber.onrender.com%2F)
 
 ## Armchair Sabermetrics / Armchair Baseball 
-Javascript, React Python, Flask, Postgresql, SQLAlchemy, Bcyrpt.
+React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt. 
 
 
-## Summary (Tl;DR)
-Put your predictive ability to the test, by submitting predictions on game outcomes against the userbase and predictive models.
-Watch games LIVE with pitch by pitch data from Spinrate and Exit Velo to Brake Angle.  
+## Summary
+A competitive platform, for the statistical analysis of baseball, and the application of that analysis to predict the outcome of baseball games against other users. Predictions on a game close once it begins, and then the option to watch that game becomes available with stunning pitch by pitch metrics. Raise up the leaderboard and put your predictive ability to the test against other users and predictive models.  
 
 ## Stats
 Query Advanced Sabermetrics, Career and Advanced Season stats on any player from 2022 and 2023. 
