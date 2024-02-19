@@ -1,34 +1,32 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
+/*App imports */
 import "./App.css";
-import HomePage from "./HomePage";
-import Teams from "./Teams";
-import Today from "./Today";
 import NotFound from "./NotFound";
+/*Live game imports */
 import LiveGame from "./LiveGame";
 import TeamMap from "./TeamComponets/TeamMap";
-import Leaderboard from "./LeaderboardComponets/Leaderboard";
-
+import HomePage from "./HomePage";
+import Today from "./TodaysGamesComponets/Today";
 /*Nav */
 import Nav from "./Nav";
 import Login from "./Login";
 import SignOut from "./SignOut";
-
-/*Smalleer features */
+/*Smaller features */
+import Leaderboard from "./LeaderboardComponets/Leaderboard";
 import RollingMetrics from "./RollingComponets/RollingMetrics";
 import LeagueLeaders from "./LeaugeLeaders";
 import UserHome from "./UserPageComponets/UserHome";
 import Faq from "./FaqComponets/Faq";
 import PlayerPage from "./PlayerComponets/PlayerPage";
 import Standings from "./TeamComponets/Standings";
-
 /*Incomplete and broken features */
+import Teams from "./Incomplete Features/Teams";
 import Venue from "./TeamComponets/Venue";
 import Transactions from "./TeamComponets/Transactions";
 import FieldingSaber from "./FieldingComponets/FieldingSaber";
 import Test from "./Test";
-
 /*Blog imports */
 import BlogHome from "./BlogComponets/BlogHome";
 import RichHill from "./BlogComponets/Articles/RichHill.mdx";
@@ -54,7 +52,9 @@ function App() {
     <div className="App">
       <Nav user={user} setUser={setUser} />
       <Routes>
+        {/*Base url */}
         <Route path="/" element={<HomePage />} />
+        {/*User routes */}
         <Route
           path="/user/:username"
           element={<UserHome user={user} setUser={setUser} />}
@@ -69,14 +69,11 @@ function App() {
             />
           }
         />
-
         <Route path="/signout" element={<SignOut setUser={setUser} />} />
-
         {/*Game routes */}
         <Route path="/today" element={<Today user={user} />} />
         <Route path="TodaysGame/:gamePk" element={<LiveGame />} />
         <Route path="leaderboard" element={<Leaderboard />} />
-
         {/*Routes not used */}
         <Route path="test" element={<Test />} />
         <Route path="/venue" element={<Venue />} />
@@ -91,24 +88,19 @@ function App() {
             />
           }
         />
-
         {/*Smaller feature routes */}
         <Route path="/rolling-metrics" element={<RollingMetrics />} />
         <Route path="/league-leaders" element={<LeagueLeaders />} />
         <Route path="/standings" element={<Standings />} />
-
         {/**Blog article paths **/}
         <Route path="/blog" element={<BlogHome />} />
         <Route path="/blog/Rich-Hill" element={<RichHill />} />
         <Route path="/blog/MLB-Expansion" element={<MLBExpansion />} />
         <Route path="/blog/Bullpen-Hope" element={<BullpenHope />} />
-
         <Route path="/FAQ" element={<Faq />} />
-
         <Route path="rosters" element={<TeamMap />} />
         <Route path="/player/" element={<PlayerPage />} />
         <Route path="/player/:mlbAmId/" element={<PlayerPage />} />
-
         {/*Catch All */}
         <Route path="*" element={<NotFound />} />
       </Routes>

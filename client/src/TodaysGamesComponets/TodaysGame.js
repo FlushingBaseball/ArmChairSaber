@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import PredictionGroup from "./PredictionGroup";
-import { handleImageError } from "./UtilityFunctions/UtilityFunctions";
+import PredictionGroup from "../PredictionGroup";
+import { handleImageError } from "../UtilityFunctions/UtilityFunctions";
 
-import BatLoader from "./UtilityComponets/BatLoader"
+import BatLoader from "../UtilityComponets/BatLoader"
 
 function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   const [predictedWinner, setPredictedWinner] = useState("");
