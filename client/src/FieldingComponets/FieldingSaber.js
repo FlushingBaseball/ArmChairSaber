@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import Search from "./UtilityComponets/Search"
+import Search from "../UtilityComponets/Search"
 import FieldingCard from "./FieldingCard"
 
 // CORS Issue: Savant has changed their CORS Policy: Will circle back soon

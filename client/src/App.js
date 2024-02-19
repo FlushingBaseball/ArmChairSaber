@@ -5,34 +5,35 @@ import "./App.css";
 import HomePage from "./HomePage";
 import Teams from "./Teams";
 import Today from "./Today";
-import Nav from "./Nav";
 import NotFound from "./NotFound";
 import LiveGame from "./LiveGame";
 import TeamMap from "./TeamComponets/TeamMap";
 import Leaderboard from "./LeaderboardComponets/Leaderboard";
+
+/*Nav */
+import Nav from "./Nav";
 import Login from "./Login";
 import SignOut from "./SignOut";
-import Test from "./Test";
 
-import FieldingSaber from "./FieldingSaber";
+/*Smalleer features */
 import RollingMetrics from "./RollingComponets/RollingMetrics";
-
-
 import LeagueLeaders from "./LeaugeLeaders";
 import UserHome from "./UserPageComponets/UserHome";
 import Faq from "./FaqComponets/Faq";
-import Venue from "./TeamComponets/Venue";
 import PlayerPage from "./PlayerComponets/PlayerPage";
 import Standings from "./TeamComponets/Standings";
-import Transactions from "./TeamComponets/Transactions";
 
-/*Blog Imports */
+/*Incomplete and broken features */
+import Venue from "./TeamComponets/Venue";
+import Transactions from "./TeamComponets/Transactions";
+import FieldingSaber from "./FieldingComponets/FieldingSaber";
+import Test from "./Test";
+
+/*Blog imports */
 import BlogHome from "./BlogComponets/BlogHome";
 import RichHill from "./BlogComponets/Articles/RichHill.mdx";
-import MLBExpansion from "./BlogComponets/Articles/MLBExpansion.mdx"
-import BullpenHope from "./BlogComponets/Articles/BullpenHope.mdx"
-
-
+import MLBExpansion from "./BlogComponets/Articles/MLBExpansion.mdx";
+import BullpenHope from "./BlogComponets/Articles/BullpenHope.mdx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -43,6 +44,8 @@ function App() {
     fetch("/check_session").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+      } else {
+        console.log("User not signed in");
       }
     });
   }, []);
@@ -52,24 +55,6 @@ function App() {
       <Nav user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/teams" element={<Teams />} />
-        <Route path="/today" element={<Today user={user} />} />
-        <Route path="TodaysGame/:gamePk" element={<LiveGame />} />
-        <Route path="Leaderboard" element={<Leaderboard />} />
-        <Route path="test" element={<Test />} />
-        <Route path="/rolling-metrics" element={<RollingMetrics />} />
-
-        <Route path="/blog" element={<BlogHome />} />
-        <Route
-          path="/advancedFielding"
-          element={
-            <FieldingSaber
-              searchPlayer={searchPlayer}
-              setSearchPlayer={setSearchPlayer}
-            />
-          }
-        />
-        <Route path="/LeagueLeaders" element={<LeagueLeaders />} />
         <Route
           path="/user/:username"
           element={<UserHome user={user} setUser={setUser} />}
@@ -85,24 +70,46 @@ function App() {
           }
         />
 
-        <Route path="/standings" element={<Standings />} />
+        <Route path="/signout" element={<SignOut setUser={setUser} />} />
+
+        {/*Game routes */}
+        <Route path="/today" element={<Today user={user} />} />
+        <Route path="TodaysGame/:gamePk" element={<LiveGame />} />
+        <Route path="leaderboard" element={<Leaderboard />} />
+
+        {/*Routes not used */}
+        <Route path="test" element={<Test />} />
+        <Route path="/venue" element={<Venue />} />
         <Route path="/transactions" element={<Transactions />} />
+        <Route path="/teams" element={<Teams />} />
+        <Route
+          path="/advanced-fielding"
+          element={
+            <FieldingSaber
+              searchPlayer={searchPlayer}
+              setSearchPlayer={setSearchPlayer}
+            />
+          }
+        />
+
+        {/*Smaller feature routes */}
+        <Route path="/rolling-metrics" element={<RollingMetrics />} />
+        <Route path="/league-leaders" element={<LeagueLeaders />} />
+        <Route path="/standings" element={<Standings />} />
 
         {/**Blog article paths **/}
+        <Route path="/blog" element={<BlogHome />} />
         <Route path="/blog/Rich-Hill" element={<RichHill />} />
         <Route path="/blog/MLB-Expansion" element={<MLBExpansion />} />
         <Route path="/blog/Bullpen-Hope" element={<BullpenHope />} />
 
-
-
-        <Route path="/signout" element={<SignOut setUser={setUser} />} />
         <Route path="/FAQ" element={<Faq />} />
-        <Route path="/Venue" element={<Venue />} />
 
-        <Route path="TeamMap" element={<TeamMap />} />
+        <Route path="rosters" element={<TeamMap />} />
         <Route path="/player/" element={<PlayerPage />} />
         <Route path="/player/:mlbAmId/" element={<PlayerPage />} />
 
+        {/*Catch All */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
