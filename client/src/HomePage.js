@@ -40,7 +40,7 @@ function HomePage() {
         ></img>
       </button>
 
-      <button className="homeTile" onClick={() => handleTileClick("TeamMap")}>
+      <button className="homeTile" onClick={() => handleTileClick("rosters")}>
         Roster Resource
         <img
           className="homeIcon"
@@ -90,7 +90,7 @@ function HomePage() {
 
       <button
         className="homeTile"
-        onClick={() => handleTileClick("LeagueLeaders")}
+        onClick={() => handleTileClick("league-leaders")}
       >
         League Leaders
         <img

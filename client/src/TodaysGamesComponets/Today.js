@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import TodaysGame from "./TodaysGame";
-import LeaugeSelect from "./UtilityComponets/LeaugeSelect";
-import SiteAlert from "./UtilityComponets/SiteAlert";
-import BatLoader from "./UtilityComponets/BatLoader";
+import LeaugeSelect from "../UtilityComponets/LeaugeSelect";
+import SiteAlert from "../UtilityComponets/SiteAlert";
+import BatLoader from "../UtilityComponets/BatLoader";
 
 function Today({ user }) {
   const currentDate = new Date();

@@ -1,8 +1,5 @@
 
-
-
 function FieldingCard({fielderImage, feildingData, averageSpeed, totalDistance, longestDistance }){
-
 
     return(
         <div className="playerFieldCard">
