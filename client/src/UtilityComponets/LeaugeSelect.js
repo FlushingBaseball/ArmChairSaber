@@ -1,4 +1,5 @@
 export default function LeaugeSelect({ handleSportSelect, selectedSportId }) {
+  // 22 is  college,  31 NPB, 32 KBO, 23 INDY BALL
   return (
     <div className="leaugeSelect">
       {/* <button
