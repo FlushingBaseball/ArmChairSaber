@@ -11,7 +11,7 @@ function Today({ user }) {
   const year = currentDate.getFullYear();
   const formattedDate = `${month}/${day}/${year}`;
 
-  const [selectedSportId, setSelectedSportId] = useState("1");
+  const [selectedSportId, setSelectedSportId] = useState("32");
   const [gameData, setGameData] = useState(null);
 
   
