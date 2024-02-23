@@ -29,7 +29,7 @@ function Today({ user }) {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-    }, [selectedSportId]);
+    }, [selectedSportId, formattedDate]);
     
 
   // useEffect(() => {
@@ -78,7 +78,7 @@ function Today({ user }) {
         />
         <h1 id="noGameHeader">There seems to be no games scheduled for </h1>
         <h2 id="noGameDate"> {formattedDate}</h2>
-        <img id="noGameImage" src="/Images/spring-no-games.jpg"></img>
+        <img id="noGameImage" alt="Grounds crew members getting the field ready for games" src="/Images/spring-no-games.jpg"></img>
       </div>
     );
   }

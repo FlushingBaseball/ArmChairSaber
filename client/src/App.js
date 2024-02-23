@@ -26,6 +26,7 @@ import Teams from "./Incomplete Features/Teams";
 import Venue from "./TeamComponets/Venue";
 import Transactions from "./TeamComponets/Transactions";
 import FieldingSaber from "./FieldingComponets/FieldingSaber";
+import FreeAgents from './Incomplete Features/FreeAgents';
 import Test from "./Test";
 /*Blog imports */
 import BlogHome from "./BlogComponets/BlogHome";
@@ -78,6 +79,7 @@ function App() {
         <Route path="test" element={<Test />} />
         <Route path="/venue" element={<Venue />} />
         <Route path="/transactions" element={<Transactions />} />
+        <Route path="/free-agents" element={<FreeAgents />} />
         <Route path="/teams" element={<Teams />} />
         <Route
           path="/advanced-fielding"
