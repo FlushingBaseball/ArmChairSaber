@@ -1,14 +1,14 @@
 export default function LeaugeSelect({ handleSportSelect, selectedSportId }) {
   return (
     <div className="leaugeSelect">
-      <button
+      {/* <button
         className={`leaugeSelectButton ${
           selectedSportId === "17" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("17")}
       >
         AFL
-      </button>
+      </button> */}
       <button
         className={`leaugeSelectButton ${
           selectedSportId === "1" ? "activeSport" : null
