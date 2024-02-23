@@ -11,7 +11,7 @@ function Today({ user }) {
   const year = currentDate.getFullYear();
   const formattedDate = `${month}/${day}/${year}`;
 
-  const [selectedSportId, setSelectedSportId] = useState("17");
+  const [selectedSportId, setSelectedSportId] = useState("1");
   const [gameData, setGameData] = useState(null);
 
   
@@ -69,8 +69,8 @@ function Today({ user }) {
     return (
       <div id="noGames">
         <SiteAlert 
-          alertHeading={"☹️ The Winter Leauges have ended ☹️"}
-          alertMessage={"We're in that small period between the start of Spring training and the end of the Winter Leagues. Most spring training games will have limited pitch data available, as Trackman, Hawkeye, and other tracking systems are usually not active."}
+          alertHeading={"☹️ The minor leauges have not yet begun ☹️"}
+          alertMessage={"We're in that small period where there are spring training games, but no minor league games are played on fields that are tracked or publicly recorded. If you've ever heard the phrase 'backfields,' this is that period."}
         />
         <LeaugeSelect
           handleSportSelect={handleSportSelect}
@@ -78,7 +78,7 @@ function Today({ user }) {
         />
         <h1 id="noGameHeader">There seems to be no games scheduled for </h1>
         <h2 id="noGameDate"> {formattedDate}</h2>
-        <img id="noGameImage" src="/Images/empty2.jpg"></img>
+        <img id="noGameImage" src="/Images/spring-no-games.jpg"></img>
       </div>
     );
   }
@@ -90,8 +90,8 @@ function Today({ user }) {
         selectedSportId={selectedSportId}
       />
       <SiteAlert 
-        alertHeading={"🎉Congratulations to the Rangers, the 2023 World Series champions!🎉"}
-        alertMessage={`The Caribbean Series is in full swing! There may be limited pitch data available for some games that Trackman, Hawkeye, and other tracking systems are not installed for. There will be no games in the quiet period between the Series completion and Spring Training`}
+        alertHeading={"😄 Spring training games have begun 😄"}
+        alertMessage={`Spring training is in full swing! There may be limited pitch data available for some games because teams either have not installed Trackman, Hawkeye, and other tracking systems in their complexes or have chosen not to turn on the systems during select training games.`}
       />
       <div className="WrapperToday">
         {gameData.dates[0].games.map((game) => {
