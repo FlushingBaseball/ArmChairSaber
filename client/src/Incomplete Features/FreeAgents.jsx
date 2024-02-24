@@ -9,7 +9,7 @@ export default function FreeAgents() {
   const [unSignedFreeAgents, setUnSignedFreeAgents] = useState([]);
 
   useEffect(() => {
-    fetch(`http://statsapi.mlb.com/api/v1/people/freeAgents?season=2023`)
+    fetch(`https://statsapi.mlb.com/api/v1/people/freeAgents?season=2023`)
     .then((resp) => resp.json())
     .then( data =>{
       setFreeAgentData(data.freeAgents)

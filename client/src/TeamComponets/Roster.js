@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleImageError } from "../UtilityFunctions/UtilityFunctions";
+import BatLoader from "../UtilityComponets/BatLoader";
 
 function Roster({ selectedTeam, selectedRoster }) {
   const [rosterData, setRosterData] = useState([]);
+  const [catcherData, setCatcherData] = useState([]);
+  const [infieldersData, setInfieldersData] = useState([]);
+  const [outfieldersData, setOutfieldersData] = useState([]);
+  const [designatedHitterData, setDesignatedHitterData] = useState([]);
+  const [pitchersData, setPitchersData] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,14 +20,18 @@ function Roster({ selectedTeam, selectedRoster }) {
       .then((resp) => resp.json())
       .then((data) => {
         // console.log(data)
-        data.roster
-          ? setRosterData(data.roster)
-          : alert("There's no data for this roster type as of now");
+        if (data.roster) {
+          setRosterData(data.roster)
+          sortRosterByPosition(data.roster)
+        }
+        else{
+          alert("There's no data for this roster type as of now");
+        }
       });
   }, [selectedTeam, selectedRoster]);
 
   if (!rosterData.length > 1) {
-    return <h1>...loading</h1>;
+    return <BatLoader />;
   }
 
   function handlePlayerClick(value, player) {
@@ -29,6 +40,43 @@ function Roster({ selectedTeam, selectedRoster }) {
     }
     navigate(`/player/${String(value)}`);
   }
+
+  function sortRosterByPosition(rosterData) {
+    // console.log("this is rosterData", rosterData);
+    const filteredRoster = rosterData.reduce(
+      (acc, player) => {
+        if (player.position && player.position.type === "Infielder") {
+          acc.infieldersData.push(player);
+        } else if (player.position && player.position.type === "Outfielder") {
+          acc.outfieldersData.push(player);
+        } else if (
+          (player.position && player.position.type === "Hitter") ||
+          (player.position && player.position.type === "Two-Way Player")
+        ) {
+          acc.designatedHitterData.push(player);
+        } else if (player.position && player.position.type === "Pitcher") {
+          acc.pitchersData.push(player);
+        } else if (player.position && player.position.type === "Catcher") {
+          acc.catcherData.push(player);
+        }
+        return acc;
+      },
+      {
+        catcherData: [],
+        infieldersData: [],
+        outfieldersData: [],
+        designatedHitterData: [],
+        pitchersData: [],
+      }
+    );
+
+    setCatcherData(filteredRoster.catcherData);
+    setInfieldersData(filteredRoster.infieldersData);
+    setOutfieldersData(filteredRoster.outfieldersData);
+    setDesignatedHitterData(filteredRoster.designatedHitterData);
+    setPitchersData(filteredRoster.pitchersData);
+  }
+
 
   function mapRoster(personArray) {
     if (rosterData.length > 1) {
@@ -68,24 +116,6 @@ function Roster({ selectedTeam, selectedRoster }) {
     }
   }
 
-  const infielders = rosterData.filter(
-    (player) => player.position && player.position.type === "Infielder"
-  );
-  const outfielders = rosterData.filter(
-    (player) => player.position && player.position.type === "Outfielder"
-  );
-  const pitchers = rosterData.filter(
-    (player) => player.position && player.position.type === "Pitcher"
-  );
-  const designatedHitters = rosterData.filter(
-    (player) =>
-      (player.position && player.position.type === "Hitter") ||
-      (player.position && player.position.type === "Two-Way Player")
-  );
-  const catchers = rosterData.filter(
-    (player) => player.position && player.position.type === "Catcher"
-  );
-
   return (
     <div className={`WrapperRoster`}>
       {selectedRoster === "coach" ? (
@@ -96,22 +126,22 @@ function Roster({ selectedTeam, selectedRoster }) {
             <span className="rosterCount">{`${rosterData.length} players listed`}</span>
             <div className="RosterGrouping">
               <h2 className="RosterCata">Catchers</h2>
-              {mapRoster(catchers)}
+              {mapRoster(catcherData)}
             </div>
             <h2 className="RosterCata">Infielders</h2>
-            {mapRoster(infielders)}
+            {mapRoster(infieldersData)}
           </div>
           <div className="RosterGrouping">
             <h2 className="RosterCata">Outfielders</h2>
-            {mapRoster(outfielders)}
+            {mapRoster(outfieldersData)}
           </div>
+          {designatedHitterData.length ? <div className="RosterGrouping">
+            <h2 className="RosterCata">Designated Hitters</h2>
+             {mapRoster(designatedHitterData)}
+          </div> : null }
           <div className="RosterGrouping">
             <h2 className="RosterCata">Pitchers</h2>
-            {mapRoster(pitchers)}
-          </div>
-          <div className="RosterGrouping">
-            <h2 className="RosterCata">Designated Hitters</h2>
-            {mapRoster(designatedHitters)}
+            {mapRoster(pitchersData)}
           </div>
         </>
       )}
@@ -120,3 +150,6 @@ function Roster({ selectedTeam, selectedRoster }) {
 }
 
 export default Roster;
+
+
+

@@ -18,7 +18,7 @@ export default function RosterTypeSelect({
         <option value={"40Man"}>40 Man</option>
         <option value={"active"}>Active</option>
         <option value={"coach"}>Coaches</option>
-        {/* <option value={'nonRosterInvitees'}>Invitees</option> */}
+        <option value={'nonRosterInvitees'}>Non-Roster</option>
         <option value={"depthChart"}>Depth Chart</option>
         <option value={"fullSeason"}>Full Season</option>
         <option value={"fullRoster"}>Full All Levels Roster</option>
