@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from "react";
+import BatLoader from "./BatLoader"
 
 function Search({searchPlayer, setSearchPlayer, fetchedPlayers, setFetchedPlayers}){
 
@@ -6,7 +7,7 @@ const [query, setQuery] = useState('');
 
 
     if (fetchedPlayers.length < 3){
-        return(<h1>...loading</h1>)
+        return <BatLoader />
     }
 
     function handlePlayerDivClick(event){
