@@ -45,6 +45,9 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   // const homeTeamImageSrc=`./Images/logos/${teams.home.team.id}.svg`;
   // const awayTeamImageSrc=`./Images/logos/${teams.away.team.id}.svg`;
 
+//2024-02-24T18:05:00Z convert this to est start time and display it
+
+
   return (
     <div className="game">
       <div
