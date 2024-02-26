@@ -107,6 +107,10 @@ def patch_game_on_backend(mlb_game_response, last_date):
   GameLoser = None
   game_id = mlb_game_response['dates'][last_date]['games'][0]['gamePk']
 
+  # if "isWinner" not in mlb_game_response:
+  #   print("Rare tied game that is final, most likely was a spring training game!")
+  #   return
+
   if mlb_game_response['dates'][last_date]['games'][0]['teams']['away']["isWinner" ] == True:
     GameWinner = mlb_game_response['dates'][last_date]['games'][0]['teams']['away']['team']['id']
     GameLoser =  mlb_game_response['dates'][last_date]['games'][0]['teams']['home']['team']['id']
@@ -126,9 +130,6 @@ def patch_game_on_backend(mlb_game_response, last_date):
     print('Error patching game on backend:', postResponse.status_code)
     print('Response Content:', postResponse.text)
     print("\n" *5)
-
-
-
 
 
 ## I've decided games will only be patched from the backend game data for now, one function should be grading all predictions
@@ -227,4 +228,7 @@ def patch_user_info():
 
 
 asyncio.run(handle_unresolved_predictions_pool())
+
+
+
 
