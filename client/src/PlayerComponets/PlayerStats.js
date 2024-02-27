@@ -71,7 +71,7 @@ export default function PlayerStats({ playerData, displayMethod, searchPlayer })
                       .toUpperCase()}
                   </span>
                   <span className="StatDataSpan">
-                    {playerData.people[0].stats[i].splits[j].stat[field]}
+                    {typeof(playerData.people[0].stats[i].splits[j].stat[field]) === "object" ? "NA" : playerData.people[0].stats[i].splits[j].stat[field]}
                   </span>
                 </div>
               );

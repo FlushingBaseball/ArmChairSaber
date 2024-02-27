@@ -11,7 +11,7 @@ export default function PlayerPage() {
   let { mlbAmId } = useParams();
 
   /* Picking a random good player on startup, the endpoint got locked down after hitting one default player too many times in a month*/
-  const randomPlayerArray = ["665742", "660670", "624413", "605141", "543037", "660271", "673540", "628317", "547943", "668939", "547180", "596019","646240", "514888","571448","605135" ];
+  const randomPlayerArray = ["665742", "660670", "624413", "605141", "543037", "660271", "673540", "628317", "547943", "668939", "547180", "596019","646240", "514888","571448","605135","656775", ];
   const randomStartingPlayer = Math.floor(Math.random() * randomPlayerArray.length);
   /*If there's no palyer id in the url paramaters (there is when this page is accessed by clicking on a player in roster for example) */
   const initialPlayerId = mlbAmId ? mlbAmId : randomPlayerArray[randomStartingPlayer];
