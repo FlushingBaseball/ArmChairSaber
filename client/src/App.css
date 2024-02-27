@@ -717,6 +717,37 @@ button.activeSport {
   display: flex;
 }
 
+#stat-button-header{
+  box-shadow: 0px 1px 5px 2px #d9c2e9;;
+    text-align: center;
+    border-radius: 45px;
+    width: 100%;
+    text-transform: uppercase;
+    color: white;
+    background: #022b3c;
+    font-family: 'zektonrg';
+
+}
+
+#season-stat-header{
+  box-shadow: 1px 4px 8px 0px black;
+  border-radius: 10px;
+  width: 100%;
+  font-family: "zektonrg";
+  font-size: 1.2rem;
+  background: linear-gradient(71deg, #d9c2e9, transparent);
+  padding: 7px 8px;
+  margin: 1px;
+}
+
+
+
+.statGroupButton.selected-saber-button{
+  box-shadow: 2px 3px 0px 0px green;
+  color: green;
+}
+
+
 #firstBase {
   border-width: 3vh;
   border-style: solid;
@@ -957,6 +988,10 @@ button.activeSport {
   text-shadow: -1px 2px black;
   font-family: zektonrg;
   display: block;
+}
+
+.bioSpan{
+  font-family: zektonrg;
 }
 
 .PitcherVsBatter .vs-text-container {
@@ -1569,6 +1604,9 @@ td {
 
 .BioFeild {
   font-weight: bolder;
+  letter-spacing: 1px;
+  margin-right: 6px;
+  font-family: "13_Misa";
 }
 
 .StatFeild {
@@ -1606,7 +1644,7 @@ td {
   border: 2px solid transparent;
   background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
   border-radius: 45px;
-  box-shadow: 2px 2px 2px 2px;
+  box-shadow: 4px 7px 2px 2px;
   font-family: "zektonrg";
   font-weight: bolder;
 }
@@ -2268,6 +2306,7 @@ th#standingsTable {
   }
   #playerName {
     text-align: center;
+    font-size: 1.4rem;
   }
   .statGroupButton {
     margin: 0.2vh 1vw;
@@ -2502,6 +2541,9 @@ th#standingsTable {
   .lineup {
     padding: 2px;
   }
+  .WrapperPlayerCardBio {
+    padding: 0px 0px;
+  }
   .WrapperScoringPlays {
     text-wrap: balance;
     text-align: center;
@@ -2540,6 +2582,10 @@ th#standingsTable {
   }
   #playerPhoto {
     width: 6vh;
+  }
+  .BioFeild {
+    letter-spacing: 0px;
+    margin-right: 1px;
   }
   .fieldImg {
     border: #2c1b47 5px solid;
@@ -2652,5 +2698,12 @@ th#standingsTable {
   } 
   .FlipSpan{
     font-size: 1rem;
+  }
+  .WrapperBioText {
+    font-size: 0.6rem;
+  }
+  #PlayerCardImage {
+    height: 15vh;
+    width: 15vh;
   }
 } /* End Mobile Styling*/

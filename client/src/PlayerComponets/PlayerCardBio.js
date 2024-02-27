@@ -41,12 +41,10 @@ export default function PlayerCardBio({ searchPlayer, playerData }) {
         <div className="BioGrouping">
           <span className="BioFeild">Birth Place:</span>
           <span className="bioSpan">
-            {playerData.people[0].birthCity} &nbsp;
+            {`${playerData.people[0].birthCity ? playerData.people[0].birthCity : ''}
+             ${playerData.people[0].birthStateProvince ? playerData.people[0].birthStateProvince : ''}
+              ${playerData.people[0].birthCountry ? playerData.people[0].birthCountry : ''} `}
           </span>
-          <span className="bioSpan">
-            {playerData.people[0].birthStateProvince} &nbsp;
-          </span>
-          <span className="bioSpan">{playerData.people[0].birthCountry}</span>
         </div>
 
         <div className="BioGrouping">
@@ -66,7 +64,7 @@ export default function PlayerCardBio({ searchPlayer, playerData }) {
         </div>
 
         <div className="BioGrouping">
-          <span className="BioFeild">First MLB game:</span>
+          <span className="BioFeild">MLB debut:</span>
           <span className="bioSpan">{playerData.people[0].mlbDebutDate}</span>
         </div>
 
@@ -78,10 +76,7 @@ export default function PlayerCardBio({ searchPlayer, playerData }) {
         <div className="BioGrouping">
           <span className="BioFeild">Position:</span>
           <span className="bioSpan">
-            {playerData.people[0].primaryPosition.type}
-          </span>
-          <span className="bioSpan">
-            {playerData.people[0].primaryPosition.abbreviation}
+            {`${playerData.people[0].primaryPosition.type} ${playerData.people[0].primaryPosition.abbreviation}`}
           </span>
         </div>
       </div>

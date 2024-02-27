@@ -1,10 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BatLoader from "./BatLoader"
 
-function Search({searchPlayer, setSearchPlayer, fetchedPlayers, setFetchedPlayers}){
+function Search({searchPlayer, setSearchPlayer }){
 
+const [fetchedPlayers, setFetchedPlayers] = useState("");
 const [query, setQuery] = useState('');
 
+
+useEffect(() => {
+  const fetchSearchData = () => {
+    fetch("/players")
+      .then((resp) => {
+        if (!resp.ok) {
+          throw new Error(`Network response wasn't okay`);
+        }
+        return resp.json();
+      })
+      .then((data) => {
+        setFetchedPlayers(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching search players", error);
+        setTimeout(fetchSearchData, 1000);
+      });
+  };
+  fetchSearchData();
+}, []);
 
     if (fetchedPlayers.length < 3){
         return <BatLoader />
@@ -25,11 +46,6 @@ const [query, setQuery] = useState('');
 
     const maxResults =4;
     const displayedPlayers = filteredPlayers.slice(0, maxResults);
-
-
- 
-        // console.log(fetchedPlayers)
-   
 
 return (
     <div className="search">
