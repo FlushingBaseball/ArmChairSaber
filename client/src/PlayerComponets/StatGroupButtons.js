@@ -35,6 +35,20 @@ export default function StatGroupButtons({
         isSelected={selectedButton ==='Hitting by year'}
         statDisplayMethod={"displayYearByYear"}
       />
+      <StatGroupButton
+        value={`https://statsapi.mlb.com/api/v1/people/*****?hydrate=stats(group=[pitching],type=[yearByYear])`}
+        onClick={handleStatButtonClick}
+        label={"Pitching by year"}
+        isSelected={selectedButton ==='Pitching by year'}
+        statDisplayMethod={"displayYearByYear"}
+      />
+      <StatGroupButton
+        value={`https://statsapi.mlb.com/api/v1/people/*****?hydrate=stats(group=[fielding],type=[yearByYear])`}
+        onClick={handleStatButtonClick}
+        label={"Fielding by year"}
+        isSelected={selectedButton ==='Fielding by year'}
+        statDisplayMethod={"displayYearByYear"}
+      />
 
       {/* <button
         className="statGroupButton"

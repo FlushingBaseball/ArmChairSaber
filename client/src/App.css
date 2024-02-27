@@ -2299,6 +2299,8 @@ th#standingsTable {
     justify-content: center;
   }
   .MiddleRow {
+    padding: 0px;
+    margin: 0px 0px;
     flex-wrap: wrap;
   }
   .WrapperStatGroupButtons {
@@ -2313,7 +2315,7 @@ th#standingsTable {
     padding: 1.5px 4px;
   }
   .search {
-    width: 65vw;
+    width: 90vw;
   }
   #Leaderboard {
     width: 98vw;
@@ -2542,6 +2544,7 @@ th#standingsTable {
     padding: 2px;
   }
   .WrapperPlayerCardBio {
+    width: 90vw;
     padding: 0px 0px;
   }
   .WrapperScoringPlays {
@@ -2700,10 +2703,16 @@ th#standingsTable {
     font-size: 1rem;
   }
   .WrapperBioText {
+    padding: 1vh 1vw;
     font-size: 0.6rem;
   }
   #PlayerCardImage {
     height: 15vh;
     width: 15vh;
   }
+  #ImageName {
+    gap: 1vh;
+    padding-left: 6px;
+  }
+
 } /* End Mobile Styling*/
