@@ -71,11 +71,11 @@ function HomePage() {
         className="homeTile"
         // onClick={() => handleTileClick("advancedPitching")}
       >
-        Advanced Fielding *2024 spring* 
+        Free Agency
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/PITCHINGv3.svg"
-          alt="Man throwing ball"
+          src="Images/HomePageIcons/FREE-AGENTv2.svg"
+          alt="Baseball player and agent fielding phone calls"
         ></img>
       </button>
 

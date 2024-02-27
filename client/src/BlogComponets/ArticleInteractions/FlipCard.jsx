@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSpring, a } from "@react-spring/web";
 import { handleImageError } from "../../UtilityFunctions/UtilityFunctions";
 
-export default function FlipCard({ frontText, backText, playerId }) {
+export default function FlipCard({ frontText, backText, playerId, playerName}) {
   const [flipped, setFlipped] = useState(false);
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
@@ -16,18 +16,19 @@ export default function FlipCard({ frontText, backText, playerId }) {
     <div
       className="Wrapper-Flip-Card"
       onClick={() => setFlipped((state) => !state)}
-    >
+      >
       <a.div
         className="Flip-Card  Flip-Card-Front"
         style={{ opacity: opacity.to((o) => 1 - o), transform }}
       >
+        <span id="player-flipcard-name">{playerName}</span>
         {playerId ? (
           <img
-            id="Flip-Card-Image"
-            src={playerImage}
-            onError={(e) => handleImageError(e.target, playerId)}
+          id="Flip-Card-Image"
+          src={playerImage}
+          onError={(e) => handleImageError(e.target, playerId)}
           ></img>
-        ) : null}
+          ) : null}
         <span className="FlipSpan">{frontText}</span>
       </a.div>
       <a.div
