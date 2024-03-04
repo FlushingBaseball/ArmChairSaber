@@ -22,7 +22,7 @@ function HomePage() {
     Predictions Leaderboard
     <img
       className="homeIcon"
-      src="Images/HomePageIcons/LEADERv2.svg"
+      src="Images/HomePageIcons/LEADERBOARDv2.svg"
       alt="Mascots watching TV togeather"
     ></img>
   </button>
@@ -67,7 +67,27 @@ function HomePage() {
         ></img>
       </button>
 
+      <button className="homeTile" onClick={() => handleTileClick("blog")} >
+        Blog
+        <img
+          className="homeIcon"
+          src="Images/HomePageIcons/BLOGv5.svg"
+          alt="man running to catch sinking fly ball"
+        ></img>
+      </button>
+
       <button
+        className="homeTile"
+        // onClick={() => handleTileClick("advancedPitching")}
+      >
+        Advanced Pitching Tools *Regular Season 2024
+        <img
+          className="homeIcon"
+          src="Images/HomePageIcons/PITCHINGv3.svg"
+          alt="Baseball player and agent fielding phone calls"
+        ></img>
+      </button>
+      {/* <button
         className="homeTile"
         // onClick={() => handleTileClick("advancedPitching")}
       >
@@ -77,16 +97,7 @@ function HomePage() {
           src="Images/HomePageIcons/FREE-AGENTv2.svg"
           alt="Baseball player and agent fielding phone calls"
         ></img>
-      </button>
-
-      <button className="homeTile" onClick={() => handleTileClick("blog")} >
-        Blog
-        <img
-          className="homeIcon"
-          src="Images/HomePageIcons/BLOGv5.svg"
-          alt="man running to catch sinking fly ball"
-        ></img>
-      </button>
+      </button> */}
 
       <button
         className="homeTile"
