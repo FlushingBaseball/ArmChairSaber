@@ -1,5 +1,5 @@
-import { useState } from "react";
-export default function Question({ question, text }) {
+ import { useState } from "react";
+export default function Question({ question, bodyText }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   function handleCollapseShow() {
@@ -17,7 +17,7 @@ export default function Question({ question, text }) {
           id="alertArrow"
         />
       </div>
-      {isCollapsed ? <p className="Collapser">{`${text}`}</p> : null}
+      {isCollapsed ? <p className="faq-collapser">{bodyText}</p> : null}
     </div>
   );
 }

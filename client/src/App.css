@@ -191,7 +191,16 @@
   font-family: "zektonrg";
   font-weight: bolder;
 }
+.faq-link{
+  font-family: "13_Misa";
+}
+.faq-collapser{
+  padding-left: 2vw;
+  font-family: "zektonrg" ;
+  padding-top: 2px;
+  
 
+}
 .bpStatWrapper {
   display: flex;
   padding: 0vh 2vh;
