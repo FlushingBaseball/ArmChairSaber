@@ -8,6 +8,10 @@ export default function Faq() {
         question={"Who built this site?"}
         bodyText={<>Hey im <a className="faq-link" href="https://github.com/flushingbaseball" target="_blank">Sam</a>, a Software Engineer, Mets fan</>}
       />
+    <Question
+      question={`Why have updates slowed?`}
+      bodyText={`I'm working a very physical job and when I do have time at home at the computer im studying leetcode style problems. A large update will drop soon-ish (mid April)`}
+    />
       <Question
         question={"What Tech Stack is the site developed on?"}
         bodyText={

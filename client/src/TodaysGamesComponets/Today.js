@@ -69,8 +69,8 @@ function Today({ user }) {
     return (
       <div id="noGames">
         <SiteAlert 
-          alertHeading={"☹️ The minor leauges have not yet begun ☹️"}
-          alertMessage={"We're in that small period where there are spring training games, but no minor league games are played on fields that are tracked or publicly recorded. If you've ever heard the phrase 'backfields,' this is that period."}
+          alertHeading={"Minor leauge seasons have begun!"}
+          alertMessage={"Jackson Holliday watch might be over but there's still hundreds of prospects to get excited about!"}
         />
         <LeaugeSelect
           handleSportSelect={handleSportSelect}
@@ -90,8 +90,8 @@ function Today({ user }) {
         selectedSportId={selectedSportId}
       />
       <SiteAlert 
-        alertHeading={"😄 Spring training games have begun 😄"}
-        alertMessage={`Spring training is in full swing! There may be limited pitch data available for some games because teams either have not installed Trackman, Hawkeye, and other tracking systems in their complexes or have chosen not to turn on the systems during select training games.`}
+        alertHeading={"😄 The regular season has started! 😄"}
+        alertMessage={`Ten minutes before a game is set to begin, it will enter preview mode. Click LIVE GAME and from the first pitch onward, you can watch the game play out statistically.`}
       />
       <div className="WrapperToday">
         {gameData.dates[0].games.map((game) => {
