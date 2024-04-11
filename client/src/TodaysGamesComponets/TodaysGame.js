@@ -7,6 +7,13 @@ import BatLoader from "../UtilityComponets/BatLoader"
 
 function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   const [predictedWinner, setPredictedWinner] = useState("");
+  // const gameDate = new Date(game.gameDate)
+  // const timeZoneOffset = new Date().getTimezoneOffset();
+  // const localTime = new Date(gameDate.getTime() - (timeZoneOffset * 6000));
+  // console.log("this is gameDate", gameDate)
+  // console.log("this is timeZoneOffset", timeZoneOffset)
+  // console.log("this is localTime", localTime)
+  console.log(selectedSportId)
 
   let awayImageSrc = teams.away.probablePitcher
     ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.away.probablePitcher.id}/headshot/silo/current`
@@ -19,6 +26,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   let awayTeamImageSrc = `https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
 
   if (selectedSportId !== "1") {
+    console.log("got in condition")
     awayImageSrc = teams.away.probablePitcher
       ? `https://midfield.mlbstatic.com/v1/people/${teams.away.probablePitcher.id}/milb/100`
       : "/Images/default-batter.svg";
@@ -26,8 +34,11 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
       ? `https://midfield.mlbstatic.com/v1/people/${teams.home.probablePitcher.id}/milb/100`
       : "/Images/default-batter.svg";
 
-    homeTeamImageSrc = `./Images/logos/${teams.home.team.id}.svg`;
-    awayTeamImageSrc = `./Images/logos/${teams.away.team.id}.svg`;
+        /**
+         * Need to change this logic for teams that logos are stored locally
+         */
+    // homeTeamImageSrc = `./Images/logos/${teams.home.team.id}.svg`;
+    // awayTeamImageSrc = `./Images/logos/${teams.away.team.id}.svg`;
   }
 
   if (teams.home.team.id === undefined || teams.away.team.id === undefined) {
@@ -36,7 +47,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   if (status === undefined) {
     return <BatLoader />
   }
-
+  // https://www.mlbstatic.com/team-logos/541.svg
   /*
             Old way of grabbing the id then serving a local file based on matching local filename with team id
             this was done because the endpoint for team logos hadn't been found, Depending on packsize may be expanded as fall back for lower leauges.
@@ -79,16 +90,20 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
           ></img>
         </div>
       </div>
+
       <div className="CenterWrapper">
+         {/* <span>{game.gameDate}</span> */}
         {status.abstractGameState === "Final" && (
           <span id="gameCompleteSpan">Game is Complete</span>
         )}
+
         {status.abstractGameState === "Live" && (
           <Link className="liveLink" to={`/TodaysGame/${gamePk}`}>
             {" "}
             Click Live game!
           </Link>
         )}
+
         {status.abstractGameState === "Live" ||
         status.abstractGameState === "Final" ? (
           <div>
@@ -97,6 +112,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
             <span className="todayLiveScore">{teams.away.score}</span>
           </div>
         ) : null}
+
         {status.abstractGameState === "Preview" && (
           <PredictionGroup
             game={game}

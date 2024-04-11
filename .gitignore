@@ -49,3 +49,5 @@ yarn-error.log*
 # 
 .vscode/
 /.cache
+
+release-plans.txt
