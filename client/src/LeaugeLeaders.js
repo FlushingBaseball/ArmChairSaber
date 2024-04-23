@@ -6,7 +6,7 @@ function LeagueLeaders() {
 
   useEffect(() => {
     fetch(
-      `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${selectedCata}&sportId=1&limit=20&season=2023&fields=leagueLeaders,leaders,rank,value,team,name,league,name,person,id,fullName`
+      `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${selectedCata}&sportId=1&limit=20&season=2024&fields=leagueLeaders,leaders,rank,value,team,name,league,name,person,id,fullName`
     )
       .then((resp) => resp.json())
       .then((data) => {
