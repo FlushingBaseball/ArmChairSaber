@@ -2,7 +2,7 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Farmchairsaber.onrender.com%2F)
 
 ## Armchair Sabermetrics / Armchair Baseball 
-React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt. 
+React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, craco, visx, d3 and spring for animation.  
 
 ## Coming update
 I'm working on a major update that will launch two months or so into the season, stay tuned!
