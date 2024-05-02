@@ -6,11 +6,11 @@ export default function Faq() {
       <h1 id="FaqHeader">Frequently asked Questions</h1>
       <Question
         question={"Who built this site?"}
-        bodyText={<>Hey im <a className="faq-link" href="https://github.com/flushingbaseball" target="_blank">Sam</a>, a Software Engineer, Mets fan</>}
+        bodyText={<>Hey im <a className="faq-link" href="https://github.com/flushingbaseball" target="_blank">Sam</a>, a Software Engineer and Mets fan</>}
       />
     <Question
-      question={`Why have updates slowed?`}
-      bodyText={`I'm working a very physical job and when I do have time at home at the computer im studying leetcode style problems. A large update will drop soon-ish (mid April)`}
+      question={`What else are you working on?`}
+      bodyText={`I'm doing some very fun design work for a VR game which will launch in early 2026. `}
     />
       <Question
         question={"What Tech Stack is the site developed on?"}
