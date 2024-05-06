@@ -11,7 +11,7 @@ export default function Standings({ selectedTeam }) {
 
   useEffect(() => {
     fetch(
-      `https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2023&standingsTypes=regularSeason,wildCard`
+      `https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2024&standingsTypes=regularSeason,wildCard`
     )
       .then((resp) => resp.json())
       .then((data) => {
