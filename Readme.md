@@ -5,7 +5,7 @@
 React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, craco, visx, d3 and spring for animation.  
 
 ## Coming update
-I'm working on a major update that will launch on May 15th
+I'm working on a major update that will launch on May 21st
 
 ## Summary
 A competitive platform, for the statistical analysis of baseball, and the application of that analysis to predict the outcome of baseball games against other users. Predictions on a game close once it begins, and then the option to watch that game becomes available with stunning pitch by pitch metrics. Raise up the leaderboard and put your predictive ability to the test against other users and predictive models.  
