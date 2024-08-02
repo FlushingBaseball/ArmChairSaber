@@ -11,6 +11,8 @@ function Roster({ selectedTeam, selectedRoster }) {
   const [designatedHitterData, setDesignatedHitterData] = useState([]);
   const [pitchersData, setPitchersData] = useState([]);
 
+  const [injuredPlayerCount, setInjuredPlayerCount] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,7 +21,7 @@ function Roster({ selectedTeam, selectedRoster }) {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        // console.log(data)
+        console.log(data)
         if (data.roster) {
           setRosterData(data.roster)
           sortRosterByPosition(data.roster)
@@ -45,6 +47,10 @@ function Roster({ selectedTeam, selectedRoster }) {
     // console.log("this is rosterData", rosterData);
     const filteredRoster = rosterData.reduce(
       (acc, player) => {
+        if (player.status.code && player.status.code =="D60"){
+            acc.injuredPlayerCount += 1;
+        }
+
         if (player.position && player.position.type === "Infielder") {
           acc.infieldersData.push(player);
         } else if (player.position && player.position.type === "Outfielder") {
@@ -67,6 +73,7 @@ function Roster({ selectedTeam, selectedRoster }) {
         outfieldersData: [],
         designatedHitterData: [],
         pitchersData: [],
+        injuredPlayerCount: 0,
       }
     );
 
@@ -75,6 +82,7 @@ function Roster({ selectedTeam, selectedRoster }) {
     setOutfieldersData(filteredRoster.outfieldersData);
     setDesignatedHitterData(filteredRoster.designatedHitterData);
     setPitchersData(filteredRoster.pitchersData);
+    setInjuredPlayerCount(filteredRoster.injuredPlayerCount);
   }
 
 
@@ -123,7 +131,10 @@ function Roster({ selectedTeam, selectedRoster }) {
       ) : (
         <>
           <div className="RosterGrouping">
-            <span className="rosterCount">{`${rosterData.length} players listed`}</span>
+            <div className="WrapperRosterCount">
+            <span className="rosterCount">{`${rosterData.length-injuredPlayerCount} / 40 Man spots full`}</span>
+            <span className="rosterCount">{`With ${injuredPlayerCount} players on the 60 Day IL who do not use a roster spot`}</span>
+              </div>
             <div className="RosterGrouping">
               <h2 className="RosterCata">Catchers</h2>
               {mapRoster(catcherData)}

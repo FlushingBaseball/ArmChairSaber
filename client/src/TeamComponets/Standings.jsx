@@ -30,14 +30,13 @@ export default function Standings({ selectedTeam }) {
     )
   }
 
-  function handleSort() {}
 
   function mapStandings(updatedData) {
     if (updatedData === undefined) return null;
   
     const tables = updatedData.records.map((recordGrouping) => {
       const rows = recordGrouping.teamRecords.map((team) => (
-        <tr className={selectedTeam == team.team.id ? "highlightTeam" : null} key={team.team.id}>
+        <tr className={selectedTeam === team.team.id ? "highlightTeam" : null} key={team.team.id}>
           <th id="logoTh"><img id="standingLogo" src={`https://www.mlbstatic.com/team-logos/${team.team.id}.svg`} alt={team.team.name} /></th>
           <th id="teamNameTh">{team.team.name}</th>
           <th>{team.wins}</th>
