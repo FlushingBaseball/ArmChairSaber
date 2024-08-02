@@ -73,9 +73,9 @@ function mapLeaderboardData() {
     <div id="WrapperLeaderBoard">
       <h1 id="leaderboard-banner">🏆Leading Armchair Sabermetricians🏆</h1>
       <h3 id="leaderboard-sub">All users who have made at least one prediction </h3>
-      {mapLeaderboardData()}
-      <p id="thanks">I am sincerely thankful for every user who has explored my website and made a prediction. Whether you make a prediction/s based on a predictive model / system you labored to create, knowing a guy who knows a guy, or a gut feeling, Thank You. - Sam
+      <p id="thanks">A sincere thanks to every user who has explored this website and made a prediction. Whether you make a prediction/s based on a predictive model / system you labored to create, knowing a guy who knows a guy, or a gut feeling, Thank You. - Sam
       </p>
+      {mapLeaderboardData()}
     </div>
   );
 } 
