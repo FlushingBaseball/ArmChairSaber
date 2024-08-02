@@ -21,7 +21,7 @@ function Roster({ selectedTeam, selectedRoster }) {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         if (data.roster) {
           setRosterData(data.roster)
           sortRosterByPosition(data.roster)
@@ -47,7 +47,7 @@ function Roster({ selectedTeam, selectedRoster }) {
     // console.log("this is rosterData", rosterData);
     const filteredRoster = rosterData.reduce(
       (acc, player) => {
-        if (player.status.code && player.status.code =="D60"){
+        if (player.status.code && player.status.code ==="D60"){
             acc.injuredPlayerCount += 1;
         }
 
