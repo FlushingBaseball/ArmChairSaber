@@ -5,7 +5,7 @@
 React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, craco (removed in upcoming update), visx, d3 for charting and spring for complex animations.  
 
 ## Coming update
-I'm working on a major update that will launch on August tenth (covid got me)
+I'm working on a major update that will launch in August (covid got me)
 The update revolves around new historical stats, the blog (under the hood) and pitching visualization. 
 
 ## Summary
