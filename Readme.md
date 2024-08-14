@@ -4,9 +4,6 @@
 ## Armchair Sabermetrics / Armchair Baseball 
 React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, craco (removed in upcoming update), visx, d3 for charting and spring for complex animations.  
 
-## Coming update
-I'm working on a major update that will launch in August (covid got me)
-The update revolves around new historical stats, the blog (under the hood) and pitching visualization. 
 
 ## Summary
 A competitive platform, for the statistical analysis of baseball, and the application of that analysis to predict the outcome of baseball games against other users. Predictions on a game close once it begins, and then the option to watch that game becomes available with stunning pitch by pitch metrics. Raise up the leaderboard and put your predictive ability to the test against other users and predictive models.  
