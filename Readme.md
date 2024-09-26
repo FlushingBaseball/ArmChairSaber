@@ -8,6 +8,8 @@ React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, craco (removed in upcoming
 ## Summary
 A competitive platform, for the statistical analysis of baseball, and the application of that analysis to predict the outcome of baseball games against other users. Predictions on a game close once it begins, and then the option to watch that game becomes available with stunning pitch by pitch metrics. Raise up the leaderboard and put your predictive ability to the test against other users and predictive models.  
 
+## Playoff Predictions
+
 ## Stats
 Query Advanced Sabermetrics, Career and Advanced Season stats on any player from 2022 and 2023. 
 # Desktop
