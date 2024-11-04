@@ -1,6 +1,9 @@
 ![W3C Validation](https://img.shields.io/w3c-validation/default?targetUrl=https%3A%2F%2Farmchairsaber.onrender.com%2F)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Farmchairsaber.onrender.com%2F)
 
+## Plans for 2025
+1. Rehaul the blog to allow for guest authors. 
+
 ## Armchair Sabermetrics / Armchair Baseball 
 React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, craco (removed in upcoming update), visx, d3 for charting and spring for complex animations.  
 
