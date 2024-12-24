@@ -1,17 +1,23 @@
-export default function LeaugeSelect({ handleSportSelect, selectedSportId }) {
-  // 22 is  college,  31 NPB, 32 KBO, 23 INDY BALL
+export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
+
+  /**
+   * The leagues which are active change's alot throughout the season
+   * This may not seem DRY but dynamicly generating these from a set list
+   * doesn't suit my need. 
+   */
+
   return (
-    <div className="leaugeSelect">
-      {/* <button
-        className={`leaugeSelectButton ${
+    <div className="leagueSelect">
+      <button
+        className={`leagueSelectButton ${
           selectedSportId === "17" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("17")}
       >
         AFL
-      </button> */}
+      </button>
       <button
-        className={`leaugeSelectButton ${
+        className={`leagueSelectButton ${
           selectedSportId === "1" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("1")}
@@ -19,7 +25,7 @@ export default function LeaugeSelect({ handleSportSelect, selectedSportId }) {
         MLB
       </button>
       <button
-        className={`leaugeSelectButton ${
+        className={`leagueSelectButton ${
           selectedSportId === "11" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("11")}
@@ -27,7 +33,7 @@ export default function LeaugeSelect({ handleSportSelect, selectedSportId }) {
         AAA
       </button>
       <button
-        className={`leaugeSelectButton ${
+        className={`leagueSelectButton ${
           selectedSportId === "12" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("12")}
@@ -35,7 +41,7 @@ export default function LeaugeSelect({ handleSportSelect, selectedSportId }) {
         AA
       </button>
       <button
-        className={`leaugeSelectButton ${
+        className={`leagueSelectButton ${
           selectedSportId === "13" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("13")}
@@ -43,7 +49,7 @@ export default function LeaugeSelect({ handleSportSelect, selectedSportId }) {
         A+
       </button>
       <button
-        className={`leaugeSelectButton ${
+        className={`leagueSelectButton ${
           selectedSportId === "14" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("14")}
@@ -51,7 +57,7 @@ export default function LeaugeSelect({ handleSportSelect, selectedSportId }) {
         A
       </button>
       <button
-        className={`leaugeSelectButton ${
+        className={`leagueSelectButton ${
           selectedSportId === "16" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("16")}
