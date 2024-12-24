@@ -106,7 +106,7 @@ function HomePage() {
         League Leaders
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/LEAUGEv2.svg"
+          src="Images/HomePageIcons/LEAGUEv2.svg"
           alt="Men Running up stairs"
         ></img>
       </button>

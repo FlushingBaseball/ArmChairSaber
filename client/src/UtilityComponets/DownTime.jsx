@@ -7,8 +7,8 @@ export default function DownTime(){
       <h1 id="LeaderBoardHeader">Temporary feature pause:</h1>
         <p id='sorryPara'>
           This feature is being reworked.<br></br>
-          You may continue to predict winter leauge games.<br></br>
-          You may also watch live winter leauge games once a game goes live.
+          You may continue to predict winter league games.<br></br>
+          You may also watch live winter league games once a game goes live.
         </p>
         <p id="sorryPara">
           Please enjoy this .gif in the meantime

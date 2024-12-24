@@ -14,7 +14,7 @@ function FieldingCard({fielderImage, feildingData, averageSpeed, totalDistance, 
                 <div className="sprintSpeed">
                     <h3 className="saberSpan">{`${feildingData[0].name_display_first_last}'s Average Sprint Speed is`}</h3>
                     <h5 className="saberSpan">{`${averageSpeed.toFixed(3)} Feet Per Second`}</h5>
-                    <span className="saberSpan">For Comparrison the Leauge Average is: ~27fps</span>
+                    <span className="saberSpan">For Comparrison the Leagues Average is: ~27fps</span>
                     <span className="saberSpan">Usain Bolt's Record 100 Meter Dash is ~33.80fps</span>
                 </div>
 

@@ -16,7 +16,7 @@ import SignOut from "./SignOut";
 /*Smaller features */
 import Leaderboard from "./LeaderboardComponets/Leaderboard";
 import RollingMetrics from "./RollingComponets/RollingMetrics";
-import LeagueLeaders from "./LeaugeLeaders";
+import LeagueLeaders from "./LeagueLeaders";
 import UserHome from "./UserPageComponets/UserHome";
 import Faq from "./FaqComponets/Faq";
 import PlayerPage from "./PlayerComponets/PlayerPage";
