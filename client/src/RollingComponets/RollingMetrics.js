@@ -13,7 +13,7 @@ function RollingMetrics() {
 
   useEffect(() => {
     fetch(
-      `https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=${selectedGroup}&teamId=${selectedTeam}&season=2023`
+      `https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=${selectedGroup}&teamId=${selectedTeam}&season=2024`
     )
       .then((resp) => resp.json())
       .then((data) => {
