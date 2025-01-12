@@ -22,13 +22,13 @@ function LeagueLeaders() {
   function mapPlayer() {
     if (fetchedGameData.length > 1) {
       return fetchedGameData.map((player) => (
-        <div key={player.person.fullName} className="leauge-Leader-Card">
+        <div key={player.person.fullName} className="league-Leader-Card">
           <img
             alt={player.person.fullName}
-            className="leauge-Leader-Image"
+            className="league-Leader-Image"
             src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${player.person.id}/headshot/silo/current`}
           ></img>
-          <span className="ABSpan">{`Leauge: ${player.league.name} `}</span>
+          <span className="ABSpan">{`League: ${player.league.name} `}</span>
           <span className="ABSpanName">{player.person.fullName}</span>
           <span className="ABSpan">{`${selectedCata
             .split(/(?=[A-Z])/)
@@ -41,7 +41,7 @@ function LeagueLeaders() {
 
   return (
     <div>
-      <h1 id="leaugeHeader">Leauge Leaders</h1>
+      <h1 id="leagueHeader">League Leaders</h1>
       <div className="WrapperadvancedBatter">
         <select
           className="selectteamBat"

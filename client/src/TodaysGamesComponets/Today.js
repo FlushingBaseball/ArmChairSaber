@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import TodaysGame from "./TodaysGame";
-import LeaugeSelect from "../UtilityComponets/LeaugeSelect";
+
+
+import LeagueSelect from "../UtilityComponets/LeagueSelect";
 import SiteAlert from "../UtilityComponets/SiteAlert";
 import BatLoader from "../UtilityComponets/BatLoader";
+import NoGamesToday from "../UtilityComponets/NoGamesToday";
 
 function Today({ user }) {
   const currentDate = new Date();
@@ -11,7 +14,7 @@ function Today({ user }) {
   const year = currentDate.getFullYear();
   const formattedDate = `${month}/${day}/${year}`;
 
-  const [selectedSportId, setSelectedSportId] = useState("1");
+  const [selectedSportId, setSelectedSportId] = useState("17");
   const [gameData, setGameData] = useState(null);
 
   
@@ -40,9 +43,9 @@ function Today({ user }) {
   //     .then((statcastRESP) => setGameData(statcastRESP));
   // }, [selectedSportId]);
 
-  useEffect(() => {
-    console.log(gameData);
-  }, [gameData]);
+  // useEffect(() => {
+  //   console.log(gameData);
+  // }, [gameData]);
 
   /**
    * Used After Midnight in season for development because formattedDate changes
@@ -69,29 +72,30 @@ function Today({ user }) {
     return (
       <div id="noGames">
         <SiteAlert 
-          alertHeading={"Minor leauge seasons have begun!"}
-          alertMessage={"Jackson Holliday watch might be over but there's still hundreds of prospects to get excited about!"}
+          alertHeading={"MLB's offseason is rolling along"}
+          alertMessage={"Hey Mets! Please re-sign Pete Alonso"}
         />
-        <LeaugeSelect
+        <LeagueSelect
           handleSportSelect={handleSportSelect}
           selectedSportId={selectedSportId}
         />
-        <h1 id="noGameHeader">There seems to be no games scheduled for </h1>
-        <h2 id="noGameDate"> {formattedDate}</h2>
-        <img id="noGameImage" alt="Grounds crew members getting the field ready for games" src="/Images/spring-no-games.jpg"></img>
+        <NoGamesToday
+          selectedSportId={selectedSportId}
+          formattedDate={formattedDate}
+        />
       </div>
     );
   }
 
   return (
     <div className="todayfilled">
-      <LeaugeSelect
+      <LeagueSelect
         handleSportSelect={handleSportSelect}
         selectedSportId={selectedSportId}
       />
       <SiteAlert 
-        alertHeading={"😄 The regular season has started! 😄"}
-        alertMessage={`Ten minutes before a game is set to begin, it will enter preview mode. Click LIVE GAME and from the first pitch onward, you can watch the game play out statistically.`}
+        alertHeading={"😄 Winterball is in full swing! 😄"}
+        alertMessage={`Ten minutes before a game is set to begin, it will enter preview mode. Click LIVE GAME and you can watch the game play out statistically.`}
       />
       <div className="WrapperToday">
         {gameData.dates[0].games.map((game) => {

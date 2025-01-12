@@ -71,7 +71,7 @@ export default function Standings({ selectedTeam }) {
 
   return (
     <div className="WrapperStandings">
-      <h1>Leauge Standings</h1>
+      <h1>League Standings</h1>
       {mapStandings(standingData)}
 
 

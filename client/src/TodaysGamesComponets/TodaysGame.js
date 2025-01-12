@@ -13,7 +13,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   // console.log("this is gameDate", gameDate)
   // console.log("this is timeZoneOffset", timeZoneOffset)
   // console.log("this is localTime", localTime)
-  console.log(selectedSportId)
+  // console.log(selectedSportId)
 
   let awayImageSrc = teams.away.probablePitcher
     ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.away.probablePitcher.id}/headshot/silo/current`
@@ -26,7 +26,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   let awayTeamImageSrc = `https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
 
   if (selectedSportId !== "1") {
-    console.log("got in condition")
+    // console.log("got in condition")
     awayImageSrc = teams.away.probablePitcher
       ? `https://midfield.mlbstatic.com/v1/people/${teams.away.probablePitcher.id}/milb/100`
       : "/Images/default-batter.svg";
@@ -50,8 +50,8 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   // https://www.mlbstatic.com/team-logos/541.svg
   /*
             Old way of grabbing the id then serving a local file based on matching local filename with team id
-            this was done because the endpoint for team logos hadn't been found, Depending on packsize may be expanded as fall back for lower leauges.
-            Looks like its needed for South American Winter Leauges.
+            this was done because the endpoint for team logos hadn't been found, Depending on packsize may be expanded as fall back for lower leagues.
+            Looks like its needed for South American Winter leagues.
           */
   // const homeTeamImageSrc=`./Images/logos/${teams.home.team.id}.svg`;
   // const awayTeamImageSrc=`./Images/logos/${teams.away.team.id}.svg`;
