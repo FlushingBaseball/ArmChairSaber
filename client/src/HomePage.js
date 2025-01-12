@@ -80,7 +80,7 @@ function HomePage() {
         className="homeTile"
         // onClick={() => handleTileClick("advancedPitching")}
       >
-        Advanced Pitching Tools *Regular Season 2024
+        Advanced Pitching Tools *Regular Season 2025
         <img
           className="homeIcon"
           src="Images/HomePageIcons/PITCHINGv3.svg"
