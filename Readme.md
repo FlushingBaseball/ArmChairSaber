@@ -2,6 +2,7 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Farmchairsaber.onrender.com%2F)
 
 ## Plans for 2025
+0. Long awaited model submission for predictions
 1. Rehaul the blog to allow for guest authors. 
 
 ## Armchair Sabermetrics / Armchair Baseball 
