@@ -31,6 +31,7 @@ package-lock.json
 
 # failed at some point
 /client/build
+/client/dist
 
 # logs
 npm-debug.log*
