@@ -6,7 +6,7 @@
 1. Rehaul the blog to allow for guest authors. 
 
 ## Armchair Sabermetrics / Armchair Baseball 
-React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, craco (removed in upcoming update), visx, d3 for charting and spring for complex animations.  
+React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, Vite, visx, d3 for charting and spring for complex animations.  
 
 
 ## Summary

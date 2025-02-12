@@ -1,5 +1,5 @@
 from config import app, db
-from flask import request, make_response, jsonify, session, render_template
+from flask import request, make_response, jsonify, session, render_template, send_from_directory
 from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
 from models import User, User_Prediction, Game, Player
@@ -31,9 +31,19 @@ CORS(app)
 
 
 @app.route('/')
-@app.route('/<int:id>')
-def index(id=0):
-    return render_template("index.html")
+def serve():
+    return send_from_directory('../client/dist', 'index.html')
+
+@app.route("/<path:path>")
+def static_proxy(path):
+    return send_from_directory('../client/dist', path)
+
+
+# @app.route('/<int:id>')
+# def index(id=0):
+#     return render_template("index.html")
+
+
 
 
 @app.post('/signup')
@@ -219,7 +229,7 @@ def batch_update_users():
         )
 
     except Exception as e:
-        # Rollingback the transaction if there's an error
+        # Rolling back the transaction if there's an error
         db.session.rollback()
         print("Error during batch update:", str(e))
 
@@ -532,7 +542,7 @@ def get_leaders():
             500
         )
 
-    # Run predictions.py using subprocess and a seperate thread
+    # Run predictions.py using subprocess and a separate thread
 def run_predictions():
     subprocess.run(["python", "./predictions.py"])
 
