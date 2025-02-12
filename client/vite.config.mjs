@@ -6,10 +6,10 @@ export default defineConfig({
   // root: './client',
   // publicDir: 'public',
   plugins: [react(), mdx()],
-  server: {
-    /*Flask backend */
-    // proxy: {
-    //   "/": "http://localhost:5555" 
-    // }
-  }
+  // /*Flask backend */
+  // server: {
+  //   proxy: {
+  //     "/": "http://localhost:5555" 
+  //   }
+  // }
 });
