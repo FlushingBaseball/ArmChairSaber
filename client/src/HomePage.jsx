@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 function HomePage() {
   const navigate = useNavigate();
 
-  /**
-   *
-   * @param {the page name you want to navigate to} id
-  *
-  */
+
   function handleTileClick(id) {
     navigate(`/${id}`);
   }
