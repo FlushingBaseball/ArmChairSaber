@@ -64,7 +64,7 @@ function PredictionGroup({ game, user, key, setPredictedWinner }) {
       console.log(`postPrediction is:`);
       console.log(postPrediction);
 
-      fetch("/predictions", {
+      fetch("/api/predictions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

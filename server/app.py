@@ -75,12 +75,19 @@ def check_session():
     user = User.query.filter(User.id == user_id).first()
 
     if not user:
-        return make_response(jsonify({'Message' : 'No user is currently signed in'}), 401)
+        return make_response(jsonify({'Message': 'No user is currently signed in'}), 401)
     
     # user exists
-    return user.to_dict(), 200
+    try:
+        user_dict = user.to_dict()
+        print(f"User Dict: {user_dict}") #debug print
+        return jsonify(user_dict), 200
+    except Exception as e:
+        print(f"Error in to_dict(): {e}")
+        return make_response(jsonify({'error': str(e)}), 500)
 
-@app.post('/login')
+## Login
+@app.post('/api/login')
 def login():
     data = request.get_json()
     # query db by username
@@ -96,7 +103,8 @@ def login():
     session['user_id'] = user.id
     return jsonify(user.to_dict()),200
 
-@app.delete('/logout')
+## Logout
+@app.delete('/api/logout')
 def logout():
     # check if user_id cookie is set
     user_id = session.get('user_id')
@@ -111,8 +119,8 @@ def logout():
     return {}, 204
 
 
-
-@app.get('/users')
+## fetch all the users
+@app.get('/api/users')
 def get_all_users():
     users = User.query.with_entities(User.id, User.username).all()
     data = []
@@ -129,8 +137,8 @@ def get_all_users():
         200
     )
 
-
-@app.get('/users/<int:id>')
+## fetch a specific user
+@app.get('/api/users/<int:id>')
 def get_user_by_id(id):
     user = User.query.filter(
         User.id == id
@@ -143,7 +151,7 @@ def get_user_by_id(id):
         )
     return user.to_dict(), 200
 
-
+## patch a specific user
 @app.patch('/api/users/<int:id>')
 def patch_user_by_id(id):
     user = User.query.filter(
@@ -229,7 +237,7 @@ def batch_update_users():
     finally:
         db.session.close()
 
-@app.post('/players')
+@app.post('/api/players')
 def post_player():
     data = request.get_json()
     try:
@@ -249,8 +257,8 @@ def post_player():
 
 
 
-
-@app.get('/players')
+## fetch all players
+@app.get('/api/players')
 def get_all_Players():
     players = Player.query.all()
     data = [p.to_dict() for p in players]
@@ -259,8 +267,8 @@ def get_all_Players():
         jsonify(data),
         200
         )
-    
-@app.get('/players/<int:MLBAMID>')
+## fetch a specific player    
+@app.get('/api/players/<int:MLBAMID>')
 def get_player_by_id(MLBAMID):
     player = Player.query.filter(
         Player.MLBAMID == MLBAMID
@@ -278,8 +286,8 @@ def get_player_by_id(MLBAMID):
     )
 
 
-
-@app.post('/predictions')
+## post a prediction to the database
+@app.post('/api/predictions')
 def postPredicitons():
     data = request.get_json()
     try:
@@ -330,7 +338,7 @@ def get_all_not_resolved_predictions():
 
 
 
-@app.get('/predictions')
+@app.get('/api/predictions')
 def get_all_Predicitons():
     predictions = User_Prediction.query.all()
     data = [p.to_dict() for p in predictions]
@@ -342,7 +350,7 @@ def get_all_Predicitons():
 
 
 
-@app.get('/predictions/<int:id>')
+@app.get('/api/predictions/<int:id>')
 def get_prediction_by_id(id):
     prediction = User_Prediction.query.filter(
         User_Prediction.id == id
@@ -420,7 +428,7 @@ def post_Games_by_Pk(gamePk):
 
 
 
-@app.get('/games')
+@app.get('/api/games')
 def get_all_games():
 
     theGameData = Game.query.all()

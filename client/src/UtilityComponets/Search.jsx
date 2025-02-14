@@ -9,7 +9,7 @@ const [query, setQuery] = useState('');
 
 useEffect(() => {
   const fetchSearchData = () => {
-    fetch("/players")
+    fetch("/api/players")
       .then((resp) => {
         if (!resp.ok) {
           throw new Error(`Network response wasn't okay`);
