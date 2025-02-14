@@ -169,7 +169,7 @@ useEffect(()=>{
 //             console.log(`posted Player is:`)
 //             console.log(newPlayer)
             
-//             fetch('/players', {
+//             fetch('/api/players', {
 //                 method: 'POST',
 //                 headers: {
 //                     'Content-Type' : 'application/json',

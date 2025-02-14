@@ -6,7 +6,7 @@ function SignOut( {  setUser}) {
 
 
     function handleLogout() {
-        fetch('/logout', {
+        fetch('/api/logout', {
           method: 'DELETE',
         })
           .then((response) => {
