@@ -9,9 +9,9 @@ function UserHome() {
   const [userInfo, SetUserInfo] = useState("");
   const [currentProfilepic, setCurrentProfilepic] = useState(0);
   const [showSettings, setShowSettings] = useState(false);
-
+  
   useEffect(() => {
-    fetch("/check_session").then((r) => {
+    fetch("/api/check_session").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
           SetUserInfo(user);

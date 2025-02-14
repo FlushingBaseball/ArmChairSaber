@@ -38,13 +38,13 @@ function App() {
   const [user, setUser] = useState(null);
   const [showLogin, setShowLogin] = useState(true);
   const [searchPlayer, setSearchPlayer] = useState(607043);
-
+  
   useEffect(() => {
-    fetch("/check_session").then((r) => {
+    fetch("/api/check_session").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       } else {
-        console.log("User not signed in");
+        console.log("User is not signed in to an account");
       }
     });
   }, []);

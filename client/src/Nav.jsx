@@ -11,7 +11,7 @@ function Nav({ user, setUser }) {
       <NavLink to="/player/">Players</NavLink>
       <img
         className="logo"
-        alt="life sized baseball in old french generals hat"
+        alt="life sized baseball in and old French Napoleonic Generals hat"
         src={logoLoc}
       ></img>
       <NavLink to="/leaderboard">LeaderBoard</NavLink>

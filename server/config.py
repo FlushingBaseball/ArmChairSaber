@@ -11,7 +11,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 
 
-# app = Flask(__name__, static_url_path='', static_folder='../client/dist', template_folder='../client/dist')
+
+## Creating the Flask instance
 app = Flask(__name__, static_url_path='', static_folder='../client/dist')
 
     
