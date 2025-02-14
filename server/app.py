@@ -1,5 +1,5 @@
 from config import app, db
-from flask import request, make_response, jsonify, session, render_template, send_from_directory
+from flask import request, make_response, jsonify, session, send_from_directory
 from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
 from models import User, User_Prediction, Game, Player
@@ -11,11 +11,9 @@ import threading
 
     
 CORS(app)
-
+## Code for shutting down app routes I use to use.
 # # import pdb
 # excluded_endpoints = ['/', 'signup', 'check_session', 'login', 'logout']
-
-
 # @app.before_request ##hook that fires to check cookie
 # def check_is_logged_in():
 #     if request.endpoint not in excluded_endpoints:
@@ -29,24 +27,16 @@ CORS(app)
 
 
 
-
+## Base route
 @app.route('/')
 def serve():
     return send_from_directory('../client/dist', 'index.html')
-
+## Catch-all route
 @app.route("/<path:path>")
 def static_proxy(path):
     return send_from_directory('../client/dist', path)
 
-
-# @app.route('/<int:id>')
-# def index(id=0):
-#     return render_template("index.html")
-
-
-
-
-@app.post('/signup')
+@app.post('/api/signup')
 def signup():
     # get json from request
     data = request.get_json()
@@ -77,7 +67,7 @@ def signup():
     # return user as JSON, status code 201
     return new_user.to_dict(), 201
 
-@app.get('/check_session')
+@app.get('/api/check_session')
 def check_session():
     # get user_id from browser cookies
     user_id = session.get('user_id')
@@ -85,9 +75,7 @@ def check_session():
     user = User.query.filter(User.id == user_id).first()
 
     if not user:
-        # user doesn't exist, return 401 (unauthorized)
-        # return {'error': 'Unauthorized'}, 401
-        return
+        return make_response(jsonify({'Message' : 'No user is currently signed in'}), 401)
     
     # user exists
     return user.to_dict(), 200
