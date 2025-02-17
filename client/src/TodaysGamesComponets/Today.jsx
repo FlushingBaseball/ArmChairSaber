@@ -14,7 +14,7 @@ function Today({ user }) {
   const year = currentDate.getFullYear();
   const formattedDate = `${month}/${day}/${year}`;
 
-  const [selectedSportId, setSelectedSportId] = useState("17");
+  const [selectedSportId, setSelectedSportId] = useState("22");
   const [gameData, setGameData] = useState(null);
 
   
@@ -43,9 +43,9 @@ function Today({ user }) {
   //     .then((statcastRESP) => setGameData(statcastRESP));
   // }, [selectedSportId]);
 
-  // useEffect(() => {
-  //   console.log(gameData);
-  // }, [gameData]);
+  useEffect(() => {
+    console.log(gameData);
+  }, [gameData]);
 
   /**
    * Used After Midnight in season for development because formattedDate changes
@@ -73,7 +73,7 @@ function Today({ user }) {
       <div id="noGames">
         <SiteAlert 
           alertHeading={"MLB's offseason is rolling along"}
-          alertMessage={"Hey Mets! Please re-sign Pete Alonso"}
+          alertMessage={"The First Spring training game is FEB 20th"}
         />
         <LeagueSelect
           handleSportSelect={handleSportSelect}
