@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { handleImageError } from "../UtilityFunctions/UtilityFunctions";
+import { handlePlayerImageError } from "../UtilityFunctions/UtilityFunctions";
 import BatLoader from "../UtilityComponets/BatLoader";
 
 export default function FreeAgents() {
@@ -86,15 +86,15 @@ export default function FreeAgents() {
     {displaySigned === "unsigned" ? unSignedFreeAgents.map((player)=>(
       <div className="Agent-Wrapper">
         <div className="agentName" key={player.player.id}>{player.player.fullName}</div>
-        <img id="og-team-logo" src={`./Images/logos/${player.originalTeam.id}.svg`} alt={`${player.originalTeam.name} logo`} />
+        <img id="og-team-logo" src={`/api/${player.originalTeam.id}.svg`} alt={`${player.originalTeam.name} logo`} />
         <img id='agent-arrow' src="./Images/UtilityIcons/arrow.webp" alt=""  />
       </div>
     )) : signedFreeAgents.map((player)=>(
       <div className="Agent-Wrapper">
         <div className="agentName" key={player.player.id}>{player.player.fullName}</div>
-        <img id="og-team-logo" src={`./Images/logos/${player.originalTeam.id}.svg`} alt={`${player.originalTeam.name} logo`} />
+        <img id="og-team-logo" src={`/api/${player.originalTeam.id}.svg`} alt={`${player.originalTeam.name} logo`} />
         <img id='agent-arrow' src="./Images/UtilityIcons/arrow.webp" alt=""  />
-        <img id="og-team-logo" src={`./Images/logos/${player.newTeam.id}.svg`} alt={`${player.originalTeam.name} logo`} />
+        <img id="og-team-logo" src={`./api/${player.newTeam.id}.svg`} alt={`${player.originalTeam.name} logo`} />
       </div>
     )) }
     

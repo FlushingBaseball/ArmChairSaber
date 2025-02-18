@@ -1,4 +1,4 @@
-import { handleImageError } from "../UtilityFunctions/UtilityFunctions";
+import { handlePlayerImageError } from "../UtilityFunctions/UtilityFunctions";
 
 function PitcherVsBatter({ ...dataLiveGame }) {
   return (
@@ -16,7 +16,7 @@ function PitcherVsBatter({ ...dataLiveGame }) {
               dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.fullName
             }
             onError={(e) =>
-              handleImageError(
+              handlePlayerImageError(
                 e.target,
                 dataLiveGame.liveData.plays.currentPlay.matchup.pitcher.id
               )
@@ -34,7 +34,7 @@ function PitcherVsBatter({ ...dataLiveGame }) {
             className="vsImage"
             src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.batter.id}/headshot/silo/current`}
             onError={(e) =>
-              handleImageError(
+              handlePlayerImageError(
                 e.target,
                 dataLiveGame.liveData.linescore.offense.batter.id
               )
@@ -52,7 +52,7 @@ function PitcherVsBatter({ ...dataLiveGame }) {
           src={`https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${dataLiveGame.liveData.linescore.offense.inHole.id}/headshot/silo/current`}
           alt={`On deck batter ${dataLiveGame.liveData.linescore.offense.inHole.fullName}`}
           onError={(e) =>
-            handleImageError(
+            handlePlayerImageError(
               e.target,
               dataLiveGame.liveData.linescore.offense.inHole.id
             )

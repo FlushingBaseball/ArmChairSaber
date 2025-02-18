@@ -10,7 +10,7 @@ function TeamMap() {
   const [teamLogo, setTeamLogo] = useState(121);
   const [selectedRoster, setSelectedRoster] = useState("40Man");
 
-  const TeamImageSrc = `./Images/logos/${teamLogo}.svg`;
+  const TeamImageSrc = `./api/${teamLogo}.svg`;
 
   return (
     <div className="WrapperTeamMap">

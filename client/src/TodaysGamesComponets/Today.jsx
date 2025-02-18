@@ -61,6 +61,7 @@ function Today({ user }) {
   // },[selectedSportId])
 
   function handleSportSelect(sportNum) {
+    console.log("in handleSportSelect")
     setSelectedSportId(sportNum);
   }
 

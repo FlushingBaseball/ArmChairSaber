@@ -8,7 +8,7 @@ export default defineConfig({
   /*dev Flask backend, not included in prod build*/
     proxy: {
       "/api":{
-        target: "http://localhost:5555/api/" 
+        target: "http://localhost:5555" 
       } 
     }
   }

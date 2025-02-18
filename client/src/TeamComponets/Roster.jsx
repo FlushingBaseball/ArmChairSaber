@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { handleImageError } from "../UtilityFunctions/UtilityFunctions";
+import { handlePlayerImageError } from "../UtilityFunctions/UtilityFunctions";
 import BatLoader from "../UtilityComponets/BatLoader";
 
 function Roster({ selectedTeam, selectedRoster }) {
@@ -103,7 +103,7 @@ function Roster({ selectedTeam, selectedRoster }) {
             className={`Colors${selectedTeam}`}
             alt={player.person.fullName}
             id="playerPhoto"
-            onError={(e) => handleImageError(e.target, player.person.id)}
+            onError={(e) => handlePlayerImageError(e.target, player.person.id)}
           />
           <span className="playerJerseyNum">
             # {player.jerseyNumber ? player.jerseyNumber : "NA"}&nbsp;
