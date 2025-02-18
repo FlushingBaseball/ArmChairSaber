@@ -3,13 +3,13 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
   /**
    * The leagues which are active change's alot throughout the season
    * This may not seem DRY but dynamicly generating these from a set list
-   * doesn't suit my need. 
+   * doesn't suit my needs. 
    */
   return (
     <div className="leagueSelect">
       <button
         className={`leagueSelectButton ${
-          selectedSportId === "17" ? "activeSport" : null
+          selectedSportId === "22" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("22")}
       >

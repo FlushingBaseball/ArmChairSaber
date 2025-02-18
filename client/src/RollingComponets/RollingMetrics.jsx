@@ -2,6 +2,7 @@ import TeamSelect from "../UtilityComponets/TeamSelect";
 import GroupSelect from "../UtilityComponets/GroupSelect";
 import BatLoader from "../UtilityComponets/BatLoader"
 import { useEffect, useState } from "react";
+import { handlePlayerImageError, handleTeamLogoError } from "../UtilityFunctions/UtilityFunctions";
 
 
 function RollingMetrics() {
@@ -9,7 +10,8 @@ function RollingMetrics() {
   const [selectedTeam, setSelectedTeam] = useState(136);
   const [selectedGroup, setSelectedGroup] = useState('hitting')
   const [teamLogo, setTeamLogo] = useState(136);
-  const TeamImageSrc = `./Images/logos/${teamLogo}.svg`;
+  const TeamImageSrc = `/api/${teamLogo}.svg`; 
+  
 
   useEffect(() => {
     fetch(

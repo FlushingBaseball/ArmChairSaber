@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import PredictionGroup from "../PredictionGroup";
-import { handleImageError } from "../UtilityFunctions/UtilityFunctions";
+import { handlePlayerImageError, handleTeamLogoError } from "../UtilityFunctions/UtilityFunctions";
 
 import BatLoader from "../UtilityComponets/BatLoader"
 
 function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
+  console.log("teams below")
+  console.log(teams)
+  console.log("game below")
+  console.log(game)
+  console.log("gamepk below")
+  console.log(gamePk)
   const [predictedWinner, setPredictedWinner] = useState("");
   // const gameDate = new Date(game.gameDate)
   // const timeZoneOffset = new Date().getTimezoneOffset();
@@ -14,6 +20,15 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   // console.log("this is timeZoneOffset", timeZoneOffset)
   // console.log("this is localTime", localTime)
   // console.log(selectedSportId)
+
+
+  /**
+   * if selected sport equals 1   let homeTeamImageSrc = `https://www.mlbstatic.com/team-logos/${teams.home.team.id}.svg`;
+   * src = homeTeamImageSRC
+   * if selected sport !=1 
+
+   */
+
 
   let awayImageSrc = teams.away.probablePitcher
     ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${teams.away.probablePitcher.id}/headshot/silo/current`
@@ -25,6 +40,15 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
   let homeTeamImageSrc = `https://www.mlbstatic.com/team-logos/${teams.home.team.id}.svg`;
   let awayTeamImageSrc = `https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
 
+  if (selectedSportId ==="22"){
+    console.log('in selected sport is 22')
+    homeTeamImageSrc = `/api/${teams.home.team.id}.svg`
+    awayTeamImageSrc = `/api/${teams.away.team.id}.svg`
+  }
+     /**
+         * May need to delete this or refactor, the onError function kind of handles this.
+         * Moving all the front end local images to the backend, to remove from the build
+     */
   if (selectedSportId !== "1") {
     // console.log("got in condition")
     awayImageSrc = teams.away.probablePitcher
@@ -33,13 +57,10 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
     homeImageSrc = teams.home.probablePitcher
       ? `https://midfield.mlbstatic.com/v1/people/${teams.home.probablePitcher.id}/milb/100`
       : "/Images/default-batter.svg";
-
-        /**
-         * Need to change this logic for teams that logos are stored locally
-         */
-    // homeTeamImageSrc = `./Images/logos/${teams.home.team.id}.svg`;
-    // awayTeamImageSrc = `./Images/logos/${teams.away.team.id}.svg`;
   }
+
+
+  // If college just default to the backend for now because the api has no college logos.
 
   if (teams.home.team.id === undefined || teams.away.team.id === undefined) {
     return <BatLoader />
@@ -70,6 +91,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
           className="teamGameLogo"
           alt={teams.home.team.name}
           src={homeTeamImageSrc}
+          onError={(e) => {handleTeamLogoError(e.target, teams.home.team.id)}}
         ></img>
         <h4 className="teamName">Home: {teams.home.team.name} </h4>
         <div className="pitcherInfo">
@@ -86,7 +108,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
                 : "nonMlbPitcher"
             }
             src={homeImageSrc}
-            onError={(e)=> {handleImageError(e.target, teams.home.probablePitcher.id )}}
+            onError={(e)=> {handlePlayerImageError(e.target, teams.home.probablePitcher.id )}}
           ></img>
         </div>
       </div>
@@ -132,6 +154,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
           className={`teamGameLogo`}
           alt={teams.away.team.name}
           src={awayTeamImageSrc}
+          onError={(e) => {handleTeamLogoError(e.target, teams.away.team.id)}}
         ></img>
         <h4 className="teamName">Away: {teams.away.team.name} </h4>
         <div className="pitcherInfo">
@@ -148,7 +171,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
                 : "nonMlbPitcher"
             }
             src={awayImageSrc}
-            onError={(e)=> {handleImageError(e.target, teams.away.probablePitcher.id )}}
+            onError={(e)=> {handlePlayerImageError(e.target, teams.away.probablePitcher.id )}}
           ></img>
         </div>
       </div>

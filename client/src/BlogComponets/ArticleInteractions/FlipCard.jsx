@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSpring, a } from "@react-spring/web";
-import { handleImageError } from "../../UtilityFunctions/UtilityFunctions";
+import { handlePlayerImageError } from "../../UtilityFunctions/UtilityFunctions";
 
 export default function FlipCard({ frontText, backText, playerId, playerName}) {
   const [flipped, setFlipped] = useState(false);
@@ -26,7 +26,7 @@ export default function FlipCard({ frontText, backText, playerId, playerName}) {
           <img
           id="Flip-Card-Image"
           src={playerImage}
-          onError={(e) => handleImageError(e.target, playerId)}
+          onError={(e) => handlePlayerImageError(e.target, playerId)}
           ></img>
           ) : null}
         <span className="FlipSpan">{frontText}</span>

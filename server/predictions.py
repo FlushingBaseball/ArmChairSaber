@@ -9,7 +9,12 @@ import time
 # BASE_URL='https://armchairsaber.onrender.com'
 # if environment == "development":
 #   BASE_URL="http://localhost:5555"
+"""
 
+
+
+
+"""
 users_cache = {}
 
 
@@ -20,7 +25,7 @@ async def handle_unresolved_predictions_pool():
 
      if response.status_code ==200:
       data = response.json() 
-      check_for_winners_contamination(data)
+      fill_user_cache_check_for_winners_contamination(data)
      else:
       print(f"Error: {response.status_code} - {response.text}")
 
@@ -29,8 +34,8 @@ async def handle_unresolved_predictions_pool():
 
 
 
-def check_for_winners_contamination(data):
-  print(f"Successfully called CFW")
+def fill_user_cache_check_for_winners_contamination(data):
+  print(f"Successfully called CFWC")
   for prediction in data:
     ## building out streak cache 
     if prediction['user']['id'] in users_cache:
@@ -38,16 +43,19 @@ def check_for_winners_contamination(data):
     else:
       print("didn't have this user")
       users_cache[prediction['user']['id']] = prediction['user']
+      #print(users_cache)
+      #print("\n" *10)
     ## checking for ActualWinnerData contamination don't know if this is needed but flask sqlAlchemy has done some weird stuff so -_(0-0)_-
-    # print(users_cache)
-    # print("\n" *10)
     if (prediction['actualWinnerId'] != None):
       print("You should have never gotten here, big problem")
+      # TODO log and break here prob
       print("\n" * 20 )
     else:
       ##Entry point for handling each prediction 
       handle_winner_not_known(prediction)
-  print("after all the predictions were processed")
+  print("After all the predictions were processed, here is users_cache")
+  print(users_cache)
+  print("\n" *10)
   patch_user_info()
 
 
@@ -62,6 +70,8 @@ def handle_winner_not_known(prediction):
     backend_game_data = game_response.json()
     ## Checking if the prediction can be soley graded with data not from MLB API
     if (backend_game_data['gameResolved']== False):
+      print(f'The game state for the game{game_id} on the backend is unresolved')
+      print("calling call_mlb_patch_prediction")
       call_mlb_patch_prediction(prediction, game_id, backend_game_data)
     else:
       print("backend game isResolved")
@@ -91,7 +101,7 @@ def call_mlb_patch_prediction(prediction, game_id, backend_game_data=None):
       print("Game isn't final yet")
       return
     else:
-      print("Game has a winner!")
+      print("Game state is final!")
       patch_game_on_backend(mlb_game_response, last_date)
   else:
     print("Request to the MLB API failed!", mlb_game_response.status_code)
@@ -106,6 +116,8 @@ def patch_game_on_backend(mlb_game_response, last_date):
   GameWinner = None
   GameLoser = None
   game_id = mlb_game_response['dates'][last_date]['games'][0]['gamePk']
+
+  print(f"here's the fucked up mlb_game_response {mlb_game_response}")
 
   # if "isWinner" not in mlb_game_response:
   #   print("Rare tied game that is final, most likely was a spring training game!")

@@ -1,4 +1,4 @@
-import {handleImageError} from '../UtilityFunctions/UtilityFunctions'
+import {handlePlayerImageError} from '../UtilityFunctions/UtilityFunctions'
 
 export default function PlayerCardBio({ searchPlayer, playerData }) {
   const fielderImage = searchPlayer
@@ -12,7 +12,7 @@ export default function PlayerCardBio({ searchPlayer, playerData }) {
         <h3 id="playerName">{playerData.people[0].firstLastName}</h3>
         <img id="PlayerCardImage"
          src={fielderImage}
-         onError={(e) => handleImageError(e.target, searchPlayer)}
+         onError={(e) => handlePlayerImageError(e.target, searchPlayer)}
          ></img>
       </div>
       <div className="WrapperBioText">

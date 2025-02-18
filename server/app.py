@@ -4,6 +4,7 @@ from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
 from models import User, User_Prediction, Game, Player
 from sqlalchemy import func
+import os
 import schedule
 import time
 import subprocess
@@ -284,6 +285,14 @@ def get_player_by_id(MLBAMID):
         jsonify(player.to_dict()),
         200
     )
+
+
+## Route to serve team logos not on the api, college etc and fallback if api fails
+LOGO_IMAGE_DIR = os.path.join(os.path.dirname(__file__), 'logo_images')
+
+@app.route('/api/<filename>')
+def serve_team_logo(filename):
+    return send_from_directory(LOGO_IMAGE_DIR, filename)
 
 
 ## post a prediction to the database
