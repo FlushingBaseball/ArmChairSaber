@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-import LiveGameScoreBoard from "./LiveComponets/LiveGameScoreboard";
-import LiveBases from "./LiveComponets/LiveBases";
-import LiveCircles from "./LiveComponets/LiveCircles";
-import PitcherVsBatter from "./LiveComponets/PitcherVsBatter";
-import LiveBoxScore from "./LiveComponets/LiveBoxScore";
-import LivePitchData from "./LiveComponets/LivePitchData";
-import LivePitchDataVis from "./LiveComponets/LivePitchDataVis";
-import BattingOrderAway from "./LiveComponets/BattingOrderAway";
-import BattingOrderHome from "./LiveComponets/BattingOrderHome";
-import GameWeather from "./LiveComponets/GameWeather";
+import LiveGameScoreBoard from "./LiveComponents/LiveGameScoreboard";
+import LiveBases from "./LiveComponents/LiveBases";
+import LiveCircles from "./LiveComponents/LiveCircles";
+import PitcherVsBatter from "./LiveComponents/PitcherVsBatter";
+import LiveBoxScore from "./LiveComponents/LiveBoxScore";
+import LivePitchData from "./LiveComponents/LivePitchData";
+import LivePitchDataVis from "./LiveComponents/LivePitchDataVis";
+import BattingOrderAway from "./LiveComponents/BattingOrderAway";
+import BattingOrderHome from "./LiveComponents/BattingOrderHome";
+import GameWeather from "./LiveComponents/GameWeather";
 
-import CurrentPlay from "./LiveComponets/CurrentPlay";
-import ScoringPlay from "./LiveComponets/ScoringPlay";
+import CurrentPlay from "./LiveComponents/CurrentPlay";
+import ScoringPlay from "./LiveComponents/ScoringPlay";
 
 function LiveGame() {
   const { gamePk } = useParams();
@@ -59,7 +59,7 @@ function LiveGame() {
           <LiveCircles {...dataLiveGame} />
         </div>
         <PitcherVsBatter {...dataLiveGame} />
-        <div className="pitchComponets">
+        <div className="pitchComponents">
           <LivePitchData {...dataLiveGame} />
           <LivePitchDataVis {...dataLiveGame} />
         </div>

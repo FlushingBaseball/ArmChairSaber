@@ -1,24 +1,49 @@
 export function handlePlayerImageError(img, playerid){
     //clearing the inital onError so if the Milb photo isn't found either there's no infinite loop
-    img.onError = null;
+    img.onerror = null;
+    // Check the milb api for the players photo
     img.src = `https://midfield.mlbstatic.com/v1/people/${playerid}/milb/100`;
     // New onError so the default is shown if the Milb isn't found after the first error is handled
-    img.OnError = function () {
+    img.onerror = function () {
+      console.log("2nd fallback onerror Default  player image call")
       img.src = "/Images/default-batter.svg";
     };
 }
 
-export function handleTeamLogoError(img, teamId){
-  console.log("in handle team  logo error")
-  img.onError = null;
-  img.src = `/api/${teamId}.svg`
+export function handleTeamLogoError(img, teamId, teamName){
+  fetch(`/api/${teamId}.svg`)
+  .then((response) =>{
+    if (!response.ok){
+      img.src = `/api/default-team-logo.svg`
+      console.log(`${teamName} logo not found on backend teamId is ${teamId}`);
+    }
+    else {
+      img.src = response.url
+    }
+  })
+
+
+
+
+
+
+
+  // console.log("in handle team  logo error")
+  // img.onerror = null;
+
+  // //Calling my flask /api/ for stored team images
+  // img.onerror = function(){
+  //   img.onerror = null;
+  //   img.src = `/api/default-team-logo.svg?t=${Date.now()}`
+  //   console.log(img)
+  //   console.log("2nd fallback onerror Default logo call")
+  //   console.log("new")
+  //   console.log(img)
+  // };
+
+  // img.src = `/api/${teamId}.svg?t=${Date.now()}`
   // New onError so the default team logo is shown if I don't have it on the backend
-  img.OnError = function(){
-    img.src = `api/default-team-logo.svg`
-  };
 }
-
-
 
 
 

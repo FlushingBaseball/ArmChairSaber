@@ -6,33 +6,33 @@ import "./App.css";
 import NotFound from "./NotFound";
 /*Live game imports */
 import LiveGame from "./LiveGame";
-import TeamMap from "./TeamComponets/TeamMap";
+import TeamMap from "./TeamComponents/TeamMap";
 import HomePage from "./HomePage";
-import Today from "./TodaysGamesComponets/Today";
+import Today from "./TodaysGamesComponents/Today";
 /*Nav */
 import Nav from "./Nav";
 import Login from "./Login";
 import SignOut from "./SignOut";
 /*Smaller features */
-import Leaderboard from "./LeaderboardComponets/Leaderboard";
-import RollingMetrics from "./RollingComponets/RollingMetrics";
+import Leaderboard from "./LeaderboardComponents/Leaderboard";
+import RollingMetrics from "./RollingComponents/RollingMetrics";
 import LeagueLeaders from "./LeagueLeaders";
-import UserHome from "./UserPageComponets/UserHome";
-import Faq from "./FaqComponets/Faq";
-import PlayerPage from "./PlayerComponets/PlayerPage";
-import Standings from "./TeamComponets/Standings";
+import UserHome from "./UserPageComponents/UserHome";
+import Faq from "./FaqComponents/Faq";
+import PlayerPage from "./PlayerComponents/PlayerPage";
+import Standings from "./TeamComponents/Standings";
 /*Incomplete and broken features */
 import Teams from "./Incomplete Features/Teams";
-import Venue from "./TeamComponets/Venue";
-import Transactions from "./TeamComponets/Transactions";
-import FieldingSaber from "./FieldingComponets/FieldingSaber";
+import Venue from "./TeamComponents/Venue";
+import Transactions from "./TeamComponents/Transactions";
+import FieldingSaber from "./FieldingComponents/FieldingSaber";
 import FreeAgents from './Incomplete Features/FreeAgents';
 import Test from "./Test";
 /*Blog imports */
-import BlogHome from "./BlogComponets/BlogHome";
-import RichHill from "./BlogComponets/Articles/RichHill.mdx";
-import MLBExpansion from "./BlogComponets/Articles/MLBExpansion.mdx";
-import BullpenHope from "./BlogComponets/Articles/BullpenHope.mdx";
+import BlogHome from "./BlogComponents/BlogHome";
+import RichHill from "./BlogComponents/Articles/RichHill.mdx";
+import MLBExpansion from "./BlogComponents/Articles/MLBExpansion.mdx";
+import BullpenHope from "./BlogComponents/Articles/BullpenHope.mdx";
 
 function App() {
   const [user, setUser] = useState(null);

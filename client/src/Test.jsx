@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import TableComponent from "./UtilityComponets/TableComponent"
-import Collapse from "./TestComponets/Collapse";
+import TableComponent from "./UtilityComponents/TableComponent"
+import Collapse from "./TestComponents/Collapse";
 
 function Test(){
 

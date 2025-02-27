@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { handlePlayerImageError } from "../UtilityFunctions/UtilityFunctions";
-import BatLoader from "../UtilityComponets/BatLoader";
+import BatLoader from "../UtilityComponents/BatLoader";
 
 export default function FreeAgents() {
   const [displaySigned, setDisplaySigned] = useState("unsigned")
