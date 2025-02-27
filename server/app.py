@@ -292,7 +292,17 @@ LOGO_IMAGE_DIR = os.path.join(os.path.dirname(__file__), 'logo_images')
 
 @app.route('/api/<filename>')
 def serve_team_logo(filename):
-    return send_from_directory(LOGO_IMAGE_DIR, filename)
+    try:
+        file_path = os.path.join("logo_images", filename)
+        if not os.path.exists(file_path):
+            return make_response(
+                jsonify({"Error": "This logo wasn't found on the server"}),
+                404
+            )
+        return send_from_directory(LOGO_IMAGE_DIR, filename)
+    except Exception as e:
+        print(e)
+        return make_response(jsonify({"Error": "something went wrong fetching the logo"}),404)
 
 
 ## post a prediction to the database
