@@ -49,7 +49,7 @@ function Today({ user }) {
   /**
    * Used After Midnight in season for development because formattedDate changes
    */
-  // const yesterday ="04/29/2025"
+  // const yesterday ="03/01/2025"
 
   // useEffect(()=>{
   //   fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${yesterday}&sportId=${selectedSportId}&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`)
