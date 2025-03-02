@@ -5,14 +5,10 @@ import asyncio
 import time
 
 
-# environment = "development"
-# BASE_URL='https://armchairsaber.onrender.com'
-# if environment == "development":
-#   BASE_URL="http://localhost:5555"
+
 """
 
-
-
+Predictions Script v0.2
 
 """
 users_cache = {}
@@ -40,6 +36,7 @@ def fill_user_cache_check_for_winners_contamination(data):
     ## building out streak cache 
     if prediction['user']['id'] in users_cache:
       print("had this user")
+      print("\n")
     else:
       print("didn't have this user")
       users_cache[prediction['user']['id']] = prediction['user']
@@ -90,12 +87,12 @@ def call_mlb_patch_prediction(prediction, game_id, backend_game_data=None):
   if mlb_Data.status_code ==200:
     mlb_game_response = mlb_Data.json()
     ## Always checking the last date of a game object in order to handle rainouts etc
-    if 'dates' in mlb_game_response and len(mlb_game_response['dates']) > 0:
+    if 'dates' in mlb_game_response and len(mlb_game_response['dates']) >= 0:
       last_date = len(mlb_game_response.get('dates')) -1
     else:
       print("No Dates in mlb_game_response")
       return
-    # print(f'This is the response from MLB: {mlb_game_response}')
+    print(f'This is the response from MLB: {mlb_game_response}')
     print(f"Abstract Game State is {mlb_game_response['dates'][last_date]['games'][0]['status']['abstractGameState']}")
     if (mlb_game_response['dates'][last_date]['games'][0]['status']['abstractGameState'] != 'Final'):
       print("Game isn't final yet")
@@ -116,81 +113,110 @@ def patch_game_on_backend(mlb_game_response, last_date):
   GameWinner = None
   GameLoser = None
   game_id = mlb_game_response['dates'][last_date]['games'][0]['gamePk']
+  game_season = mlb_game_response['dates'][last_date]['games'][0]['season']
+  game_type = mlb_game_response['dates'][last_date]['games'][0]['gameType']
+  game_day_night = mlb_game_response['dates'][last_date]['games'][0]['dayNight']
 
-  print(f"here's the fucked up mlb_game_response {mlb_game_response}")
+  print(f"here's mlb_game_response {mlb_game_response}")
+  print("\n" * 2)
+  ## Check if the game has a winner isWinner is only sent if there's a winner (some ties happen in spring etc)
+  away_winner = mlb_game_response['dates'][last_date]['games'][0]['teams']['away']
+  home_winner = mlb_game_response['dates'][last_date]['games'][0]['teams']['home']
 
-  # if "isWinner" not in mlb_game_response:
-  #   print("Rare tied game that is final, most likely was a spring training game!")
-  #   return
-
-  if mlb_game_response['dates'][last_date]['games'][0]['teams']['away']["isWinner" ] == True:
-    GameWinner = mlb_game_response['dates'][last_date]['games'][0]['teams']['away']['team']['id']
-    GameLoser =  mlb_game_response['dates'][last_date]['games'][0]['teams']['home']['team']['id']
+  if away_winner.get('isWinner') is True or home_winner.get('isWinner') is True:
+    print("the final game has a winner")
+    if mlb_game_response['dates'][last_date]['games'][0]['teams']['away']["isWinner" ] == True:
+      GameWinner = mlb_game_response['dates'][last_date]['games'][0]['teams']['away']['team']['id']
+      GameLoser =  mlb_game_response['dates'][last_date]['games'][0]['teams']['home']['team']['id']
+    else:
+      GameWinner = mlb_game_response['dates'][last_date]['games'][0]['teams']['home']['team']['id']
+      GameLoser =  mlb_game_response['dates'][last_date]['games'][0]['teams']['away']['team']['id']
+      
+    game = {'gamePk': game_id, 'gameWinner_id': GameWinner, 'gameDayNight': game_day_night, 'gameSeason': game_season, 'gameType':game_type, 'gameLoser_id': GameLoser, 'gameResolved': True}
+    postResponse = requests.patch(f'http://localhost:5555/api/games/{str(game_id)}', json=game)
+    if postResponse.status_code == 200:
+      print('Success patch of game on backend', postResponse.status_code)
+      print("\n" *5)
+    else:
+      print('Error patching game on backend:', postResponse.status_code)
+      print('Response Content:', postResponse.text)
+      print("\n" *5)
   else:
-    GameWinner = mlb_game_response['dates'][last_date]['games'][0]['teams']['home']['team']['id']
-    GameLoser =  mlb_game_response['dates'][last_date]['games'][0]['teams']['away']['team']['id']
-
-
-  game = {'gamePk': game_id, 'gameWinner_id': GameWinner, 'gameLoser_id': GameLoser, 'gameResolved': True}
-
-  postResponse = requests.patch(f'http://localhost:5555/api/games/{str(game_id)}', json=game)
-
-  if postResponse.status_code == 200:
-    print('Success patch of game on backend', postResponse.status_code)
-    print("\n" *5)
-  else:
-    print('Error patching game on backend:', postResponse.status_code)
-    print('Response Content:', postResponse.text)
-    print("\n" *5)
+    print(f"Rare tied game that is final but without a winner {mlb_game_response}")
+    game ={'gamePk': game_id, 'stale_game_flag': True, 'gameResolved': True}
+    postResponse = requests.patch(f'http://localhost:5555/api/games/{str(game_id)}', json=game)
+    if postResponse.status_code == 200:
+      print("Success: Patching of rare final game with no winner", postResponse.status_code)
+      print("\n" * 5)
+    else:
+      print("Error: Patching of rare final game with no winner", postResponse.status_code)
+      print("Response content:", postResponse.text)
+      print("\n" * 5)
 
 
 ## I've decided games will only be patched from the backend game data for now, one function should be grading all predictions
 def patch_user_prediction(prediction, backend_game_data):
-  prediction_id = prediction['id']
-  user_id = prediction['user']['id']
+  if backend_game_data['gameWinner_id'] is None:
+    print("Handling stale prediction")
+    stale_prediction_id = prediction['id']
+    stale_patched_prediction = {
+      "isStale" : True,
+      "isResolved" :True
+    }
+    stale_prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(stale_prediction_id)}',
+                                                     json=stale_patched_prediction)
+    if stale_prediction_patch_response.status_code==200:
+      print("Success: Stale prediction patched")
+      print("\n" * 2)
+    else:
+      print("Error: patching stale prediction", stale_prediction_patch_response.status_code)
+      print("Response Content:", stale_prediction_patch_response.text)
+      print("\n" *5)
 
-  prediction_actual_Winner_Id = backend_game_data['gameWinner_id']
-  prediction_actual_Loser_Id = backend_game_data['gameWinner_id']
 
-
-  patched_prediction = {
+  else:
+    prediction_id = prediction['id']
+    user_id = prediction['user']['id']
+    prediction_actual_Winner_Id = backend_game_data['gameWinner_id']
+    prediction_actual_Loser_Id = backend_game_data['gameWinner_id']
+    
+    patched_prediction = {
     "actualWinnerId": prediction_actual_Winner_Id,
     "actualLoserId":  prediction_actual_Loser_Id,
     "isResolved": True
-  } 
-
-  prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
-  json=patched_prediction
-  )
-
-  if prediction_patch_response.status_code==200:
-    print("Success, prediction patched", prediction_patch_response.status_code)
-    print("\n" * 2 )
-    print("Starting cache work")
-    if (prediction['predictedWinnerId'] == prediction_actual_Winner_Id):
-      users_cache[user_id]["totalGuessesCorrect"] += 1
-      users_cache[user_id]["totalScore"] += 10
-      users_cache[user_id]["currentStreak"] += 1
+    } 
+    
+    prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
+                                               json=patched_prediction
+                                               )
+    
+    if prediction_patch_response.status_code==200:
+      print("Success, prediction patched", prediction_patch_response.status_code)
+      print("\n" * 2 )
+      print("Starting cache work")
+      if (prediction['predictedWinnerId'] == prediction_actual_Winner_Id):
+        users_cache[user_id]["totalGuessesCorrect"] += 1
+        users_cache[user_id]["totalScore"] += 10
+        users_cache[user_id]["currentStreak"] += 1
+      else:
+        users_cache[user_id]["totalGuessesIncorrect"] += 1
+        users_cache[user_id]["totalScore"] -= 10
+        users_cache[user_id]["currentStreak"] =0
+        ## handling streaks
+      if(users_cache[user_id]["currentStreak"] > users_cache[user_id]["longestStreak"]):
+        print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
+        print("users current steak was longer than longeststreak")
+        users_cache[user_id]["longestStreak"] = users_cache[user_id]["currentStreak"]
+      elif (users_cache[user_id]["currentStreak"] == users_cache[user_id]["longestStreak"]):
+        print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
+        print("Current and longest were equal")
+      else:
+        print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
+        print("users longest streak was greater than current streak")
     else:
-      users_cache[user_id]["totalGuessesIncorrect"] += 1
-      users_cache[user_id]["totalScore"] -= 10
-      users_cache[user_id]["currentStreak"] =0
-      ## handling streaks
-    if(users_cache[user_id]["currentStreak"] > users_cache[user_id]["longestStreak"]):
-      print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
-      print("users current steak was longer than longeststreak")
-      users_cache[user_id]["longestStreak"] = users_cache[user_id]["currentStreak"]
-    elif (users_cache[user_id]["currentStreak"] == users_cache[user_id]["longestStreak"]):
-      print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
-      print("Current and longest were equal")
-    else:
-      print(f'Current Streak is: {users_cache[user_id]["currentStreak"]} and longest streak is {users_cache[user_id]["longestStreak"]}')
-      print("users longest streak was greater than current streak")
-
-  else:
-    print("Error patching game on backend", prediction_patch_response.status_code)
-    print("Response Content:", postResponse.text)
-    print("\n" *5)
+      print("Error patching game on backend", prediction_patch_response.status_code)
+      print("Response Content:", prediction_patch_response.text)
+      print("\n" *5)
 
 
 

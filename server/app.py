@@ -341,7 +341,8 @@ def postPredicitons():
 @app.get('/api/predictionsNotResolved')
 def get_all_not_resolved_predictions():
     un_Predictions = User_Prediction.query.filter(
-        User_Prediction.isResolved == False
+        User_Prediction.isResolved == False,
+        User_Prediction.isStale == False
     )
 
     data = [u.to_dict() for u in un_Predictions]
