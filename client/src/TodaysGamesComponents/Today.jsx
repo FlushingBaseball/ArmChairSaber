@@ -33,6 +33,9 @@ function Today({ user }) {
       });
     }, [selectedSportId, formattedDate]);
     
+    // useEffect(() => {
+    //   console.log(gameData);
+    // }, [gameData]);
 
   // useEffect(() => {
   //   fetch(
@@ -42,14 +45,11 @@ function Today({ user }) {
   //     .then((statcastRESP) => setGameData(statcastRESP));
   // }, [selectedSportId]);
 
-  // useEffect(() => {
-  //   console.log(gameData);
-  // }, [gameData]);
 
   /**
    * Used After Midnight in season for development because formattedDate changes
    */
-  // const yesterday ="05/08/2024"
+  // const yesterday ="04/29/2025"
 
   // useEffect(()=>{
   //   fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${yesterday}&sportId=${selectedSportId}&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`)
@@ -59,7 +59,6 @@ function Today({ user }) {
   // },[selectedSportId])
 
   function handleSportSelect(sportNum) {
-    console.log("in handleSportSelect")
     setSelectedSportId(sportNum);
   }
 

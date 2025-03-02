@@ -7,29 +7,19 @@ import { handlePlayerImageError, handleTeamLogoError } from "../UtilityFunctions
 
  
 function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
-  // console.log("teams from destructured user below")
-  // console.log(teams)
-  // console.log("game below")
-  // console.log(game)
-  // console.log("gamepk below")
-  // console.log(gamePk)
-  console.log("In TodaysGame")
-  console.log(`selectedSportId is: ${selectedSportId}`)
-
   const [predictedWinner, setPredictedWinner] = useState("");
 
   /**
    * Timezone problem to be sorted later
+   * After midnight users may lose games as a late game in California can go past midnight est
+   * the new date would create a new fetch with the new date and they wouldn't be able to click it
+   * 
+   * fetch all games still live and add it to the array prob the best way to do it
    */
-  // const gameDate = new Date(game.gameDate)
-  // const timeZoneOffset = new Date().getTimezoneOffset();
-  // const localTime = new Date(gameDate.getTime() - (timeZoneOffset * 6000));
-  // console.log("this is gameDate", gameDate)
-  // console.log("this is timeZoneOffset", timeZoneOffset)
-  // console.log("this is localTime", localTime)
-  //2024-02-24T18:05:00Z need to convert this to local start time and display it
 
-
+  //  game time for local display
+  const localGameStartTime = new Date(game.gameDate).toLocaleTimeString([], {hour: "numeric", minute: "2-digit", timeZoneName:"short"});
+  
 
 
 
@@ -131,7 +121,7 @@ let homePitcherImageSrc = teams.home.probablePitcher
       </div>
 
        <div className="CenterWrapper">
-         <span>{game.gameDate}</span>
+         <span>{localGameStartTime}</span>
         {status.abstractGameState === "Final" && (
           <span id="gameCompleteSpan">Game is Complete</span>
         )}
