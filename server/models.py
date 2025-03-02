@@ -76,7 +76,7 @@ class User_Prediction(db.Model, SerializerMixin):
                                   )
     actualLoserId = db.Column(db.Integer, nullable=True)
     isResolved = db.Column(db.Boolean, nullable = True, default = False)
-
+    isStale = db.Column(db.Boolean, nullable = True, default = False)
  
 
 
@@ -94,8 +94,11 @@ class Game(db.Model, SerializerMixin):
     gameWinner_id = db.Column(db.Integer, nullable=True)
     gameLoser_id= db.Column(db.Integer, nullable=True)
     gameResolved = db.Column(db.Boolean, nullable = False, default = False)
-    ## If a game (most likey a winter ball game has no winner after a few checks system should be able to flag it for review for removal of game predictions and fix users)
-    stale_game_pull_counter = db.Column(db.Integer, nullable=False, default = 0)
+    gameType = db.Column(db.String, nullable =True) ##TODO change nullable to false in future
+    gameSeason =db.Column(db.Integer, nullable=True) ##TODO change nullable to false in future
+    gameDayNight =db.Column(db.String, nullable=True) ##TODO change nullable to false in future
+    ## If a game (most likely a winter ball game) has no winner after a few checks, system should flag it and update this flag
+    stale_game_flag = db.Column(db.Boolean, nullable=True, default = False)
     Game_Predictions = db.relationship('User_Prediction', backref='game')
 
     serialize_rules=("-user_predictions.game",)
