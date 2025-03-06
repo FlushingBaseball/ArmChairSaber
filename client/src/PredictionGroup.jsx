@@ -161,7 +161,6 @@ function PredictionGroup({ game, user, key, setPredictedWinner }) {
           {game.teams.away.team.name}
         </label>
       </div>
-      <br />
       <button onClick={handlePredictionSubmit} className="SubmitButton">
         Submit Predictions
       </button>

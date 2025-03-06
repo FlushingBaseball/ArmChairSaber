@@ -121,7 +121,7 @@ let homePitcherImageSrc = teams.home.probablePitcher
       </div>
 
        <div className="CenterWrapper">
-         <span>{localGameStartTime}</span>
+         <span id="startTime" >{localGameStartTime}</span>
         {status.abstractGameState === "Final" && (
           <span id="gameCompleteSpan">Game is Complete</span>
         )}
