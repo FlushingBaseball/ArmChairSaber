@@ -62,6 +62,18 @@
   margin-bottom: 10px;
   width: 100%;
 }
+#startTime{
+  font-size: 0.8rem;
+  color: red;
+  text-shadow: 1px 1px 2px black;
+  text-transform: uppercase;
+  font-family: alarmclock;
+}
+.CenterWrapper{
+  display: flex;
+  flex-direction: column;
+
+}
 
 .signInUpFormInput {
   width: 200px;
@@ -633,6 +645,8 @@ button.activeSport {
 }
 
 .radioButtonLabel {
+  text-align: center;
+  text-wrap: wrap;
   font-family: "BebasNeue-Regular";
   display: flex;
   flex-direction: column;
@@ -644,6 +658,7 @@ button.activeSport {
   flex-direction: column;
 }
 .SubmitButton {
+  margin-top: 1vw;
   align-items: center;
   justify-content: center;
   padding: 11px 11px;
@@ -2346,6 +2361,17 @@ td {
 
 /* font-family: 'zektonrg'; */
 
+/*Desktop only game display rules to avoid clipping*/
+@media (min-width: 768px) {
+  .game:nth-child(even){
+    margin-right: 1vw;
+  }
+  .game:last-child:nth-child(odd){
+    margin-right: 1vw;
+  
+  }  
+}
+
 /*Mobile style*/
 @media (max-width: 768px) {
   .homeTile {
@@ -2375,6 +2401,14 @@ td {
   .search {
     width: 90vw;
   }
+  .pitcherName {
+    text-wrap: wrap;
+    font-size: 12px;
+  }
+  .predictiveinfoGroup{
+    align-items: center;
+
+  }
 
   #thanks {
     width: 98vw;
@@ -2401,6 +2435,12 @@ td {
   }
   .RosterCata {
     font-size: 2rem;
+  }
+  .SubmitButton{
+    margin-bottom: 13px;
+    height: 15vw;
+    width: 33vw;
+
   }
 
   .WrapperTeamMapRoster {
@@ -2652,9 +2692,11 @@ td {
     border-radius: 5px;
   }
   .game {
-    margin: 5px;
+    margin: 5px 11px 5px 5px;
+    width: 96vw;
   }
   .teamInfo {
+    width: 38vw;
     display: flex;
     justify-content: center;
     align-items: center;

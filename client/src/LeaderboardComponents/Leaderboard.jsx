@@ -13,10 +13,10 @@ function Leaderboard() {
     })
   },[])
 
-// useEffect(()=>{
-//   console.log("leaderboard data is", leaderboardData)
+useEffect(()=>{
+  console.log("leaderboard data is", leaderboardData)
 
-// },[leaderboardData])
+},[leaderboardData])
 
 
 

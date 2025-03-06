@@ -348,6 +348,7 @@ def get_all_not_resolved_predictions():
     data = [u.to_dict() for u in un_Predictions]
 
     if not data:
+        print("There were no unresolved predictions found")
         return make_response("Nothing Found", 204)
 
     return make_response(
