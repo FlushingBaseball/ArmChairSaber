@@ -238,6 +238,46 @@ def batch_update_users():
     finally:
         db.session.close()
 
+
+
+
+@app.post('/api/post_todays_games')
+def batch_post_todays_games():
+    try:
+        data = request.get_json()
+        print(f'Data received: this is the raw data {data}')
+        for new_game in data:
+            print("this is the game were posting", new_game)
+            print("")
+    except:
+        blahh
+    #         gamePk = db.Column(db.Integer, nullable=False, unique=True)
+    # gameWinner_id = db.Column(db.Integer, nullable=True)
+    # gameLoser_id= db.Column(db.Integer, nullable=True)
+    # gameResolved = db.Column(db.Boolean, nullable = False, default = False)
+    # gameType = db.Column(db.String, nullable =True) ##TODO change nullable to false in future
+    # gameSeason =db.Column(db.Integer, nullable=True) ##TODO change nullable to false in future
+    # gameDayNight =db.Column(db.String, nullable=True) ##TODO change nullable to false in future
+# @app.post('/api/games/<int:gamePk>')
+# def post_Games_by_Pk(gamePk):
+#     data = request.get_json()
+#     try:
+#         new_game =  Game(
+#             gamePk = data['gamePk'],
+#             gameWinner_id = data['gameWinner_id'],
+#             gameLoser_id =data['gameLoser_id']
+#         )
+#         db.session.add(new_game)
+#         db.session.commit()
+
+#     except Exception as e:
+#         print(e)
+#         return {'error': f'Error creating Game: {str(e)}'}, 422
+
+#     # return user as JSON, status code 201
+#     return new_game.to_dict(), 201
+
+
 @app.post('/api/players')
 def post_player():
     data = request.get_json()
@@ -268,6 +308,7 @@ def get_all_Players():
         jsonify(data),
         200
         )
+
 ## fetch a specific player    
 @app.get('/api/players/<int:MLBAMID>')
 def get_player_by_id(MLBAMID):
@@ -427,18 +468,33 @@ def patch_prediction_by_id(id):
         )
 
 
-
 @app.post('/api/games/<int:gamePk>')
 def post_Games_by_Pk(gamePk):
     data = request.get_json()
     try:
-        new_game =  Game(
-            gamePk = data['gamePk'],
-            gameWinner_id = data['gameWinner_id'],
-            gameLoser_id =data['gameLoser_id']
-        )
+        game_data = {
+            'gamePk': data['gamePk']
+        }
+
+        if 'gameWinner_id' in data:
+            game_data['gameWinner_id'] = data['gameWinner_id']
+
+        if 'gameLoser_id' in data:
+            game_data['gameLoser_id'] = data['gameLoser_id']
+        
+
+        ## "**" is the dictionary unpacking operator lol not power math
+        new_game =  Game(**game_data)
+
         db.session.add(new_game)
         db.session.commit()
+    except IntegrityError as e:
+        print(f"Database integrity error: {e}")
+        return {"error": f'This game already exists: {str(e)}'}, 409
+    
+    except KeyError as e:
+        print(f"Missing key in data: {e}")
+        return {"error": f'Missing required field: {str(e)}'}, 400
 
     except Exception as e:
         print(e)
@@ -559,37 +615,42 @@ def get_leaders():
             500
         )
 
-    # Run predictions.py using subprocess and a separate thread
-def run_predictions():
-    subprocess.run(["python", "./predictions.py"])
-
-## Run at 2 AM and again at 2:10
-schedule.every().day.at("02:00").do(run_predictions)
-schedule.every().day.at("02:10").do(run_predictions)
-
-def job_scheduler():
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-        
-## will exit when the program exits
-scheduler_thread = threading.Thread(target=job_scheduler,name="SchedulerThread", daemon=True)
-
-## running the thread
-scheduler_thread.start()
 
 
-
-
+# Run predictions.py using subprocess and a separate thread
 def run_predictions():
     print("Running predictions.py")
     subprocess.run(["python", "./predictions.py"])
+
+def run_grounds_crew():
+    print("Running grounds_crew.py")
+    subprocess.run(["python", "./grounds_crew.py"])
+
+
 
 def job_scheduler():
     while True:
         print("Checking schedule")
         schedule.run_pending()
         time.sleep(1)
+        
+## Run at 2 AM and again at 2:10
+schedule.every().day.at("11:00").do(run_predictions)
+schedule.every().day.at("22:58", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("02:00").do(run_predictions)
+schedule.every().day.at("02:10").do(run_predictions)
+schedule.every().day.at("04:20").do(run_predictions)
+schedule.every().day.at("00:00").do(run_grounds_crew)
+schedule.every().day.at("04:21").do(run_grounds_crew)
+
+
+
+## will exit when the program exits
+scheduler_thread = threading.Thread(target=job_scheduler,name="SchedulerThread", daemon=True)
+
+## running the thread
+scheduler_thread.start()
+# time.sleep(0.5)
 
 # run_predictions()
 

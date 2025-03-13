@@ -1,10 +1,13 @@
 #!/usr/bin/env python
-
+import os
 import requests
 import datetime
 
+from dotenv import load_dotenv
+load_dotenv()
+
 """
-Grounds Crew Script v0.0.0
+Grounds Crew Script v0.1.0
 
 Call API
 if there's games 
@@ -13,7 +16,8 @@ if there's not any games log it
 
 
 """
-
+base_url = os.environ.get('BASE_URL')
+print(f'base_url is: {base_url}')
 todays_date = datetime.datetime.now().strftime("%m/%d/%Y")
 print(f"todays date is {todays_date} checking mlb's schedule")
 
@@ -35,7 +39,7 @@ def schedule_todays_games():
         gamePk = game['gamePk']
         game_data ={'gamePk': gamePk, 'stale_game_flag': False, 'gameResolved': False}
         print(f"this is the data we're sending to the backend {game_data}")
-        game_data_post_response = requests.post(f'http://localhost:5555/api/games/{str(gamePk)}', json=game_data)
+        game_data_post_response = requests.post(f'{base_url}/api/games/{str(gamePk)}', json=game_data)
 
         if game_data_post_response.status_code == 201:
           print(f"Success: posted game {gamePk} to backend")
