@@ -17,7 +17,7 @@ function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
    * fetch all games still live and add it to the array prob the best way to do it
    */
 
-  //  game time for local display
+  //  Local game start time
   const localGameStartTime = new Date(game.gameDate).toLocaleTimeString([], {hour: "numeric", minute: "2-digit", timeZoneName:"short"});
   
 

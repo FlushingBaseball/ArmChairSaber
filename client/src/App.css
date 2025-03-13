@@ -1,29 +1,29 @@
 @font-face {
   font-family: "zektonrg";
-  src: url("/public/Fonts/zekton-rg.otf") format("opentype");
+  src: url("/Fonts/zekton-rg.otf") format("opentype");
 }
 @font-face {
   font-family: "BebasNeue-Regular";
-  src: url("/public/Fonts/BebasNeue-Regular.ttf") format("truetype");
+  src: url("/Fonts/BebasNeue-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "alarmclock";
-  src: url("/public/Fonts/alarmclock.ttf") format("truetype");
+  src: url("/Fonts/alarmclock.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "13_Misa";
-  src: url("/public/Fonts/13_Misa.TTF") format("truetype");
+  src: url("/Fonts/13_Misa.TTF") format("truetype");
 }
 
 @font-face {
   font-family: "BrandinkSans";
-  src: url("/public/Fonts/BrandinkSans.otf") format("truetype");
+  src: url("/Fonts/BrandinkSans.otf") format("truetype");
 }
 @font-face {
   font-family: "BrandinkSans-light";
-  src: url("/public/Fonts/BrandinkSansLight.otf") format("truetype");
+  src: url("/Fonts/BrandinkSansLight.otf") format("truetype");
 }
 
 /*

@@ -1,23 +1,27 @@
 #!/usr/bin/env python
-
+import os
 import requests
 import asyncio
 import time
 
+from dotenv import load_dotenv
+load_dotenv()
 
+"""
+
+Predictions Script v0.3.0
 
 """
 
-Predictions Script v0.2
-
-"""
+base_url = os.environ.get('BASE_URL')
+print(f"base_url is: {base_url}")
 users_cache = {}
 
 
 ## Fetch all unresolved predictions
 async def handle_unresolved_predictions_pool():
   try:
-     response = requests.get('http://localhost:5555/api/predictionsNotResolved')
+     response = requests.get(f'{base_url}/api/predictionsNotResolved')
 
      if response.status_code ==200:
       data = response.json() 
@@ -60,7 +64,7 @@ def handle_winner_not_known(prediction):
   game_id = prediction['game_Id']
 
   ## Checking if the game is already on the backend (It should always be)
-  game_response = requests.get(f'http://localhost:5555/api/games/{str(game_id)}')
+  game_response = requests.get(f'{base_url}/api/games/{str(game_id)}')
 
   if  game_response.status_code == 200:
     print("Game was on backend")
@@ -133,7 +137,7 @@ def patch_game_on_backend(mlb_game_response, last_date):
       GameLoser =  mlb_game_response['dates'][last_date]['games'][0]['teams']['away']['team']['id']
       
     game = {'gamePk': game_id, 'gameWinner_id': GameWinner, 'gameDayNight': game_day_night, 'gameSeason': game_season, 'gameType':game_type, 'gameLoser_id': GameLoser, 'gameResolved': True}
-    postResponse = requests.patch(f'http://localhost:5555/api/games/{str(game_id)}', json=game)
+    postResponse = requests.patch(f'{base_url}/api/games/{str(game_id)}', json=game)
     if postResponse.status_code == 200:
       print('Success patch of game on backend', postResponse.status_code)
       print("\n" *5)
@@ -144,7 +148,7 @@ def patch_game_on_backend(mlb_game_response, last_date):
   else:
     print(f"Rare tied game that is final but without a winner {mlb_game_response}")
     game ={'gamePk': game_id, 'stale_game_flag': True, 'gameResolved': True}
-    postResponse = requests.patch(f'http://localhost:5555/api/games/{str(game_id)}', json=game)
+    postResponse = requests.patch(f'{base_url}/api/games/{str(game_id)}', json=game)
     if postResponse.status_code == 200:
       print("Success: Patching of rare final game with no winner", postResponse.status_code)
       print("\n" * 5)
@@ -163,7 +167,7 @@ def patch_user_prediction(prediction, backend_game_data):
       "isStale" : True,
       "isResolved" :True
     }
-    stale_prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(stale_prediction_id)}',
+    stale_prediction_patch_response = requests.patch(f'{base_url}/api/predictions/{str(stale_prediction_id)}',
                                                      json=stale_patched_prediction)
     if stale_prediction_patch_response.status_code==200:
       print("Success: Stale prediction patched")
@@ -186,7 +190,7 @@ def patch_user_prediction(prediction, backend_game_data):
     "isResolved": True
     } 
     
-    prediction_patch_response = requests.patch(f'http://localhost:5555/api/predictions/{str(prediction_id)}',
+    prediction_patch_response = requests.patch(f'{base_url}/api/predictions/{str(prediction_id)}',
                                                json=patched_prediction
                                                )
     
@@ -233,7 +237,7 @@ def patch_user_info():
 
     while attempts < max_retry_limit:
         try:
-            batch_user_update_response = requests.patch('http://localhost:5555/api/batch_update_users',json=formatted_user_data)
+            batch_user_update_response = requests.patch(f'{base_url}/api/batch_update_users',json=formatted_user_data)
 
             if batch_user_update_response.status_code == 200:
                 print("Success, all users patched", batch_user_update_response.status_code)
