@@ -635,13 +635,15 @@ def job_scheduler():
         time.sleep(1)
         
 ## Run at 2 AM and again at 2:10
-schedule.every().day.at("11:00").do(run_predictions)
-schedule.every().day.at("22:58", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("00:00").do(run_grounds_crew)
 schedule.every().day.at("02:00").do(run_predictions)
 schedule.every().day.at("02:10").do(run_predictions)
 schedule.every().day.at("04:20").do(run_predictions)
-schedule.every().day.at("00:00").do(run_grounds_crew)
 schedule.every().day.at("04:21").do(run_grounds_crew)
+schedule.every().day.at("11:00").do(run_predictions)
+schedule.every().day.at("22:00").do(run_predictions)
+schedule.every().day.at("22:02", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("22:58", tz="US/Eastern").do(run_predictions)
 
 
 
