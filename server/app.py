@@ -634,27 +634,16 @@ def job_scheduler():
         schedule.run_pending()
         time.sleep(1)
         
-## Run at 2 AM and again at 2:10
-schedule.every().day.at("00:00").do(run_grounds_crew)
-schedule.every().day.at("00:21").do(run_grounds_crew)
-schedule.every().day.at("00:18", tz="US/Eastern").do(run_grounds_crew)
-schedule.every().day.at("00:19", tz="US/Eastern").do(run_grounds_crew)
-schedule.every().day.at("00:20", tz="US/Eastern").do(run_grounds_crew)
-schedule.every().day.at("02:00").do(run_predictions)
-schedule.every().day.at("02:10").do(run_predictions)
-schedule.every().day.at("04:20").do(run_predictions)
-schedule.every().day.at("04:21").do(run_grounds_crew)
-schedule.every().day.at("11:00").do(run_predictions)
-schedule.every().day.at("22:00").do(run_predictions)
-schedule.every().day.at("22:02", tz="US/Eastern").do(run_predictions)
-schedule.every().day.at("22:58", tz="US/Eastern").do(run_predictions)
-schedule.every().day.at("23:02", tz="US/Eastern").do(run_predictions)
-schedule.every().day.at("23:04", tz="US/Eastern").do(run_predictions)
-schedule.every().day.at("23:10", tz="US/Eastern").do(run_predictions)
-schedule.every().day.at("23:11", tz="US/Eastern").do(run_predictions)
-schedule.every().day.at("23:25", tz="US/Eastern").do(run_predictions)
-schedule.every().day.at("23:26", tz="US/Eastern").do(run_predictions)
-## when deployed it ran at 10:0t?
+## Run grounds_crew.py at midnight 12:00 AM, 12:10AM, 8:00 AM, 4:00 PM
+schedule.every().day.at("00:00", tz="US/Eastern").do(run_grounds_crew)
+schedule.every().day.at("00:10", tz="US/Eastern").do(run_grounds_crew)
+schedule.every().day.at("08:00", tz="US/Eastern").do(run_grounds_crew) 
+schedule.every().day.at("16:00", tz="US/Eastern").do(run_grounds_crew) 
+## Run predictions.py at (12:02 AM, 12:04 AM, 5:00 PM, 5:02 PM) 
+schedule.every().day.at("00:02", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("00:04", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("17:00", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("17:02", tz="US/Eastern").do(run_predictions)
 
 
 ## will exit when the program exits
@@ -662,11 +651,6 @@ scheduler_thread = threading.Thread(target=job_scheduler,name="SchedulerThread",
 
 ## running the thread
 scheduler_thread.start()
-# time.sleep(0.5)
-
-# run_predictions()
-
-# job_scheduler()
 
 
 ## returning index.html to enable dynamic routing to work on refresh
