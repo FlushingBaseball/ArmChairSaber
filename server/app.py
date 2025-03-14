@@ -630,7 +630,7 @@ def run_grounds_crew():
 
 def job_scheduler():
     while True:
-        print("Checking schedule")
+        # print("Checking schedule")
         schedule.run_pending()
         time.sleep(1)
         
@@ -644,7 +644,9 @@ schedule.every().day.at("11:00").do(run_predictions)
 schedule.every().day.at("22:00").do(run_predictions)
 schedule.every().day.at("22:02", tz="US/Eastern").do(run_predictions)
 schedule.every().day.at("22:58", tz="US/Eastern").do(run_predictions)
-
+schedule.every().day.at("23:02", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("23:04", tz="US/Eastern").do(run_predictions)
+## when deployed it ran at 10:0t?
 
 
 ## will exit when the program exits
