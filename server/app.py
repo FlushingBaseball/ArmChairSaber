@@ -646,6 +646,10 @@ schedule.every().day.at("22:02", tz="US/Eastern").do(run_predictions)
 schedule.every().day.at("22:58", tz="US/Eastern").do(run_predictions)
 schedule.every().day.at("23:02", tz="US/Eastern").do(run_predictions)
 schedule.every().day.at("23:04", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("23:10", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("23:11", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("23:25", tz="US/Eastern").do(run_predictions)
+schedule.every().day.at("23:26", tz="US/Eastern").do(run_predictions)
 ## when deployed it ran at 10:0t?
 
 
