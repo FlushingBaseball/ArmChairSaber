@@ -636,6 +636,10 @@ def job_scheduler():
         
 ## Run at 2 AM and again at 2:10
 schedule.every().day.at("00:00").do(run_grounds_crew)
+schedule.every().day.at("00:21").do(run_grounds_crew)
+schedule.every().day.at("00:18", tz="US/Eastern").do(run_grounds_crew)
+schedule.every().day.at("00:19", tz="US/Eastern").do(run_grounds_crew)
+schedule.every().day.at("00:20", tz="US/Eastern").do(run_grounds_crew)
 schedule.every().day.at("02:00").do(run_predictions)
 schedule.every().day.at("02:10").do(run_predictions)
 schedule.every().day.at("04:20").do(run_predictions)
