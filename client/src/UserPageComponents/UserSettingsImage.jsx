@@ -41,7 +41,7 @@ export default function UserSettingsImage({currentProfilepic, setCurrentProfilep
 
   function mapProfileImages() {
     const images = [];
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 20; i++) {
       images.push(
         <img
           className={`settingsImageOption ${Number(currentProfilepic) === i ? "currentProPic" : "notCurrentPic"}`}
