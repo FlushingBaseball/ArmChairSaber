@@ -1,8 +1,6 @@
 ![W3C Validation](https://img.shields.io/w3c-validation/default?targetUrl=https%3A%2F%2Farmchairsaber.onrender.com%2F)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Farmchairsaber.onrender.com%2F)
 
-## March 8th update on the way
-
 ## Armchair Sabermetrics / Armchair Baseball 
 React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, Vite, visx, d3 for charting and spring for complex animations.  
 
