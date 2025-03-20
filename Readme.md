@@ -11,7 +11,7 @@ A competitive platform, for the statistical analysis of baseball, and the applic
 ## Season Predictions 
 
 ## Stats
-Query Advanced Sabermetrics, Career and Advanced Season stats on any player from 2022 and 2023. 
+Query Advanced Sabermetrics, Career and Advanced Season stats on any player from 2022 through 2025
 # Desktop
 ![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/playerCard.svg)
 
