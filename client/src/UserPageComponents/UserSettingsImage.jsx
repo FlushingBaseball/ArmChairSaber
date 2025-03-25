@@ -38,7 +38,7 @@ export default function UserSettingsImage({currentProfilepic, setCurrentProfilep
   }
 
 
-
+// switch to fetching from backend
   function mapProfileImages() {
     const images = [];
     for (let i = 1; i < 41; i++) {
@@ -55,6 +55,7 @@ export default function UserSettingsImage({currentProfilepic, setCurrentProfilep
     }
     return images;
   }
+
 
   return (
     <div className="WrapperChooseImage">

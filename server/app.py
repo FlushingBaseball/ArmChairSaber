@@ -329,21 +329,24 @@ def get_player_by_id(MLBAMID):
 
 
 ## Route to serve team logos not on the api, college etc and fallback if api fails
-LOGO_IMAGE_DIR = os.path.join(os.path.dirname(__file__), 'logo_images')
-
-@app.route('/api/<filename>')
-def serve_team_logo(filename):
+LOGO_IMAGE_DIR = os.path.join(os.path.dirname(__file__), 'images')
+@app.route('/api/<image_folder>/<filename>')
+def serve_backend_image(image_folder, filename):
     try:
-        file_path = os.path.join("logo_images", filename)
+        file_path = os.path.join(LOGO_IMAGE_DIR, image_folder)
+
         if not os.path.exists(file_path):
             return make_response(
-                jsonify({"Error": "This logo wasn't found on the server"}),
+                jsonify({"Error": "This path did not exist in the folder"}),
                 404
             )
-        return send_from_directory(LOGO_IMAGE_DIR, filename)
+        return send_from_directory(file_path, filename)
+    
     except Exception as e:
         print(e)
         return make_response(jsonify({"Error": "something went wrong fetching the logo"}),404)
+
+
 
 
 ## post a prediction to the database

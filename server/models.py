@@ -93,8 +93,9 @@ class Game(db.Model, SerializerMixin):
     gamePk = db.Column(db.Integer, nullable=False, unique=True)
     gameWinner_id = db.Column(db.Integer, nullable=True)
     gameLoser_id= db.Column(db.Integer, nullable=True)
-    ## home_team_id = db.Column(db.Integer, nullable=True)
-    ## away_team_id = db.Column(db.Integer, nullable = True)
+    ## home_team_id = db.Column(db.Integer, nullable=True) ##TODO change nullable to false in future
+    ## away_team_id = db.Column(db.Integer, nullable = True) ##TODO change nullable to false in future
+    ## start_time = db.Column(db.Integer, nullable = True ) ##TODO change nullable to false in future
     gameResolved = db.Column(db.Boolean, nullable = False, default = False)
     gameType = db.Column(db.String, nullable =True) ##TODO change nullable to false in future
     gameSeason =db.Column(db.Integer, nullable=True) ##TODO change nullable to false in future
