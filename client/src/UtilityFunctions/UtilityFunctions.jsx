@@ -1,3 +1,55 @@
+import {useState, useEffect} from 'react'
+
+
+/**
+ * Hook to fetch user predictions from backend and cache them in the browser
+ * so I don't have to 
+ * @param {string}  id - The user's ID or maybe username
+ * @param {*}  
+ */
+
+export function useUserBrowserCache(userId, submissionType){
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const cacheKey = `user_${userId}_${submissionType}_submissions`;
+
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export function handlePlayerImageError(img, playerid){
     //clearing the inital onError so if the Milb photo isn't found either there's no infinite loop
     img.onerror = null;
@@ -11,10 +63,10 @@ export function handlePlayerImageError(img, playerid){
 }
 
 export function handleTeamLogoError(img, teamId, teamName){
-  fetch(`/api/${teamId}.svg`)
+  fetch(`/api/team_logo_images/${teamId}.svg`)
   .then((response) =>{
     if (!response.ok){
-      img.src = `/api/default-team-logo.svg`
+      img.src = `/api/team_logo_images/default-team-logo.svg`
       console.log(`${teamName} logo not found on backend teamId is ${teamId}`);
     }
     else {

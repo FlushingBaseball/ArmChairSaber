@@ -1,3 +1,4 @@
+import { handleTeamLogoError } from "../UtilityFunctions/UtilityFunctions"
 function LiveBoxScore({...dataLiveGame}){
 
 
@@ -32,7 +33,14 @@ function LiveBoxScore({...dataLiveGame}){
                 </thead>
                 <tbody>
                 <tr>
-                    <td><img alt="Team Logo" className="boxLogo" src={`/api/${dataLiveGame.gameData.teams.away.id}.svg`}></img></td>
+                    <td>
+                        <img 
+                            alt="Team Logo" 
+                            className="boxLogo"
+                            src={`https://www.mlbstatic.com/team-logos/${dataLiveGame.gameData.teams.away.id}.svg`}>
+                            onError={(e) => {handleTeamLogoError(e.target, dataLiveGame.gameData.teams.away.team.id,  dataLiveGame.gameData.teams.away.team.name)}}    
+                        </img>
+                    </td>
                     <td>{dataLiveGame.liveData.linescore.innings[0] ? dataLiveGame.liveData.linescore.innings[0].away.runs : " "}</td>
                     <td>{dataLiveGame.liveData.linescore.innings[1] ? dataLiveGame.liveData.linescore.innings[1].away.runs : " "}</td>
                     <td>{dataLiveGame.liveData.linescore.innings[2] ? dataLiveGame.liveData.linescore.innings[2].away.runs : " "}</td>
@@ -48,7 +56,14 @@ function LiveBoxScore({...dataLiveGame}){
                     <td>{dataLiveGame.liveData.boxscore.teams.away.teamStats.fielding.errors}</td>
                 </tr>
                 <tr>
-                    <td><img  alt="Team Logo" className="boxLogo" src={`/api/${dataLiveGame.gameData.teams.home.id}.svg`}></img></td>
+                    <td>
+                        <img
+                            alt="Team Logo"
+                            className="boxLogo"
+                            src={`https://www.mlbstatic.com/team-logos${dataLiveGame.gameData.teams.home.id}.svg`}>
+                            onError={(e) => {handleTeamLogoError(e.target, dataLiveGame.gameData.teams.home.team.id,  dataLiveGame.gameData.teams.home.team.name)}}     
+                        </img>
+                    </td>
                     <td>{dataLiveGame.liveData.linescore.innings[0] ? dataLiveGame.liveData.linescore.innings[0].home.runs : " "}</td>
                     <td>{dataLiveGame.liveData.linescore.innings[1] ? dataLiveGame.liveData.linescore.innings[1].home.runs : " "}</td>
                     <td>{dataLiveGame.liveData.linescore.innings[2] ? dataLiveGame.liveData.linescore.innings[2].home.runs : " "}</td>

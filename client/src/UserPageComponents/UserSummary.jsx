@@ -8,7 +8,7 @@ export default function UserSummary({showSettings, setShowSettings, currentProfi
 
   return (
     <div className="WrapperUserSummary">
-      <img id="UserSummaryImage" src={`/Images/profilePics/p${currentProfilepic}.webp`} alt="userSelectedAVI" />
+      <img id="UserSummaryImage" src={`/api/profile_pictures/p${currentProfilepic}.webp`} alt="userSelectedAVI" />
       <i className="fa fa-cog" onClick={handleSettingsClick} aria-hidden="true"></i>
 
     </div>

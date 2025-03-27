@@ -33,9 +33,9 @@ function Today({ user }) {
       });
     }, [selectedSportId, formattedDate]);
     
-    // useEffect(() => {
-    //   console.log(gameData);
-    // }, [gameData]);
+    useEffect(() => {
+      console.log(gameData);
+    }, [gameData]);
 
   // useEffect(() => {
   //   fetch(
@@ -49,7 +49,7 @@ function Today({ user }) {
   /**
    * Used After Midnight in season for development because formattedDate changes
    */
-  // const yesterday ="03/01/2025"
+  // const yesterday ="02/24/2025"
 
   // useEffect(()=>{
   //   fetch(`https://statsapi.mlb.com/api/v1/schedule?date=${yesterday}&sportId=${selectedSportId}&hydrate=probablePitcher(note)&fields=dates,date,games,gamePk,gameDate,status,abstractGameState,teams,away,home,isWinner,leagueRecord,losses,pct,wins,score,team,id,name,probablePitcher,id,fullName,note`)
@@ -69,10 +69,10 @@ function Today({ user }) {
   if (!gameData.dates.length) {
     return (
       <div id="noGames">
-        <SiteAlert 
-          alertHeading={"Opening day is March 18th(Japan) / 27th"}
-          alertMessage={"Spring training games start Feb 20th"}
-        />
+        {selectedSportId == 22 ? <SiteAlert 
+          alertHeading={"College is experimental"}
+          alertMessage={"*Few games offer public data"}
+        /> : null}
         <LeagueSelect
           handleSportSelect={handleSportSelect}
           selectedSportId={selectedSportId}
@@ -92,7 +92,7 @@ function Today({ user }) {
         selectedSportId={selectedSportId}
       />
       <SiteAlert 
-        alertHeading={"😄Spring training games have started😄"}
+        alertHeading={"😄2025 opening week!😄"}
         alertMessage={`Ten minutes before a game is set to begin, it will enter preview mode. Click LIVE GAME and you can watch the game play out statistically.`}
       />
       <div className="WrapperToday">

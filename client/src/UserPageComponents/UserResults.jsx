@@ -49,15 +49,23 @@ export default function UserResults({ user }) {
       <div id="UserResultsSummary">
         <div className="SummaryInstance">
           <span className="summarySpan">Correct</span>
-          {user.totalGuessesCorrect > 0 ? user.totalGuessesCorrect : "0"}
+          <span className="userDataSpan">{user.totalGuessesCorrect > 0 ? user.totalGuessesCorrect : "0"}</span>
         </div>
         <div className="SummaryInstance">
           <span className="summarySpan">Incorrect</span>
-          {user.totalGuessesIncorrect > 0 ? user.totalGuessesIncorrect : "0"}
+          <span className="userDataSpan">{user.totalGuessesIncorrect > 0 ? user.totalGuessesIncorrect : "0"}</span>
         </div>
         <div className="SummaryInstance">
           <span className="summarySpan">% Correct</span>
-          {typeof(percentage) === "number" ? percentage.toFixed(4) * 100 : percentage}
+          <span className="userDataSpan">{typeof(percentage) === "number" ? percentage.toFixed(4) * 100 : percentage}</span>
+        </div>
+        <div className="SummaryInstance">
+          <span className="summarySpan">Longest Streak</span>
+          <span className="userDataSpan">{user.longestStreak ? user.longestStreak : "0"}</span>
+        </div>
+        <div className="SummaryInstance">
+          <span className="summarySpan">Current Streak</span>
+          <span className="userDataSpan">{user.currentStreak ? user.longestStreak : "0"}</span>
         </div>
       </div>
     </div>
