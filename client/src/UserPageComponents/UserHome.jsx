@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import UserResults from "./UserResults";
-import UserStreaks from "./UserStreaks";
 import UserSettingsPanel from "./UserSettingsPanel";
 import UserSummary from "./UserSummary";
 
@@ -37,7 +36,6 @@ function UserHome() {
         currentProfilepic={currentProfilepic}
       />
       <UserResults user={userInfo} />
-      <UserStreaks user={userInfo} />
       {showSettings ? (
         <UserSettingsPanel
         userId={userInfo.id}

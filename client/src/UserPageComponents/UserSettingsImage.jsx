@@ -1,17 +1,17 @@
 import { useState } from "react"
+import {profilePictures} from '../Metadata/profilePictures.json' 
 
 export default function UserSettingsImage({currentProfilepic, setCurrentProfilepic, userId}) {
 
-  function handleImageClick(i){
-    // console.log(i)
-    // console.log(currentProfilepic)
-    if (i === Number(currentProfilepic)){
+  function handleImageClick(imageIdToChange){
+    const numberId = imageIdToChange.substring(1)
+    if (numberId === Number(currentProfilepic)){
       console.log("picture already selected")
       return
     }
-    const idSelected = String(i)
+    const idSelected = String(numberId)
     const userProfilePictureId = {profilePic: idSelected}
-    console.log(`Image ${i} was clicked`)
+    console.log(`Image ${numberId} was clicked`)
     
       fetch(`/api/users/${userId}`, {
      method: 'PATCH',
@@ -28,41 +28,32 @@ export default function UserSettingsImage({currentProfilepic, setCurrentProfilep
       })
       .then((data) => {
         console.log('User Profile picture patch success:', data)
-        setCurrentProfilepic(i)
+        setCurrentProfilepic(numberId)
       })
       .catch(error => {
         console.error('Error during patching of Profile Pic', error)
       })
-     
-
   }
 
-
-// switch to fetching from backend
-  function mapProfileImages() {
-    const images = [];
-    for (let i = 1; i < 41; i++) {
-      images.push(
-        <img
-          className={`settingsImageOption ${Number(currentProfilepic) === i ? "currentProPic" : "notCurrentPic"}`}
-          key={i}
-          alt="neon user avatar"
-          loading="lazy"
-          src={`/Images/profilePics/p${i}.webp`}
-          onClick={()=>{handleImageClick(i)}}
-        ></img>
-      );
-    }
-    return images;
-  }
-
-
+  
   return (
     <div className="WrapperChooseImage">
       <h3 id="choosePhoto">CHOOSE A PROFILE PHOTO</h3>
-      <div className="picOptions">
-        {mapProfileImages()}
-      </div>
+{Object.entries(profilePictures).map(([groupName, images]) => (
+    <div key={groupName}>
+      <h3 id="profilePicturesGroupHeader">{groupName}</h3>
+      {images.map(image => (
+        <img
+          className={`settingsImageOption ${Number(currentProfilepic) === Number(image.id.substring(1)) ? "currentProPic" : "notCurrentPic"}`}
+          key={image.id}
+          src={`/api/profile_pictures/${image.id}.webp`}
+          alt={"profile picture"}
+          loading="lazy"
+          onClick={()=>{handleImageClick(image.id)}}
+        />
+      ))}
+    </div>
+  ))}
     </div>
   );
 }

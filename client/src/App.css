@@ -474,7 +474,7 @@
   width: 100%;
   height: 4dvb;
   background-color: #2c1b47;
-  padding: 0px;
+  padding: 0px 1.5vw;
   align-items: center;
   top: 0px;
   position: sticky;
@@ -1326,14 +1326,33 @@ button.activeSport {
   gap: 5vw;
 }
 
+
 #WrapperUserHome {
+  min-height: 100vh;
   gap: 2vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
 }
+
+#profilePicturesGroupHeader{
+  font-family: "13_Misa";
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: 2px 1px 0px blue;
+  border-radius: 45px;
+  padding: 4px;
+  background: black;
+  margin-bottom: 5px;
+  border: 3px #6e43b5 solid;
+  text-align: center;
+}
+
 .wrapperUserResults {
-  box-shadow: 2px 2px 2px 2px;
+  background: black;
+  color: white;
+  box-shadow: 2px 2px 2px 2px black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1343,12 +1362,14 @@ button.activeSport {
 }
 
 .SummaryInstance {
+  margin-bottom: 4px;
   width: 33%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .WrapperChooseImage {
+  box-shadow: 2px 2px 2px 2px black;
   padding: 2vh;
   background: linear-gradient(180deg, #d9c2e9, #c8c8f8);
   display: flex;
@@ -1368,6 +1389,8 @@ button.activeSport {
 }
 
 #UserSummaryImage {
+  box-shadow: 3px 4px 8px 2px #2c1b47;
+  border-radius: 45px;
   width: 10vw;
 }
 
@@ -1391,6 +1414,8 @@ button.activeSport {
 
 #UserResultsSummary {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 50vw;
 }
 
@@ -1404,7 +1429,6 @@ button.activeSport {
 .WrapperUserSettingsPanel {
   border-radius: 25px;
   padding: 3vw;
-  background: rgb(200, 200, 248);
   gap: 1vh;
   display: flex;
   flex-direction: column;
@@ -1413,7 +1437,9 @@ button.activeSport {
   align-items: center;
 }
 
+
 #HeaderSummary {
+  font-family: 'zektonrg';
   text-align: center;
   width: 100%;
 }
@@ -1424,6 +1450,7 @@ button.activeSport {
   font-family: "zektonrg";
 }
 .userDataSpan {
+  text-shadow: none;
   padding: 3px;
   border-radius: 45px;
   color: red;
@@ -1894,8 +1921,12 @@ button.activeSport {
 }
 
 #welcome {
+  text-align: center;
+  color: #2c1b47;
+  text-shadow: 2px 1px 0px #ffffff;
+  margin-top: 6px;
   margin-bottom: 10px;
-  font-family: "zektonrg";
+  font-family: "13_Misa";
 }
 
 #loginPrompt {
