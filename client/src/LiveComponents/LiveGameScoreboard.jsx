@@ -6,7 +6,7 @@ function LiveGameScoreBoard({ ...dataLiveGame }) {
           <img
             alt="team logo"
             className="glanceLogo"
-            src={`/api/${dataLiveGame.gameData.teams.home.id}.svg`}
+            src={`/api/team_logo_images/${dataLiveGame.gameData.teams.home.id}.svg`}
           ></img>
           <span className="teamNameSpan">
             {dataLiveGame.gameData.teams.home.name}
@@ -30,7 +30,7 @@ function LiveGameScoreBoard({ ...dataLiveGame }) {
           <img
             className="glanceLogo"
             alt=""
-            src={`/api/${dataLiveGame.gameData.teams.away.id}.svg`}
+            src={`/api/team_logo_images/${dataLiveGame.gameData.teams.away.id}.svg`}
           ></img>
           <span className="teamNameSpan">
             {dataLiveGame.gameData.teams.away.name}

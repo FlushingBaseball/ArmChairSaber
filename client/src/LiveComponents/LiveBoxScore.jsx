@@ -37,8 +37,9 @@ function LiveBoxScore({...dataLiveGame}){
                         <img 
                             alt="Team Logo" 
                             className="boxLogo"
-                            src={`https://www.mlbstatic.com/team-logos/${dataLiveGame.gameData.teams.away.id}.svg`}>
-                            onError={(e) => {handleTeamLogoError(e.target, dataLiveGame.gameData.teams.away.team.id,  dataLiveGame.gameData.teams.away.team.name)}}    
+                            src={`https://www.mlbstatic.com/team-logos/${dataLiveGame.gameData.teams.away.id}.svg`}
+                            onError={(e) => {handleTeamLogoError(e.target, dataLiveGame.gameData.teams.away.team.id,  dataLiveGame.gameData.teams.away.team.name)}}
+                        >    
                         </img>
                     </td>
                     <td>{dataLiveGame.liveData.linescore.innings[0] ? dataLiveGame.liveData.linescore.innings[0].away.runs : " "}</td>
@@ -60,8 +61,9 @@ function LiveBoxScore({...dataLiveGame}){
                         <img
                             alt="Team Logo"
                             className="boxLogo"
-                            src={`https://www.mlbstatic.com/team-logos${dataLiveGame.gameData.teams.home.id}.svg`}>
+                            src={`https://www.mlbstatic.com/team-logos/${dataLiveGame.gameData.teams.home.id}.svg`}
                             onError={(e) => {handleTeamLogoError(e.target, dataLiveGame.gameData.teams.home.team.id,  dataLiveGame.gameData.teams.home.team.name)}}     
+                            >
                         </img>
                     </td>
                     <td>{dataLiveGame.liveData.linescore.innings[0] ? dataLiveGame.liveData.linescore.innings[0].home.runs : " "}</td>
