@@ -107,13 +107,7 @@
   color: #66046a;
 }
 
-#WrapperLeaderBoard {
-  background-color: #fbfbca;
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 #sorryPara {
   font-size: 2rem;
@@ -516,9 +510,10 @@ button.activeSport {
 }
 
 .flexParent {
+  row-gap: 1vh;
   margin: 0 -5px;
   width: 100vw;
-  height: 100vh;
+  max-height: 100vh;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -1267,7 +1262,8 @@ button.activeSport {
 }
 .hillComp {
   height: 68vh;
-  margin: 9px;
+  max-width: 100vw;
+  margin: 8px 0px;
 }
 
 .playerFieldCard {
@@ -2271,11 +2267,58 @@ td {
 
 /*Leaderboard*/
 
+#Wrapper-Leaderboard-Feature {
+  background: black;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Wrapper-Table-Leaderboard{
+  max-width: 100vw;
+  overflow-x: scroll;
+}
+
+#Leaderboard th:first-child,
+#Leaderboard td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: black;
+}
+
+#Leaderboard-Username{
+  text-align: center;
+  font-size: 0.6rem;
+  font-family: "13_Misa";
+  color: #d9c2e9;
+  text-shadow: 2px -2px 3px blue;
+}
+
+.leaderboard-place{
+  text-shadow: 2px 2px 2px #e800e4;
+  font-family: 'alarmclock';
+  color: #ffffff;
+}
+
+#Leaderboard-Username:hover {
+}
+
+/* th:first-child,
+td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #fff; 
+  z-index: 1;
+} */
+
+
 #thanks {
+  box-shadow: inset -3px -1px 20px 0px #d9c2e9;
+  color: white;
   padding: 1vh 2vw;
-  border: 1px grey solid;
   border-radius: 16px;
-  background: #ffeeee;
   margin-bottom: 2vh;
   margin-top: 1vh;
   font-family: zektonrg;
@@ -2283,49 +2326,53 @@ td {
 }
 
 .leader-head {
-  padding: 2px 8px;
+  /* padding: 2px 8px; */
+  font-size: 0.45rem;
 }
 
 .leader-head{
+  color: #d9c2e9;
+  text-shadow: 1px 1px 10px #ffe300;
   font-family: "zektonrg";
-  text-shadow: 0px 1px #673AB7;
 }
 
 .leader-data {
-  border: 1px solid rgb(84, 83, 83);
-  font-size: 2vh;
+  /* border: 1px solid rgb(84, 83, 83);
+  font-size: 2vh; */
+  font-size: 14px;
+  text-shadow: 2px 2px 2px #e800e4;
+  font-family: 'alarmclock';
+  color: #ffffff;
 }
 
-
-
 #Leaderboard { 
-  background: #2c1b47;
-  color: white;
-  border-collapse: collapse;
+  /* background: #2c1b47;
+  color: white; */
+  /* border-collapse: collapse; */
 }
 
 
 #Leaderboard-Head {
-  background-color: #c8c8f8;
-  color: black;
+  /* background-color: #c8c8f8;
+  color: black; */
 }
 
 #leaderboard-banner {
+  text-shadow: 2px -2px 3px blue;
+  color: #d9c2e9;
   padding-top: 2.5vh;
-  font-family: alarmclock;
-  text-transform: uppercase;
+  font-family: '13_Misa';
 }
-#leaderboard-sub {
-  font-family: alarmclock;
-  text-transform: uppercase;
-  margin-bottom: 2vh;
-}
+
 
 #leaderboard-pic {
-  width: 3vw;
-  background: linear-gradient(232deg, #2d1432, #c8c8f8);
+  width: 4vw;
+  /* background: linear-gradient(232deg, #2d1432, #c8c8f8); */
 }
 
+.leader-row {
+  /* padding: 20px 0px; */
+}
 
 /*Leaderboard end*/
 
@@ -2339,9 +2386,6 @@ td {
 }
 
 
-.leader-row {
-  padding: 20px 0px;
-}
 
 #playerStatsError {
   width: 10vw;
@@ -2409,6 +2453,10 @@ td {
 
 /*Mobile style*/
 @media (max-width: 768px) {
+
+  .flexParent {
+    row-gap: 0vh;
+  }
   .homeTile {
     border-radius: 11px;
     font-size: 0.9em;
@@ -2533,7 +2581,7 @@ td {
   .selectteamBat {
     border: none;
     width: 80vw;
-    height: 4vh;
+    height: 5vh;
   }
   .league-Leader-Card {
     width: max-content;
@@ -2775,8 +2823,10 @@ td {
   #standingsTable {
     width: auto;
   }
+  /*Mobile leaderboard*/
+
   .leader-head {
-    font-size: 0.5rem;
+    /* font-size: 0.5rem; */
   }
   .WrapperBadLoad {
     width: 90vw;
