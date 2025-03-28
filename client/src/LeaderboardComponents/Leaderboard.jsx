@@ -33,9 +33,9 @@ function mapLeaderboardData() {
 
     const rows = newData.map((user, index) => (
       <tr key={index} className="leader-row">
-        <td className="leader-data">{index + 1}</td>
+        <td className="leader-data leaderboard-place">{index + 1}</td>
         <td className="leader-data" ><img id="leaderboard-pic" src={ user.profilePic ? `/api/profile_pictures/p${Number(user.profilePic)}.webp` : "./Images/default-batter.svg"}></img></td>
-        <td className="leader-data" id="">{user.username.length > 15
+        <td id="Leaderboard-Username">{user.username.length > 15
   ? user.username.substring(0, 9) + "..."
   : user.username}</td>
         <td className="leader-data">{user.totalScore}</td>
@@ -70,12 +70,13 @@ function mapLeaderboardData() {
 
 
   return (
-    <div id="WrapperLeaderBoard">
-      <h1 id="leaderboard-banner">🏆Leading Armchair Sabermetricians🏆</h1>
-      <h3 id="leaderboard-sub">All users who have made at least one prediction </h3>
-      <p id="thanks">A sincere thanks to every user who has explored this website and made a prediction. Whether you make a prediction/s based on a predictive model / system you labored to create, knowing a guy who knows a guy, or a gut feeling, Thank You. - Sam
+    <div id="Wrapper-Leaderboard-Feature">
+      <h1 id="leaderboard-banner">Leading Armchair Sabermetricians</h1>
+      <p id="thanks">Thank you to everyone who explored this website and made a prediction -Sam
       </p>
-      {mapLeaderboardData()}
+      <div className="Wrapper-Table-Leaderboard">
+        {mapLeaderboardData()}
+      </div>
     </div>
   );
 } 
