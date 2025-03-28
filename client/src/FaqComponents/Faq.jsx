@@ -6,42 +6,42 @@ export default function Faq() {
       <h1 id="FaqHeader">Frequently asked Questions</h1>
       <Question
         question={"Who built this site?"}
-        bodyText={<>Hey im <a className="faq-link" href="https://github.com/flushingbaseball" target="_blank">Sam</a>, a Software Engineer and Mets fan</>}
+        bodyText={<>My name is <a className="faq-link" href="https://github.com/flushingbaseball" target="_blank">Sam</a>, I'm a Software Engineer, currently working in tech sales. I root for the New York Mets</>}
       />
     <Question
       question={`What else are you working on?`}
-      bodyText={`I'm doing some very fun design work for a VR game which will launch in early 2026. `}
+      bodyText={`My main side project is a VR game.`}
     />
       <Question
         question={"What Tech Stack is the site developed on?"}
         bodyText={
-          "It's a React frontend with Python/Flask on the backend. The database layer is PostgreSQL with SQLAlchemy as an ORM. (I write the blog in a special type of markdown called MDX)"
+          "It's a React frontend with Python/Flask on the backend. The database layer is PostgreSQL with SQLAlchemy as an ORM. (I write the blog in a special type of markdown called MDX which allows me to include inline React components)"
         }
       />
       <Question
         question={"The live games are great, how will they evolve?"}
         bodyText={
-          "Customization! I love xERA and Max Sprint speed next to in game events, you may want normal ERA and average time to first. I'm working towards letting you pick what you see on a more granular level"
+          "Customization! Giving users the power to tweak their own experience is what makes a great website.  I want to see a pitches' Stuff+ grade after it's thrown, and a players Max Sprint Speed compared to the bolt they just made to firstbase trying not to ground out. The ultimate goal is letting users pick what they see on a more granular level"
         }
       />
       <Question
         question={"What is the Leaderboard about?"}
         bodyText={
-          "A lot of smart people like baseball and I think the challenge to predict games is a blast. I'll be implementing some basic predictive models so users can not only compete against each other but also against models. Eventually I will be allowing submissions of models to join the competition."
+          "A lot of smart people like baseball and I think the challenge to predict a game's outcome (without the fallout of gambling) is a blast. I hope to implement some basic predictive models so users can not only compete against each other, but also against computer models. Maybe even eventually allowing submissions of predictive models to join the competition."
         }
       />
       <Question
         question={
-          "What will change during the first year?"
+          "What will change about the website?"
         }
         bodyText={
-          "The statistical features will continue to improve as the season rolls along. I don't want this website to become a jack of all trades master of none situation so the majority of dev time will be statistical work and the core prediction feature being expanded and iterated on. "
+          "I don't want this website to become a jack of all trades master of none situation, Fangraphs, Baseball Prospectus, MLB.com etc exist. The majority of dev time will be spent on the prediction feature and whatever else people find fun. "
         }
       />
       <Question
         question={"There's a bug / site issue"}
         bodyText={
-          "Please reach out to me with your username and any details if you see or suspect a bug, the more bugs we squash together the better the site gets, so thank you for reaching out."
+          "Please reach out to me with details if you see, or suspect a bug, the more bugs we squash together the better the site gets, so thank you for reaching out."
         }
       />
       <Question
@@ -60,11 +60,11 @@ export default function Faq() {
       />
       <Question
         question={"Why the Y2kish design ? "}
-        bodyText={"Fun. I try to balance ease of use / familiarity with fun. Websites should be memorable"}
+        bodyText={"Fun. I try to balance ease of use / familiarity, with fun. Websites should be memorable"}
       />
       <Question
         question={
-          "Why haven't you included the game Odds from various gambling sites?"
+          "Why haven't you included the gambling odds?"
         }
         bodyText={<>
           As a one time student of Discrete math the first thing you're taught
@@ -75,7 +75,7 @@ export default function Faq() {
       />
       <Question
         question={`Tell me about the blog?`}
-        bodyText={`I'm writing the occasional article, but the foucs is on creating bespoke react components to make the articles interactive and fun to read. I didn't want to use a tradional content management system, and I definitely didn't wan't to just write html, so I'm using a special flavor of markdown called MDX that allows me to import my components and use them in the middle of text.`}
+        bodyText={`I'm writing the occasional article just to try it out, but the focus is actually on challenging myself to create bespoke react components to make the articles interactive and fun to read. I didn't want to use a traditional content management system, and I definitely didn't wan't to just write html, so I'm using a special flavor of markdown called MDX that allows me to import my components and use them in the middle of text.`}
       />
     </div>
   );

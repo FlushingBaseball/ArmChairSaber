@@ -10,7 +10,7 @@ function RollingMetrics() {
   const [selectedTeam, setSelectedTeam] = useState(136);
   const [selectedGroup, setSelectedGroup] = useState('hitting')
   const [teamLogo, setTeamLogo] = useState(136);
-  const TeamImageSrc = `/api/${teamLogo}.svg`; 
+  const TeamImageSrc = `/api/team_logo_images/${teamLogo}.svg`; 
   
 
   useEffect(() => {
@@ -24,9 +24,9 @@ function RollingMetrics() {
   }, [selectedTeam,selectedGroup]);
 
 
-  // useEffect(()=>{
-  //   console.log(fetchedGameData)
-  // },[fetchedGameData])
+  useEffect(()=>{
+    console.log(fetchedGameData)
+  },[fetchedGameData])
 
 
   if (!fetchedGameData.length) {
@@ -41,7 +41,6 @@ function RollingMetrics() {
   }
 
 const rollingHittingStatsToDisplay = {
-   "Games Played": "stat.gamesPlayed",
    "At Bats" : "stat.atBats",
    "Air Outs" : "stat.airOuts",
    "At Bats Per Home Run": "stat.atBatsPerHomeRun",
@@ -113,8 +112,7 @@ const rollingStatsToDisplay = selectedGroup === "hitting" ? rollingHittingStatsT
           alt={`Team Logo`}
           src={TeamImageSrc}
         ></img>
-        <h1 className="headerBat">{`Advanced ${selectedGroup} Metrics by team`}</h1>
-        <h3 className="headerBat">Rolling Ten Day average</h3>
+        <span className="headerBat">{`Ten day rolling ${selectedGroup} metrics`}</span>
       </div>
       {mapPlayer()}
     </div>
