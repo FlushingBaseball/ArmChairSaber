@@ -4,10 +4,24 @@ import Roster from "./Roster";
 import TeamSelect from "../UtilityComponents/TeamSelect";
 import RosterTypeSelect from "../UtilityComponents/RosterTypeSelect";
 import Standings from "./Standings";
+import { useUser } from "../Context/UserContext"
 
 function TeamMap() {
-  const [selectedTeam, setSelectedTeam] = useState(121);
-  const [teamLogo, setTeamLogo] = useState(121);
+  const {user} = useUser();
+  const [selectedTeam, setSelectedTeam] = useState(() => {
+    if (user.favorite_team){
+      return user.favorite_team
+    }
+    else {
+      return 121
+    }
+  });
+  const [teamLogo, setTeamLogo] = useState(() => {
+    if (user.favorite_team){
+      return user.favorite_team
+    }
+      return 121
+  });
   const [selectedRoster, setSelectedRoster] = useState("40Man");
 
   const TeamImageSrc = `./api/${teamLogo}.svg`;

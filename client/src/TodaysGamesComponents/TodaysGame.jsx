@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-import PredictionGroup from "../PredictionGroup";
+import PredictionGroup from "./PredictionGroup"
 import BatLoader from "../UtilityComponents/BatLoader"
 import { handlePlayerImageError, handleTeamLogoError } from "../UtilityFunctions/UtilityFunctions";
 

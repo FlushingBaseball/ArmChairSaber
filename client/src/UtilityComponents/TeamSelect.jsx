@@ -1,5 +1,5 @@
 /**
- * Parent componet should pass down: setSelectedTeam, setTeamLogo, selectedTeam
+ * Parent component should pass down: setSelectedTeam, setTeamLogo, selectedTeam
  *
  */
 

@@ -64,9 +64,30 @@ try {
 
   //function SignOut(){
 
-  // }
+  //
 
-
+  function refreshUserData (){
+    if (!user) return 
+    fetch(`/api/users/${user.id}`, {
+      credentials: 'include',
+    }).then((response) => {
+      if (response.ok){
+        return response.json()
+      }
+      else if (response.status ===401) {
+        setUser(null)
+        throw new Error("Not authorized")
+      }
+      else {
+        console.error("an error was encountered")
+      }
+    }).then((refreshedUserData) => {
+      setUser(refreshedUserData)
+      console.log("User was refreshed")
+    }).catch((error) =>{
+      console.error("Error refreshing the user:", error.message)
+    })
+  }
 
 
   return (
@@ -75,7 +96,8 @@ try {
       setUser,
       loading,
       error,
-      signInFunction
+      signInFunction,
+      refreshUserData,
     }}>
       {children}
     </UserContext.Provider>

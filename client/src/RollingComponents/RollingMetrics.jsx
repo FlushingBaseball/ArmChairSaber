@@ -3,19 +3,35 @@ import GroupSelect from "../UtilityComponents/GroupSelect";
 import BatLoader from "../UtilityComponents/BatLoader"
 import { useEffect, useState } from "react";
 import { handlePlayerImageError, handleTeamLogoError } from "../UtilityFunctions/UtilityFunctions";
+import { useUser } from "../Context/UserContext";
 
 
 function RollingMetrics() {
   const [fetchedGameData, setFetchedGameData] = useState("");
-  const [selectedTeam, setSelectedTeam] = useState(136);
+  const {user} = useUser()
+  const [selectedTeam, setSelectedTeam] = useState(() => {
+    if (user && user.favorite_team !==null){
+      return user.favorite_team
+    }
+    else {
+      return 121
+    }
+  });
   const [selectedGroup, setSelectedGroup] = useState('hitting')
-  const [teamLogo, setTeamLogo] = useState(136);
+  const [teamLogo, setTeamLogo] = useState(() => {
+    if (user && user.favorite_team !==null){
+      return user.favorite_team
+    }
+    else {
+      return 121
+    }
+  });
   const TeamImageSrc = `/api/team_logo_images/${teamLogo}.svg`; 
   
 
   useEffect(() => {
     fetch(
-      `https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=${selectedGroup}&teamId=${selectedTeam}&season=2024`
+      `https://statsapi.mlb.com/api/v1/stats?stats=lastXGames&group=${selectedGroup}&teamId=${selectedTeam}&season=2025`
     )
       .then((resp) => resp.json())
       .then((data) => {

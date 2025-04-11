@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useUser } from "../Context/UserContext";
 
 import TodaysGame from "./TodaysGame";
 import LeagueSelect from "../UtilityComponents/LeagueSelect";
@@ -6,7 +7,9 @@ import SiteAlert from "../UtilityComponents/SiteAlert";
 import BatLoader from "../UtilityComponents/BatLoader";
 import NoGamesToday from "../UtilityComponents/NoGamesToday";
 
-function Today({ user }) {
+function Today() {
+
+  const {user} = useUser()
   const currentDate = new Date();
   const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
   const day = currentDate.getDate().toString().padStart(2, "0");
@@ -27,7 +30,7 @@ function Today({ user }) {
         }
         return resp.json();
       })
-      .then((statcastRESP) => setGameData(statcastRESP))
+      .then((mlbApiResponseData) => setGameData(mlbApiResponseData))
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
@@ -58,8 +61,8 @@ function Today({ user }) {
   //   .then(console.log(gameData))
   // },[selectedSportId])
 
-  function handleSportSelect(sportNum) {
-    setSelectedSportId(sportNum);
+  function handleSportSelect(sportIdNum) {
+    setSelectedSportId(sportIdNum);
   }
 
   if (gameData === null) {
@@ -71,7 +74,7 @@ function Today({ user }) {
       <div id="noGames">
         {selectedSportId == 22 ? <SiteAlert 
           alertHeading={"College is experimental"}
-          alertMessage={"*Few games offer public data"}
+          alertMessage={"*Very few games offer public data"}
         /> : null}
         <LeagueSelect
           handleSportSelect={handleSportSelect}
@@ -83,6 +86,32 @@ function Today({ user }) {
         />
       </div>
     );
+  }
+
+  // for (let game in gameData.dates[0].games)
+
+  const todaysGamePks = new Set();
+
+
+
+  if (user){
+    // console.log("Found a user")
+    // console.log(user)
+    gameData.dates[0].games.forEach((game) => {
+      todaysGamePks.add(game.gamePk)
+    })
+    // console.log(`This is todaysGamePks:`)
+    // console.log(todaysGamePks)
+    const gamesAlreadyPredictedOn = user.User_Predictions.filter(prediction => {
+      // console.log(prediction)
+      // console.log(prediction.game_Id)
+     return todaysGamePks.has(prediction.game_Id)
+    })
+    
+    console.log(gamesAlreadyPredictedOn)
+  }
+  else{
+    console.log("No user signed it")
   }
 
   return (
@@ -104,6 +133,7 @@ function Today({ user }) {
               {...game}
               user={user}
               selectedSportId={selectedSportId}
+              
             />
           );
         })}
