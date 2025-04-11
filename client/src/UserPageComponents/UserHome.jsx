@@ -20,9 +20,9 @@ function UserHome() {
 
 
 
-  // useEffect(()=>{
-  //    console.log(user)
-  // },[user])
+  useEffect(()=>{
+     console.log(user)
+  },[user])
 
   return (
     <div id="WrapperUserHome">

@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 export default function UserSettingsPanel({currentProfilepic, setCurrentProfilepic}){
   const [selectedTeam, setSelectedTeam ] = useState(null)
-  const {user} = useUser()
+  const {user, refreshUserData} = useUser() 
 
   //   useEffect(()=>{
   //     console.log(selectedTeam)
@@ -26,6 +26,7 @@ export default function UserSettingsPanel({currentProfilepic, setCurrentProfilep
 
 
 useEffect(()=>{
+  console.log(user)
   console.log(`selected team is ${selectedTeam}`)
   console.log(`user.favorite_team is ${user.favorite_team}`)
   if ( (Number(user.favorite_team) !== selectedTeam || user.favorite_team ===null) && selectedTeam !== null) {
@@ -36,6 +37,7 @@ useEffect(()=>{
 
 
 function updateUserField(field, value){
+  console.log("update User field fired")
   console.log(field, value)
   const fieldUpdateData = {[field]: value}
   console.log(fieldUpdateData)
@@ -54,6 +56,7 @@ function updateUserField(field, value){
     })
     .then((data) =>{
       console.log(`field ${field} was updated`, data)
+      refreshUserData()
     })
     .catch((error)=>{
       console.error(`Failed to updated field ${field}`)

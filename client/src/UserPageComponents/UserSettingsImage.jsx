@@ -3,7 +3,7 @@ import {profilePictures} from '../Metadata/profilePictures.json'
 import { useUser } from "../Context/UserContext"
 
 export default function UserSettingsImage({currentProfilepic, setCurrentProfilepic}) {
-  const {user} = useUser()
+  const {user, refreshUserData} = useUser()
 
   function handleImageClick(imageIdToChange){
     const numberId = imageIdToChange.substring(1)
@@ -31,6 +31,8 @@ export default function UserSettingsImage({currentProfilepic, setCurrentProfilep
       .then((data) => {
         console.log('User Profile picture patch success:', data)
         setCurrentProfilepic(numberId)
+        refreshUserData()
+
       })
       .catch(error => {
         console.error('Error during patching of Profile Pic', error)
