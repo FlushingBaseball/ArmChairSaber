@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from './Context/UserContext';
 
 
-function SignUp( {setUser}) {
+function SignUp() {
 
   const navigate = useNavigate();
+  const {setUser} = useUser();
   const [isInvalid, setIsInvalid] = useState(false)
 
   const [formData, setFormData] = useState({
@@ -54,8 +56,6 @@ function SignUp( {setUser}) {
     <div className={`signupDiv ${isInvalid ? "invalidEntry" : null}`}>
       <h2 className='signInUPText'>Sign Up</h2>
       <form className='signupForm' onSubmit={handleSubmit}>
-
-
       <div className='form-group'>
         <label className='signInUpLabel'>
           Username:
@@ -69,7 +69,6 @@ function SignUp( {setUser}) {
             required
           />
         <br />
-
       </div>
       <div className='form-group'>
         <label className='signInUpLabel'>
@@ -85,7 +84,6 @@ function SignUp( {setUser}) {
           />
         <br />
       </div>
-
       <div className='form-group'>
         <label className='signInUpLabel'>
           Password:
@@ -100,7 +98,6 @@ function SignUp( {setUser}) {
           />
         <br />
       </div>
-
         <button className='signInUpbtn' type="submit">Sign Up</button>
       </form>
     </div>

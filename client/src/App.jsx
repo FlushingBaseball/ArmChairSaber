@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-
+import { useUser } from "./Context/UserContext";
 /*App imports */
 import "./App.css";
 import NotFound from "./NotFound";
@@ -35,78 +35,84 @@ import MLBExpansion from "./BlogComponents/Articles/MLBExpansion.mdx";
 import BullpenHope from "./BlogComponents/Articles/BullpenHope.mdx";
 
 function App() {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [showLogin, setShowLogin] = useState(true);
   const [searchPlayer, setSearchPlayer] = useState(607043);
+  const {user, setUser} = useUser()
   
-  useEffect(() => {
-    fetch("/api/check_session").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      } else {
-        console.log("User is not signed in to an account");
-      }
-    });
-  }, []);
+  // if (!user){
+  //   useEffect(() => {
+  //     fetch("/api/check_session").then((r) => {
+  //       if (r.ok) {
+  //         r.json().then((user) => setUser(user));
+  //       } else {
+  //         console.log("User is not signed in to an account");
+  //       }
+  //     });
+  //   }, []);
+  // }
+
+  useEffect(()=>{
+    console.log(user)
+  },[user])
 
   return (
-    <div className="App">
-      <Nav user={user} setUser={setUser} />
-      <Routes>
-        {/*Base url */}
-        <Route path="/" element={<HomePage />} />
-        {/*User routes */}
-        <Route
-          path="/user/:username"
-          element={<UserHome user={user} setUser={setUser} />}
-        />
-        <Route
-          path="/login"
-          element={
-            <Login
-              setUser={setUser}
-              showLogin={showLogin}
-              setShowLogin={setShowLogin}
-            />
-          }
-        />
-        <Route path="/signout" element={<SignOut setUser={setUser} />} />
-        {/*Game routes */}
-        <Route path="/today" element={<Today user={user} />} />
-        <Route path="TodaysGame/:gamePk" element={<LiveGame />} />
-        <Route path="leaderboard" element={<Leaderboard />} />
-        {/*Routes not used */}
-        <Route path="test" element={<Test />} />
-        <Route path="/venue" element={<Venue />} />
-        <Route path="/transactions" element={<Transactions />} />
-        <Route path="/free-agents" element={<FreeAgents />} />
-        <Route path="/teams" element={<Teams />} />
-        <Route
-          path="/advanced-fielding"
-          element={
-            <FieldingSaber
-              searchPlayer={searchPlayer}
-              setSearchPlayer={setSearchPlayer}
-            />
-          }
-        />
-        {/*Smaller feature routes */}
-        <Route path="/rolling-metrics" element={<RollingMetrics />} />
-        <Route path="/league-leaders" element={<LeagueLeaders />} />
-        <Route path="/standings" element={<Standings />} />
-        {/**Blog article paths **/}
-        <Route path="/blog" element={<BlogHome />} />
-        <Route path="/blog/Rich-Hill" element={<RichHill />} />
-        <Route path="/blog/MLB-Expansion" element={<MLBExpansion />} />
-        <Route path="/blog/Bullpen-Hope" element={<BullpenHope />} />
-        <Route path="/FAQ" element={<Faq />} />
-        <Route path="rosters" element={<TeamMap />} />
-        <Route path="/player/" element={<PlayerPage />} />
-        <Route path="/player/:mlbAmId/" element={<PlayerPage />} />
-        {/*Catch All */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+      <div className="App">
+        <Nav />
+        <Routes>
+          {/*Base url */}
+          <Route path="/" element={<HomePage />} />
+          {/*User routes */}
+          <Route
+            path="/user/:username"
+            element={<UserHome/>}
+          />
+          <Route
+            path="/login"
+            element={
+              <Login
+                showLogin={showLogin}
+                setShowLogin={setShowLogin}
+              />
+            }
+          />
+          <Route path="/signout" element={<SignOut />} />
+          {/*Game routes */}
+          <Route path="/today" element={<Today />} />
+          <Route path="TodaysGame/:gamePk" element={<LiveGame />} />
+          <Route path="leaderboard" element={<Leaderboard />} />
+          {/*Routes not used */}
+          <Route path="test" element={<Test />} />
+          <Route path="/venue" element={<Venue />} />
+          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/free-agents" element={<FreeAgents />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route
+            path="/advanced-fielding"
+            element={
+              <FieldingSaber
+                searchPlayer={searchPlayer}
+                setSearchPlayer={setSearchPlayer}
+              />
+            }
+          />
+          {/*Smaller feature routes */}
+          <Route path="/rolling-metrics" element={<RollingMetrics />} />
+          <Route path="/league-leaders" element={<LeagueLeaders />} />
+          <Route path="/standings" element={<Standings />} />
+          {/**Blog article paths **/}
+          <Route path="/blog" element={<BlogHome />} />
+          <Route path="/blog/Rich-Hill" element={<RichHill />} />
+          <Route path="/blog/MLB-Expansion" element={<MLBExpansion />} />
+          <Route path="/blog/Bullpen-Hope" element={<BullpenHope />} />
+          <Route path="/FAQ" element={<Faq />} />
+          <Route path="rosters" element={<TeamMap />} />
+          <Route path="/player/" element={<PlayerPage />} />
+          <Route path="/player/:mlbAmId/" element={<PlayerPage />} />
+          {/*Catch All */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
   );
 }
 

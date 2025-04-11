@@ -70,18 +70,22 @@ def signup():
 
 @app.get('/api/check_session')
 def check_session():
+    if 'user_id' not in session:
+        return make_response(jsonify({"error": "No user is currently signed in"}), 401)
+
     # get user_id from browser cookies
     user_id = session.get('user_id')
+
     # check for user in db
-    user = User.query.filter(User.id == user_id).first()
+    user = User.query.get(session['user_id'])
 
     if not user:
-        return make_response(jsonify({'Message': 'No user is currently signed in'}), 401)
+        # session.pop('user_id', None)
+        return make_response(jsonify({'ERROR': 'User not found in database'}), 401)
     
     # user exists
     try:
         user_dict = user.to_dict()
-        print(f"User Dict: {user_dict}") #debug print
         return jsonify(user_dict), 200
     except Exception as e:
         print(f"Error in to_dict(): {e}")
@@ -100,7 +104,7 @@ def login():
         # user doesn't exist or password doesn't match, return 401
         return make_response(jsonify({'error': 'Login failed'}), 401)
     
-    # login success, add cookie to broswer
+    # login success, add cookie to browser
     session['user_id'] = user.id
     return jsonify(user.to_dict()),200
 

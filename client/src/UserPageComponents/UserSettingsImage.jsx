@@ -1,7 +1,9 @@
 import { useState } from "react"
 import {profilePictures} from '../Metadata/profilePictures.json' 
+import { useUser } from "../Context/UserContext"
 
-export default function UserSettingsImage({currentProfilepic, setCurrentProfilepic, userId}) {
+export default function UserSettingsImage({currentProfilepic, setCurrentProfilepic}) {
+  const {user} = useUser()
 
   function handleImageClick(imageIdToChange){
     const numberId = imageIdToChange.substring(1)
@@ -13,7 +15,7 @@ export default function UserSettingsImage({currentProfilepic, setCurrentProfilep
     const userProfilePictureId = {profilePic: idSelected}
     console.log(`Image ${numberId} was clicked`)
     
-      fetch(`/api/users/${userId}`, {
+      fetch(`/api/users/${user.id}`, {
      method: 'PATCH',
      headers: {
       'Content-Type' : 'application/json',
@@ -22,7 +24,7 @@ export default function UserSettingsImage({currentProfilepic, setCurrentProfilep
       })
       .then((resp) =>{
         if (!resp.ok){
-          throw new Error(`ERROR: STATS ${resp.status}`)
+          throw new Error(`ERROR: STATUS ${resp.status}`)
         }
         return resp.json();
       })
