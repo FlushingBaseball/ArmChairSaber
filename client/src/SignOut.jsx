@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { useUser } from './Context/UserContext';
 
-function SignOut( {  setUser}) {
+function SignOut() {
 
   const navigate = useNavigate();
+  const {setUser} = useUser();
 
 
     function handleLogout() {
@@ -12,7 +14,7 @@ function SignOut( {  setUser}) {
           .then((response) => {
             if (response.ok) {
               setUser(null);
-              console.log("success")
+              console.log("Success user has been signed out")
               navigate('/')
             } else {
               console.error('Logout failed');

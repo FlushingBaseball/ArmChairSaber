@@ -1,4 +1,7 @@
-export default function UserResults({ user }) {
+import { useUser } from "../Context/UserContext";
+
+export default function UserResults() {
+  const {user} = useUser()
   function mapPredictions() {
     if (user.User_Predictions.length > 0) {
       return user.User_Predictions.map((prediction) => {
@@ -57,7 +60,7 @@ export default function UserResults({ user }) {
         </div>
         <div className="SummaryInstance">
           <span className="summarySpan">% Correct</span>
-          <span className="userDataSpan">{typeof(percentage) === "number" ? percentage.toFixed(4) * 100 : percentage}</span>
+          <span className="userDataSpan">{typeof(percentage) === "number" ? (percentage * 100).toFixed(2) : percentage}</span>
         </div>
         <div className="SummaryInstance">
           <span className="summarySpan">Longest Streak</span>

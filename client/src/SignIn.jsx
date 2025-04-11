@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from './Context/UserContext';
 
-function SignIn( {setUser}) {
+function SignIn() {
 
   const [isInvalid, setIsInvalid] = useState(false)
   const navigate = useNavigate();
+  const {signInFunction, loading} = useUser();
 
   const [formData, setFormData] = useState({
     username: '',
@@ -19,42 +21,27 @@ function SignIn( {setUser}) {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const signInResult = await signInFunction(formData.username, formData.password);
+    if (signInResult.success){
+      navigate(`/`)
+    } else {
+      setIsInvalid(true);
+      setTimeout(() => setIsInvalid(false), 2000);
+      console.error('Error during sign-in', signInResult.error)
+    }
 
-    fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          setIsInvalid(true);
-          setTimeout(() => setIsInvalid(false), 2000);
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setUser(data)
-        console.log('Sign-in successful:');
-        // console.log(data)
-        navigate("/")
-      })
-      .catch((error) => {
-        setIsInvalid(true);
-        setTimeout(() => setIsInvalid(false), 2000);
-        console.error('Error during sign-in:', error);
-      });
+
   };
   
 
   return (
     <div id='signInForm'> 
       <h2 className='signInUPText' >Sign In</h2>
-      <form className={`signForm ${isInvalid ? "invalidEntry" : null}`} onSubmit={handleSubmit}>
+      {
+       
+               <form className={`signForm ${isInvalid ? "invalidEntry" : null}`} onSubmit={handleSubmit}>
 
       <div className='form-group'>
         <label className='signInUpLabel'>
@@ -88,10 +75,11 @@ function SignIn( {setUser}) {
 
         <button className='signInUpbtn' type="submit">Sign In</button>
       </form>
-      <div>
 
 
-      </div>
+        
+      }
+ 
 
     </div>
   );

@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom";
 import SignOut from "./SignOut";
+import { useUser } from './Context/UserContext';
 
-function Nav({ user, setUser }) {
+
+function Nav() {
+  const {user} = useUser();
+
   const logoLoc = "../Images/LOGOv4.svg";
 
   return (
@@ -23,7 +27,7 @@ function Nav({ user, setUser }) {
         </NavLink>
       ) : null}
       {user ? (
-        <SignOut user={user} setUser={setUser} />
+        <SignOut/>
       ) : (
         <NavLink to="/login">Login</NavLink>
       )}
