@@ -9,7 +9,7 @@ import { useUser } from "../Context/UserContext"
 function TeamMap() {
   const {user} = useUser();
   const [selectedTeam, setSelectedTeam] = useState(() => {
-    if (user.favorite_team){
+    if (user && user.favorite_team !==null){
       return user.favorite_team
     }
     else {
@@ -17,7 +17,7 @@ function TeamMap() {
     }
   });
   const [teamLogo, setTeamLogo] = useState(() => {
-    if (user.favorite_team){
+    if (user && user.favorite_team !==null){
       return user.favorite_team
     }
       return 121
