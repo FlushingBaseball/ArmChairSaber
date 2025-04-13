@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 
 export default function UserSettingsPanel({currentProfilepic, setCurrentProfilepic}){
-  const [selectedTeam, setSelectedTeam ] = useState(null)
+  const [selectedTeam, setSelectedTeam ] = useState()
   const {user, refreshUserData} = useUser() 
 
   //   useEffect(()=>{
@@ -29,7 +29,7 @@ useEffect(()=>{
   console.log(user)
   console.log(`selected team is ${selectedTeam}`)
   console.log(`user.favorite_team is ${user.favorite_team}`)
-  if ( (Number(user.favorite_team) !== selectedTeam || user.favorite_team ===null) && selectedTeam !== null) {
+  if ( (Number(user.favorite_team) !== selectedTeam || user.favorite_team ===null) && selectedTeam !== undefined) {
     updateUserField("favorite_team", Number(selectedTeam))
   }
   
@@ -67,13 +67,13 @@ function updateUserField(field, value){
   return (
     <div className="WrapperUserSettingsPanel">
       <h2 id="SettingsWrapperHeader">SETTINGS</h2>
+      <span>Choose your favorite team</span>
+      <span className="explanation">After selecting a team, features will default to your favorite team, instead of mine</span>
+      <TeamSelect selectedTeam={selectedTeam} setSelectedTeam={setSelectedTeam}/>
       <UserSettingsImage
           currentProfilepic={currentProfilepic}
           setCurrentProfilepic={setCurrentProfilepic}
         />
-      <span>Choose your favorite team</span>
-      <span className="explanation">After selecting a team, features will default to your favorite team, instead of mine</span>
-      <TeamSelect selectedTeam={selectedTeam} setSelectedTeam={setSelectedTeam}/>
 
       {/*<UserSetting settingCategory={"Pitching Value"} settingOptionsObject={favPitchingStat} /> */}
 
