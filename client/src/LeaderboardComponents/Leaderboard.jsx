@@ -1,6 +1,12 @@
 import BatLoader from "../UtilityComponents/BatLoader";
 import { useEffect, useState } from "react";
 
+/**
+ * Improving the leaderboard efficiency by creating and calling thumbnails instead of full images and reusing repeats from storage
+ *  
+ *  
+ */
+
 function Leaderboard() {
 
   const [leaderboardData, setLeaderboardData] = useState();
@@ -34,7 +40,9 @@ function mapLeaderboardData() {
     const rows = newData.map((user, index) => (
       <tr key={index} className="leader-row">
         <td className="leader-data leaderboard-place">{index + 1}</td>
-        <td className="leader-data" ><img id="leaderboard-pic" src={ user.profilePic ? `/api/profile_pictures/p${Number(user.profilePic)}.webp` : "./Images/default-batter.svg"}></img></td>
+        <td className="leader-data" >
+          <img id="leaderboard-pic" src={ user.profilePic ? `/api/profile_pictures/p${Number(user.profilePic)}_thumb.webp` : "./Images/default-batter.svg"}></img>
+        </td>
         <td id="Leaderboard-Username">{user.username.length > 15
   ? user.username.substring(0, 9) + "..."
   : user.username}</td>

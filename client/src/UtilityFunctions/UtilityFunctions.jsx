@@ -1,28 +1,50 @@
 import {useState, useEffect} from 'react'
 
 
-/**
- * Hook to fetch user predictions from backend and cache them in the browser
- * so I don't have to 
- * @param {string}  id - The user's ID or maybe username
- * @param {*}  
- */
+// /**
+//  * Custom hook to fetch user predictions from backend and cache them in the browser
+//  * so I don't have to query my slow database constantly, on my cheap plan
+//  * @param {string}  id - The user's ID or maybe username
+//  * @param {*}  
+//  */
 
-export function useUserBrowserCache(userId, submissionType){
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+// export function useUserBrowserCache(userId, submissionType){
+//   const [userData, setUserData] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
 
-  const cacheKey = `user_${userId}_${submissionType}_submissions`;
+//   const cacheKey = `user_${userId}_${submissionType}_submissions`; 
 
+//   // Try to load data from cache, then from server if there's no cache
+
+//   useEffect(()=> {
+//     function fetchPredictionData(){
+//       try{
+//         const cachedData = localStorage.getItem(cacheKey);
+//         const cachedTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
+//         const now = new Date().getTime();
+//         console.log(`now is: ${now}`)
+//         if (cachedData && cachedTimestamp && (now - parseInt(cachedTimestamp)) < 30 * 60 * 1000){
+//           setUserData(JSON.parse(cachedData))
+//           setLoading(false)
   
+//           //maybe refresh in background if found?
+//           fetchFromServer(false);
+  
+//         } else {
+//          await fetchFromServer(true)
+//         }
+    
+//       }    catch (err){
+          
+//       }
+      
 
-}
+//     } 
 
-
-
-
-
+//   },[]     
+//   )
+// }
 
 
 
@@ -99,5 +121,5 @@ export function handleTeamLogoError(img, teamId, teamName){
 
 
 
+//let awayTeamImageSrc = `https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`; 
 //  let homeTeamImageSrc = `https://www.mlbstatic.com/team-logos/${teams.home.team.id}.svg`;
-//let awayTeamImageSrc = `https://www.mlbstatic.com/team-logos/${teams.away.team.id}.svg`;
