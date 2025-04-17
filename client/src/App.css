@@ -2240,6 +2240,7 @@ td {
 /*Leaderboard*/
 
 #Wrapper-Leaderboard-Feature {
+  min-height: 100vh;
   background: black;
   display: flex;
   text-align: center;
@@ -2475,8 +2476,11 @@ td:first-child {
     flex-direction: column;
   }
   .WrapperPlayer {
-    margin: 5px 0px;
-    width: 98vw;
+    background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
+    box-shadow: 12px 12px 8px 0px black;
+    height: 5vh;
+    margin: 6px 0px;
+    width: 97vw;
     border: #000000 3px;
     border-style: groove;
     border-radius: 14px;
@@ -2489,6 +2493,7 @@ td:first-child {
     font-size: 4rem;
   }
   .RosterCata {
+    padding-left: 2vw;
     font-size: 2rem;
   }
   .SubmitButton{
@@ -2736,7 +2741,12 @@ td:first-child {
     flex-direction: column;
   }
   #playerPhoto {
-    width: 6vh;
+    height: 4vh;
+    width: 4vh;
+  }
+  .playerStatus {
+    font-family:"zektonrg";
+    font-size: .5rem;
   }
   .BioFeild {
     letter-spacing: 0px;

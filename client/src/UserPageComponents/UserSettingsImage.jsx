@@ -50,7 +50,7 @@ export default function UserSettingsImage({currentProfilepic, setCurrentProfilep
         <img
           className={`settingsImageOption ${Number(currentProfilepic) === Number(image.id.substring(1)) ? "currentProPic" : "notCurrentPic"}`}
           key={image.id}
-          src={`/api/profile_pictures/${image.id}.webp`}
+          src={`/api/profile_pictures/${image.id}_thumb.webp`}
           alt={"profile picture"}
           loading="lazy"
           onClick={()=>{handleImageClick(image.id)}}

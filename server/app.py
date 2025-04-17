@@ -58,6 +58,10 @@ def signup():
         # add user to db
         db.session.add(new_user)
         db.session.commit()
+    except ValueError as e:
+        print(e)
+        return {"Error": f'ValueError: {str(e)}'}, 422
+    
     except Exception as e:
         print(e)
         return {'error': f'Error creating user: {str(e)}'}, 422

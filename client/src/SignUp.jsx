@@ -36,6 +36,7 @@ function SignUp() {
         if (!response.ok) {
           setIsInvalid(true)
           setTimeout(() => setIsInvalid(false), 2000);
+          console.error(response.status, response.statusText)
           throw new Error('Network response was not ok');
         }
         return response.json();
