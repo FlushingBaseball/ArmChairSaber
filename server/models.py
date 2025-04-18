@@ -115,13 +115,13 @@ class Game(db.Model, SerializerMixin):
     gamePk = db.Column(db.Integer, nullable=False, unique=True)
     gameWinner_id = db.Column(db.Integer, nullable=True)
     gameLoser_id= db.Column(db.Integer, nullable=True)
-    ## home_team_id = db.Column(db.Integer, nullable=True) ##TODO change nullable to false in future
-    ## away_team_id = db.Column(db.Integer, nullable = True) ##TODO change nullable to false in future
-    ## start_time = db.Column(db.Integer, nullable = True ) ##TODO change nullable to false in future
+    venue=db.Column(db.Integer, nullable=False)
+    home_team_id = db.Column(db.Integer, nullable=False) 
+    away_team_id = db.Column(db.Integer, nullable = False) 
     gameResolved = db.Column(db.Boolean, nullable = False, default = False)
-    gameType = db.Column(db.String, nullable =False) 
+    gameType = db.Column(db.String, nullable =False, default = "NA") 
     gameSeason =db.Column(db.Integer, nullable=False) 
-    gameDayNight =db.Column(db.String, nullable=False) 
+    gameDayNight =db.Column(db.String, nullable=False, default ="NA") 
 
     ## If a game (most likely a winter ball game) has no winner after a few checks, system should flag it and update this flag
     stale_game_flag = db.Column(db.Boolean, nullable=True, default = False)

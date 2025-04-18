@@ -31,29 +31,29 @@ function PredictionGroup({ game, user, key, setPredictedWinner }) {
     }
     
     else {
-      // const newGame = {
-      //   gamePk: game.gamePk,
-      //   gameWinner_id: null,
-      //   gameLoser_id: null,
-      // };
-      // fetch(`/api/games/${game.gamePk}`, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(newGame),
-      // }).then((resp) => {
-      //   if (!resp.ok) {
-      //     resp.json().then((errorData) => {
-      //       console.error(errorData);
-      //       return errorData;
-      //     });
-      //   } else if (resp.ok) {
-      //     resp.json().then((data) => {
-      //       console.log(data);
-      //     });
-      //   }
-      // });
+      const newGame = {
+        gamePk: game.gamePk,
+        gameWinner_id: null,
+        gameLoser_id: null,
+      };
+      fetch(`/api/games/${game.gamePk}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newGame),
+      }).then((resp) => {
+        if (!resp.ok) {
+          resp.json().then((errorData) => {
+            console.error(errorData);
+            return errorData;
+          });
+        } else if (resp.ok) {
+          resp.json().then((data) => {
+            console.log(data);
+          });
+        }
+      });
 
       const postPrediction = {
         game_Id: game.gamePk,

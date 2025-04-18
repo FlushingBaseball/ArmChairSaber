@@ -17,7 +17,6 @@ print(f'base_url is: {base_url}')
 todays_date = datetime.datetime.now().strftime("%m/%d/%Y")
 print(f"todays date is {todays_date} checking mlb's schedule")
 
-
 def schedule_todays_games():
   max_retries = 3
   retry_delay = 2
@@ -31,9 +30,15 @@ def schedule_todays_games():
       for game in todays_schedule_data['dates'][0]['games']:
         print('In a new game')
         gamePk = game['gamePk']
-        game_data ={'gamePk': gamePk, 'stale_game_flag': False, 'gameResolved': False}
+        gameType = game['gameType']
+        gameSeason =game['season']
+        gameDayNight = game['dayNight']
+        venue = game['venue']['id']
+        away_team_id = game['teams']['away']['team']['id']
+        home_team_id = game['teams']['home']['team']['id']
+        game_data ={'gamePk': gamePk, 'stale_game_flag': False,  'gameResolved': False, 'gameType': gameType, 'gameSeason': gameSeason, 'gameDayNight': gameDayNight, 'venue' : venue, 'away_team_id' : away_team_id, 'home_team_id': home_team_id }
         print(f"this is the data we're sending to the backend {game_data}")
-
+        print("\n" *2)
         current_retry = 0
         current_delay = retry_delay
         success = False
