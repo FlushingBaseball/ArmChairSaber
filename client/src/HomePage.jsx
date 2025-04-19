@@ -79,8 +79,8 @@ function HomePage() {
         Advanced Pitching Tools *Regular Season 2025
         <img
           className="homeIcon"
-          src="Images/HomePageIcons/PITCHINGv3.svg"
-          alt="Baseball player and agent fielding phone calls"
+          src="Images/HomePageIcons/PITCHINGv6.svg"
+          alt="Baseball pitcher throwing ball"
         ></img>
       </button>
       {/* <button
