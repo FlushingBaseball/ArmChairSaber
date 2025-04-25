@@ -46,7 +46,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 10vh;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
 }
 
@@ -56,12 +56,16 @@
 }
 
 .form-group {
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
   width: 100%;
 }
+.form-group:last-of-type{
+  margin-bottom: 2px;
+}
+
 #startTime{
   font-size: 0.8rem;
   color: red;
@@ -2134,12 +2138,30 @@ th#standingsTable {
 
 }
 
+
 .Flip-Card-Front,
 .Flip-Card-Back {
   border: 11px inset #998872;
   box-shadow: 1px 5px 4px black;
   border-radius: 20px;
   background: linear-gradient(170deg, #d9c2e9, #ffffff);
+}
+.requirements-span{
+  padding: 6px 3px;
+  border-radius: 45px;
+  color: black;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  font-family: "zektonrg";
+  margin-bottom: 5px;  
+}
+.sign-up-bold{
+  color: #2c1b47;
+
+}
+#eyeIcon{
+  margin-left: -18px;
 }
 
 .FlipSpan{
@@ -2735,6 +2757,14 @@ td:first-child {
   }
   .CalledStrike {
     color: red;
+  }
+  .requirements-span{
+    padding: 7px 8px;
+    width: 78vw;
+    text-align: center;
+    font-size: 12px;
+    font-family: "zektonrg";
+    margin-bottom: 2px;  
   }
   .WrapperRoster {
     display: flex;

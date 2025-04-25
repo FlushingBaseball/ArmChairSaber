@@ -59,6 +59,7 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
     except ValueError as e:
+        print("this is the error recieved in app.py")
         print(e)
         return {"Error": f'ValueError: {str(e)}'}, 422
     
@@ -245,45 +246,6 @@ def batch_update_users():
 
     finally:
         db.session.close()
-
-
-
-
-@app.post('/api/post_todays_games')
-def batch_post_todays_games():
-    try:
-        data = request.get_json()
-        print(f'Data received: this is the raw data {data}')
-        for new_game in data:
-            print("this is the game were posting", new_game)
-            print("")
-    except:
-        blahh
-    #         gamePk = db.Column(db.Integer, nullable=False, unique=True)
-    # gameWinner_id = db.Column(db.Integer, nullable=True)
-    # gameLoser_id= db.Column(db.Integer, nullable=True)
-    # gameResolved = db.Column(db.Boolean, nullable = False, default = False)
-    # gameType = db.Column(db.String, nullable =True) ##TODO change nullable to false in future
-    # gameSeason =db.Column(db.Integer, nullable=True) ##TODO change nullable to false in future
-    # gameDayNight =db.Column(db.String, nullable=True) ##TODO change nullable to false in future
-# @app.post('/api/games/<int:gamePk>')
-# def post_Games_by_Pk(gamePk):
-#     data = request.get_json()
-#     try:
-#         new_game =  Game(
-#             gamePk = data['gamePk'],
-#             gameWinner_id = data['gameWinner_id'],
-#             gameLoser_id =data['gameLoser_id']
-#         )
-#         db.session.add(new_game)
-#         db.session.commit()
-
-#     except Exception as e:
-#         print(e)
-#         return {'error': f'Error creating Game: {str(e)}'}, 422
-
-#     # return user as JSON, status code 201
-#     return new_game.to_dict(), 201
 
 
 @app.post('/api/players')
@@ -482,9 +444,21 @@ def patch_prediction_by_id(id):
 @app.post('/api/games/<int:gamePk>')
 def post_Games_by_Pk(gamePk):
     data = request.get_json()
+    print(f'the initial data received is: {data}')
+    required_fields = ['gamePk', 'gameType', 'gameSeason', 'gameDayNight', 'away_team_id', 'home_team_id', 'venue']
+    for field in required_fields:
+        if field not in data:
+            raise KeyError(f"Missing field: {field}")
+
     try:
         game_data = {
-            'gamePk': data['gamePk']
+            'gamePk': data['gamePk'],
+            'gameType' : data['gameType'],
+            'gameSeason' : data['gameSeason'],
+            'gameDayNight': data['gameDayNight'],
+            'venue': data['venue'],
+            'away_team_id': data['away_team_id'],
+            'home_team_id': data['home_team_id']
         }
 
         if 'gameWinner_id' in data:
@@ -496,12 +470,18 @@ def post_Games_by_Pk(gamePk):
 
         ## "**" is the dictionary unpacking operator lol not power math
         new_game =  Game(**game_data)
-
+        print("new_game is")
+        print(new_game)
         db.session.add(new_game)
         db.session.commit()
     except IntegrityError as e:
         print(f"Database integrity error: {e}")
-        return {"error": f'This game already exists: {str(e)}'}, 409
+        if 'violates unique constraint' in str(e) or 'duplicate key value' in str(e):
+            return {"Error" : f'Game with gamePk {data.get("gamePk" "N/A")} already exists.'}, 409
+        elif 'violates not-null constraint' in str(e):
+            return {"Error" : f"Missing required data for game creation: {str(e)}"}, 400
+        else:
+            return {"Error": f'Database integrity error? maybe: {str(e)}'}, 500
     
     except KeyError as e:
         print(f"Missing key in data: {e}")
@@ -513,7 +493,6 @@ def post_Games_by_Pk(gamePk):
 
     # return user as JSON, status code 201
     return new_game.to_dict(), 201
-
 
 
 @app.get('/api/games')
