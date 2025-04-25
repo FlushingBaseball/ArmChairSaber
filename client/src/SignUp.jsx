@@ -8,7 +8,7 @@ function SignUp() {
   const navigate = useNavigate();
   const {setUser} = useUser();
   const [isInvalid, setIsInvalid] = useState(false)
-
+  const [showCharacters, setShowCharacters] = useState(false)
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -36,8 +36,9 @@ function SignUp() {
         if (!response.ok) {
           setIsInvalid(true)
           setTimeout(() => setIsInvalid(false), 2000);
-          console.error(response.status, response.statusText)
-          throw new Error('Network response was not ok');
+          return response.json().then(errorData => {
+            throw new Error(errorData.Error || 'Network response was not ok');
+          })
         }
         return response.json();
       })
@@ -68,16 +69,17 @@ function SignUp() {
             value={formData.username}
             onChange={handleChange}
             required
-          />
+            />
         <br />
       </div>
+            {/* <span className="requirements-span">Username must be </span> */}
       <div className='form-group'>
         <label className='signInUpLabel'>
           Email:
           </label>
           <input
             className='signInUpFormInput'
-            type="text"
+            type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -91,14 +93,21 @@ function SignUp() {
           </label>
           <input
             className='signInUpFormInput'
-            type="password"
+            type={showCharacters ? "text": "password"}
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
+            
           />
+          <i onClick={()=> setShowCharacters(!showCharacters)} className={showCharacters ? "fa-regular fa-eye-slash" :"fa-regular fa-eye"} id='eyeIcon'></i>
         <br />
       </div>
+            <span className="requirements-span">Password must include
+             <b className='sign-up-bold'> nine characters</b>, <br></br>
+             <b className="sign-up-bold"> one number</b>,
+             <b className="sign-up-bold"> a capital letter</b>, and a
+             <b className="sign-up-bold"> symbol</b> </span>
         <button className='signInUpbtn' type="submit">Sign Up</button>
       </form>
     </div>

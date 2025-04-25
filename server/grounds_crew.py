@@ -31,12 +31,12 @@ def schedule_todays_games():
         print('In a new game')
         gamePk = game['gamePk']
         gameType = game['gameType']
-        gameSeason =game['season']
+        gameSeason = int(game['season']) 
         gameDayNight = game['dayNight']
         venue = game['venue']['id']
         away_team_id = game['teams']['away']['team']['id']
         home_team_id = game['teams']['home']['team']['id']
-        game_data ={'gamePk': gamePk, 'stale_game_flag': False,  'gameResolved': False, 'gameType': gameType, 'gameSeason': gameSeason, 'gameDayNight': gameDayNight, 'venue' : venue, 'away_team_id' : away_team_id, 'home_team_id': home_team_id }
+        game_data ={'gamePk': gamePk, 'stale_game_flag': False,  'gameResolved': False, 'gameType': gameType, 'gameSeason': gameSeason, 'gameDayNight': gameDayNight, 'venue' : venue, 'away_team_id' : away_team_id, 'home_team_id': home_team_id}
         print(f"this is the data we're sending to the backend {game_data}")
         print("\n" *2)
         current_retry = 0
@@ -53,6 +53,7 @@ def schedule_todays_games():
               print("\n" * 5)
             
             elif game_data_post_response.status_code == 409:
+              print (game_data_post_response)
               print(f"ATTENTION: Game {gamePk} already exists in database - skipping")
               success = True
 
