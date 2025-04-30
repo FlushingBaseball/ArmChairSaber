@@ -76,6 +76,13 @@ class Player(db.Model, SerializerMixin):
     currentTeamId =db.Column(db.Integer, nullable=False)
     firstLastName = db.Column(db.String, nullable=False)
     mlbId = db.Column(db.Integer, nullable=False, unique=True)
+    # id = db.Column(db.Integer, primary_key=True)
+    # player_age =db.Column(db.Integer, nullable=False)
+    # current_team_id =db.Column(db.Integer, nullable=False)
+    # player_first_last_name = db.Column(db.String, nullable=False)
+    # player_mlb_id = db.Column(db.Integer, nullable=False, unique=True)
+    # player_fangraphs_id = db.Column(db.Integer, nullable=False, unique=True)
+    # player_bp_id = db.Column(db.Integer, nullable=False, unique=True)
 
     serialize_rules = () 
 
@@ -112,6 +119,7 @@ class Game(db.Model, SerializerMixin):
     __tablename__ = "games"
 
     id = db.Column(db.Integer, primary_key=True)
+    game_sport_id = db.Column(db.Integer, nullable=False) 
     gamePk = db.Column(db.Integer, nullable=False, unique=True)
     gameWinner_id = db.Column(db.Integer, nullable=True)
     gameLoser_id= db.Column(db.Integer, nullable=True)

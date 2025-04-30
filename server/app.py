@@ -453,6 +453,7 @@ def post_Games_by_Pk(gamePk):
     try:
         game_data = {
             'gamePk': data['gamePk'],
+            "game_sport_id": data["game_sport_id"],
             'gameType' : data['gameType'],
             'gameSeason' : data['gameSeason'],
             'gameDayNight': data['gameDayNight'],
