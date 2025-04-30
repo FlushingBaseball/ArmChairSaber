@@ -66,7 +66,7 @@ class User(db.Model, SerializerMixin):
         
         return email_address
 
-    serialize_rules = ("-_password_hash", "-User_Predictions.user")
+    serialize_rules = ("-_password_hash", "-User_Predictions.user", "-email", "-access_level")
 
 class Player(db.Model, SerializerMixin):
     __tablename__ = "players"
