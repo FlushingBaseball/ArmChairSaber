@@ -1,4 +1,5 @@
-function LiveGameScoreBoard({ ...dataLiveGame }) {
+function LiveGameScoreBoard({...dataLiveGame }) {
+
   return (
     <div className="LiveGameScoreBoard">
       <div className="scoreHeader">
@@ -6,8 +7,9 @@ function LiveGameScoreBoard({ ...dataLiveGame }) {
           <img
             alt="team logo"
             className="glanceLogo"
-            src={`/api/team_logo_images/${dataLiveGame.gameData.teams.home.id}.svg`}
-          ></img>
+            src={`https://www.mlbstatic.com/team-logos/${dataLiveGame.gameData.teams.home.id}.svg`}
+            onError={(e) => {handleTeamLogoError(e.target, dataLiveGame.gameData.teams.home.team.id,  dataLiveGame.gameData.teams.home.team.name)}}
+            />
           <span className="teamNameSpan">
             {dataLiveGame.gameData.teams.home.name}
           </span>
@@ -29,9 +31,10 @@ function LiveGameScoreBoard({ ...dataLiveGame }) {
         <div className="team">
           <img
             className="glanceLogo"
-            alt=""
-            src={`/api/team_logo_images/${dataLiveGame.gameData.teams.away.id}.svg`}
-          ></img>
+            alt={`Team logo`}
+            src={`https://www.mlbstatic.com/team-logos/${dataLiveGame.gameData.teams.away.id}.svg`}
+            onError={(e) => {handleTeamLogoError(e.target, dataLiveGame.gameData.teams.away.team.id,  dataLiveGame.gameData.teams.away.team.name)}}
+          />
           <span className="teamNameSpan">
             {dataLiveGame.gameData.teams.away.name}
           </span>
