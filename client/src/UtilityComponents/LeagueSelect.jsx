@@ -35,13 +35,14 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
       >
         MLB
       </button>
+
       <button
         className={`leagueSelectButton ${
           selectedSportId === "22" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("22")}
       >
-        College Baseball
+        College
       </button>
 
     
@@ -52,8 +53,9 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
         onClick={() => handleSportSelect("31")}
       >
         Japanese League
-      </button>
-      <button
+      </button> */}
+
+      {/* <button
         className={`leagueSelectButton ${
           selectedSportId === "32" ? "activeSport" : null
         }`}
@@ -61,8 +63,6 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
       >
         Korean League
       </button> */}
-
-
 
       {/* <button
         className={`leagueSelectButton ${
@@ -73,41 +73,41 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
         Winter Leagues
       </button> */}
 
-      {/* <button
+      <button
         className={`leagueSelectButton ${
           selectedSportId === "11" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("11")}
         >
         AAA
-      </button> */}
+      </button>
 
-      {/* <button
+      <button
         className={`leagueSelectButton ${
           selectedSportId === "12" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("12")}
         >
         AA
-      </button> */}
+      </button>
 
-      {/* <button
+      <button
         className={`leagueSelectButton ${
           selectedSportId === "13" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("13")}
         >
         A+
-      </button> */}
+      </button>
 
-      {/* <button
+      <button
         className={`leagueSelectButton ${
           selectedSportId === "14" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("14")}
         >
         A
-      </button> */}
+      </button>
       
       {/* <button
         className={`leagueSelectButton ${
