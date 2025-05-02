@@ -25,10 +25,6 @@
   font-family:"BrandinkSans-light";
   src: url("/Fonts/BrandinkSansLight.otf") format("truetype");
 }
-@font-face {
-  font-family:"JdLcdRoundedRegular";
-  src: url("/Fonts/JdLcdRoundedRegular.ttf") format("truetype");
-}
 
 @font-face {
   font-family: "JD-LCD-Rounded"; 
@@ -2015,30 +2011,68 @@ button.activeSport {
   background: #cbcbff;
 }
 
-th.teamLogoTh {
-  border-right: none;
+.Standings-Table{
+  width: 33vw;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: black;
+  box-shadow: -14px 9px 12px 5px #ada8a8;
+  border-radius: 20px;
 }
 
-#standingLogo {
+.Single-Standing-Wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.League-Name-Span{
+  border-top-left-radius: 13px;
+  border-top-right-radius: 12px;
+  padding: 4px 26px;
+  text-shadow: 2px 2px 0px orange;
+  text-align: center;
+  font-family: 'JD-LCD-Rounded';
+  width: fit-content;
+  background: black;
+  margin-top: 5px;
+}
+
+.Standings-Header-Wrapper{
+  display: flex;
+  border-radius: 15px;
+  align-items: center;
+  background: black;
+}
+.Standings-Old-Score-Logo{
+  height: 2rem;
+}
+.League-Standings-Header{
+  border-radius: 11px;
+  padding: 1vh;
+  font-size: 3rem;
+  background: black;
+  color: orange;
+  font-family: "JD-LCD-Rounded"; 
+}
+
+.Standings-Table-Header{
+  border-left: none;
+  color: orange;
+  font-family: "JD-LCD-Rounded"; 
+}
+.Standings-Table-Data{
+  font-size: 1.5rem;
+  color: orange;
+  font-family: "JD-LCD-Rounded"; 
+}
+
+#Standings-Logo {
   height: 2rem;
   width: 2rem;
-}
+}  
 
-
-table#standingsTable {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-th.team-th {
-  border-left: none;
-}
-
-#standingsTable {
-  width: 33vw;
-}
-
-#logoTh {
+#Standings-Logo-Table-Header{
   border-right: none;
 }
 
@@ -2048,23 +2082,12 @@ th.team-th {
   align-items: center;
 }
 
-#teamNameTh {
-  border-left: none;
+
+.Standings-Highlight-Team {
+  background: linear-gradient(87deg, black, #ffae0047, black);
 }
 
-th#standingsTable {
-  background: yellow;
-}
 
-#standingsTable thead tr {
-  background-color: #2c1b47;
-  color: white;
-  font-family:"zektonrg";
-}
-
-.highlightTeam {
-  background-color: #ffffe2;
-}
 
 .TeamElementGroupings {
   display: flex;
