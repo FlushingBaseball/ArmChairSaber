@@ -75,6 +75,7 @@ def handle_winner_not_known(prediction):
     if (backend_game_data['gameResolved']== False):
       print(f'The game state for the game{game_id} on the backend is unresolved')
       print("calling call_mlb_patch_prediction")
+
       call_mlb_patch_prediction(prediction, game_id, backend_game_data)
     else:
       print("backend game isResolved")
@@ -85,10 +86,12 @@ def handle_winner_not_known(prediction):
 
 
 
-def call_mlb_patch_prediction(prediction, game_id, backend_game_data=None):
+def call_mlb_patch_prediction(prediction, game_id, backend_game_data):
   print("In: call_mlb_patch_prediction")
+  print(f"game_sport_id: {backend_game_data['game_sport_id']}")
+  print(f"Backend_game_data: {backend_game_data}")
   ## Calling MLB API to request status of game the prediction was made on
-  mlb_Data = requests.get(f'https://statsapi.mlb.com/api/v1/schedule?sportId=1&gamePk={str(game_id)}')
+  mlb_Data = requests.get(f'https://statsapi.mlb.com/api/v1/schedule?sportId={str(backend_game_data["game_sport_id"])}&gamePk={str(game_id)}')
 
   if mlb_Data.status_code ==200:
     mlb_game_response = mlb_Data.json()
