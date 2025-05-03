@@ -6,7 +6,7 @@ import BatLoader from "../UtilityComponents/BatLoader"
 import { handlePlayerImageError, handleTeamLogoError } from "../UtilityFunctions/UtilityFunctions";
 
  
-function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) {
+function TodaysGame({ gamePk, teams, game, status, user, selectedSportId }) { //use predicted on to set state
   const [predictedWinner, setPredictedWinner] = useState("");
 
   /**

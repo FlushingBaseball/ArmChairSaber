@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function PredictionGroup({ game, user, key, setPredictedWinner }) {
+function PredictionGroup({ game, user, key, setPredictedWinner }) { 
   const [selectedValue, setSelectedValue] = useState(undefined);
   const [notSelectedValue, setNotSelectValue] = useState(undefined);
   const [submitNotSignedIn, setSubmitNotSignedIn] = useState(false);

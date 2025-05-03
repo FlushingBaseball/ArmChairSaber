@@ -32,6 +32,10 @@ function Roster({ selectedTeam, selectedRoster }) {
       });
   }, [selectedTeam, selectedRoster]);
 
+  // useEffect(()=>{
+  //   console.log(rosterData)
+  // },[rosterData])
+
   if (!rosterData.length > 1) {
     return <BatLoader />;
   }
