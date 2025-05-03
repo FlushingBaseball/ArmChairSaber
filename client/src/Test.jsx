@@ -11,26 +11,26 @@ function Test(){
  * Test
  */
 
-const currentDate = new Date();
-const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-const day = currentDate.getDate().toString().padStart(2, '0');
-const year = currentDate.getFullYear();
-const formattedDate = `${month}/${day}/${year}`;
+// const currentDate = new Date();
+// const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+// const day = currentDate.getDate().toString().padStart(2, '0');
+// const year = currentDate.getFullYear();
+// const formattedDate = `${month}/${day}/${year}`;
 
-  const [selectedSportId, setSelectedSportId] = useState("17")
-  const [gameData, setGameData] = useState(null)
+//   const [selectedSportId, setSelectedSportId] = useState("17")
+//   const [gameData, setGameData] = useState(null)
  
   
-  useEffect(()=>{
-      fetch(`https://statsapi.mlb.com/api/v1/schedule?date=11/03/2023&sportId=17&hydrate=team(social,league)&hydrate=probablePitcher(note)`)
-      .then(resp => resp.json())
-      .then(statcastRESP => setGameData(statcastRESP) )
-    },[])  
+//   useEffect(()=>{
+//       fetch(`https://statsapi.mlb.com/api/v1/schedule?date=11/03/2023&sportId=17&hydrate=team(social,league)&hydrate=probablePitcher(note)`)
+//       .then(resp => resp.json())
+//       .then(statcastRESP => setGameData(statcastRESP) )
+//     },[])  
     
 
-useEffect(()=>{
-    console.log(gameData)
-},[gameData])
+// useEffect(()=>{
+//     console.log(gameData)
+// },[gameData])
 
 
    
@@ -123,67 +123,68 @@ useEffect(()=>{
      * [hitting] seasonAdvanced, hotColdZones, expectedStatistics, career
      * Pitching 
     */
-    //        const [fetchedGameData, setFetchedGameData] = useState('');
-           
-    //        useEffect(()=>{
-    //            fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2021')
-    //            .then((resp) => resp.json())
-    //            .then(data => {setFetchedGameData(data.people)
-    //                console.log('data should be below')        
-    //            })
-    //                 },[])
-
-
-    // useEffect(()=>{
-    //     console.log(fetchedGameData)
-    //     if (fetchedGameData.length < 1){
-    //             console.log('no players yet')
-    //         }
-    //         else if (fetchedGameData.length > 1){
-    //             console.log(" fuck yeah")
-    //             populatePlayers()
-    //     }
-    // },[fetchedGameData])
-
-
-    // function handleTeamChange(event){
-    //     const newTeamValue = parseInt(event.target.value)
-    //     setSelectedTeam(newTeamValue)
-    //     setTeamLogo(newTeamValue)
-    // }
+   
+   
+   // function handleTeamChange(event){
+       //     const newTeamValue = parseInt(event.target.value)
+       //     setSelectedTeam(newTeamValue)
+       //     setTeamLogo(newTeamValue)
+       // }
+       
+       const [fetchedGameData, setFetchedGameData] = useState('');
+       //known done: 2023
+       //need to do 2024 and 2025
+       useEffect(()=>{
+           fetch('https://statsapi.mlb.com/api/v1/sports/1/players?season=2023')
+           .then((resp) => resp.json())
+           .then(data => {setFetchedGameData(data.people)
+               console.log('data should be below')        
+           })
+                },[])
     
     
+    useEffect(()=>{
+    console.log(fetchedGameData)
+    if (fetchedGameData.length < 1){
+            console.log('no players yet')
+        }
+        else if (fetchedGameData.length > 1){
+            console.log(" fuck yeah")
+            populatePlayers()
+    }
+    },[fetchedGameData])
+    
 
-// function populatePlayers(){
-// //    console.log( typeof fetchedGameData)
-//     console.log('inside populate Players')
-//     fetchedGameData.forEach(player =>{
+function populatePlayers(){
+//    console.log( typeof fetchedGameData)
+    console.log('inside populate Players')
+    fetchedGameData.forEach(player =>{
 
     
-//             const newPlayer = {
-//                 age: player.currentAge,
-//                 currentTeamId: player.currentTeam.id ,
-//                 firstLastName: player.firstLastName,
-//                 MLBAMID: player.id
-//             };
-//             console.log(`posted Player is:`)
-//             console.log(newPlayer)
+            const newPlayer = {
+                age: player.currentAge,
+                currentTeamId: player.currentTeam.id ,
+                firstLastName: player.firstLastName,
+                MLBAMID: player.id
+            };
+            console.log(`posted Player is:`)
+            console.log(newPlayer)
             
-//             fetch('/api/players', {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type' : 'application/json',
-//                 },
-//                 body: JSON.stringify(newPlayer)
-//             })
-//             .then((response) =>{
-//                 if (!response.ok){
-//                     throw new Error('Network response was not okay')
-//                 }
-//                 return response.json();
-//             })
-//     }) 
-// }
+            fetch('/api/players', {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json',
+                },
+                body: JSON.stringify(newPlayer)
+            })
+            .then((response) =>{
+                if (!response.ok){
+                    throw new Error('Network response was not okay')
+                }
+                return response.json();
+            })
+    }) 
+}
 
   
 // useEffect(()=>{
@@ -200,16 +201,9 @@ useEffect(()=>{
             <h2 >Testing Page</h2>
             <h4>Various tests are commented out</h4>
             {/* {fetchedPrediction()} */}
-{/* 
-            <h2>Populate Players</h2> */}
+            <h2>Populate Players</h2> 
             {/* {populatePlayers()} */}
             {/* <TableComponent xData={xData}/> */}
-
-            {/* <Collapse /> */}
-
-
-
-
         </div>
     )
 }

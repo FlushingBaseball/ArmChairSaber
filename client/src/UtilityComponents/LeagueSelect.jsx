@@ -5,6 +5,8 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
    * This may not seem DRY but dynamically generating these from a set list
    * doesn't suit my needs. 
    * 
+   * It may actually suit my needs now that I found more documentation
+   * 
    * 
    * 1 mlb
    * 11 AAA
@@ -36,14 +38,6 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
         MLB
       </button>
 
-      <button
-        className={`leagueSelectButton ${
-          selectedSportId === "22" ? "activeSport" : null
-        }`}
-        onClick={() => handleSportSelect("22")}
-      >
-        College
-      </button>
 
     
       {/* <button
@@ -51,7 +45,7 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
           selectedSportId === "31" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("31")}
-      >
+        >
         Japanese League
       </button> */}
 
@@ -61,15 +55,15 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
         }`}
         onClick={() => handleSportSelect("32")}
       >
-        Korean League
-      </button> */}
+      Korean League
+    </button> */}
 
       {/* <button
         className={`leagueSelectButton ${
           selectedSportId === "17" ? "activeSport" : null
         }`}
         onClick={() => handleSportSelect("17")}
-      >
+        >
         Winter Leagues
       </button> */}
 
@@ -108,7 +102,7 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
         >
         A
       </button>
-      
+
       {/* <button
         className={`leagueSelectButton ${
           selectedSportId === "16" ? "activeSport" : null
@@ -118,25 +112,21 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
         ROK
       </button> */}
 
-      {/**Not likely */}
-
-      {/* <button
+        {/**College includes some draft leauges   APP/DL */}
+      <button
         className={`leagueSelectButton ${
-          selectedSportId === "586" ? "activeSport" : null
+          selectedSportId === "22" ? "activeSport" : null
         }`}
-        onClick={() => handleSportSelect("586")}
+        onClick={() => handleSportSelect("22")}
       >
-        High School
-      </button> */}
+        College
+      </button>
+      
 
-      {/* <button
-        className={`leagueSelectButton ${
-          selectedSportId === "51" ? "activeSport" : null
-        }`}
-        onClick={() => handleSportSelect("51")}
-      >
-        international
-      </button> */}
+
+      {/**Other Strange Leauges*/}
+
+ 
 
     </div>
   );

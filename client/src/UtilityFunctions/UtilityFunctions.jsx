@@ -2,60 +2,63 @@ import {useState, useEffect} from 'react'
 
 
 // /**
-//  * Custom hook to fetch user predictions from backend and cache them in the browser
+//  * Hook to fetch user predictions from backend and cache them in the browser
 //  * so I don't have to query my slow database constantly, on my cheap plan
 //  * @param {string}  id - The user's ID or maybe username
-//  * @param {*}  
+//  * @param {string}    
 //  */
 
+
+
+
+
 // export function useUserBrowserCache(userId, submissionType){
-//   const [userData, setUserData] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   const cacheKey = `user_${userId}_${submissionType}_submissions`; 
-
-//   // Try to load data from cache, then from server if there's no cache
-
-//   useEffect(()=> {
-//     function fetchPredictionData(){
-//       try{
-//         const cachedData = localStorage.getItem(cacheKey);
-//         const cachedTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
-//         const now = new Date().getTime();
-//         console.log(`now is: ${now}`)
-//         if (cachedData && cachedTimestamp && (now - parseInt(cachedTimestamp)) < 30 * 60 * 1000){
-//           setUserData(JSON.parse(cachedData))
-//           setLoading(false)
+//   const [userData, setUserData] = useState(null)
   
-//           //maybe refresh in background if found?
-//           fetchFromServer(false);
-  
-//         } else {
-//          await fetchFromServer(true)
+//   const cacheKey = `user_${userId}_${submissionType}_submissions`
+
+//   useEffect(()=>{
+//      async function fetchData(){
+//         try {
+//           const cachedUserData = localStorage.getItem(cacheKey);
+//           const cachedTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
+//           const now = new Date().getTime();
+
+//           if (cachedUserData && cachedTimestamp && (now - parseInt(cachedTimestamp)) < 30 * 60 * 1000 ){
+//             setUserData(JSON.parse(cachedData)); 
+
+//           }
+//           else{
+//             //aka if there's no cached data
+//             fetchFromServer()
+//           }
 //         }
-    
-//       }    catch (err){
-          
-//       }
-      
+        
+//         catch(err){
+//           console.error("Error with cache:", err)
+//         }
+//      } 
+//      fetchData()
+//   },[userId, submissionType])
 
-//     } 
 
-//   },[]     
-//   )
+//   async function fetchFromServer(){
+
+//     const response = await
+
+
+
+//   }
+
+
+
+
+
+
+
+
+
 // }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

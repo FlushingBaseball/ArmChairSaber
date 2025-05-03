@@ -22,7 +22,7 @@ export default function NoGamesToday({formattedDate, selectedSportId}){
   return(
     <div className="Wrapper-No-Games">
         <span id="noGameHeader">{`There are no games scheduled today ${formattedDate} at the ${getLeague(selectedSportId)} level`}</span>
-        <img id="noGameImage" alt="Grounds crew members getting the field ready for games" src="/Images/spring-no-games.jpg"></img>
+        <img id="No-Game-Image" alt="Grounds crew members getting the field ready for games" src="/Images/spring-no-games.jpg"></img>
     </div>
   )
 }

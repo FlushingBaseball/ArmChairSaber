@@ -1,0 +1,51 @@
+{
+  "articles":[
+    {
+      "id" : 1,
+      "title" : "Bullpen Hope",
+      "published-date" : "",
+      "tags": "",
+      "player-ids" : "",
+      "team-ids" : "",
+      "path" : ""
+    },
+    {
+      "id" : 1,
+      "title" : "Rich Hill, spin efficiency and the age curve",
+      "published-date" : "",
+      "tags": "",
+      "player-ids" : "",
+      "team-ids" : "",
+      "path" : ""
+    },
+    {
+      "id" : 1,
+      "title" : "",
+      "published-date" : "",
+      "tags": "",
+      "player-ids" : "",
+      "team-ids" : "",
+      "path" : ""
+    },
+    {
+      "id" : 1,
+      "title" : "",
+      "published-date" : "",
+      "tags": "",
+      "player-ids" : "",
+      "team-ids" : "",
+      "path" : ""
+    },
+    {
+      "id" : 1,
+      "title" : "",
+      "published-date" : "",
+      "tags": "",
+      "player-ids" : "",
+      "team-ids" : "",
+      "path" : ""
+    }
+  ]
+}
+
+

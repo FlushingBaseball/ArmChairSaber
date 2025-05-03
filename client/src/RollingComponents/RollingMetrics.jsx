@@ -44,10 +44,10 @@ function RollingMetrics() {
     console.log(fetchedGameData)
   },[fetchedGameData])
 
-
-  if (!fetchedGameData.length) {
-    return <BatLoader />
-  }
+//change this to only display on failure of the request not just an empty request
+  // if (!fetchedGameData.length) {
+  //   return <BatLoader />
+  // }
 
 
   function getStatValue(user, path){
@@ -89,7 +89,7 @@ const rollingStatsToDisplay = selectedGroup === "hitting" ? rollingHittingStatsT
 
 
   function mapPlayer() {
-    if (fetchedGameData.length > 1) {
+    if (fetchedGameData.length >= 1) {
       return fetchedGameData.map((user) => (
         <div key={user.player.id} className="batterCard">
           <img
@@ -106,6 +106,9 @@ const rollingStatsToDisplay = selectedGroup === "hitting" ? rollingHittingStatsT
           ))}
         </div>
       ));
+    }
+    else {
+      return <div className="No-Ten-Appearances">{`No one on the ${selectedGroup} staff has played in ten games yet`}</div>
     }
   }
 
