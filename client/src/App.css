@@ -1287,7 +1287,7 @@ button.activeSport {
 }
 .WrapperTeamMapRoster {
   display: flex;
-  padding-left: 7vw;
+
 }
 
 .RosterCata {
@@ -2609,8 +2609,11 @@ td:first-child {
   
 
   .Wrapper-Transactions{
-
+    width: 91vw;
+    margin-left: 4vw;
+    order: 3;
   }
+
   .Transaction-Row{
 
   }
@@ -2703,8 +2706,13 @@ td:first-child {
   }
 
   .WrapperTeamMapRoster {
+    order: 1;
     padding-left: 1vw;
   }
+  .WrapperStandings {
+    order: 2;
+  }
+  
   .playerName {
     text-wrap: nowrap;
     width: min-content;
