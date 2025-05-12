@@ -118,6 +118,12 @@
   color: #66046a;
 }
 
+.League-Leaders-Table{
+  text-align: center;
+  width: max-content;
+}
+
+
 
 
 #sorryPara {
@@ -696,6 +702,9 @@ button.activeSport {
 }
 
 .teamName {
+  font-style: italic;
+  text-shadow: 0px 2px 3px #000000;
+  font-family: 'zektonrg';
   font-size: 2rem;
 }
 
@@ -703,6 +712,14 @@ button.activeSport {
   display: flex;
   gap: 8px;
 }
+
+.Wrapper-Rolling-Metrics{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
 
 .liveLink {
   color: red;
@@ -1171,8 +1188,9 @@ button.activeSport {
 .WrapperPitchingvis {
   display: flex;
 }
-.batterImg10 {
-  border-radius: 12px;
+
+.Rolling-Metrics-Player-Image {
+  border-radius: 10px 10px 0px 0px;
 }
 
 .batterImg {
@@ -1617,14 +1635,27 @@ button.activeSport {
   width: 8vw;
 }
 
-.WrapperadvancedBatter {
-  padding-top: 5px;
-  gap: 0.3vw;
+.Wrapper-League-Leaders {
+  background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
+
+.League-Leader-Th{
+  font-family: "13_Misa";
+}
+
+.League-Leader-Td{
+  font-family: "13_Misa";
+}
+.Mobile-Team-Map-Controls{
+  display: none;
+}
+/* .Mobile-Control-Button{
+  display: none;
+} */
 
 .nonMlbPitcher {
   width: 6rem;
@@ -1641,6 +1672,8 @@ button.activeSport {
   width: max-content;
   background: linear-gradient(71deg, #d9c2e9, #f4f4f4);
   flex-direction: column;
+  box-shadow: 5px 4px 3px black;
+  margin: 6px 6px;
 }
 
 .ABSpan {
@@ -1871,6 +1904,13 @@ button.activeSport {
 #playerAge {
   font-family:"zektonrg";
 }
+
+
+.League-Leader-Img{
+  height: 1vh;
+}
+
+
 .league-Leader-Card {
   border-radius: 26px;
   margin: 1vh 2px;
@@ -2669,6 +2709,29 @@ td:first-child {
 
   }
 
+
+  .Mobile-Team-Map-Controls{
+    display: flex;
+    gap: 2vh;
+    margin: 15px;
+    justify-content: center;
+  }
+  .Mobile-Control-Button{
+    border-radius: 25px;
+    text-shadow: 2px 2px pink;
+    color: blue;
+    background: #ffa8f142;
+    padding: 3px 0px;
+    border: none;
+    font-family: '13_Misa';
+    box-shadow: 5px 6px 6px black;
+    width: 25vw;
+  }
+  .Mobile-Do-Not-Show{
+    display: none;
+  }
+  
+
   #thanks {
     width: 98vw;
     text-wrap: pretty;
@@ -2933,9 +2996,10 @@ td:first-child {
     width: 90vw;
     height: 40vh;
   }
-  .WrapperadvancedBatter {
-    justify-content: center;
+  .Wrapper-League-Leaders {
+
   }
+
   .CalledBall {
     color: rgb(17, 99, 6);
   }
@@ -2987,6 +3051,7 @@ td:first-child {
     height: 4vh;
   }
   .teamName {
+    text-shadow: 0px 0px 0px;
     font-size: 0.75rem;
     padding-bottom: 5px;
   }
