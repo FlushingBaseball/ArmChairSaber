@@ -47,7 +47,8 @@ def signup():
         new_user = User(
             username=data['username'],
             email=data['email'],
-            # profilePic=data['profilePic'],
+            # TODO for eventual signup flow
+            # profilePic=data['profilePic'], 
             totalScore=0,
             totalGuessesCorrect=0,
             totalGuessesIncorrect=0,
@@ -55,11 +56,11 @@ def signup():
             longestStreak=0,
         )
         new_user.password_hash = data['password']
-        # add user to db
+        #add user to db
         db.session.add(new_user)
         db.session.commit()
     except ValueError as e:
-        print("this is the error recieved in app.py")
+        print("this is the error received in app.py")
         print(e)
         return {"Error": f'ValueError: {str(e)}'}, 422
     
@@ -67,10 +68,10 @@ def signup():
         print(e)
         return {'error': f'Error creating user: {str(e)}'}, 422
 
-    # add user_id cookie
+    #add user_id cookie
     session['user_id'] = new_user.id
 
-    # return user as JSON, status code 201
+    #return user as JSON
     return new_user.to_dict(), 201
 
 @app.get('/api/check_session')
@@ -85,7 +86,7 @@ def check_session():
     user = User.query.get(session['user_id'])
 
     if not user:
-        # session.pop('user_id', None)
+        session.pop('user_id', None)
         return make_response(jsonify({'ERROR': 'User not found in database'}), 401)
     
     # user exists

@@ -6,6 +6,8 @@ from sqlalchemy.sql import func
 from config import db, bcrypt
 import re
 
+
+## TODO fix username case insensitivity
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
