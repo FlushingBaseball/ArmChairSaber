@@ -233,7 +233,7 @@
   padding: 0vh 2vh;
   justify-content: space-between;
 }
-.bpStatFeild {
+.bpStatField {
   font-family:"zektonrg";
 }
 .bpStatDataSpan {
@@ -1732,14 +1732,14 @@ button.activeSport {
   font-family:"zektonrg";
 }
 
-.BioFeild {
+.Biofield {
   font-weight: bolder;
   letter-spacing: 1px;
   margin-right: 6px;
   font-family:"13_Misa";
 }
 
-.StatFeild {
+.StatField {
   border-radius: 4px;
   box-shadow: 0px 2px 0px 0px;
   width: 204px;
@@ -3026,7 +3026,7 @@ td:first-child {
     font-family:"zektonrg";
     font-size: .5rem;
   }
-  .BioFeild {
+  .Biofield {
     letter-spacing: 0px;
     margin-right: 1px;
   }
@@ -3065,7 +3065,7 @@ td:first-child {
     flex-direction: row;
     background: #fbf7ff;
   }
-  .StatFeild {
+  .StatField {
     width: 251px;
   }
   .StatDataSpan {
