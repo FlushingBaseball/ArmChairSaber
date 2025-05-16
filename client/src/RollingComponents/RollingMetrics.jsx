@@ -110,7 +110,7 @@ function handleCardClick(playerId){
           <span className="ABSpanName">{playerData.player.fullName}</span>
           {Object.entries(rollingStatsToDisplay).map(([key, path]) => (
             <div key={key + path + playerData.player.fullName} className="bpStatWrapper">
-              <span className="bpStatFeild">{key}</span>
+              <span className="bpStatfield">{key}</span>
               <span className="bpStatDataSpan">{getStatValue(playerData, path)}</span>
             </div>
           ))}

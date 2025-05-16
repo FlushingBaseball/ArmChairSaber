@@ -40,32 +40,7 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
 
 
     
-      {/* <button
-        className={`leagueSelectButton ${
-          selectedSportId === "31" ? "activeSport" : null
-        }`}
-        onClick={() => handleSportSelect("31")}
-        >
-        Japanese League
-      </button> */}
 
-      {/* <button
-        className={`leagueSelectButton ${
-          selectedSportId === "32" ? "activeSport" : null
-        }`}
-        onClick={() => handleSportSelect("32")}
-      >
-      Korean League
-    </button> */}
-
-      {/* <button
-        className={`leagueSelectButton ${
-          selectedSportId === "17" ? "activeSport" : null
-        }`}
-        onClick={() => handleSportSelect("17")}
-        >
-        Winter Leagues
-      </button> */}
 
       <button
         className={`leagueSelectButton ${
@@ -112,6 +87,18 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
         ROK
       </button> */}
 
+{/* out of season */}
+      {/* <button
+        className={`leagueSelectButton ${
+          selectedSportId === "17" ? "activeSport" : null
+        }`}
+        onClick={() => handleSportSelect("17")}
+        >
+        Winter Leagues
+      </button> */}
+
+
+
         {/**College includes some draft leauges   APP/DL */}
       <button
         className={`leagueSelectButton ${
@@ -123,10 +110,68 @@ export default function LeagueSelect({ handleSportSelect, selectedSportId }) {
       </button>
       
 
+{/*       
+      <button
+        className={`leagueSelectButton ${
+          selectedSportId === "23" ? "activeSport" : null
+        }`}
+        onClick={() => handleSportSelect("23")}
+      >
+        INDY
+      </button> */}
+      
+      {/***Leagues that are weird /not worth showing? */}
+      {/*
+        //amateur draft league in the dominican republic? 
+      <button
+        className={`leagueSelectButton ${
+          selectedSportId === "6005" ? "activeSport" : null
+        }`}
+        onClick={() => handleSportSelect("6005")}
+      >
+        INDY
+      </button>
+       */}
 
-      {/**Other Strange Leauges*/}
 
- 
+      {/**Leagues that have never shown me games*/}
+      {/* <button
+        className={`leagueSelectButton ${
+          selectedSportId === "31" ? "activeSport" : null
+        }`}
+        onClick={() => handleSportSelect("31")}
+        >
+        Japanese League
+      </button>
+
+      <button
+        className={`leagueSelectButton ${
+          selectedSportId === "32" ? "activeSport" : null
+        }`}
+        onClick={() => handleSportSelect("32")}
+      >
+      Korean League
+    </button> */}
+
+{/* <button
+        className={`leagueSelectButton ${
+          selectedSportId === "21" ? "activeSport" : null
+        }`}
+        onClick={() => handleSportSelect("21")}
+        >
+        Minor Leagues ??
+      </button>
+
+  */}
+          {/* <button
+            className={`leagueSelectButton ${
+              selectedSportId === "51" ? "activeSport" : null
+            }`}
+            onClick={() => handleSportSelect("51")}
+          >
+            INT
+          </button>
+           */}
 
     </div>
   );

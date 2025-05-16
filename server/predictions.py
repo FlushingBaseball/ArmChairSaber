@@ -8,11 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 """
-
 Predictions Script v0.3.0
-
-
-
 """
 
 base_url = os.environ.get('BASE_URL')
