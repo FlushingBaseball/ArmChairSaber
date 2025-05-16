@@ -10,8 +10,6 @@ export default function StatGroupButtons({
   const [selectedButton, setSelectedButton] = useState("Career");
 
   function handleStatButtonClick(event, label, statDisplayMethod ) {
-    console.log("in handle stat button click")
-    console.log("label is", label)
     setApiEndpoint(event.target.value)
     setSelectedButton(label)
     setDisplayMethod(statDisplayMethod)

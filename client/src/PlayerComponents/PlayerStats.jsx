@@ -1,18 +1,14 @@
 import BatLoader from "../UtilityComponents/BatLoader";
 
-export default function PlayerStats({ playerData, displayMethod, searchPlayer }) {
-
-
+export default function PlayerStats({ playerData, displayMethod, searchPlayer,}) {
 
   const displayMethods = {
-    displayCareer: function(playerData){
+    displayCareer: function (playerData) {
       let statCollection = [];
 
       for (let i = 0; i < playerData.people[0].stats.length; i++) {
         statCollection.push(
-          <h3 className="statHeader"
-            key={'person'+ Math.random()}
-          >
+          <h3 className="statHeader" key={"person" + Math.random()}>
             {playerData.people[0].stats[i].type.displayName
               .split(/(?=[A-Z])/)
               .join(" ")
@@ -21,8 +17,11 @@ export default function PlayerStats({ playerData, displayMethod, searchPlayer })
         );
         for (const field in playerData.people[0].stats[i].splits[0].stat) {
           statCollection.push(
-            <div className="StatWrapper" key={`stat-${i}-${field}-${playerData.people[0].stats[i].splits[0].season}`}>
-              <span className="StatFeild">
+            <div
+              className="StatWrapper"
+              key={`stat-${i}-${field}-${playerData.people[0].stats[i].splits[0].season}`}
+            >
+              <span className="StatField">
                 {field
                   .split(/(?=[A-Z])/)
                   .join(" ")
@@ -37,7 +36,7 @@ export default function PlayerStats({ playerData, displayMethod, searchPlayer })
       }
       return statCollection;
     },
-    displayYearByYear: function(playerData){
+    displayYearByYear: function (playerData) {
       let statCollection = [];
 
       for (let i = 0; i < playerData.people[0].stats.length; i++) {
@@ -49,62 +48,70 @@ export default function PlayerStats({ playerData, displayMethod, searchPlayer })
               .toUpperCase()}
           </h3>
         );
-  
-        for (let j = 0; j < playerData.people[0].stats[i].splits.length; j++) {
 
+        for (let j = 0; j < playerData.people[0].stats[i].splits.length; j++) {
           statCollection.push(
-            <h3 id="season-stat-header" key={"person" + Math.random()}>
-              {playerData.people[0].stats[i].splits[j].season ? `${playerData.people[0].stats[i].splits[j].season} ${playerData.people[0].stats[i].splits[j].team.name}` : null}
+            <h3 
+              id="season-stat-header" 
+              key={"person" + Math.random()}
+            >
+              {playerData.people[0].stats[i].splits[j].numTeams ? `${playerData.people[0].stats[i].splits[j].season} ${playerData.people[0].stats[i].splits[j].numTeams} Team total`
+                : `${playerData.people[0].stats[i].splits[j].season} ${playerData.people[0].stats[i].splits[j].team.name} `}
             </h3>
           );
-          if (Object.keys(playerData.people[0].stats[i].splits[j].stat).length < 1){
-            statCollection.push(<span>No qualifying data this season</span>)
-          }
-          else{
+          if (
+            Object.keys(playerData.people[0].stats[i].splits[j].stat).length < 1
+          ) {
+            statCollection.push(<span>No qualifying data this season</span>);
+          } else {
             for (const field in playerData.people[0].stats[i].splits[j].stat) {
               statCollection.push(
-                <div className="StatWrapper" key={`stat-${i}-${field}-${playerData.people[0].stats[i].splits[j].season}`}>
-                  <span className="StatFeild">
+                <div
+                  className="StatWrapper"
+                  key={`stat-${i}-${field}-${playerData.people[0].stats[i].splits[j].season}`}
+                >
+                  <span className="StatField">
                     {field
                       .split(/(?=[A-Z])/)
                       .join(" ")
                       .toUpperCase()}
                   </span>
                   <span className="StatDataSpan">
-                    {typeof(playerData.people[0].stats[i].splits[j].stat[field]) === "object" ? "NA" : playerData.people[0].stats[i].splits[j].stat[field]}
+                    {typeof playerData.people[0].stats[i].splits[j].stat[
+                      field
+                    ] === "object"
+                      ? "NA"
+                      : playerData.people[0].stats[i].splits[j].stat[field]}
                   </span>
                 </div>
               );
             }
           }
         }
-
       }
 
       return statCollection;
-
-    }
-  }
-
-
+    },
+  };
 
   function makeStats(displayMethod, playerData) {
-
     if (!playerData.people[0].stats) {
       return <BatLoader />;
     }
-    
+
     const chosenDisplayMethod = displayMethods[displayMethod];
 
     if (chosenDisplayMethod) {
-      return  chosenDisplayMethod(playerData);
+      return chosenDisplayMethod(playerData);
+    } else {
+      console.error(`Display method issue ${displayMethod}`);
+      return <BatLoader />;
     }
-    else{
-      console.error(`Display method issue ${displayMethod}`)
-      return <BatLoader />
-    }
-
   }
 
-  return <div className="WrapperPlayerStats">{makeStats(displayMethod, playerData)}</div>;
+  return (
+    <div className="WrapperPlayerStats">
+      {makeStats(displayMethod, playerData)}
+    </div>
+  );
 }

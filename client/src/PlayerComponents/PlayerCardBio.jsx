@@ -16,30 +16,29 @@ export default function PlayerCardBio({ searchPlayer, playerData }) {
          ></img>
       </div>
       <div className="WrapperBioText">
-        {/* {console.log('This is player data people[0]',playerData.people[0])} */}
         <div className="BioGrouping">
-          <span className="BioFeild">Age: </span>
+          <span className="Biofield">Age: </span>
           <span className="bioSpan">{playerData.people[0].currentAge}</span>
         </div>
         <div className="BioGrouping">
-          <span className="BioFeild">Height:</span>
+          <span className="Biofield">Height:</span>
           <span className="bioSpan">{playerData.people[0].height}</span>
         </div>
         <div className="BioGrouping">
-          <span className="BioFeild">Weight:</span>
+          <span className="Biofield">Weight:</span>
           <span className="bioSpan">{playerData.people[0].weight}</span>
         </div>
         <div className="BioGrouping">
-          <span className="BioFeild">Drafted:</span>
+          <span className="Biofield">Drafted:</span>
           <span className="bioSpan">{playerData.people[0].draftYear}</span>
         </div>
         <div className="BioGrouping">
-          <span className="BioFeild">Birth Date:</span>
+          <span className="Biofield">Birth Date:</span>
           <span className="bioSpan">{playerData.people[0].birthDate}</span>
         </div>
 
         <div className="BioGrouping">
-          <span className="BioFeild">Birth Place:</span>
+          <span className="Biofield">Birth Place:</span>
           <span className="bioSpan">
             {`${playerData.people[0].birthCity ? playerData.people[0].birthCity : ''}
              ${playerData.people[0].birthStateProvince ? playerData.people[0].birthStateProvince : ''}
@@ -48,14 +47,14 @@ export default function PlayerCardBio({ searchPlayer, playerData }) {
         </div>
 
         <div className="BioGrouping">
-          <span className="BioFeild">Bats:</span>
+          <span className="Biofield">Bats:</span>
           <span className="bioSpan">
             {playerData.people[0].batSide.description}
           </span>
         </div>
 
         <div className="BioGrouping">
-          <span className="BioFeild">Nickname:</span>
+          <span className="Biofield">Nickname:</span>
           <span className="bioSpan">{` ${
             playerData.people[0].nickName
               ? playerData.people[0].nickName
@@ -64,17 +63,17 @@ export default function PlayerCardBio({ searchPlayer, playerData }) {
         </div>
 
         <div className="BioGrouping">
-          <span className="BioFeild">MLB debut:</span>
+          <span className="Biofield">MLB debut:</span>
           <span className="bioSpan">{playerData.people[0].mlbDebutDate}</span>
         </div>
 
         <div className="BioGrouping">
-          <span className="BioFeild">Jersey Number:</span>
+          <span className="Biofield">Jersey Number:</span>
           <span className="bioSpan">{playerData.people[0].primaryNumber}</span>
         </div>
 
         <div className="BioGrouping">
-          <span className="BioFeild">Position:</span>
+          <span className="Biofield">Position:</span>
           <span className="bioSpan">
             {`${playerData.people[0].primaryPosition.type} ${playerData.people[0].primaryPosition.abbreviation}`}
           </span>
