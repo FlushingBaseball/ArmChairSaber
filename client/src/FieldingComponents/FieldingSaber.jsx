@@ -5,7 +5,7 @@ import FieldingCard from "./FieldingCard"
 // CORS Issue: Savant has changed their CORS Policy: Will circle back soon
 
 function FieldingSaber({searchPlayer, setSearchPlayer}){
-    const [feildingData, setFeildingData] = useState('')
+    const [fieldingData, setfieldingData] = useState('')
     const [selectedSeason, setSelectedSeason] = useState(2023)
     // const [selectedPlayer, setSelectedPlayer] = useState(607043)
 
@@ -33,7 +33,7 @@ function FieldingSaber({searchPlayer, setSearchPlayer}){
         setLongestDistance(0)
         fetch(`https://baseballsavant.mlb.com/player-services/range?playerId=${searchPlayer}&season=${selectedSeason}&playerType=fielder`)
             .then((resp) => resp.json())
-            .then(data => {setFeildingData(data)
+            .then(data => {setfieldingData(data)
             })
     },[searchPlayer,selectedSeason])
 
@@ -49,19 +49,19 @@ function FieldingSaber({searchPlayer, setSearchPlayer}){
     
     useEffect(()=>{
         calculateFieldingMetrics()
-    },[feildingData])
+    },[fieldingData])
 
 
 function calculateFieldingMetrics(){
-    for(let i =0; i<feildingData.length; i++){
+    for(let i =0; i<fieldingData.length; i++){
         
-        for (const key in feildingData[i]){
+        for (const key in fieldingData[i]){
             if (key === 'sprint_speed'){
-                totalSpeed += Number(feildingData[i][key])
+                totalSpeed += Number(fieldingData[i][key])
                 numPlays +=1;
             }
             else if (key === 'distance'){
-                let playDistance =  Number(feildingData[i][key])
+                let playDistance =  Number(fieldingData[i][key])
                 // console.log(`numPlays: ${numPlays}`)
                 setTotalDistance(totalDistance += playDistance) 
                 if (longestDistance < playDistance){
@@ -71,9 +71,9 @@ function calculateFieldingMetrics(){
             // if (key == 'sprint_speed'){
                 //     // console.log(key)
                 //     // console.log(key[i][key])
-                //     Number(feildingData[i][key]) > longestDistance ? longestDistance = Number(feildingData[i][key]) : null
-            //     totalDistance += Number(feildingData[i][key])
-            //     // console.log(`The Players Average Sprint Speed is ${totalSpeed/feildingData.length}`)
+                //     Number(fieldingData[i][key]) > longestDistance ? longestDistance = Number(fieldingData[i][key]) : null
+            //     totalDistance += Number(fieldingData[i][key])
+            //     // console.log(`The Players Average Sprint Speed is ${totalSpeed/fieldingData.length}`)
             // }
             
         }
@@ -81,7 +81,7 @@ function calculateFieldingMetrics(){
     setAverageSpeed(totalSpeed/numPlays)
     // console.log(`85 total Speed: ${totalSpeed}`)
     // console.log(`86 total Distance: ${totalDistance}`)
-    console.log(feildingData)
+    console.log(fieldingData)
 }
 
 
@@ -95,7 +95,7 @@ function calculateFieldingMetrics(){
 
 
 
-if(feildingData.length < 1){
+if(fieldingData.length < 1){
     return(
         <h1>Loading...</h1>
     )
@@ -124,7 +124,7 @@ if(feildingData.length < 1){
             </div>
 
         <div>
-        <FieldingCard fielderImage={fielderImage} feildingData={feildingData} averageSpeed={averageSpeed} totalDistance={totalDistance} longestDistance={longestDistance} />
+        <FieldingCard fielderImage={fielderImage} fieldingData={fieldingData} averageSpeed={averageSpeed} totalDistance={totalDistance} longestDistance={longestDistance} />
         </div>
 </div>
 
