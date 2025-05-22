@@ -4,7 +4,12 @@
 
 
 ## Armchair Sabermetrics / Armchair Baseball 
-React, Python, Flask, Postgresql, SQLAlchemy, Bcyrpt, Vite, visx, d3 for charting and spring for complex animations.  
+
+Frontend: React (Vite), Visx / d3 for Charting, Spring for complex animations, 
+
+Backend Flask, SQLAlchemy for ORM, Bcyrpt for security
+
+Database: Postgresql  
 
 
 ## Summary
