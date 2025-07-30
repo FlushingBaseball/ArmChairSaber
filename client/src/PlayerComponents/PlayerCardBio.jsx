@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {handlePlayerImageError} from '../UtilityFunctions/UtilityFunctions'
 
 export default function PlayerCardBio({ searchPlayer, playerData }) {
@@ -5,6 +6,10 @@ export default function PlayerCardBio({ searchPlayer, playerData }) {
     ? `https://img.mlbstatic.com/mlb-photos/image/upload/v1/people/${searchPlayer}/headshot/silo/current`
     : "/Images/default-batter.svg";
 
+
+      // useEffect(()=>{
+      //   console.log(playerData)
+      // },[])
 
   return (
     <div className="WrapperPlayerCardBio">
@@ -47,9 +52,9 @@ export default function PlayerCardBio({ searchPlayer, playerData }) {
         </div>
 
         <div className="BioGrouping">
-          <span className="Biofield">Bats:</span>
+          <span className="Biofield">Bats/Throws</span>
           <span className="bioSpan">
-            {playerData.people[0].batSide.description}
+            {`${playerData.people[0].batSide.description}|${playerData.people[0].pitchHand.description}`}
           </span>
         </div>
 
