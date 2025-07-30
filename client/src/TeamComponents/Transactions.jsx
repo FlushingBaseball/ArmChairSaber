@@ -1,4 +1,4 @@
-import { useEffect, useState, Fragment } from "react";
+import { useEffect, useState, Fragment, useMemo } from "react";
 import PlayerNameComponent from "../Incomplete Features/PlayerNameComponent";
 
 export default function Transactions({selectedTeam}) {
@@ -58,8 +58,14 @@ export default function Transactions({selectedTeam}) {
     setIsCollapsed((isCollapsed) => !isCollapsed);
   }
 
- const sortedTransactionData = transactionData.toReversed()
-
+// Removes the weird bug where the same trade is reported twice from both sides
+//with the same transaction id causing a key error and was just silly listing twice
+  const sortedTransactionData = useMemo(()=>{
+    return transactionData.filter((transaction, index, self) => 
+      index === self.findIndex((t) => t.id === transaction.id)
+    ).toReversed();
+  },[transactionData]);
+ 
 
 
   function highlightPlayerNames(
