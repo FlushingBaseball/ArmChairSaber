@@ -2,8 +2,6 @@
 ![W3C Validation](https://img.shields.io/w3c-validation/default?targetUrl=https%3A%2F%2Farmchairsaber.onrender.com%2F)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Farmchairsaber.onrender.com%2F)
 
-## Please check it out!
-
 ## Armchair Sabermetrics / Armchair Baseball 
 
 Frontend: React (Vite), Visx / d3 for Charting, Spring for complex animations, 
