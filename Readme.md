@@ -20,17 +20,17 @@ A competitive platform, for the statistical analysis of baseball, and the applic
 ## Stats
 Query Advanced Sabermetrics, Career and Advanced Season stats on any player from 2022 through 2025
 # Desktop
-![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/playerCard.svg)
+![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/playerCard-v2.JPG)
 
 ## View today's Matchups, submit your predictions and then watch the events as they roll in
 # Mobile
-![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/TodaysGamesMobile.svg)
+![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/TodaysGamesMobile-v2.JPG)
 # Desktop
-![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/TodaysGames.svg)
+![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/TodaysGames-v2.JPG)
 
 ## Watch Live
 # Mobile
-![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/LiveGameMobile.svg)
+![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/LiveGameMobile-v2.JPG)
   
 
 
