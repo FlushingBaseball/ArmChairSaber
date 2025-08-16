@@ -22,7 +22,7 @@ Query Advanced Sabermetrics, Career and Advanced Season stats on any player from
 # Desktop
 ![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/playerCard-v2.JPG)
 
-## View today's Matchups, submit your predictions and then watch the events as they roll in
+## Submit your predictions on today's matchups, then watch the game play out live!
 # Mobile
 ![](https://github.com/FlushingBaseball/ArmChairSaber/blob/main/client/public/Images/Examples/TodaysGamesMobile-v2.JPG)
 # Desktop
